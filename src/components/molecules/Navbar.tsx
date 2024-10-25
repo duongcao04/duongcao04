@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Icon } from '@iconify/react'
-import Button from '../atoms/Button'
 import Link from 'next/link'
+import { Button } from '@nextui-org/react'
 
 export interface INavigate {
     path: string
@@ -25,7 +25,7 @@ export default function Navbar({ data = defaultSocialNavigates }: NavbarProps) {
             <ul className="flex items-center justify-end gap-3">
                 {data.map((item, index) => (
                     <li key={index}>
-                        <Button asChild>
+                        <Button isIconOnly variant="faded">
                             <Link href={item.path} className="p-2">
                                 {item.label && <p>{item.label}</p>}
                                 {item.icon && <Icon icon={item.icon} fontSize={32} />}
