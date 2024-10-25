@@ -1,12 +1,10 @@
-import * as React from 'react';
+import Header from '@/components/organisms/Header'
 
-export interface IAppProps {
-}
-
-export default function App (props: IAppProps) {
-  return (
-	<div>
-	  
-	</div>
-  );
+export default function About() {
+    return (
+        <div>
+            <Header />
+            About Page
+        </div>
+    )
 }

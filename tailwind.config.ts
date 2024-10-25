@@ -28,7 +28,7 @@ const config: Config = {
                 background: 'var(--background)',
                 textBlur: '#525252',
                 foreground: 'var(--foreground)',
-                border: 'rgba(255, 255, 255, 0.04)',
+                border: 'var(--border)',
             },
         },
     },

@@ -9,7 +9,7 @@ export default function Logo({ isUppercase = true }: LogoProps) {
     return (
         <Link
             href={'/'}
-            className={`font-semibold text-sm text-textBlur tracking-widest ${
+            className={`font-bold text-sm text-textBlur tracking-widest ${
                 isUppercase && 'uppercase'
             }`}
         >
