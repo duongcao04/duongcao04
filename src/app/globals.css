@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: Inter, sans-serif;
+}
+
+@layer base {
+    :root {
+        /* Background color of the main UI. */
+        --background: #f2f4f7;
+        /* Primary text or content color. */
+        --foreground: #080809;
+        /* Background and foreground color for card components. */
+        --card: #ffffff;
+        --card-foreground: #0f0f0f;
+        /* Colors for popover elements. */
+        --popover: #ffffff;
+        --popover-foreground: #0f0f0f;
+        /* Main accent color and its foreground text color. */
+        --primary: #3b82f6;
+        --primary-foreground: #ffffff;
+        /* Secondary accent and text color. */
+        --secondary: #f5f5f5;
+        --secondary-foreground: #171717;
+        /* Muted colors, often used for subtle UI elements. */
+        --muted: #f5f5f5;
+        --muted-foreground: #737373;
+        /* Accent color, often used for attention-grabbing elements. */
+        --accent: #f5f5f5;
+        --accent-foreground: #171717;
+        /* Used for alerts, errors, or destructive actions. */
+        --destructive: #d93a3a;
+        --destructive-foreground: #ffffff;
+        /* Standard border color. */
+        --border: #e4e4e4;
+        /* Background color for input fields. */
+        --input: #e4e4e4;
+        /* Color for focus ring around elements. */
+        --ring: #0f0f0f;
+        /* Colors for different chart elements, useful for data visualization. */
+        --chart-1: #d45435;
+        --chart-2: #3b8a63;
+        --chart-3: #394e73;
+        --chart-4: #d5ba2a;
+        --chart-5: #e68d32;
+        /* The border-radius for rounded elements, set at 0.5rem for slightly rounded corners. */
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: #1c1c1d;
+        --foreground: #e2e5e9;
+        --card: #0f0f0f;
+        --card-foreground: #ffffff;
+        --popover: #0f0f0f;
+        --popover-foreground: #ffffff;
+        --primary: #1d4ed8;
+        --primary-foreground: #080809;
+        --secondary: #262626;
+        --secondary-foreground: #ffffff;
+        --muted: #262626;
+        --muted-foreground: #a1a1a1;
+        --accent: #262626;
+        --accent-foreground: #ffffff;
+        --destructive: #8d1b1b;
+        --destructive-foreground: #ffffff;
+        --border: #262626;
+        --input: #262626;
+        --ring: #d4d4d4;
+        --chart-1: #4d94e6;
+        --chart-2: #4db8a8;
+        --chart-3: #e68f33;
+        --chart-4: #e394f3;
+        --chart-5: #f26f95;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
