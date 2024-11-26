@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 
 export default {
     darkMode: ['class'],
@@ -92,5 +93,21 @@ export default {
         },
     },
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    plugins: [require('tailwindcss-animate')],
+    plugins: [
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
+        require('tailwindcss-animate'),
+        plugin(function ({ addBase, theme }) {
+            addBase({
+                h1: {
+                    fontSize: theme('fontSize.5xl'),
+                    fontWeight: theme('fontWeight.bold'),
+                },
+                h2: { fontSize: theme('fontSize.2xl') },
+                h3: {
+                    fontSize: theme('fontSize.xl'),
+                    fontWeight: theme('fontWeight.medium'),
+                },
+            })
+        }),
+    ],
 } satisfies Config

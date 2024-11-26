@@ -6,10 +6,10 @@ import './globals.css'
 import { inter } from '@/fonts'
 
 import Header from '@/components/layout/header'
-import Footer from '@/components/layout/footer'
+import FooterNavigate from '../components/common/footer-navigate'
 
 export const metadata: Metadata = {
-    title: 'Yang Portfolio',
+    title: 'Yangis Portfolio',
     description:
         'Web developer specializing in React, Node.js, and TypeScript. Based in Vietnam. Explore my portfolio showcasing web applications, mobile development, and cloud solutions.',
 }
@@ -23,8 +23,12 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${inter.className} antialiased scroll-smooth`}>
                 <Header />
-                {children}
-                <Footer />
+                <main className="relative max-h-[calc(100vh-44px)] h-[calc(100vh-44px)] overflow-hidden">
+                    {children}
+                    {/* <div className="absolute bottom-8 -translate-x-[50%] left-[50%]">
+                        <FooterNavigate />
+                    </div> */}
+                </main>
             </body>
         </html>
     )
