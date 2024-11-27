@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Navbar from './navbar'
 import Logo from '@/components/icons/logo'
+import Navbar from '@/components/layout/header/navbar'
 
 export default function Header() {
     return (
