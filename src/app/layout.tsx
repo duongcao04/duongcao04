@@ -6,7 +6,6 @@ import './globals.css'
 import { inter } from '@/fonts'
 
 import Header from '@/components/layout/header'
-import FooterNavigate from '../components/common/footer-navigate'
 
 export const metadata: Metadata = {
     title: 'Yangis Portfolio',
@@ -25,9 +24,6 @@ export default function RootLayout({
                 <Header />
                 <main className="relative max-h-[calc(100vh-44px)] h-[calc(100vh-44px)] overflow-hidden">
                     {children}
-                    {/* <div className="absolute bottom-8 -translate-x-[50%] left-[50%]">
-                        <FooterNavigate />
-                    </div> */}
                 </main>
             </body>
         </html>
