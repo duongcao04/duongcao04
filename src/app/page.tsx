@@ -1,9 +1,9 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import MyAvatar from '@/assets/my_emoji.jpg'
 import { Button } from '@/components/ui/button'
 import { InlineIcon } from '@iconify/react'
-import { SOCIAL_LINKS } from '@/lib/actions/const'
-import Link from 'next/link'
+import { SOCIAL_LINKS } from '@/constants'
 
 export default function Home() {
     return (

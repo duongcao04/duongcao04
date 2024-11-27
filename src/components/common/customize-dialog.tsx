@@ -16,6 +16,8 @@ export interface ICustomizeDialog {
     children: React.ReactNode
     dangerButtonProps?: ButtonProps
     secondaryButtonProps?: ButtonProps
+    isOpen: boolean
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function CustomizeDialog({
@@ -24,10 +26,18 @@ export default function CustomizeDialog({
     dialogDecription,
     dangerButtonProps,
     secondaryButtonProps,
+    isOpen,
+    setOpen,
     children,
 }: ICustomizeDialog) {
     return (
-        <Dialog>
+        <Dialog
+            open={isOpen}
+            defaultOpen={false}
+            onOpenChange={() => {
+                setOpen(!isOpen)
+            }}
+        >
             <DialogTrigger asChild>{trigger}</DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

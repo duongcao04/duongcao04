@@ -6,7 +6,7 @@ interface ISocialLink {
     icon: string
     isRedirect?: boolean
 }
-const SOCIAL_LINKS: ISocialLink[] = [
+export const SOCIAL_LINKS: ISocialLink[] = [
     {
         id: 1,
         label: 'Github',
@@ -31,5 +31,3 @@ const SOCIAL_LINKS: ISocialLink[] = [
         isRedirect: true,
     },
 ]
-
-export { SOCIAL_LINKS }
