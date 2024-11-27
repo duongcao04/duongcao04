@@ -1,18 +1,13 @@
 'use client'
 
-import { motion, MotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
 
-export interface LogoProps extends React.HTMLProps<HTMLParagraphElement> {
-    motion?: MotionProps
-}
-
-const Logo: React.FC<LogoProps> = (props) => {
+const Logo = () => {
     return (
         <Link href={'/'} title="Go home">
             <motion.p
-                {...props}
                 className="text-xl font-bold text-primary py-2"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
