@@ -1,15 +1,24 @@
 import React from 'react'
-import { Button } from '@/components/ui/button'
-import HiEmoji from '@/assets/emoji/hi.jpg'
+
 import Image from 'next/image'
+
+import { Button } from '@/components/ui/button'
+
+import HiEmoji from '@/assets/emoji/hi.jpg'
+import { MotionDiv, MotionH1 } from '@/lib/motion'
 
 export default function About() {
     return (
-        <div className="container mt-32">
-            <div className="grid grid-cols-[1fr_300px] gap-36">
-                <div className="leading-loose tracking-wider">
-                    <h1>Hi!</h1>
-                    <div className="mt-10 text-xl">
+        <div className="container px-5 mt-20 laptop:mt-32">
+            <div className="flex flex-col-reverse items-center laptop:grid laptop:grid-cols-[1fr_300px] laptop:gap-36">
+                <div className="mt-5 laptop:mt-0 leading-loose tracking-wider">
+                    <MotionH1
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                    >
+                        Hi!
+                    </MotionH1>
+                    <div className="mt-5 laptop:mt-10 text-xl">
                         <p>I am proud to share my achievements:</p>
                         <br />
                         <p>
@@ -33,13 +42,20 @@ export default function About() {
                     </div>
                     <Button className="mt-[89px]">github/duongcao04</Button>
                 </div>
-                <div className="relative w-[400px] h-[500px] bg-border rounded-full overflow-hidden">
-                    <Image
-                        src={HiEmoji}
-                        alt="Hi Emoji"
-                        className="absolute -bottom-24 w-[400px] h-[500px] object-contain"
-                    />
-                </div>
+                <MotionDiv
+                    initial={{ opacity: 0, scale: 0.5, rotate: -60 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                >
+                    <div className="mt-16 relative size-[200px] laptop:w-[400px] laptop:h-[500px] bg-border rounded-full overflow-hidden">
+                        <div>
+                            <Image
+                                src={HiEmoji}
+                                alt="Hi Emoji"
+                                className="absolute -bottom-8 laptop:-bottom-24 size-[200px] laptop:w-[400px] laptop:h-[500px] object-contain"
+                            />
+                        </div>
+                    </div>
+                </MotionDiv>
             </div>
         </div>
     )

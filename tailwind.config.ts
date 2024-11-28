@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
 
 export default {
-    darkMode: ['class'],
+    darkMode: 'selector',
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,6 +17,22 @@ export default {
             },
         },
         extend: {
+            screens: {
+                mobile: '375px',
+                // => @media (min-width: 375px) { ... }
+
+                tablet: '640px',
+                // => @media (min-width: 640px) { ... }
+
+                laptop: '1024px',
+                // => @media (min-width: 1024px) { ... }
+
+                desktop: '1280px',
+                // => @media (min-width: 1280px) { ... }
+            },
+            boxShadow: {
+                square: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+            },
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',

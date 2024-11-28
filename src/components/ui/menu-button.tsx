@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { motion, Transition, SVGMotionProps } from 'framer-motion'
+
+import { SVGMotionProps, Transition, motion } from 'framer-motion'
 
 type LineProps = SVGMotionProps<SVGLineElement>
 interface Props extends SVGMotionProps<SVGSVGElement> {
@@ -10,6 +11,7 @@ interface Props extends SVGMotionProps<SVGSVGElement> {
     strokeWidth?: string | number
     transition?: Transition
     lineProps?: LineProps
+    onClick: () => void
     width?: number
     height?: number
 }
@@ -19,6 +21,7 @@ const MenuButton = ({
     width = 24,
     height = 24,
     strokeWidth = 1,
+    onClick,
     color = '#000',
     transition = undefined,
     lineProps = undefined,
@@ -66,7 +69,7 @@ const MenuButton = ({
     const unitWidth = (unitHeight * (width as number)) / (height as number)
 
     return (
-        <button>
+        <button className="p-2.5" onClick={onClick}>
             <motion.svg
                 viewBox={`0 0 ${unitWidth} ${unitHeight}`}
                 overflow="visible"
@@ -82,6 +85,7 @@ const MenuButton = ({
                     y2="0"
                     variants={top}
                     {...lineProps}
+                    suppressHydrationWarning
                 />
                 <motion.line
                     x1="0"
@@ -90,6 +94,7 @@ const MenuButton = ({
                     y2="2"
                     variants={center}
                     {...lineProps}
+                    suppressHydrationWarning
                 />
                 <motion.line
                     x1="0"
@@ -98,6 +103,7 @@ const MenuButton = ({
                     y2="4"
                     variants={bottom}
                     {...lineProps}
+                    suppressHydrationWarning
                 />
             </motion.svg>
         </button>
