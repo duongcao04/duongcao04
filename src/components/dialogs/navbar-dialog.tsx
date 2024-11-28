@@ -1,3 +1,6 @@
+import { InlineIcon } from '@iconify/react'
+import Link from 'next/link'
+
 import {
     Dialog,
     DialogContent,
@@ -6,9 +9,8 @@ import {
     DialogOverlay,
     DialogTitle,
 } from '@/components/ui/dialog'
-import { NAVIGATES } from '../../constants'
-import Link from 'next/link'
-import { InlineIcon } from '@iconify/react'
+
+import { NAVIGATES } from '@/constants'
 
 export interface INavbarDialog {
     dialogTitle?: string
@@ -33,10 +35,10 @@ export default function NavbarDialog({
             defaultOpen={false}
             onOpenChange={handleOnOpenChange}
         >
-            <DialogOverlay className="backdrop-blur-xl bg-[#8d8d8da6]" />
             <DialogContent
-                className="sm:max-w-[425px] bg-transparent border-none text-white shadow-none"
+                className="bg-transparent border-none text-white shadow-none"
                 isShowClose={false}
+                isBackdrop
             >
                 <DialogHeader>
                     <DialogTitle>{dialogTitle}</DialogTitle>

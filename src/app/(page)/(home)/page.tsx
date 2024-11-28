@@ -1,8 +1,10 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import MyAvatar from '@/assets/my_emoji.jpg'
-import { Button } from '@/components/ui/button'
 import { InlineIcon } from '@iconify/react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { Button } from '@/components/ui/button'
+
+import MyAvatar from '@/assets/my_emoji.jpg'
 import { SOCIAL_LINKS } from '@/constants'
 
 export default function Home() {
@@ -19,7 +21,9 @@ export default function Home() {
                     </h3>
                 </div>
                 <Button variant={'gradient'} size={'lg'} asChild>
-                    <Link href={'/about'}>Start</Link>
+                    <Link href={'/about'} className="text-foreground">
+                        Start
+                    </Link>
                 </Button>
             </div>
             <div className="mt-36 grid grid-cols-3 gap-28">
@@ -32,7 +36,7 @@ export default function Home() {
                             <InlineIcon
                                 icon={item.icon}
                                 fontSize={27}
-                                className="text-black"
+                                className="text-foreground"
                             />
                         </div>
                         <div className="text-xl text-left">

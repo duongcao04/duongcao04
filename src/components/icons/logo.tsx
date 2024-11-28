@@ -1,13 +1,13 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import React from 'react'
+
+import Link from 'next/link'
+
+import { MotionP } from '@/lib/motion'
 
 const Logo = () => {
     return (
         <Link href={'/'} title="Go home">
-            <motion.p
+            <MotionP
                 className="text-xl font-bold text-primary py-2"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -15,7 +15,7 @@ const Logo = () => {
                 transition={{ duration: 0.5 }}
             >
                 Duong Cao
-            </motion.p>
+            </MotionP>
         </Link>
     )
 }
