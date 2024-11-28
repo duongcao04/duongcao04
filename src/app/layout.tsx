@@ -29,7 +29,7 @@ export default function RootLayout({
                         <div className="fixed w-full top-5 z-10 px-5 laptop:px-0">
                             <Header />
                         </div>
-                        <main className="relative mb-20 laptop:mb-0 laptop:max-h-[calc(100vh-44px)] laptop:h-[calc(100vh-44px)] laptop:overflow-hidden">
+                        <main className="relative mb-20 laptop:mb-0 laptop:max-h-screen laptop:h-screen laptop:overflow-hidden">
                             {children}
                         </main>
                         <div className="fixed bottom-8 laptop:bottom-10 right-10">
