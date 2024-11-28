@@ -26,13 +26,13 @@ export default function RootLayout({
             <body className="antialiased scroll-smooth">
                 <MyAppProvider>
                     <div id="page" className="relative">
-                        <div className="absolute w-full top-5 z-10">
+                        <div className="fixed w-full top-5 z-10 px-5 laptop:px-0">
                             <Header />
                         </div>
-                        <main className="relative max-h-[calc(100vh-44px)] h-[calc(100vh-44px)] overflow-hidden">
+                        <main className="relative mb-20 laptop:mb-0 laptop:max-h-[calc(100vh-44px)] laptop:h-[calc(100vh-44px)] laptop:overflow-hidden">
                             {children}
                         </main>
-                        <div className="absolute bottom-10 right-10">
+                        <div className="fixed bottom-8 laptop:bottom-10 right-10">
                             <DarkModeSelector />
                         </div>
                     </div>

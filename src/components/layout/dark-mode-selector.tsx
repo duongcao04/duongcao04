@@ -21,8 +21,9 @@ function ThemeList({ theme, setTheme, setOpen }: IThemeList) {
             className="flex items-center justify-end gap-2 p-2 bg-primary-50 rounded-[10px]"
             initial={{
                 opacity: 0,
+                x: 50,
             }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1, x: 0 }}
             whileHover={{
                 gap: '16px',
                 boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
@@ -66,6 +67,8 @@ export default function DarkModeSelector() {
                 onClick={() => {
                     setOpen(!isOpen)
                 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 whileHover={{
                     scale: 1.1,
                     boxShadow: tailwindConfig.theme.extend.boxShadow.square,
