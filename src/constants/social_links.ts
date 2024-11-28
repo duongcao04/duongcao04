@@ -1,4 +1,4 @@
-interface ISocialLink {
+export type SocialLink = {
     id: number
     label: string
     username: string
@@ -6,7 +6,7 @@ interface ISocialLink {
     icon: string
     isRedirect?: boolean
 }
-export const SOCIAL_LINKS: ISocialLink[] = [
+export const SOCIAL_LINKS: SocialLink[] = [
     {
         id: 1,
         label: 'Github',
