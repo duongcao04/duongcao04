@@ -54,7 +54,7 @@ function ProcessTimeline() {
 
 function Processes() {
     return (
-        <div className="container px-5 mt-20 laptop:mt-32">
+        <div>
             <MotionH1
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}

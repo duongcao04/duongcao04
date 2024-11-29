@@ -13,7 +13,7 @@ import tailwindConfig from '../../../../tailwind.config'
 function MyResume() {
     return (
         <MotionButton className="p-2 rounded-full hover:bg-primary-100">
-            <Link href={'/'}>
+            <Link href={'/my-resume'}>
                 <ResumeIcon
                     width={40}
                     height={40}
