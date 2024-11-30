@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 
-import { MotionDiv, MotionH1 } from '@/lib/motion'
+import { MotionDiv, MotionH1, MotionP } from '@/lib/motion'
 
 function Heading() {
     const [isVisible, setVisible] = useState<boolean>(false)
-    const VALUE_VISIBLE = 160
+    const VALUE_VISIBLE = 80
 
     const listenScrollEvent = () => {
         if (window.scrollY > VALUE_VISIBLE) {
@@ -36,8 +36,9 @@ function Heading() {
     return (
         <MotionDiv
             initial="show"
-            animate={isVisible ? 'hidden' : 'show'}
+            whileInView={isVisible ? 'hidden' : 'show'}
             variants={variant}
+            transition={{ duration: 0.1 }}
             className="mb-32"
         >
             <MotionH1
@@ -46,7 +47,12 @@ function Heading() {
             >
                 Projects
             </MotionH1>
-            <p className="mt-5 text-xl leading-relaxed">
+            <MotionP
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 }}
+                className="mt-5 text-xl leading-relaxed"
+            >
                 <span>
                     I have learned technologies like HTML5, CSS3,
                     Javascript/Typescript, Nodejs, Expressjs, MongoDB, MySQL,
@@ -56,7 +62,7 @@ function Heading() {
                 <span>
                     My experiences are shown through the projects below.
                 </span>
-            </p>
+            </MotionP>
         </MotionDiv>
     )
 }
