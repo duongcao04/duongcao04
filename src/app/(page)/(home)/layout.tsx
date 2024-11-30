@@ -13,5 +13,5 @@ export default function HomeLayout({
 }: Readonly<{
     children: ReactNode
 }>) {
-    return children
+    return <div className="one-page">{children}</div>
 }

@@ -16,11 +16,11 @@ export default function ProcessesLayout({
     children: ReactNode
 }>) {
     return (
-        <>
+        <div className="one-page">
             <div className="container px-5 mt-20 laptop:mt-32">{children}</div>
             <div className="fixed bottom-8 left-[50%] -translate-x-[50%] laptop:bottom-10">
                 <FooterNavigate previousPage="/about" nextPage="/projects" />
             </div>
-        </>
+        </div>
     )
 }

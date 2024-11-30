@@ -95,6 +95,10 @@
         scrollbar-width: none; /* Firefox */
     }
 
+    .one-page {
+        @apply pb-20 laptop:pb-0 laptop:max-h-screen laptop:h-screen laptop:overflow-hidden;
+    }
+
     /* Hidden increment on button number input */
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,

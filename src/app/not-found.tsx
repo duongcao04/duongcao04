@@ -42,7 +42,7 @@ export default function NotFound() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 1 }}
             >
-                <Button size={'lg'} asChild className='text-white'>
+                <Button size={'lg'} asChild className="text-white">
                     <Link href={'/'}>Return home</Link>
                 </Button>
             </MotionDiv>
