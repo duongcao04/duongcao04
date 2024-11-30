@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import FooterNavigate from '@/components/common/footer-navigate'
 
 export const metadata: Metadata = {
-    title: 'Processes | Yangis Portfolio',
+    title: 'Processes | Yangis',
     description:
         'Web developer specializing in React, Node.js, and TypeScript. Based in Vietnam. Explore my portfolio showcasing web applications, mobile development, and cloud solutions.',
 }
@@ -16,11 +16,11 @@ export default function ProcessesLayout({
     children: ReactNode
 }>) {
     return (
-        <>
-            {children}
+        <div className="one-page">
+            <div className="container px-5 mt-20 laptop:mt-32">{children}</div>
             <div className="fixed bottom-8 left-[50%] -translate-x-[50%] laptop:bottom-10">
-                <FooterNavigate previousPage="/about" />
+                <FooterNavigate previousPage="/about" nextPage="/projects" />
             </div>
-        </>
+        </div>
     )
 }

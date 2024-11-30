@@ -9,7 +9,7 @@ import { MotionDiv, MotionH1 } from '@/lib/motion'
 
 export default function About() {
     return (
-        <div className="container px-5 mt-20 laptop:mt-32">
+        <div>
             <div className="flex flex-col-reverse items-center laptop:grid laptop:grid-cols-[1fr_300px] laptop:gap-36">
                 <div className="mt-5 laptop:mt-0 leading-loose tracking-wider">
                     <MotionH1
