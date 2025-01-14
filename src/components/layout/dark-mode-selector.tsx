@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { InlineIcon } from '@iconify/react'
 import { useTheme } from 'next-themes'
 
-import { THEMES } from '@/constants'
+import { THEMES } from '@/constants/themes'
 import { MotionButton, MotionUl } from '@/lib/motion'
 
 import tailwindConfig from '../../../tailwind.config'

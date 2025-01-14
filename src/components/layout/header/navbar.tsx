@@ -1,35 +1,22 @@
-'use client'
+import React from 'react'
 
-import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
-import { useTheme } from 'next-themes'
-
-import NavbarDialog from '@/components/dialogs/navbar-dialog'
-import { MenuButton } from '@/components/ui/menu-button'
+import { NAVIGATES } from '@/constants/navigates'
 
 function Navbar() {
-    const [isOpen, setOpen] = useState(false)
-    const { theme, systemTheme } = useTheme()
-    const [buttonColor, setButtonColor] = useState<string | undefined>(
-        undefined
-    )
-    useEffect(() => {
-        if (theme === 'system') {
-            setButtonColor(systemTheme === 'dark' ? '#fff' : '#000')
-        } else {
-            setButtonColor(theme === 'dark' ? '#fff' : '#000')
-        }
-    }, [theme, systemTheme])
-
     return (
-        <>
-            <MenuButton
-                isOpen={isOpen}
-                onClick={() => setOpen(!isOpen)}
-                color={buttonColor}
-            />
-            <NavbarDialog isOpen={isOpen} setOpen={setOpen} />
-        </>
+        <nav className="flex items-center justify-between">
+            <ul className="flex items-center justify-start gap-10">
+                {NAVIGATES.map((item) => (
+                    <li key={item.id}>
+                        <Link href={item.path} className="font-medium">
+                            {item.label}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     )
 }
 

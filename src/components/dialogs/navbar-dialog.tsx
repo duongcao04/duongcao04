@@ -9,7 +9,7 @@ import {
     DialogTitle,
 } from '@/components/ui/dialog'
 
-import { NAVIGATES } from '@/constants'
+import { NAVIGATES } from '@/constants/navigates'
 import { MotionDiv, MotionLi } from '@/lib/motion'
 
 export interface INavbarDialog {

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from '@/components/ui/button'
 
-import { PROCESSES } from '@/constants'
+import { PROCESSES } from '@/constants/processes'
 import { Process } from '@/constants/processes'
 import { MotionDiv, MotionH1 } from '@/lib/motion'
 

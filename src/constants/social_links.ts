@@ -17,7 +17,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
     },
     {
         id: 2,
-        label: 'Mail',
+        label: 'Gmail',
         username: 'contact@yangis.dev',
         path: 'mailto:contact@yangis.dev',
         icon: 'tabler:mail-filled',

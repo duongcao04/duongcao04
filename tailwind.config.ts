@@ -17,6 +17,16 @@ export default {
             },
         },
         extend: {
+            animation: {
+                scrolldown: 'scrolldown 1.5s infinite',
+            },
+            keyframes: {
+                scrolldown: {
+                    '0%': { opacity: '0', transform: 'translate(0, -8px)' },
+                    '50%': { opacity: '1', transform: 'translate(0, 0)' },
+                    '100%': { opacity: '0', transform: 'translate(0, 8px)' },
+                },
+            },
             screens: {
                 mobile: '375px',
                 // => @media (min-width: 375px) { ... }
@@ -44,6 +54,21 @@ export default {
                     DEFAULT: 'var(--popover)',
                     foreground: 'var(--popover-foreground)',
                 },
+                primary: {
+                    '50': '#fff1f2',
+                    '100': '#ffe4e6',
+                    '200': '#fecdd3',
+                    '300': '#fda4af',
+                    '400': '#fb7185',
+                    '500': '#f43f5e',
+                    '600': '#e11d48',
+                    '700': '#be123c',
+                    '800': '#9f1239',
+                    '900': '#881337',
+                    '950': '#4c0519',
+                    DEFAULT: 'var(--primary)',
+                    foreground: 'var(--primary-foreground)',
+                },
                 sky: {
                     50: '#D9EDFD',
                     100: '#C5E4FC',
@@ -57,21 +82,6 @@ export default {
                     900: '#03233B',
                     950: '#021320',
                     DEFAULT: '#2A9DF4',
-                    foreground: 'var(--primary-foreground)',
-                },
-                primary: {
-                    '50': '#eff6ff',
-                    '100': '#dbeafe',
-                    '200': '#bfdbfe',
-                    '300': '#93c5fd',
-                    '400': '#60a5fa',
-                    '500': '#3b82f6',
-                    '600': '#2563eb',
-                    '700': '#1d4ed8',
-                    '800': '#1e40af',
-                    '900': '#1e3a8a',
-                    '950': '#172554',
-                    DEFAULT: 'var(--primary)',
                     foreground: 'var(--primary-foreground)',
                 },
                 secondary: {
@@ -118,7 +128,7 @@ export default {
                     fontSize: theme('fontSize.5xl'),
                     fontWeight: theme('fontWeight.bold'),
                 },
-                h2: { fontSize: theme('fontSize.2xl') },
+                h2: { fontSize: theme('fontSize.4xl'), fontWeight: theme('fontWeight.bold') },
                 h3: {
                     fontSize: theme('fontSize.xl'),
                     fontWeight: theme('fontWeight.medium'),

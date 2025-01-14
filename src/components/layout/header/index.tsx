@@ -1,36 +1,21 @@
 import * as React from 'react'
 
-import Link from 'next/link'
-
 import Logo from '@/components/icons/logo'
-import { ResumeIcon } from '@/components/icons/resume-icon'
-import Navbar from '@/components/layout/header/navbar'
 
-import { MotionButton } from '@/lib/motion'
-
-import tailwindConfig from '../../../../tailwind.config'
-
-function MyResume() {
-    return (
-        <MotionButton className="p-2 rounded-full hover:bg-primary-100">
-            <Link href={'/my-resume'}>
-                <ResumeIcon
-                    width={40}
-                    height={40}
-                    color={tailwindConfig.theme.extend.colors.primary.DEFAULT}
-                />
-            </Link>
-        </MotionButton>
-    )
-}
+import Navbar from './navbar'
+import SocialNavigate from './social-navigate'
 
 export default function Header() {
     return (
-        <header className="container backdrop-blur-md shadow-square rounded-[10px]">
-            <div className="h-[60px] grid grid-cols-[56px_1fr_44px] place-items-center">
-                <MyResume />
-                <Logo />
-                <Navbar />
+        <header className="border-b-2 border-slate-300 bg-[#ececea]">
+            <div className="container grid grid-cols-[1fr_86px_1fr] gap-20 items-center">
+                <div className="flex justify-start">
+                    <Navbar />
+                </div>
+                <Logo className="text-3xl py-5" />
+                <div className="flex justify-end">
+                    <SocialNavigate />
+                </div>
             </div>
         </header>
     )

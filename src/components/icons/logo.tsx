@@ -2,10 +2,25 @@ import React from 'react'
 
 import Link from 'next/link'
 
-const Logo = () => {
+import { cn } from '@/lib/utils'
+
+const Logo = ({
+    color = 'var(--primary)',
+    className,
+    ...otherProps
+}: {
+    className?: string
+    color?: string
+}) => {
     return (
         <Link href={'/'} title="Go home">
-            <p className="text-xl font-bold text-primary py-2">Yangis</p>
+            <p
+                style={{ color: color }}
+                className={cn('font-logo tracking-widest', className)}
+                {...otherProps}
+            >
+                Yangis
+            </p>
         </Link>
     )
 }

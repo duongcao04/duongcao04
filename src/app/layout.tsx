@@ -12,7 +12,7 @@ import { inter } from '@/fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
-    title: 'Yangis',
+    title: 'Hai Duong Cao',
     description:
         'Web developer specializing in React, Node.js, and TypeScript. Based in Vietnam. Explore my portfolio showcasing web applications, mobile development, and cloud solutions.',
 }
@@ -24,14 +24,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={inter.className} suppressHydrationWarning>
-            <body className="antialiased scroll-smooth">
+            <body
+                className="antialiased scroll-smooth"
+                suppressHydrationWarning
+            >
                 <MyAppProvider>
                     <div id="page">
                         <ScrollToTop />
-                        <div className="fixed w-full top-5 px-5 laptop:px-0 z-10">
-                            <Header />
-                        </div>
-                        <main className="w-screen h-screen">{children}</main>
+                        <Header />
+                        <main>{children}</main>
                         <div className="fixed bottom-8 laptop:bottom-10 right-10">
                             <DarkModeSelector />
                         </div>

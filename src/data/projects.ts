@@ -1,11 +1,11 @@
 import { StaticImageData } from 'next/image'
 
-import Project1 from '@/assets/projects/project_1.png'
-
-import { TECHNOLOGIES, type Technology } from './technologies'
+import YangisShopThumbnail from '@/assets/projects/yangis_shop_thumbnail.png'
+import YangisPortfolioThumbnail from '@/assets/projects/yangis_portfolio_thumbnail.png'
 
 export type Project = {
     id: string
+    feature_project: string
     name: string
     logo?: string
     description: string
@@ -13,57 +13,26 @@ export type Project = {
     slug: string
     images: string[]
     web_path?: string
-    technologies: Technology[]
 }
 export const PROJECTS: Project[] = [
     {
         id: '1',
-        name: 'Yangis Shop',
+        feature_project: 'Portfolio Project',
+        name: 'Yangis Portfolio',
         description: '',
-        thumbnail: Project1,
+        thumbnail: YangisPortfolioThumbnail,
         images: ['', ''],
         slug: 'yangis-shop',
         web_path: 'https://shop.yangis.dev',
-        technologies: [
-            TECHNOLOGIES.react,
-            TECHNOLOGIES.nodejs,
-            TECHNOLOGIES.mongodb,
-        ],
-    },
-    // {
-    //     id: '2',
-    //     name: 'CSD Vietnam',
-    //     description: '',
-    //     thumbnail: '',
-    //     images: ['', ''],
-    //     web_path: 'https://www.csdvietnam.com',
-    // },
-    {
-        id: '3',
-        name: 'Yangis Shop',
-        description: '',
-        thumbnail: Project1,
-        images: ['', ''],
-        slug: 'yangis-shop',
-        web_path: 'https://shop.yangis.dev',
-        technologies: [
-            TECHNOLOGIES.react,
-            TECHNOLOGIES.nodejs,
-            TECHNOLOGIES.mongodb,
-        ],
     },
     {
-        id: '4',
+        id: '2',
+        feature_project: 'E-commerce Project',
         name: 'Yangis Shop',
         description: '',
-        thumbnail: Project1,
+        thumbnail: YangisShopThumbnail,
         images: ['', ''],
         slug: 'yangis-shop',
         web_path: 'https://shop.yangis.dev',
-        technologies: [
-            TECHNOLOGIES.react,
-            TECHNOLOGIES.nodejs,
-            TECHNOLOGIES.mongodb,
-        ],
     },
 ]
