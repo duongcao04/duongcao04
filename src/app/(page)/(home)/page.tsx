@@ -18,7 +18,7 @@ export default function Home() {
                 ></div>
             </div>
             {/*  */}
-            <section className="bg-border pt-10">
+            <section id="tech-stack" className="bg-border pt-10">
                 <div className="container flex flex-col justify-center items-center">
                     <Tag title="Tech Stack" />
                     <TechStack />
@@ -31,13 +31,13 @@ export default function Home() {
                 ></div>
             </div>
             {/*  */}
-            <section className="pt-20 pb-24">
+            <section id="projects" className="pt-20 pb-24">
                 <div className="container">
                     <Tag title="Featured Projects" />
                     <Projects />
                 </div>
             </section>
-            <section className="bg-border rounded-t-[100px]">
+            <section id="contact" className="bg-border rounded-t-[100px]">
                 <div className="py-16 container">
                     <GetInTouch />
                 </div>

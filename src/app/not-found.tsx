@@ -9,7 +9,7 @@ import { MotionDiv, MotionH1, MotionP } from '@/lib/motion'
 
 export default function NotFound() {
     return (
-        <div className="container w-full h-full mt-32 px-5 laptop:px-0 laptop:mt-0 flex flex-col items-center laptop:justify-center">
+        <div className="container w-full min-h-[calc(100vh-64px-80px)] mt-32 px-5 laptop:px-0 laptop:mt-0 flex flex-col items-center laptop:justify-center">
             <div className="px-2 py-1 border rounded-[10px] bg-primary-100 w-fit">
                 <p className="text-sm text-primary font-semibold">404 error</p>
             </div>
