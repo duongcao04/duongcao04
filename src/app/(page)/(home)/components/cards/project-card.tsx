@@ -33,11 +33,7 @@ function ProjectCard({ data: project }: { data: Project }) {
                 <p className="mt-2 w-fit text-3xl font-bold">{project.name}</p>
                 <div className="backdrop-blur-lg relative mt-[30px] max-w-[790px] leading-relaxed tracking-wide rounded-lg pt-[26px] pl-[34px] pb-[31px] pr-[50px] bg-gradient-to-br from-[#a30002] via-primary-600 to-[#d3a0a07c] text-white">
                     <p className="text-left text-lg line-clamp-3">
-                        A web app for visualizing personalized Spotify data.
-                        View your top artists, top tracks, recently played
-                        tracks, and detailed audio information about each track.
-                        Create and save new playlists of recommended tracks
-                        based on your existing playlists and more.
+                        {project.description}
                     </p>
                 </div>
 
@@ -75,11 +71,7 @@ export function ReverseProjectCard({ data: project }: { data: Project }) {
                 </div>
                 <div className="backdrop-blur-lg relative mt-[30px] max-w-[790px] leading-relaxed tracking-wide rounded-lg pt-[26px] pl-[34px] pb-[31px] pr-[50px] bg-gradient-to-bl from-[#a30002] via-primary-600 to-[#d3a0a07c] text-white">
                     <p className="text-left text-lg line-clamp-3">
-                        A web app for visualizing personalized Spotify data.
-                        View your top artists, top tracks, recently played
-                        tracks, and detailed audio information about each track.
-                        Create and save new playlists of recommended tracks
-                        based on your existing playlists and more.
+                        {project.description}
                     </p>
                 </div>
 

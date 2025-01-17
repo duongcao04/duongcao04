@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { PROJECTS } from '@/data/projects'
 import { MotionDiv } from '@/lib/motion'
 
-import ProjectCard, { ReverseProjectCard } from '../card/project-card'
+import ProjectCard, { ReverseProjectCard } from '../cards/project-card'
 
 function ActionButton() {
     return (

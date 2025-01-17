@@ -16,7 +16,7 @@ function Avatar() {
                         alt="My avatar"
                         width={260}
                         height={260}
-                        className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[260px]"
+                        className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[260px] rounded-full"
                     />
                 </div>
             </div>

@@ -7,6 +7,9 @@ import { useTheme } from 'next-themes'
 import NavbarDialog from '@/components/dialogs/navbar-dialog'
 import { MenuButton } from '@/components/ui/menu-button'
 
+import { MotionDiv } from '@/lib/motion'
+
+
 function FloatingNavbar() {
     const [isOpen, setOpen] = useState(false)
     const { theme, systemTheme } = useTheme()
@@ -22,14 +25,21 @@ function FloatingNavbar() {
     }, [theme, systemTheme])
 
     return (
-        <>
-            <MenuButton
-                isOpen={isOpen}
-                onClick={() => setOpen(!isOpen)}
-                color={buttonColor}
-            />
-            <NavbarDialog isOpen={isOpen} setOpen={setOpen} />
-        </>
+        <MotionDiv
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="h-full flex justify-center items-center px-8"
+        >
+            <div>
+                <MenuButton
+                    isOpen={isOpen}
+                    onClick={() => setOpen(!isOpen)}
+                    color={buttonColor}
+                />
+                <NavbarDialog isOpen={isOpen} setOpen={setOpen} />
+            </div>
+        </MotionDiv>
     )
 }
 

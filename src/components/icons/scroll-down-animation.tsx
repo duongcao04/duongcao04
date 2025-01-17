@@ -13,7 +13,7 @@ function ScrollDownAnimation() {
                         fill="black"
                     />
                     <circle
-                        className="animate-scrolldown fill-black delay-[0.75s]"
+                        className="animate-scrolldown fill-black delay-75"
                         cx="5"
                         cy="15"
                         r="2"

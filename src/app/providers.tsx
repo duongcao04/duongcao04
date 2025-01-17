@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import { HeroUIProvider } from '@heroui/react'
+
 import { ThemeProvider } from '@/app/_providers'
 
 function MyAppProvider({ children }: { children: React.ReactNode }) {
@@ -12,7 +14,7 @@ function MyAppProvider({ children }: { children: React.ReactNode }) {
             enableSystem
             disableTransitionOnChange
         >
-            {children}
+            <HeroUIProvider>{children}</HeroUIProvider>
         </ThemeProvider>
     )
 }

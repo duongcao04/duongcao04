@@ -1,12 +1,14 @@
+import { heroui } from '@heroui/theme'
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
 
 export default {
-    darkMode: 'selector',
+    darkMode: ['selector', 'class'],
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+        './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
         container: {
@@ -17,6 +19,10 @@ export default {
             },
         },
         extend: {
+            gridTemplateColumns: {
+                // Navbar colum template
+                navbar: '1fr minmax(0, 1440px) 1fr',
+            },
             animation: {
                 scrolldown: 'scrolldown 1.5s infinite',
             },
@@ -128,12 +134,16 @@ export default {
                     fontSize: theme('fontSize.5xl'),
                     fontWeight: theme('fontWeight.bold'),
                 },
-                h2: { fontSize: theme('fontSize.4xl'), fontWeight: theme('fontWeight.bold') },
+                h2: {
+                    fontSize: theme('fontSize.4xl'),
+                    fontWeight: theme('fontWeight.bold'),
+                },
                 h3: {
                     fontSize: theme('fontSize.xl'),
                     fontWeight: theme('fontWeight.medium'),
                 },
             })
         }),
+        heroui(),
     ],
 } satisfies Config

@@ -9,7 +9,7 @@ function SocialNavigate() {
         <ul className="flex items-center justify-start [&>:not(:last-child)]:after:content-['/'] [&>:not(:last-child)]:after:mx-3">
             {SOCIAL_LINKS.map((item) => (
                 <li key={item.id}>
-                    <Link href={item.path} className="font-medium">
+                    <Link href={item.path} className="font-medium" target='_blank'>
                         {item.label}
                     </Link>
                 </li>

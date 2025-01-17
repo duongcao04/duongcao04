@@ -36,15 +36,18 @@ function Hero() {
                 </div>
             </div>
 
-            <div className="mt-24">
+            <div className="mt-20">
                 <MotionH1 className="text-5xl leading-snug font-preahvihear">
                     {`I'm a Web Developer.`}
                 </MotionH1>
-                <MotionH3 className="mt-5 text-xl leading-relaxed tracking-wider font-preahvihear max-w-[900px]">
-                    A self-taught UI/UX designer, functioning in the industry
-                    for 3+ years now. I make meaningful and delightful digital
-                    products that create an equilibrium between user needs and
-                    business goals.
+                <MotionH3 className="mt-5 text-xl leading-relaxed tracking-wider font-preahvihear max-w-[1000px]">
+                    A Developer focused on creating responsive, high-quality
+                    websites and dynamic applications. I ensure seamless
+                    performance through detailed planning, intuitive design, and
+                    thorough testing and optimization.
+                </MotionH3>
+                <MotionH3 className="mt-3 text-xl leading-relaxed tracking-wider font-preahvihear">
+                    {`Available 24/7, I'm ready to assist you anytime!`}
                 </MotionH3>
             </div>
         </>
