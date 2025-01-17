@@ -3,9 +3,7 @@
 import React, { useState } from 'react'
 
 import { Input } from '@heroui/input'
-import { Alert } from '@heroui/react'
 import { FormikProps, useFormik } from 'formik'
-import { toast } from 'react-toastify'
 import * as yup from 'yup'
 
 import { customizeToast, updateToast } from '@/components/customize-toast'
@@ -32,8 +30,6 @@ export interface ContactFormValue
     extends yup.InferType<typeof validationSchema> {}
 
 function ContactForm() {
-    const [sent, setSent] = useState<boolean>(false)
-
     const formik: FormikProps<ContactFormValue> = useFormik<ContactFormValue>({
         initialValues: {
             name: '',
