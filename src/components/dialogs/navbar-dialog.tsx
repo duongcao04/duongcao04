@@ -1,6 +1,3 @@
-import { InlineIcon } from '@iconify/react'
-import Link from 'next/link'
-
 import {
     Dialog,
     DialogContent,
@@ -52,20 +49,6 @@ export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
                                 whileHover="animate"
                                 className="my-3"
                             >
-                                <Link
-                                    href={item.path}
-                                    className="uppercase text-2xl py-2 inline-flex items-center justify-center gap-1 tracking-[0.1em]"
-                                    onClick={handleOnOpenChange}
-                                    target={item.isRedirect ? '_blank' : ''}
-                                >
-                                    {item.label}
-                                    {item.isRedirect && (
-                                        <InlineIcon
-                                            icon="humbleicons:arrow-up"
-                                            className="rotate-45"
-                                        />
-                                    )}
-                                </Link>
                                 <MotionDiv
                                     variants={navItemVariant}
                                     className="bg-white w-full h-[2px]"
