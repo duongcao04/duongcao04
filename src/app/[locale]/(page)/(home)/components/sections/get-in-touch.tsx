@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
+
 import Call from '@/components/icons/call'
 import MailGun from '@/components/icons/main-gun'
 import GithubSocialOutline from '@/components/icons/social-icons/github-social-outline'
@@ -10,6 +12,7 @@ import CopyTooltipCustomize from '../copy-tooltip-customize'
 import ContactForm from '../forms/contact-form'
 
 function GetInTouch() {
+    const t = useTranslations('home.getInTouch')
     const email = 'contact@yangis.dev'
 
     const INFO = [
@@ -26,8 +29,8 @@ function GetInTouch() {
     return (
         <div className="mt-5">
             <div className="space-y-2 font-preahvihear">
-                <MotionH2>Get in touch</MotionH2>
-                <p>I am looking forward to hearing from you soon</p>
+                <MotionH2>{t('title')}</MotionH2>
+                <p>{t('desc')}</p>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-10">
                 <ul className="mt-5 flex flex-col items-start gap-8">

@@ -2,6 +2,7 @@
 
 import { Input } from '@heroui/input'
 import { FormikProps, useFormik } from 'formik'
+import { useTranslations } from 'next-intl'
 import * as yup from 'yup'
 
 import { customizeToast, updateToast } from '@/components/customize-toast'
@@ -24,10 +25,11 @@ const validationSchema = yup.object().shape({
         .max(1000, 'No longer than 1000 characters!'),
 })
 
-export interface ContactFormValue
-    extends yup.InferType<typeof validationSchema> {}
+export type ContactFormValue = yup.InferType<typeof validationSchema>
 
 function ContactForm() {
+    const t = useTranslations('home.getInTouch.form')
+
     const formik: FormikProps<ContactFormValue> = useFormik<ContactFormValue>({
         initialValues: {
             name: '',
@@ -73,7 +75,7 @@ function ContactForm() {
                     isRequired
                     id="name"
                     name="name"
-                    label="Your Name"
+                    label={t('name')}
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     errorMessage={formik.errors.name}
@@ -86,7 +88,7 @@ function ContactForm() {
                     isRequired
                     id="email"
                     name="email"
-                    label="Your Email"
+                    label={t('email')}
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     errorMessage={formik.errors.email}
@@ -99,7 +101,7 @@ function ContactForm() {
             <ContactMessageField form={formik} />
 
             <Button size={'lg'} type="submit">
-                Send
+                {t('submit')}
             </Button>
         </form>
     )

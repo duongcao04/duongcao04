@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
+
 import { DATABASES, TECHNOLOGIES, TOOLS } from '@/constants/techstack-list'
 import { MotionH2, MotionH3 } from '@/lib/motion'
 
@@ -27,14 +29,15 @@ function Technologies() {
 }
 
 function TechStack() {
+    const t = useTranslations('home.techStack')
+
     return (
         <div className="mt-5 flex flex-col items-center">
             <MotionH2 className="text-center font-preahvihear">
-                Technologies and skills
+                {t('title')}
             </MotionH2>
             <MotionH3 className="text-center mt-4 leading-relaxed tracking-wide max-w-[700px]">
-                {`I'm currently looking to join a cross-functional team that
-                    values improving people's lives through accessible design`}
+                {t('desc')}
             </MotionH3>
             <div className="mt-11">
                 <Technologies />

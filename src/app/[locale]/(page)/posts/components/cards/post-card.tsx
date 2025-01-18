@@ -1,9 +1,8 @@
 import React from 'react'
 
 import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa6'
 
-import { MotionButton, MotionH3 } from '@/lib/motion'
+import { MotionH3 } from '@/lib/motion'
 
 function PostCard() {
     return (

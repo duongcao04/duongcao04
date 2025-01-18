@@ -1,0 +1,50 @@
+{
+    "page": {
+        "title": "Yangis.dev | A web developer",
+        "desc": "How to implement i18n with Next.js (based on App Router)"
+    },
+    "layout": {
+        "header": {
+            "appNavigate": {
+                "Tech Stack": "Tech Stack",
+                "Projects": "Projects",
+                "Contact": "Contact",
+                "Posts": "Posts"
+            }
+        }
+    },
+    "home": {
+        "hero": {
+            "hello": {
+                "prefix": "Hello! I Am",
+                "fullName": "Hai Duong Cao"
+            },
+            "slogan": {
+                "head": "I can craft excellence through with",
+                "body": "design, functionality, optimization,",
+                "foot": "and innovation, ensuring performance and user satisfaction."
+            },
+            "about": {
+                "title": "I'm a Web Developer.",
+                "desc": {
+                    "content": "A Developer focused on creating responsive, high-quality websites and dynamic applications. I ensure seamless performance through detailed planning, intuitive design, and thorough testing and optimization.",
+                    "conclusion": "Available 24/7, I'm ready to assist you anytime!"
+                }
+            }
+        },
+        "techStack": {
+            "title": "Technologies and skills",
+            "desc": "I'm currently looking to join a cross-functional team that values improving people's lives through accessible design"
+        },
+        "getInTouch": {
+            "title": "Get in touch",
+            "desc": "I am looking forward to hearing from you soon.",
+            "form": {
+                "name": "Your Name",
+                "email": "Your Email",
+                "message": "Message",
+                "submit": "Send"
+            }
+        }
+    }
+}

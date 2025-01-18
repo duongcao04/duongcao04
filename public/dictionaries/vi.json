@@ -1,0 +1,50 @@
+{
+    "page": {
+        "title": "Yangis.dev | A web developer",
+        "desc": "How to implement i18n with Next.js (based on App Router)"
+    },
+    "layout": {
+        "header": {
+            "appNavigate": {
+                "Tech Stack": "Công nghệ",
+                "Projects": "Dự án",
+                "Contact": "Liên hệ",
+                "Posts": "Bài viết"
+            }
+        }
+    },
+    "home": {
+        "hero": {
+            "hello": {
+                "prefix": "Xin chào! Tôi tên là",
+                "fullName": "Cao Hải Dương"
+            },
+            "slogan": {
+                "head": "Tôi có thể tạo ra sự xuất sắc thông qua",
+                "body": "thiết kế, chức năng, tối ưu hóa,",
+                "foot": "và đổi mới, đảm bảo hiệu suất và sự hài lòng của người dùng."
+            },
+            "about": {
+                "title": "Tôi là một Web Developer.",
+                "desc": {
+                    "content": "Một lập trình viên tập trung vào việc tạo ra các trang web phản hồi nhanh, chất lượng cao và các ứng dụng động. Tôi đảm bảo hiệu suất mượt mà thông qua quá trình lập kế hoạch chi tiết, thiết kế trực quan, cùng kiểm thử và tối ưu hóa kỹ lưỡng.",
+                    "conclusion": "Có mặt 24/7, tôi sẵn sàng hỗ trợ bạn bất kỳ lúc nào!"
+                }
+            }
+        },
+        "techStack": {
+            "title": "Công nghệ và Kỹ năng",
+            "desc": "Tôi hiện đang tìm kiếm cơ hội tham gia vào một đội ngũ đa chức năng, nơi đề cao việc cải thiện cuộc sống của mọi người thông qua thiết kế dễ tiếp cận."
+        },
+        "getInTouch": {
+            "title": "Liên hệ",
+            "desc": "Tôi mong sớm nhận được hồi âm từ bạn.",
+            "form": {
+                "name": "Họ và tên",
+                "email": "Email",
+                "message": "Tin nhắn",
+                "submit": "Gửi"
+            }
+        }
+    }
+}

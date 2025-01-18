@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 
 import { Textarea } from '@heroui/input'
 import { FormikProps } from 'formik'
+import { useTranslations } from 'next-intl'
 
 import { ContactFormValue } from '../forms/contact-form'
 
@@ -12,6 +13,7 @@ function ContactMessageField({
 }: {
     form: FormikProps<ContactFormValue>
 }) {
+    const t = useTranslations('home.getInTouch.form')
     const [count, setCount] = useState<number>(0)
 
     return (
@@ -19,7 +21,7 @@ function ContactMessageField({
             <Textarea
                 isRequired
                 disableAutosize
-                label="Message"
+                label={t('message')}
                 classNames={{
                     input: 'h-[100px] overflow-y-auto min-h-[100px]',
                 }}

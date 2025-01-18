@@ -1,9 +1,10 @@
 import React from 'react'
 
+import { Button } from '@/components/ui/button'
+
 import { MotionH1, MotionH3 } from '@/lib/motion'
 import { formatSemiFullDate } from '@/utils/format'
 
-import { Button } from '../../../components/ui/button'
 import PostCard from './components/cards/post-card'
 
 function Posts() {
