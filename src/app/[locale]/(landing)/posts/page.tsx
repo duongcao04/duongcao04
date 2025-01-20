@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useLocale, useTranslations } from 'next-intl'
+
 import { Button } from '@/components/ui/button'
 
 import { MotionH1, MotionH3 } from '@/lib/motion'
@@ -8,16 +10,20 @@ import { formatSemiFullDate } from '@/utils/format'
 import PostCard from './components/cards/post-card'
 
 function Posts() {
+    const t = useTranslations('posts')
+    const locale = useLocale()
+
     const currentDate = new Date()
-    const formattedCurrentDate = formatSemiFullDate(currentDate)
+    const formattedCurrentDate = formatSemiFullDate(currentDate, locale)
 
     return (
         <div className="mt-20 container">
             <MotionH1 className="font-preahvihear tracking-wider">
-                Posts
+                {t('title')}
             </MotionH1>
             <MotionH3 className="text-base opacity-70 tracking-widest">
-                {formattedCurrentDate} · 3 posts
+                {formattedCurrentDate} · 3{' '}
+                <span className="lowercase">{t('title')}</span>
             </MotionH3>
 
             <div className="mt-20 space-y-20">
@@ -26,7 +32,7 @@ function Posts() {
                 <PostCard />
 
                 <div className="flex items-center justify-center">
-                    <Button size={'lg'}>Load more</Button>
+                    <Button size={'lg'}>{t('loadMoreButton')}</Button>
                 </div>
             </div>
         </div>

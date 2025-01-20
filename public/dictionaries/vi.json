@@ -14,6 +14,10 @@
         }
     },
     "home": {
+        "tag": {
+            "Tech Stack": "Công nghệ",
+            "Featured Projects": "Dự án nổi bật"
+        },
         "hero": {
             "hello": {
                 "prefix": "Xin chào! Tôi tên là",
@@ -36,6 +40,10 @@
             "title": "Công nghệ và Kỹ năng",
             "desc": "Tôi hiện đang tìm kiếm cơ hội tham gia vào một đội ngũ đa chức năng, nơi đề cao việc cải thiện cuộc sống của mọi người thông qua thiết kế dễ tiếp cận."
         },
+        "projects": {
+            "goToWebButton": "Trực tuyến",
+            "explorerAllProjectButton": "Khám phá tất cả dự án"
+        },
         "getInTouch": {
             "title": "Liên hệ",
             "desc": "Tôi mong sớm nhận được hồi âm từ bạn.",
@@ -46,5 +54,9 @@
                 "submit": "Gửi"
             }
         }
+    },
+    "posts": {
+        "title": "Bài viết",
+        "loadMoreButton": "Tải thêm"
     }
 }

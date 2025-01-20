@@ -1,22 +1,28 @@
-'use client'
-
 import React from 'react'
 
 import { HeroUIProvider } from '@heroui/react'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 
 import { ThemeProvider } from '@/app/_providers'
 
-function MyAppProvider({ children }: { children: React.ReactNode }) {
+export default async function MyAppProvider({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    const messages = await getMessages()
+
     return (
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-        >
-            <HeroUIProvider>{children}</HeroUIProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+            >
+                <HeroUIProvider>{children}</HeroUIProvider>
+            </ThemeProvider>
+        </NextIntlClientProvider>
     )
 }
-
-export default MyAppProvider

@@ -1,4 +1,4 @@
-export function formatFullDate(date: Date): string {
+const formatFullDate = (date: Date) => {
     const options: Intl.DateTimeFormatOptions = {
         weekday: 'long',
         year: 'numeric',
@@ -8,13 +8,28 @@ export function formatFullDate(date: Date): string {
     return date.toLocaleDateString('en-US', options)
 }
 
-export function formatSemiFullDate(date: Date): string {
+const formatSemiFullDate: (date: Date, locale?: string) => string = (
+    date,
+    locale = 'en'
+) => {
     const options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
     }
-    const formattedDate = date.toLocaleDateString('en-GB', options)
-    const [day, month, year] = formattedDate.split(' ')
-    return `${day} ${month}, ${year}`
+
+    if (locale === 'vi') {
+        return date.toLocaleDateString('vi-VN', options)
+    }
+
+    if (locale === 'en') {
+        const formattedDate = date.toLocaleDateString('en-GB', options)
+        const [day, month, year] = formattedDate.split(' ')
+        return `${day} ${month}, ${year}`
+    }
+
+    // Default fallback for unsupported locales
+    return date.toLocaleDateString(locale, options)
 }
+
+export { formatFullDate, formatSemiFullDate }

@@ -14,6 +14,10 @@
         }
     },
     "home": {
+        "tag": {
+            "Tech Stack": "Tech Stack",
+            "Featured Projects": "Featured Projects"
+        },
         "hero": {
             "hello": {
                 "prefix": "Hello! I Am",
@@ -36,6 +40,10 @@
             "title": "Technologies and skills",
             "desc": "I'm currently looking to join a cross-functional team that values improving people's lives through accessible design"
         },
+        "projects": {
+            "goToWebButton": "Online",
+            "explorerAllProjectButton": "Explorer All Project"
+        },
         "getInTouch": {
             "title": "Get in touch",
             "desc": "I am looking forward to hearing from you soon.",
@@ -46,5 +54,9 @@
                 "submit": "Send"
             }
         }
+    },
+    "posts": {
+        "title": "Posts",
+        "loadMoreButton": "Load more"
     }
 }

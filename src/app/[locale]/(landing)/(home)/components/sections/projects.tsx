@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
@@ -7,9 +8,9 @@ import { Button } from '@/components/ui/button'
 import { PROJECTS } from '@/data/projects'
 import { MotionDiv } from '@/lib/motion'
 
-import ProjectCard, { ReverseProjectCard } from '../cards/project-card'
+import ProjectCard from '../cards/project-card'
 
-function ActionButton() {
+function ActionButton({ text }: { text: string }) {
     return (
         <MotionDiv
             initial={{ opacity: 0, scale: 0.5 }}
@@ -20,7 +21,7 @@ function ActionButton() {
         >
             <Button variant={'gradient'} size={'xl'} asChild>
                 <Link href={'/projects'} className="text-foreground text-xl">
-                    Explorer All Project
+                    {text}
                 </Link>
             </Button>
         </MotionDiv>
@@ -28,6 +29,8 @@ function ActionButton() {
 }
 
 function Projects() {
+    const t = useTranslations('home.projects')
+
     return (
         <>
             <ul className="mt-32 space-y-60">
@@ -39,14 +42,13 @@ function Projects() {
 
                     return (
                         <li key={item.id}>
-                            {isOdd && <ProjectCard data={item} />}
-                            {!isOdd && <ReverseProjectCard data={item} />}
+                            <ProjectCard data={item} isReverse={!isOdd} />
                         </li>
                     )
                 })}
             </ul>
             <div className="mt-48 flex items-center justify-center">
-                <ActionButton />
+                <ActionButton text={t('explorerAllProjectButton')} />
             </div>
         </>
     )
