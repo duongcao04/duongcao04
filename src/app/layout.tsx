@@ -31,7 +31,7 @@ export default function RootLayout({
             suppressHydrationWarning
         >
             <body
-                className="antialiased scroll-smooth"
+                className="antialiased scroll-smooth bg-wallground text-text-primary"
                 suppressHydrationWarning
             >
                 <MyAppProvider>

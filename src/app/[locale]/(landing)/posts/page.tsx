@@ -9,7 +9,7 @@ import { formatSemiFullDate } from '@/utils/format'
 
 import PostCard from './components/cards/post-card'
 
-function Posts() {
+function PostsPage() {
     const t = useTranslations('posts')
     const locale = useLocale()
 
@@ -39,4 +39,4 @@ function Posts() {
     )
 }
 
-export default Posts
+export default PostsPage

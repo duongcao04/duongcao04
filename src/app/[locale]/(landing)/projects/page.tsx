@@ -1,8 +1,8 @@
 import { redirect } from 'next/navigation'
 
-function Projects() {
+function ProjectsPage() {
     redirect('/#projects')
     return
 }
 
-export default Projects
+export default ProjectsPage

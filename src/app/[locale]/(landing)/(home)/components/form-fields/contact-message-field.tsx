@@ -24,6 +24,7 @@ function ContactMessageField({
                 label={t('message')}
                 classNames={{
                     input: 'h-[100px] overflow-y-auto min-h-[100px]',
+                    inputWrapper: 'shadow-md border border-border',
                 }}
                 id="message"
                 name="message"

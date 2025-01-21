@@ -6,12 +6,12 @@
     "layout": {
         "header": {
             "appNavigate": {
-                "Tech Stack": "Tech Stack",
-                "Projects": "Projects",
-                "Contact": "Contact",
-                "Posts": "Posts"
+                "Tools": "Tools",
+                "Posts": "Posts",
+                "About me": "About me"
             }
-        }
+        },
+        "searchButton": "Search ..."
     },
     "home": {
         "tag": {
@@ -58,5 +58,13 @@
     "posts": {
         "title": "Posts",
         "loadMoreButton": "Load more"
+    },
+    "tools": {
+        "title": "Tools",
+        "desc": "Faster website building tools.",
+        "addFilterButton": "Add Filter"
+    },
+    "aboutMe": {
+        "fullName": "Hai Duong Cao"
     }
 }

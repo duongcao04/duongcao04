@@ -79,6 +79,9 @@ function ContactForm() {
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     errorMessage={formik.errors.name}
+                    classNames={{
+                        inputWrapper: 'shadow-md border border-border',
+                    }}
                     isInvalid={
                         Boolean(formik.errors.name) &&
                         Boolean(formik.touched.name)
@@ -90,6 +93,9 @@ function ContactForm() {
                     name="email"
                     label={t('email')}
                     value={formik.values.email}
+                    classNames={{
+                        inputWrapper: 'shadow-md border border-border',
+                    }}
                     onChange={formik.handleChange}
                     errorMessage={formik.errors.email}
                     isInvalid={

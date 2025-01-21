@@ -17,22 +17,22 @@ export default async function Home() {
                 <Hero />
             </section>
             {/* Section separation */}
-            <div className={`relative h-[90px] w-full bg-border`}>
+            <div className={`relative h-[90px] w-full bg-background`}>
                 <div
-                    className={`absolute top-0 left-0 bg-background h-[85px] w-full rounded-b-[100px]`}
+                    className={`absolute top-0 left-0 bg-wallground h-[85px] w-full rounded-b-[100px]`}
                 ></div>
             </div>
             {/*  */}
-            <section id="tech-stack" className="bg-border pt-10">
+            <section id="tech-stack" className="bg-background pt-10">
                 <div className="container flex flex-col justify-center items-center">
                     <Tag title="Tech Stack" />
                     <TechStack />
                 </div>
             </section>
             {/* Section separation */}
-            <div className={`relative h-[90px] w-full bg-background`}>
+            <div className={`relative h-[90px] w-full bg-wallground`}>
                 <div
-                    className={`absolute top-0 left-0 bg-border h-[85px] w-full rounded-b-[100px]`}
+                    className={`absolute top-0 left-0 bg-background h-[85px] w-full rounded-b-[100px]`}
                 ></div>
             </div>
             {/*  */}
@@ -42,7 +42,7 @@ export default async function Home() {
                     <Projects />
                 </div>
             </section>
-            <section id="contact" className="bg-border rounded-t-[100px]">
+            <section id="contact" className="bg-background rounded-t-[100px]">
                 <div className="py-16 container">
                     <GetInTouch />
                 </div>

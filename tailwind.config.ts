@@ -50,8 +50,13 @@ export default {
                 square: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
             },
             colors: {
+                wallground: 'var(--wallground)', // #fff
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
+                text: {
+                    primary: 'var(--primary-text)',
+                    secondary: 'var(--secondary-text)',
+                },
                 card: {
                     DEFAULT: 'var(--card)',
                     foreground: 'var(--card-foreground)',

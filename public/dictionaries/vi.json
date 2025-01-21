@@ -6,12 +6,12 @@
     "layout": {
         "header": {
             "appNavigate": {
-                "Tech Stack": "Công nghệ",
-                "Projects": "Dự án",
-                "Contact": "Liên hệ",
-                "Posts": "Bài viết"
+                "Tools": "Công cụ",
+                "Posts": "Bài viết",
+                "About me": "Về tôi"
             }
-        }
+        },
+        "searchButton": "Tìm kiếm ..."
     },
     "home": {
         "tag": {
@@ -58,5 +58,13 @@
     "posts": {
         "title": "Bài viết",
         "loadMoreButton": "Tải thêm"
+    },
+    "tools": {
+        "title": "Công cụ",
+        "desc": "Công cụ xây dựng trang web nhanh hơn.",
+        "addFilterButton": "Thêm bộ lọc"
+    },
+    "aboutMe": {
+        "fullName": "Cao Hải Dương"
     }
 }

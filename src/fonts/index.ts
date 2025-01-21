@@ -1,4 +1,4 @@
-import { Inter, Pacifico, Roboto, Preahvihear } from 'next/font/google'
+import { Inter, Pacifico, Preahvihear, Roboto } from 'next/font/google'
 import localFont from 'next/font/local'
 
 export const inter = Inter({
@@ -14,15 +14,20 @@ export const roboto = Roboto({
 })
 
 export const pacifico = Pacifico({
-    weight: "400",
+    weight: '400',
     style: 'normal',
-    subsets: ['latin']
+    subsets: ['latin'],
 })
 
 export const preahvihear = Preahvihear({
-    weight: "400",
+    weight: '400',
     style: 'normal',
-    subsets: ['latin']
+    subsets: ['latin'],
+})
+
+export const playwrite = localFont({
+    src: './Playwrite.ttf',
+    display: 'swap',
 })
 
 export const raynelth = localFont({
