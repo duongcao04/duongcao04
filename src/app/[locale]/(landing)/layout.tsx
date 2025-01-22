@@ -2,6 +2,8 @@ import { type ReactNode } from 'react'
 
 import dynamic from 'next/dynamic'
 
+import { MobileHeader } from '@/components/layout/header'
+
 const Header = dynamic(() => import('@/components/layout/header'))
 const Footer = dynamic(() => import('@/components/layout/footer'))
 const DarkModeSelector = dynamic(
@@ -15,9 +17,14 @@ export default function LandingLayout({
 }>) {
     return (
         <>
-            <div className="w-full fixed z-10">
-                <Header />
-            </div>
+            <header className="w-full fixed z-10">
+                <div className="hidden desktop:block">
+                    <Header />
+                </div>
+                <div className="block desktop:hidden">
+                    <MobileHeader />
+                </div>
+            </header>
             <main className="pt-[80px] min-h-[calc(100vh-64px)]">
                 {children}
             </main>

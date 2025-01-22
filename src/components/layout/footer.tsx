@@ -28,20 +28,16 @@ const FOOTER_SOCIALS = [
 ]
 function Footer() {
     return (
-        <footer className="h-[64px] bg-gradient-to-bl from-primary-600 via-primary-500 to-primary-600 text-white flex items-center justify-center">
-            <div className="container flex items-center justify-between">
-                <p className="font-preahvihear text-xl">
+        <footer className="py-4 desktop:h-[64px] bg-gradient-to-bl from-primary-600 via-primary-500 to-primary-600 text-white flex items-center justify-center">
+            <div className="container flex flex-col-reverse desktop:flex-row items-center justify-between gap-2">
+                <p className="font-preahvihear text-base desktop:text-xl">
                     &#169; 2025 Cao Hai Duong
                 </p>
                 <ul className="flex items-center justify-end gap-3">
                     {FOOTER_SOCIALS.map((item) => (
                         <li key={item.id}>
-                            <Link
-                                href={item.path}
-                                className="block size-[36px]"
-                                target="_blank"
-                            >
-                                <item.icon className="w-full h-full" />
+                            <Link href={item.path} target="_blank">
+                                <item.icon className="size-[24px] desktop:size-[36px]" />
                             </Link>
                         </li>
                     ))}

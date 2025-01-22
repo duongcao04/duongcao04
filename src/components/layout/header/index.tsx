@@ -10,7 +10,7 @@ import AppNavigate from './app-navigate'
 import FloatingNavbar from './floating-navbar'
 import SocialNavigate from './social-navigate'
 
-function Header() {
+export default function Header() {
     const [isAside, setAside] = useState<boolean>(false)
 
     useEffect(() => {
@@ -44,55 +44,60 @@ function Header() {
     }
 
     return (
-        <header>
-            <MotionDiv
-                className={`w-full grid grid-cols-navbar ${isAside ? 'h-[120px]' : 'h-[80px]'}`}
-            >
-                {isAside ? (
-                    <MotionDiv
-                        variants={logoVariant}
-                        initial="init"
-                        animate={isAside ? 'onMove' : 'init'}
-                        transition={{ delay: 0.02 }}
-                        className="flex items-center justify-end"
-                    >
-                        <Logo className="text-3xl" />
-                    </MotionDiv>
-                ) : (
-                    <div></div>
-                )}
-
+        <MotionDiv
+            className={`w-full grid grid-cols-navbar ${isAside ? 'h-[120px]' : 'h-[80px]'}`}
+        >
+            {isAside ? (
                 <MotionDiv
-                    variants={navigateVariant}
+                    variants={logoVariant}
                     initial="init"
                     animate={isAside ? 'onMove' : 'init'}
-                    className="p-4 h-full grid grid-cols-[1fr_86px_1fr] gap-20 items-center"
+                    transition={{ delay: 0.02 }}
+                    className="flex items-center justify-end"
                 >
-                    <div className="flex justify-start">
-                        <AppNavigate />
-                    </div>
                     <Logo className="text-3xl" />
-                    <div className="flex justify-end">
-                        <SocialNavigate />
-                    </div>
                 </MotionDiv>
+            ) : (
+                <div></div>
+            )}
 
-                {isAside ? (
-                    <MotionDiv
-                        variants={buttonVariant}
-                        initial="init"
-                        animate={isAside ? 'onMove' : 'init'}
-                        transition={{ delay: 0.02 }}
-                        className="flex items-center justify-start"
-                    >
-                        <FloatingNavbar />
-                    </MotionDiv>
-                ) : (
-                    <div></div>
-                )}
+            <MotionDiv
+                variants={navigateVariant}
+                initial="init"
+                animate={isAside ? 'onMove' : 'init'}
+                className="p-4 h-full grid grid-cols-[1fr_86px_1fr] gap-20 items-center"
+            >
+                <div className="flex justify-start">
+                    <AppNavigate />
+                </div>
+                <Logo className="text-3xl" />
+                <div className="flex justify-end">
+                    <SocialNavigate />
+                </div>
             </MotionDiv>
-        </header>
+
+            {isAside ? (
+                <MotionDiv
+                    variants={buttonVariant}
+                    initial="init"
+                    animate={isAside ? 'onMove' : 'init'}
+                    transition={{ delay: 0.02 }}
+                    className="flex items-center justify-start"
+                >
+                    <FloatingNavbar />
+                </MotionDiv>
+            ) : (
+                <div></div>
+            )}
+        </MotionDiv>
     )
 }
 
-export default Header
+export function MobileHeader() {
+    return (
+        <div className="container flex items-center justify-between h-[64px] backdrop-blur-md">
+            <Logo className="text-2xl" />
+            <FloatingNavbar />
+        </div>
+    )
+}

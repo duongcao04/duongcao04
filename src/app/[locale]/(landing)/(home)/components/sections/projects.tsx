@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { PROJECTS } from '@/data/projects'
 import { MotionDiv } from '@/lib/motion'
 
+import MobileProjectCard from '../cards/mobile-project-card'
 import ProjectCard from '../cards/project-card'
 
 function ActionButton({ text }: { text: string }) {
@@ -33,21 +34,29 @@ function Projects() {
 
     return (
         <>
-            <ul className="mt-32 space-y-60">
+            <ul className="mt-24 desktop:mt-32 space-y-44 desktop:space-y-60">
                 {PROJECTS.map((item, index) => {
                     let isOdd = false
-                    if (index % 2 === 0) {
+                    if (index % 2 !== 0) {
                         isOdd = true
                     }
 
                     return (
                         <li key={item.id}>
-                            <ProjectCard data={item} isReverse={!isOdd} />
+                            <div className="hidden desktop:block">
+                                <ProjectCard data={item} isOpposite={isOdd} />
+                            </div>
+                            <div className="block desktop:hidden">
+                                <MobileProjectCard
+                                    data={item}
+                                    isOpposite={isOdd}
+                                />
+                            </div>
                         </li>
                     )
                 })}
             </ul>
-            <div className="mt-48 flex items-center justify-center">
+            <div className="mt-28 desktop:mt-48 flex items-center justify-center">
                 <ActionButton text={t('explorerAllProjectButton')} />
             </div>
         </>

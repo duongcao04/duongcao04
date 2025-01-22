@@ -38,7 +38,7 @@ function CopyTooltipCustomize({ content, ...otherProps }: buttonProps) {
                 onClick={() => {
                     handleCopy()
                 }}
-                className="text-primary-800 text-lg font-preahvihear tracking-wider p-2"
+                className="text-primary-800 text-base desktop:text-lg font-preahvihear tracking-wider p-2"
                 {...otherProps}
             >
                 {content}

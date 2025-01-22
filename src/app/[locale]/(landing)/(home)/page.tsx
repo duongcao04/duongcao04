@@ -13,17 +13,20 @@ export default async function Home() {
 
     return (
         <>
-            <section className="container mt-32 pb-5">
+            <section className="container mt-12 desktop:mt-32 pb-5">
                 <Hero />
             </section>
             {/* Section separation */}
             <div className={`relative h-[90px] w-full bg-background`}>
                 <div
-                    className={`absolute top-0 left-0 bg-wallground h-[85px] w-full rounded-b-[100px]`}
+                    className={`absolute top-0 left-0 bg-wallground h-[30px] desktop:h-[85px] w-full rounded-b-[50px] desktop:rounded-b-[100px]`}
                 ></div>
             </div>
             {/*  */}
-            <section id="tech-stack" className="bg-background pt-10">
+            <section
+                id="tech-stack"
+                className="bg-background pt-8 desktop:pt-10"
+            >
                 <div className="container flex flex-col justify-center items-center">
                     <Tag title="Tech Stack" />
                     <TechStack />
@@ -32,18 +35,21 @@ export default async function Home() {
             {/* Section separation */}
             <div className={`relative h-[90px] w-full bg-wallground`}>
                 <div
-                    className={`absolute top-0 left-0 bg-background h-[85px] w-full rounded-b-[100px]`}
+                    className={`absolute top-0 left-0 bg-background h-[60px] desktop:h-[85px] w-full rounded-b-[30px] desktop:rounded-b-[100px]`}
                 ></div>
             </div>
             {/*  */}
-            <section id="projects" className="pt-20 pb-24">
+            <section id="projects" className="pt-20 pb-20 desktop:pb-24">
                 <div className="container">
                     <Tag title="Featured Projects" />
                     <Projects />
                 </div>
             </section>
-            <section id="contact" className="bg-background rounded-t-[100px]">
-                <div className="py-16 container">
+            <section
+                id="contact"
+                className="bg-background rounded-t-[30px] desktop:rounded-t-[100px]"
+            >
+                <div className="pt-10 pb-16 container">
                     <GetInTouch />
                 </div>
             </section>

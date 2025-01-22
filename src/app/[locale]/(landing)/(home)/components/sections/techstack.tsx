@@ -32,11 +32,11 @@ function TechStack() {
     const t = useTranslations('home.techStack')
 
     return (
-        <div className="mt-5 flex flex-col items-center">
-            <MotionH2 className="text-center font-preahvihear">
+        <div className="container mt-5 flex flex-col items-center">
+            <MotionH2 className="text-2xl desktop:text-4xl text-center font-preahvihear">
                 {t('title')}
             </MotionH2>
-            <MotionH3 className="text-center mt-4 leading-relaxed tracking-wide max-w-[700px]">
+            <MotionH3 className="text-base desktop:text-lg font-normal text-text-secondary text-center mt-4 leading-normal max-w-[700px]">
                 {t('desc')}
             </MotionH3>
             <div className="mt-11">

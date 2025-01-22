@@ -20,7 +20,8 @@
         },
         "hero": {
             "hello": {
-                "prefix": "Xin chào! Tôi tên là",
+                "hello": "Xin chào!",
+                "prefix": "Tôi tên là",
                 "fullName": "Cao Hải Dương"
             },
             "slogan": {

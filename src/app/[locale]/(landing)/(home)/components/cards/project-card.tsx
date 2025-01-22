@@ -9,7 +9,7 @@ import { GoArrowUpRight } from 'react-icons/go'
 import { type Project } from '@/data/projects'
 import { MotionButton } from '@/lib/motion'
 
-function OnlineLink({ href, text }: { href: string; text: string }) {
+export function OnlineLink({ href, text }: { href: string; text: string }) {
     return (
         <Link
             href={href}
@@ -21,55 +21,56 @@ function OnlineLink({ href, text }: { href: string; text: string }) {
         </Link>
     )
 }
-function TechnologyTag({ name }: { name: string }) {
+export function TechnologyTag({ name }: { name: string }) {
     return (
         <div className="w-fit px-4 py-1 border border-primary-200 rounded-xl bg-primary-100">
             <p className="text-primary font-semibold">{name}</p>
         </div>
     )
 }
-function ProjectCard({
+
+export default function ProjectCard({
     data: project,
-    isReverse,
+    isOpposite,
 }: {
     data: Project
-    isReverse?: boolean
+    isOpposite?: boolean
 }) {
     const t = useTranslations('home.projects')
 
     return (
         <div
-            className={`relative w-full flex items-center ${isReverse ? 'justify-start' : 'justify-end'}`}
+            className={`relative w-full flex items-center ${isOpposite ? 'justify-start' : 'justify-end'}`}
         >
             <div
-                className={`absolute -top-[50px] ${isReverse ? 'left-72' : 'right-72'} w-[200px] h-[400px] bg-primary-700 rounded-full blur-[120px]`}
+                className={`absolute -top-[50px] ${isOpposite ? 'left-72' : 'right-72'} w-[200px] h-[400px] bg-primary-700 rounded-full blur-[120px]`}
             />
             <div
-                className={`absolute -top-[50px] ${isReverse ? 'left-30' : 'right-30'} w-[200px] h-[400px] bg-primary-700 rounded-full blur-[120px]`}
+                className={`absolute -top-[50px] ${isOpposite ? 'left-30' : 'right-30'} w-[200px] h-[400px] bg-primary-700 rounded-full blur-[120px]`}
             />
             <div className="relative w-[650px] h-[293px] bg-[#a30002] rounded-xl overflow-hidden">
                 <div
-                    className={`absolute top-[25px] ${isReverse ? 'left-0' : 'right-0'} shadow-square`}
+                    className={`absolute top-[25px] ${isOpposite ? 'left-0' : 'right-0'} shadow-square`}
                 >
                     <Image
                         src={project.thumbnail}
                         alt={`${project.name} thumbnail`}
-                        className={`${isReverse ? 'rounded-tr-3xl' : 'rounded-tl-3xl'} rounded-br-3xl border-primary-500 w-[615px] h-[306px] object-contain`}
+                        className={`${isOpposite ? 'rounded-tr-3xl' : 'rounded-tl-3xl'} rounded-br-3xl border-primary-500 w-[615px] h-[306px] object-contain`}
                     />
                 </div>
             </div>
 
             <div
-                className={`absolute top-[20px] ${isReverse ? 'right-0' : 'left-0'}`}
+                className={`absolute top-[20px] ${isOpposite ? 'right-0' : 'left-0'}`}
             >
                 <div
-                    className={`flex flex-col items-start ${isReverse && 'ml-36'}`}
+                    className={`flex flex-col items-start ${isOpposite && 'ml-36'}`}
                 >
                     <p className="w-fit text-lg font-semibold text-primary">
                         {project.feature_project}
                     </p>
                     <div
-                        className={`${isReverse ? 'w-[calc(100%-20px)]' : 'w-[calc(100%-90px)]'} flex items-end justify-between`}
+                        className={`${isOpposite ? 'w-[calc(100%-20px)]' : 'w-[calc(100%-90px)]'} flex items-end justify-between`}
                     >
                         <div className="flex items-end justify-start gap-8">
                             <Link
@@ -107,7 +108,7 @@ function ProjectCard({
                     </div>
                 </div>
                 <div
-                    className={`backdrop-blur-lg relative mt-[30px] max-w-[790px] leading-relaxed tracking-wide rounded-lg pt-[26px] pl-[34px] pb-[31px] pr-[50px] ${isReverse ? 'bg-gradient-to-bl' : 'bg-gradient-to-br'} from-[#a30002] via-primary-600 to-[#d3a0a07c] text-white`}
+                    className={`backdrop-blur-lg relative mt-[30px] max-w-[790px] leading-relaxed tracking-wide rounded-lg pt-[26px] pl-[34px] pb-[31px] pr-[50px] ${isOpposite ? 'bg-gradient-to-bl' : 'bg-gradient-to-br'} from-[#a30002] via-primary-600 to-[#d3a0a07c] text-white`}
                 >
                     <p className="text-left text-lg line-clamp-3">
                         {project.description}
@@ -115,7 +116,7 @@ function ProjectCard({
                 </div>
 
                 <div
-                    className={`mt-4 flex justify-start ${isReverse && 'ml-36'} gap-5`}
+                    className={`mt-4 flex justify-start ${isOpposite && 'ml-36'} gap-5`}
                 >
                     {project.technologies.map((item, index) => (
                         <div key={index}>
@@ -127,5 +128,3 @@ function ProjectCard({
         </div>
     )
 }
-
-export default ProjectCard

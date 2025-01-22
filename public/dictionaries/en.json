@@ -20,7 +20,8 @@
         },
         "hero": {
             "hello": {
-                "prefix": "Hello! I Am",
+                "hello": "Hello!",
+                "prefix": "I Am",
                 "fullName": "Hai Duong Cao"
             },
             "slogan": {

@@ -9,7 +9,6 @@ import { MenuButton } from '@/components/ui/menu-button'
 
 import { MotionDiv } from '@/lib/motion'
 
-
 function FloatingNavbar() {
     const [isOpen, setOpen] = useState(false)
     const { theme, systemTheme } = useTheme()
@@ -29,7 +28,7 @@ function FloatingNavbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="h-full flex justify-center items-center px-8"
+            className="h-full flex justify-center items-center"
         >
             <div>
                 <MenuButton
