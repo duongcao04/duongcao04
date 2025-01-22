@@ -13,11 +13,11 @@ function ToolsPage() {
 
     return (
         <div className="container pb-28">
-            <div className="mt-44 w-full flex flex-col gap-2">
+            <div className="mt-32 desktop:mt-44 w-full flex flex-col gap-2">
                 <MotionH1 className="bg-gradient-to-r from-primary-600 via-orange-600 to-yellow-600 inline-block text-transparent bg-clip-text text-7xl leading-normal">
                     {t('title')}
                 </MotionH1>
-                <MotionH4 className="mt-9 mb-2 text-base text-text-secondary">
+                <MotionH4 className="mt-5 desktop:mt-9 mb-2 text-base text-text-secondary">
                     {t('desc')}
                 </MotionH4>
                 <ToolSearchbar />

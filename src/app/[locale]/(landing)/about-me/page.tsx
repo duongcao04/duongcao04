@@ -15,7 +15,7 @@ function AboutMePage() {
         <>
             <div
                 id="Cover"
-                className="container relative mt-10 w-full h-[350px] bg-gradient-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
+                className="container relative desktop:mt-10 aspect-[8/2] bg-gradient-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
             >
                 <Image
                     id="Avatar"

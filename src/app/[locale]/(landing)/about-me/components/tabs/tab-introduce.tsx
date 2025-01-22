@@ -135,7 +135,7 @@ function TabIntroduce() {
     const t = useTranslations('aboutMe.section')
 
     return (
-        <div className="grid grid-cols-12 gap-5">
+        <div className="desktop:grid desktop:grid-cols-12 desktop:gap-5">
             <div className="col-span-4 space-y-5">
                 <AboutMe title={t('aboutMe.title')} desc={t('aboutMe.desc')} />
                 <Education
@@ -145,7 +145,7 @@ function TabIntroduce() {
                 />
                 <KeySkills title={t('keySkills.title')} />
             </div>
-            <div className="col-span-8 space-y-5 rounded-lg">
+            <div className="mt-5 desktop:mt-0 col-span-8 space-y-5 rounded-lg">
                 <Profile title={t('summary.title')} />
                 <Timeline title={t('timeline.title')} />
             </div>

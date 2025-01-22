@@ -6,8 +6,8 @@ import { MotionH3 } from '@/lib/motion'
 
 function PostCard() {
     return (
-        <div className="grid grid-cols-[200px_1fr] gap-10 items-start p-5 rounded-2xl border-2 border-transparent hover:border-border hover:shadow-square">
-            <div className="size-[200px] bg-gradient-to-br from-primary-400 via-primary-600 to-primary-800 rounded-2xl" />
+        <div className="flex flex-col gap-4 desktop:grid desktop:grid-cols-[200px_1fr] desktop:gap-10 desktop:items-start p-5 rounded-2xl border-2 border-transparent hover:border-border hover:shadow-square">
+            <div className="w-full h-[200px] desktop:size-[200px] bg-gradient-to-br from-primary-400 via-primary-600 to-primary-800 rounded-2xl" />
 
             <div className="mt-1">
                 <p className="uppercase font-semibold tracking-wider opacity-70">

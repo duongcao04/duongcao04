@@ -6,7 +6,7 @@ import ToolCard from './tool-card'
 
 function Tools() {
     return (
-        <ul className="grid grid-cols-3 gap-8">
+        <ul className="desktop:grid desktop:grid-cols-3 desktop:gap-8 space-y-8 desktop:space-y-0">
             {TOOLS.map((item) => (
                 <li key={item.id}>
                     <ToolCard data={item} />
