@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { HeroUIProvider } from '@heroui/react'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 
@@ -21,7 +22,9 @@ export default async function MyAppProvider({
                 enableSystem
                 disableTransitionOnChange
             >
-                <HeroUIProvider>{children}</HeroUIProvider>
+                <AppRouterCacheProvider>
+                    <HeroUIProvider>{children}</HeroUIProvider>
+                </AppRouterCacheProvider>
             </ThemeProvider>
         </NextIntlClientProvider>
     )

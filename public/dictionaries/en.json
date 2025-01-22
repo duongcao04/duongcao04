@@ -65,6 +65,33 @@
         "addFilterButton": "Add Filter"
     },
     "aboutMe": {
-        "fullName": "Hai Duong Cao"
+        "fullName": "Hai Duong Cao",
+        "tabs": {
+            "Introduce": "Introduce",
+            "Picture": "Picture"
+        },
+        "section": {
+            "aboutMe": {
+                "title": "About me",
+                "desc": "A Developer focused on creating responsive, high-quality websites and dynamic applications."
+            },
+            "education": {
+                "title": "Education",
+                "university": {
+                    "name": "University of Transport Ho Chi Minh City",
+                    "major": "Information Technology"
+                }
+            },
+            "keySkills": {
+                "title": "Key skills"
+            },
+            "summary": {
+                "title": "Summary",
+                "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quisquam similique provident odio cumque suscipit exercitationem, distinctio vitae atque facilis sit, autem eum quidem. Doloribus ratione ut voluptates nesciunt deserunt! Rem consequatur saepe magnam eveniet, placeat praesentium temporibus exercitationem maxime vel nemo impedit iure et est facilis perspiciatis doloribus corrupti, asperiores odit animi? Atque neque voluptatibus eius velit modi praesentium. Magnam atque ducimus quidem tenetur ea reiciendis voluptas quo eum fugiat adipisci alias rerum mollitia omnis facilis ex deleniti excepturi, numquam assumenda amet eligendi hic officiis voluptatem reprehenderit? Neque, consequatur."
+            },
+            "timeline": {
+                "title": "Timeline"
+            }
+        }
     }
 }

@@ -65,6 +65,33 @@
         "addFilterButton": "Thêm bộ lọc"
     },
     "aboutMe": {
-        "fullName": "Cao Hải Dương"
+        "fullName": "Cao Hải Dương",
+        "tabs": {
+            "Introduce": "Giới thiệu",
+            "Picture": "Ảnh"
+        },
+        "section": {
+            "aboutMe": {
+                "title": "Về tôi",
+                "desc": "Một nhà phát triển tập trung vào việc tạo ra các trang web có khả năng phản hồi cao, cũng như các ứng dụng năng động."
+            },
+            "education": {
+                "title": "Học tập",
+                "university": {
+                    "name": "Trường Đại học Giao thông vận tải TP. HCM",
+                    "major": "Công nghệ thông tin"
+                }
+            },
+            "keySkills": {
+                "title": "Kỹ năng"
+            },
+            "summary": {
+                "title": "Tóm tắt",
+                "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quisquam similique provident odio cumque suscipit exercitationem, distinctio vitae atque facilis sit, autem eum quidem. Doloribus ratione ut voluptates nesciunt deserunt! Rem consequatur saepe magnam eveniet, placeat praesentium temporibus exercitationem maxime vel nemo impedit iure et est facilis perspiciatis doloribus corrupti, asperiores odit animi? Atque neque voluptatibus eius velit modi praesentium. Magnam atque ducimus quidem tenetur ea reiciendis voluptas quo eum fugiat adipisci alias rerum mollitia omnis facilis ex deleniti excepturi, numquam assumenda amet eligendi hic officiis voluptatem reprehenderit? Neque, consequatur."
+            },
+            "timeline": {
+                "title": "Mốc thời gian"
+            }
+        }
     }
 }

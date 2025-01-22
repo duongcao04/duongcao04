@@ -26,7 +26,7 @@ function AboutMeTabs() {
 
     return (
         <>
-            <div className="mb-8 flex items-center justify-start">
+            <div className="container flex items-center justify-start">
                 {TABS.map((item, index) => (
                     <div key={index}>
                         <button
@@ -52,7 +52,11 @@ function AboutMeTabs() {
                     </div>
                 ))}
             </div>
-            <tab.component />
+            <div className="pt-5 bg-background">
+                <div className="container">
+                    <tab.component />
+                </div>
+            </div>
         </>
     )
 }

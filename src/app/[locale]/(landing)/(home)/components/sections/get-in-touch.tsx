@@ -11,20 +11,18 @@ import { MotionH2 } from '@/lib/motion'
 import CopyTooltipCustomize from '../copy-tooltip-customize'
 import ContactForm from '../forms/contact-form'
 
+export const CONTACT_INFO = [
+    { id: 1, icon: MailGun, value: 'contact@yangis.dev', canCopy: true },
+    { id: 2, icon: Call, value: '(+84) 862 248 332', canCopy: false },
+    {
+        id: 3,
+        icon: GithubSocialOutline,
+        value: 'duongcao04',
+        canCopy: false,
+    },
+]
 function GetInTouch() {
     const t = useTranslations('home.getInTouch')
-    const email = 'contact@yangis.dev'
-
-    const INFO = [
-        { id: 1, icon: MailGun, value: email, canCopy: true },
-        { id: 2, icon: Call, value: '(+84) 862 248 332', canCopy: false },
-        {
-            id: 3,
-            icon: GithubSocialOutline,
-            value: 'duongcao04',
-            canCopy: false,
-        },
-    ]
 
     return (
         <div className="mt-5">
@@ -34,7 +32,7 @@ function GetInTouch() {
             </div>
             <div className="mt-5 grid grid-cols-2 gap-10">
                 <ul className="mt-5 flex flex-col items-start gap-8">
-                    {INFO.map((item) => (
+                    {CONTACT_INFO.map((item) => (
                         <li key={item.id}>
                             <div className="flex items-center justify-center gap-1">
                                 <div className="bg-primary-100 text-primary p-3 rounded-full">

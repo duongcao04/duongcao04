@@ -1,12 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { ButtonHTMLAttributes, DetailedHTMLProps, useState } from 'react'
 
-import { Tooltip } from '@heroui/tooltip'
+import { Tooltip, type TooltipProps } from '@heroui/tooltip'
 
 import { copyText } from '@/utils/copy-text-action'
 
-function CopyTooltipCustomize({ content }: { content: string }) {
+interface buttonProps
+    extends DetailedHTMLProps<
+        ButtonHTMLAttributes<HTMLButtonElement>,
+        HTMLButtonElement
+    > {
+    content: string
+    classNames: {
+        toolTip: TooltipProps
+        button: string
+    }
+}
+
+function CopyTooltipCustomize({
+    content,
+    classNames,
+    ...otherProps
+}: buttonProps) {
     const [isOpen, setOpen] = useState<boolean>(false)
     const [copied, setCopied] = useState<boolean>(false)
 
@@ -31,6 +47,7 @@ function CopyTooltipCustomize({ content }: { content: string }) {
                     handleCopy()
                 }}
                 className="text-primary-800 text-lg font-preahvihear tracking-wider p-2"
+                {...otherProps}
             >
                 {content}
             </button>

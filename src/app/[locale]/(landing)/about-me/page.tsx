@@ -12,10 +12,10 @@ function AboutMePage() {
     const AVATAR_SIZE = 140
 
     return (
-        <div className="container">
+        <>
             <div
                 id="Cover"
-                className="relative mt-10 w-full h-[350px] bg-gradient-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
+                className="container relative mt-10 w-full h-[350px] bg-gradient-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
             >
                 <Image
                     id="Avatar"
@@ -25,7 +25,10 @@ function AboutMePage() {
                     className="absolute aspect-square left-[50%] -translate-x-[50%] rounded-full ring-[3px] ring-offset-4 ring-green-500"
                 />
             </div>
-            <div style={{ marginTop: AVATAR_SIZE / 2 + 24 }}>
+            <div
+                style={{ marginTop: AVATAR_SIZE / 2 + 24 }}
+                className="container mb-2"
+            >
                 <p className="text-center font-bold text-3xl">
                     {t('fullName')}
                 </p>
@@ -33,10 +36,9 @@ function AboutMePage() {
                     Be all you can be.
                 </p>
             </div>
-            <div className="mt-10">
-                <AboutMeTabs />
-            </div>
-        </div>
+            <AboutMeTabs />
+            <div className="h-10 w-full bg-background"></div>
+        </>
     )
 }
 
