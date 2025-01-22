@@ -25,12 +25,18 @@ export default {
             },
             animation: {
                 scrolldown: 'scrolldown 1.5s infinite',
+                scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
             },
             keyframes: {
                 scrolldown: {
                     '0%': { opacity: '0', transform: 'translate(0, -8px)' },
                     '50%': { opacity: '1', transform: 'translate(0, 0)' },
                     '100%': { opacity: '0', transform: 'translate(0, 8px)' },
+                },
+                scroll: {
+                    to: {
+                        transform: 'translate(calc(-50% - 0.5rem))',
+                    },
                 },
             },
             screens: {
@@ -150,5 +156,35 @@ export default {
             })
         }),
         heroui(),
+        addVariablesForColors,
     ],
 } satisfies Config
+
+function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme('colors'))
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    )
+
+    addBase({
+        ':root': newVars,
+    })
+}
+function flattenColorPalette(colors: any) {
+    const result: Record<string, string> = {}
+
+    function recurse(obj: any, currentKey: string) {
+        for (const key in obj) {
+            const value = obj[key]
+            const newKey = currentKey ? `${currentKey}-${key}` : key
+            if (typeof value === 'object' && value !== null) {
+                recurse(value, newKey)
+            } else {
+                result[newKey] = value
+            }
+        }
+    }
+
+    recurse(colors, '')
+    return result
+}
