@@ -2,7 +2,7 @@
 
 import { ButtonHTMLAttributes, DetailedHTMLProps, useState } from 'react'
 
-import { Tooltip, type TooltipProps } from '@heroui/tooltip'
+import { Tooltip } from '@heroui/tooltip'
 
 import { copyText } from '@/utils/copy-text-action'
 
@@ -12,17 +12,9 @@ interface buttonProps
         HTMLButtonElement
     > {
     content: string
-    classNames: {
-        toolTip: TooltipProps
-        button: string
-    }
 }
 
-function CopyTooltipCustomize({
-    content,
-    classNames,
-    ...otherProps
-}: buttonProps) {
+function CopyTooltipCustomize({ content, ...otherProps }: buttonProps) {
     const [isOpen, setOpen] = useState<boolean>(false)
     const [copied, setCopied] = useState<boolean>(false)
 

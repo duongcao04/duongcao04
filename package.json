@@ -24,6 +24,8 @@
         "@next/mdx": "^15.1.5",
         "@radix-ui/react-dialog": "^1.1.2",
         "@radix-ui/react-slot": "^1.1.0",
+        "@supabase/auth-helpers-nextjs": "^0.10.0",
+        "@supabase/supabase-js": "^2.48.0",
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
         "@types/mdx": "^2.0.13",
         "class-variance-authority": "^0.7.1",
