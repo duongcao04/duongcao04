@@ -1,3 +1,6 @@
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+
 import {
     Dialog,
     DialogContent,
@@ -17,6 +20,8 @@ export interface INavbarDialog {
 }
 
 export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
+    const t = useTranslations('layout.header.appNavigate')
+
     const handleOnOpenChange = () => {
         setOpen(!isOpen)
     }
@@ -40,7 +45,7 @@ export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
                     <DialogDescription />
                 </DialogHeader>
                 <nav className="z-10">
-                    <ul className="flex flex-col items-center justify-center gap-2">
+                    <ul className="flex flex-col items-center justify-center gap-3 desktop:gap-5">
                         {NAVIGATES.map((item) => (
                             <MotionLi
                                 key={item.id}
@@ -49,6 +54,12 @@ export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
                                 whileHover="animate"
                                 className="my-3"
                             >
+                                <Link
+                                    href={item.path}
+                                    className="inline-block desktop:pt-4 desktop:pr-4 desktop:pl-4 pt-2 pr-2 pl-2 pb-1 text-2xl desktop:text-4xl tracking-wider"
+                                >
+                                    {t(`${item.label}`)}
+                                </Link>
                                 <MotionDiv
                                     variants={navItemVariant}
                                     className="bg-white w-full h-[2px]"
