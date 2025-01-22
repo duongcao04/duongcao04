@@ -19,14 +19,13 @@ function TailwindcssIcon({
             <g fill="none">
                 <rect width={width} height={height} fill={fill} rx="60" />
                 <path
-                    fill="url(#skillIconsTailwindcssLight0)"
+                    fill='#32b1c1'
                     fillRule="evenodd"
                     d="M83 110q9-36 45-36c36 0 40.5 27 58.5 31.5q18 4.502 31.5-13.5q-9 36-45 36c-36 0-40.5-27-58.5-31.5Q96.5 92 83 110m-45 54q9-36 45-36c36 0 40.5 27 58.5 31.5q18 4.502 31.5-13.5q-9 36-45 36c-36 0-40.5-27-58.5-31.5q-18-4.502-31.5 13.5"
                     clipRule="evenodd"
                 />
                 <defs>
                     <linearGradient
-                        id="skillIconsTailwindcssLight0"
                         x1="86.5"
                         x2="163.5"
                         y1="74"
