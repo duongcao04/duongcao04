@@ -7,7 +7,7 @@ import Avatar from '@/assets/img/avatar.jpg'
 
 import AboutMeTabs from './components/about-me-tabs'
 
-function AboutMePage() {
+export default function InfoPage() {
     const t = useTranslations('aboutMe')
     const AVATAR_SIZE = 140
 
@@ -41,5 +41,3 @@ function AboutMePage() {
         </>
     )
 }
-
-export default AboutMePage

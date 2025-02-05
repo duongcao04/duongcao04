@@ -1,8 +1,6 @@
 import { redirect } from 'next/navigation'
 
-function ProjectsPage() {
-    redirect('/#projects')
+export default function WorkPage() {
+    redirect('/')
     return
 }
-
-export default ProjectsPage
