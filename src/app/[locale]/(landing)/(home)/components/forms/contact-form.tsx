@@ -167,7 +167,7 @@ function ContactForm() {
             <div className="w-full mt-8">
                 <Button
                     type="submit"
-                    className="w-full text-base py-6 rounded-3xl"
+                    className="w-full text-base py-6 rounded-3xl text-white"
                 >
                     {t('submit')}
                 </Button>

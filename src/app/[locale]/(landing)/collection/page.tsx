@@ -2,11 +2,12 @@ import React from 'react'
 
 import { useTranslations } from 'next-intl'
 
+import { TOOLS } from '@/data/tools'
 import { MotionH1, MotionH4 } from '@/lib/motion'
 
+import ToolCard from './components/tool-card'
 import ToolFilter from './components/tool-filter'
 import ToolSearchbar from './components/tool-searchbar'
-import Tools from './components/tools'
 
 export default function CollectionPage() {
     const t = useTranslations('collection')
@@ -25,7 +26,13 @@ export default function CollectionPage() {
             <div className="mt-5 mb-20">
                 <ToolFilter />
             </div>
-            <Tools />
+            <ul className="desktop:grid desktop:grid-cols-3 desktop:gap-8 space-y-8 desktop:space-y-0">
+                {TOOLS.map((item) => (
+                    <li key={item.id}>
+                        <ToolCard data={item} />
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

@@ -3,26 +3,37 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { POSTS, type Post } from '@/data/posts'
+import { PROJECTS, type Project } from '@/data/projects'
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
-import { calculateFromDateToNow } from '@/utils/calc-function'
 
 import SectionTag from '../section-tag'
 
-export default function WritingSection() {
+export default function WorkSection() {
     return (
         <>
-            <SectionTag title="Writing" seeMore />
+            <SectionTag title="Work" seeMore href="/work" />
             <div className="mt-5 flex flex-col tablet:grid tablet:grid-cols-2 gap-8">
-                {POSTS.map((post) => (
-                    <PostCard key={post.id} data={post} />
+                {PROJECTS.map((project, index) => (
+                    <WorkCard key={index} data={project} />
                 ))}
             </div>
         </>
     )
 }
 
-function PostCard({ data }: { data: Post }) {
+function formatWorkingTime(startedAt?: string, endedAt?: string) {
+    if (startedAt && endedAt) {
+        return `${startedAt} - ${endedAt}`
+    }
+    if (!endedAt) {
+        return `Since ${startedAt}`
+    }
+    if (!startedAt) {
+        return `Until ${endedAt}`
+    }
+    return 'Present'
+}
+function WorkCard({ data }: { data: Project }) {
     const lineVariant = {
         initial: {
             width: 0,
@@ -67,8 +78,8 @@ function PostCard({ data }: { data: Post }) {
             className="w-full"
         >
             <Link
-                href={`/writing/${data.slug}`}
-                className="block w-full aspect-video rounded-xl overflow-hidden border border-border"
+                href={`/work/${data.slug}`}
+                className="block w-full aspect-[2/1] rounded-xl overflow-hidden border border-border"
             >
                 <MotionDiv
                     variants={imageVariant}
@@ -76,11 +87,9 @@ function PostCard({ data }: { data: Post }) {
                 >
                     <Image
                         src={data.thumbnail}
-                        alt={`${data.title} thumbnail`}
+                        alt={`${data.name} thumbnail`}
                         className="w-full h-full object-cover rounded-xl"
                         quality={100}
-                        width={416}
-                        height={416}
                     />
                 </MotionDiv>
             </Link>
@@ -89,9 +98,7 @@ function PostCard({ data }: { data: Post }) {
                     href={`/work/${data.slug}`}
                     className="text-lg desktop:text-2xl font-lexendDeca font-light inline-block p-1 group-hover:text-primary transition duration-300"
                 >
-                    <MotionSpan variants={titleVariant}>
-                        {data.title}
-                    </MotionSpan>
+                    <MotionSpan variants={titleVariant}>{data.name}</MotionSpan>
                 </Link>
                 <MotionDiv
                     variants={lineVariant}
@@ -100,9 +107,9 @@ function PostCard({ data }: { data: Post }) {
                 />
                 <MotionP
                     variants={dateVariant}
-                    className="mt-2 text-sm desktop:text-lg uppercase font-lexendDeca font-extralight tracking-wide"
+                    className="mt-2 text-sm desktop:text-lg font-lexendDeca font-extralight tracking-wide uppercase"
                 >
-                    {calculateFromDateToNow(data.createdAt)}
+                    {formatWorkingTime(data.started_at, data.ended_at)}
                 </MotionP>
             </div>
         </MotionDiv>

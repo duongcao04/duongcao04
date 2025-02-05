@@ -1,6 +1,7 @@
-import createNextIntlPlugin from 'next-intl/plugin'
-import createMDX from '@next/mdx'
 import type { NextConfig } from 'next'
+
+import createMDX from '@next/mdx'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin()
 const withMDX = createMDX()
@@ -17,9 +18,14 @@ const nextConfig: NextConfig = {
                 hostname: 'img.freepik.com',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+                pathname: '/**',
+            },
         ],
     },
-    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx']
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 }
 
 export default withMDX(withNextIntl(nextConfig))

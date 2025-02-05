@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Avatar from '@/assets/img/avatar.jpg'
 import { MotionButton, MotionH1 } from '@/lib/motion'
 
-export default function Hero() {
+export default function HeroSection() {
     return (
         <div>
             <div className="space-y-4">
