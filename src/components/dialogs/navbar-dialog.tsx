@@ -29,6 +29,7 @@ export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
         initial: { width: 0 },
         animate: { width: '100%' },
     }
+
     return (
         <Dialog
             open={isOpen}
@@ -36,27 +37,30 @@ export default function NavbarDialog({ isOpen, setOpen }: INavbarDialog) {
             onOpenChange={handleOnOpenChange}
         >
             <DialogContent
-                className="bg-transparent border-none outline-none text-white shadow-none w-fit"
                 isShowClose={false}
-                isBackdrop
+                classNames={{
+                    overlay: 'bg-primary block desktop:hidden',
+                    content:
+                        'bg-transparent w-sceen border-none outline-none text-white shadow-none block desktop:hidden max-w-screen w-screen p-8',
+                }}
             >
                 <DialogHeader>
                     <DialogTitle />
                     <DialogDescription />
                 </DialogHeader>
                 <nav className="z-10">
-                    <ul className="flex flex-col items-center justify-center gap-3 desktop:gap-5">
+                    <ul className="flex flex-col items-end justify-center gap-3 desktop:gap-5">
                         {NAVIGATES.map((item) => (
                             <MotionLi
                                 key={item.id}
                                 initial="initial"
                                 animate="initial"
                                 whileHover="animate"
-                                className="my-3"
+                                className="my-5"
                             >
                                 <Link
                                     href={item.path}
-                                    className="inline-block desktop:pt-4 desktop:pr-4 desktop:pl-4 pt-2 pr-2 pl-2 pb-1 text-2xl desktop:text-4xl tracking-wider"
+                                    className="inline-block desktop:pt-4 desktop:pr-4 desktop:pl-4 pt-2 pr-2 pl-2 pb-1 text-4xl desktop:text-4xl tracking-wider"
                                 >
                                     {t(`${item.label}`)}
                                 </Link>

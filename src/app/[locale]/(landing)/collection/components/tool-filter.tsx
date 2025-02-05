@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import Plus from '@/components/icons/plus'
 
 function ToolFilter() {
-    const t = useTranslations('tools')
+    const t = useTranslations('collection')
 
     return (
         <div>

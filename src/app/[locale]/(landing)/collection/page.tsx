@@ -8,8 +8,8 @@ import ToolFilter from './components/tool-filter'
 import ToolSearchbar from './components/tool-searchbar'
 import Tools from './components/tools'
 
-function ToolsPage() {
-    const t = useTranslations('tools')
+export default function CollectionPage() {
+    const t = useTranslations('collection')
 
     return (
         <div className="container pb-28">
@@ -29,5 +29,3 @@ function ToolsPage() {
         </div>
     )
 }
-
-export default ToolsPage

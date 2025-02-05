@@ -2,11 +2,23 @@ import React from 'react'
 
 import { useTranslations } from 'next-intl'
 
+import Call from '@/components/icons/call'
 import EducationIcon from '@/components/icons/education-icon'
-
-import { CONTACT_INFO } from '@/app/[locale]/(landing)/(home)/components/sections/get-in-touch'
+import MailGun from '@/components/icons/main-gun'
+import GithubSocialOutline from '@/components/icons/social-icons/github-social-outline'
 
 import AboutMeTimeline from '../about-me-timeline'
+
+export const CONTACT_INFO = [
+    { id: 1, icon: MailGun, value: 'contact@yangis.dev', canCopy: true },
+    { id: 2, icon: Call, value: '(+84) 862 248 332', canCopy: false },
+    {
+        id: 3,
+        icon: GithubSocialOutline,
+        value: 'duongcao04',
+        canCopy: false,
+    },
+]
 
 function AboutMe({ title, desc }: { title: string; desc: string }) {
     return (

@@ -1,27 +1,15 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import { useTheme } from 'next-themes'
+import { CgMenuRightAlt } from 'react-icons/cg'
 
 import NavbarDialog from '@/components/dialogs/navbar-dialog'
-import { MenuButton } from '@/components/ui/menu-button'
 
-import { MotionDiv } from '@/lib/motion'
+import { MotionButton, MotionDiv } from '@/lib/motion'
 
 function FloatingNavbar() {
     const [isOpen, setOpen] = useState(false)
-    const { theme, systemTheme } = useTheme()
-    const [buttonColor, setButtonColor] = useState<string | undefined>(
-        undefined
-    )
-    useEffect(() => {
-        if (theme === 'system') {
-            setButtonColor(systemTheme === 'dark' ? '#fff' : '#000')
-        } else {
-            setButtonColor(theme === 'dark' ? '#fff' : '#000')
-        }
-    }, [theme, systemTheme])
 
     return (
         <MotionDiv
@@ -31,11 +19,18 @@ function FloatingNavbar() {
             className="h-full flex justify-center items-center"
         >
             <div>
-                <MenuButton
+                {/* <MenuButton
                     isOpen={isOpen}
                     onClick={() => setOpen(!isOpen)}
                     color={buttonColor}
-                />
+                /> */}
+                <MotionButton
+                    onClick={() => setOpen(!isOpen)}
+                    className="border border-border rounded-xl px-4 py-3 flex items-center gap-2 hover:border-primary hover:text-primary focus:ring-1 focus:ring-offset-2 focus:ring-primary transition-colors duration-250"
+                >
+                    <CgMenuRightAlt size={25} />
+                    <p>Menu</p>
+                </MotionButton>
                 <NavbarDialog isOpen={isOpen} setOpen={setOpen} />
             </div>
         </MotionDiv>

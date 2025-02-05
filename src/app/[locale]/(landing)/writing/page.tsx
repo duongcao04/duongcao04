@@ -10,7 +10,7 @@ import { formatSemiFullDate } from '@/utils/format'
 import PostCard from './components/cards/post-card'
 import PostSearchbar from './components/post-searchbar'
 
-function PostsPage() {
+export default function WritingPage() {
     const t = useTranslations('posts')
     const locale = useLocale()
 
@@ -42,5 +42,3 @@ function PostsPage() {
         </div>
     )
 }
-
-export default PostsPage

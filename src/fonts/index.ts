@@ -25,6 +25,11 @@ export const preahvihear = Preahvihear({
     subsets: ['latin'],
 })
 
+export const LexendDeca = localFont({
+    src: './LexendDeca.ttf',
+    display: 'swap',
+})
+
 export const playwrite = localFont({
     src: './Playwrite.ttf',
     display: 'swap',

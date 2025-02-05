@@ -1,103 +1,41 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { HiLanguage } from 'react-icons/hi2'
 
 import Logo from '@/components/icons/logo'
 
-import { MotionDiv } from '@/lib/motion'
+import { MotionButton, MotionDiv } from '@/lib/motion'
 
 import AppNavigate from './app-navigate'
 import FloatingNavbar from './floating-navbar'
-import SocialNavigate from './social-navigate'
+import VietnamClock from './vietnam-clock'
 
 export default function Header() {
-    const [isAside, setAside] = useState<boolean>(false)
-
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', () =>
-                setAside(window.scrollY > 80)
-            )
-        }
-    }, [])
-
-    /**
-     * motion variants
-     */
-    const navigateVariant = {
-        init: {
-            y: 0,
-            opacity: 1,
-        },
-        onMove: {
-            y: -100,
-            opacity: 0,
-        },
-    }
-    const logoVariant = {
-        init: { x: 0, opacity: 0 },
-        onMove: { x: -120, opacity: 1, zIndex: 0 },
-    }
-    const buttonVariant = {
-        init: { x: 0, opacity: 0 },
-        onMove: { x: 120, opacity: 1 },
-    }
-
     return (
-        <MotionDiv
-            className={`w-full grid grid-cols-navbar ${isAside ? 'h-[120px]' : 'h-[80px]'}`}
-        >
-            {isAside ? (
-                <MotionDiv
-                    variants={logoVariant}
-                    initial="init"
-                    animate={isAside ? 'onMove' : 'init'}
-                    transition={{ delay: 0.02 }}
-                    className="flex items-center justify-end"
-                >
-                    <Logo className="text-3xl" />
-                </MotionDiv>
-            ) : (
-                <div></div>
-            )}
+        <MotionDiv className="container w-full h-20 desktop:grid desktop:grid-cols-navbar flex justify-between gap-8 items-center">
+            <Logo className="text-3xl" />
 
-            <MotionDiv
-                variants={navigateVariant}
-                initial="init"
-                animate={isAside ? 'onMove' : 'init'}
-                className="p-4 h-full grid grid-cols-[1fr_86px_1fr] gap-20 items-center"
-            >
-                <div className="flex justify-start">
-                    <AppNavigate />
-                </div>
-                <Logo className="text-3xl" />
-                <div className="flex justify-end">
-                    <SocialNavigate />
-                </div>
-            </MotionDiv>
+            <div className="hidden desktop:block ml-2">
+                <AppNavigate />
+            </div>
 
-            {isAside ? (
-                <MotionDiv
-                    variants={buttonVariant}
-                    initial="init"
-                    animate={isAside ? 'onMove' : 'init'}
-                    transition={{ delay: 0.02 }}
-                    className="flex items-center justify-start"
-                >
-                    <FloatingNavbar />
-                </MotionDiv>
-            ) : (
-                <div></div>
-            )}
+            <div className="hidden desktop:block">
+                <div className="flex items-center justify-end gap-5">
+                    <VietnamClock />
+                    <div className="mx-3 w-[2px] h-5 bg-border" />
+                    <MotionButton className="px-6 py-3 rounded-xl border border-border">
+                        <HiLanguage size={20} />
+                    </MotionButton>
+                    <MotionButton className="px-8 py-3 rounded-xl border border-border bg-primary hover:bg-primary-700 transition duration-200 text-white">
+                        <Link href={'https://www.facebook.com/hyang.309'}>
+                            Contact
+                        </Link>
+                    </MotionButton>
+                </div>
+            </div>
+
+            <div className="block desktop:hidden">
+                <FloatingNavbar />
+            </div>
         </MotionDiv>
-    )
-}
-
-export function MobileHeader() {
-    return (
-        <div className="container flex items-center justify-between h-[64px] backdrop-blur-md">
-            <Logo className="text-2xl" />
-            <FloatingNavbar />
-        </div>
     )
 }

@@ -26,7 +26,7 @@
         --primary: #e11d48;
         --primary-foreground: #ffffff;
         /* Secondary accent and text color. */
-        --secondary: #f5f5f5;
+        --secondary: #f59e0b;
         --secondary-foreground: #171717;
         /* Muted colors, often used for subtle UI elements. */
         --muted: #f5f5f5;
@@ -68,7 +68,7 @@
             --popover-foreground: #ffffff;
             --primary: #be123c;
             --primary-foreground: #080809;
-            --secondary: #262626;
+            --secondary: #b45309;
             --secondary-foreground: #ffffff;
             --muted: #262626;
             --muted-foreground: #a1a1a1;
@@ -103,6 +103,10 @@
         font-family: playwrite, Inter, sans-serif;
     }
 
+    .font-lexendDeca {
+        font-family: LexendDeca, Inter, sans-serif;
+    }
+
     /* Hidden scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -119,5 +123,17 @@
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+    }
+
+    /* Text Selection Color */
+    ::-moz-selection {
+        /* Code for Firefox */
+        color: var(--background);
+        background: var(--secondary);
+    }
+
+    ::selection {
+        color: var(--background);
+        background: var(--secondary);
     }
 }

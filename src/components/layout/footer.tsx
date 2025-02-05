@@ -2,11 +2,15 @@ import React from 'react'
 
 import Link from 'next/link'
 
-import Facebook from '../icons/social-icons/facebook'
-import GithubSocial from '../icons/social-icons/github-social'
-import Linkedin from '../icons/social-icons/linkedin'
+import Logo from '@/components/icons/logo'
+import NextjsIcon from '@/components/icons/nextjs-icon'
+import Facebook from '@/components/icons/social-icons/facebook'
+import GithubSocial from '@/components/icons/social-icons/github-social'
+import Linkedin from '@/components/icons/social-icons/linkedin'
 
-const FOOTER_SOCIALS = [
+import { NAVIGATES } from '@/constants/navigates'
+
+const SOCIALS = [
     {
         id: 1,
         title: 'Facebook',
@@ -26,25 +30,58 @@ const FOOTER_SOCIALS = [
         path: '#',
     },
 ]
-function Footer() {
+export default function Footer() {
     return (
-        <footer className="py-4 desktop:h-[64px] bg-gradient-to-bl from-primary-600 via-primary-500 to-primary-600 text-white flex items-center justify-center">
-            <div className="container flex flex-col-reverse desktop:flex-row items-center justify-between gap-2">
-                <p className="font-preahvihear text-base desktop:text-xl">
-                    &#169; 2025 Cao Hai Duong
-                </p>
-                <ul className="flex items-center justify-end gap-3">
-                    {FOOTER_SOCIALS.map((item) => (
-                        <li key={item.id}>
-                            <Link href={item.path} target="_blank">
-                                <item.icon className="size-[24px] desktop:size-[36px]" />
+        <footer className="container border-t py-8">
+            <div className="tablet:grid tablet:grid-cols-3 desktop:grid-cols-4 gap-8">
+                <div className="tablet:col-span-1 desktop:col-span-2">
+                    <Logo className="text-3xl" />
+                </div>
+                <div className="mt-7 tablet:mt-0 desktop:mt-0 col-span-2 grid grid-cols-2 gap-8">
+                    <div className="flex flex-col items-start gap-1">
+                        {NAVIGATES.map((nav) => (
+                            <Link
+                                key={nav.id}
+                                href={nav.path}
+                                className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300"
+                            >
+                                {nav.label}
                             </Link>
-                        </li>
-                    ))}
-                </ul>
+                        ))}
+                    </div>
+                    <div className="flex flex-col items-start gap-2">
+                        {SOCIALS.map((social) => (
+                            <Link
+                                key={social.id}
+                                href={social.path}
+                                className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300"
+                            >
+                                {social.title}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="mt-14">
+                <CopyRight />
             </div>
         </footer>
     )
 }
 
-export default Footer
+function CopyRight() {
+    return (
+        <div className="flex flex-col items-center gap-1">
+            <p className="font-lexendDeca">Copyright © Yangis · 2025</p>
+            <Link
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noreferrer"
+                title="Nextjs"
+                className="ml-5"
+            >
+                <NextjsIcon />
+            </Link>
+        </div>
+    )
+}

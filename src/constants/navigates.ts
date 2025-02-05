@@ -4,7 +4,8 @@ export type Navigate = {
     path: string
 }
 export const NAVIGATES: Navigate[] = [
-    { id: 1, label: 'Tools', path: '/tools' },
-    { id: 2, label: 'Posts', path: '/posts' },
-    { id: 3, label: 'About me', path: '/about-me' },
+    { id: 1, label: 'Work', path: '/work' },
+    { id: 2, label: 'Collection', path: '/collection' },
+    { id: 3, label: 'Writing', path: '/writing' },
+    { id: 4, label: 'Info', path: '/info' },
 ]

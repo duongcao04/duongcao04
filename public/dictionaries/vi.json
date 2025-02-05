@@ -6,9 +6,10 @@
     "layout": {
         "header": {
             "appNavigate": {
-                "Tools": "Công cụ",
-                "Posts": "Bài viết",
-                "About me": "Về tôi"
+                "Work": "Dự án",
+                "Collection": "Bộ sưu tập",
+                "Writing": "Bài viết",
+                "Info": "Thông tin"
             }
         },
         "searchButton": "Tìm kiếm ..."
@@ -49,10 +50,11 @@
             "title": "Liên hệ",
             "desc": "Tôi mong sớm nhận được hồi âm từ bạn.",
             "form": {
-                "name": "Họ và tên",
+                "fname": "Họ",
+                "lname": "Tên",
                 "email": "Email",
                 "message": "Tin nhắn",
-                "submit": "Gửi"
+                "submit": "Gửi lời nhắn"
             }
         }
     },
@@ -60,8 +62,8 @@
         "title": "Bài viết",
         "loadMoreButton": "Tải thêm"
     },
-    "tools": {
-        "title": "Công cụ",
+    "collection": {
+        "title": "Bộ sưu tập",
         "desc": "Công cụ xây dựng trang web nhanh hơn.",
         "addFilterButton": "Thêm bộ lọc"
     },

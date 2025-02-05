@@ -6,9 +6,10 @@
     "layout": {
         "header": {
             "appNavigate": {
-                "Tools": "Tools",
-                "Posts": "Posts",
-                "About me": "About me"
+                "Work": "Work",
+                "Collection": "Collection",
+                "Writing": "Writing",
+                "Info": "Info"
             }
         },
         "searchButton": "Search ..."
@@ -49,19 +50,20 @@
             "title": "Get in touch",
             "desc": "I am looking forward to hearing from you soon.",
             "form": {
-                "name": "Your Name",
-                "email": "Your Email",
+                "fname": "First name",
+                "lname": "Last name",
+                "email": "Email",
                 "message": "Message",
-                "submit": "Send"
+                "submit": "Send message"
             }
         }
     },
     "posts": {
-        "title": "Posts",
+        "title": "Writing",
         "loadMoreButton": "Load more"
     },
-    "tools": {
-        "title": "Tools",
+    "collection": {
+        "title": "Collection",
         "desc": "Faster website building tools.",
         "addFilterButton": "Add Filter"
     },

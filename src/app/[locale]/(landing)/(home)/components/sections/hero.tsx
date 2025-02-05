@@ -1,100 +1,52 @@
 import React from 'react'
 
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 
-import Arrow from '@/components/icons/arrow'
+import Avatar from '@/assets/img/avatar.jpg'
+import { MotionButton, MotionH1 } from '@/lib/motion'
 
-import AVATAR from '@/assets/my_avatar.png'
-import { MotionH1, MotionH2, MotionH3 } from '@/lib/motion'
-
-function Avatar() {
+export default function Hero() {
     return (
-        <div className="relative">
-            <div className="w-[230px] h-[275px] desktop:w-[385px] desktop:h-[430px] bg-red-500 blur-3xl rounded-full"></div>
-            <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <div className="relative">
-                    <div className="size-[300px] bg-[#fffff063] blur-3xl"></div>
-                    <Image
-                        src={AVATAR}
-                        alt="My avatar"
-                        width={260}
-                        height={260}
-                        className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] size-[180px] desktop:size-[260px] rounded-full"
-                    />
+        <div>
+            <div className="space-y-4">
+                <div className="flex flex-col =items-start desktop:flex-row desktop:items-center justify-start gap-5">
+                    <MotionH1 className="text-5xl tablet:text-6xl inline-block font-lexendDeca font-medium">{`Hello, I'm `}</MotionH1>
+                    <div className="flex items-center justify-start gap-6">
+                        <Image
+                            src={Avatar}
+                            alt="avatar"
+                            className="size-24 object-cover rounded-tl-[22px] rounded-tr-[28px] rounded-b-[30px] ring-2 ring-offset-2 ring-border shadow-square"
+                        />
+                        <MotionH1 className="text-5xl tablet:text-6xl inline-block font-lexendDeca font-medium leading-snug">
+                            Duong Cao!
+                        </MotionH1>
+                    </div>
                 </div>
+                <MotionH1 className="text-5xl tablet:text-6xl inline-block font-lexendDeca font-medium text-[#8f9194] leading-snug">
+                    {`I'm a `}{' '}
+                    <span className="text-5xl tablet:text-6xl font-lexendDeca font-medium bg-gradient-to-r from-primary-600 via-orange-600 to-orange-500 text-transparent bg-clip-text">
+                        Web Developer.
+                    </span>
+                </MotionH1>
+            </div>
+            <div className="mt-5 desktop:mt-10 max-w-[800px]">
+                <p className="text-lg text-text-secondary">
+                    {`A Developer with a passion for creating beautiful and functional user interfaces. I'm always learning new technologies and tools to improve my skills.`}
+                </p>
+            </div>
+            <div className="mt-10 flex flex-col items-start desktop:flex-row desktop:items-center justify-start gap-5">
+                <Link href={'/info'} className="block">
+                    <MotionButton className="shadow-md hover:shadow-2xl text-lg px-8 py-3 border border-border rounded-full bg-primary-500 hover:bg-primary-600 transition duration-250 text-white">
+                        Talk with me
+                    </MotionButton>
+                </Link>
+                <Link href={'/download-my-resume'} className="block">
+                    <MotionButton className="shadow-sm hover:shadow-lg text-lg px-8 py-3 border border-border rounded-full transition duration-250">
+                        Download my Resume
+                    </MotionButton>
+                </Link>
             </div>
         </div>
     )
 }
-
-function FloatingSayHi({
-    hello,
-    prefix,
-    fullName,
-}: {
-    hello: string
-    prefix: string
-    fullName: string
-}) {
-    return (
-        <>
-            <div className="absolute flex items-start -top-11 left-28 desktop:top-5 desktop:left-64">
-                <Arrow />
-                <p className="mt-6 -ml-3 font-preahvihear text-base desktop:text-lg">
-                    <span>{hello} </span>
-                    <span>{prefix} </span>
-                    <span className="text-primary block desktop:inline-block">
-                        {fullName}
-                    </span>
-                </p>
-            </div>
-        </>
-    )
-}
-
-function Hero() {
-    const t = useTranslations('home.hero')
-
-    return (
-        <>
-            <div className="relative flex flex-col desktop:flex-row justify-start items-start desktop:items-center desktop:gap-20">
-                <Avatar />
-                <FloatingSayHi
-                    hello={t('hello.hello')}
-                    prefix={t('hello.prefix')}
-                    fullName={t('hello.fullName')}
-                />
-
-                <div className="-mt-10 desktop:mt-0 flex flex-col justify-start">
-                    <div className="mt-20 font-preahvihear space-y-2 desktop:space-y-3">
-                        <MotionH2 className="text-base desktop:text-xl underline underline-offset-2">
-                            {t('slogan.head')}
-                        </MotionH2>
-                        <MotionH1 className="text-3xl desktop:text-5xl desktop:leading-snug max-w-[550px]">
-                            {t('slogan.body')}{' '}
-                        </MotionH1>
-                        <MotionH3 className="text-base desktop:text-lg">
-                            {t('slogan.foot')}
-                        </MotionH3>
-                    </div>
-                </div>
-            </div>
-
-            <hr className="mt-10 mb-5 desktop:hidden" />
-            <div className="desktop:mt-20">
-                <MotionH1 className="text-3xl leading-snug desktop:text-5xl desktop:leading-snug font-preahvihear">
-                    {t('about.title')}
-                </MotionH1>
-                <MotionH3 className="mt-5 text-base leading-relaxed tracking-wider desktop:text-xl desktop:leading-relaxed desktop:tracking-wider font-preahvihear max-w-[1000px]">
-                    {t('about.desc.content')}
-                </MotionH3>
-                <MotionH3 className="mt-3 text-base leading-relaxed tracking-wider desktop:text-xl desktop:leading-relaxed desktop:tracking-wider font-preahvihear">
-                    {t('about.desc.conclusion')}
-                </MotionH3>
-            </div>
-        </>
-    )
-}
-
-export default Hero
