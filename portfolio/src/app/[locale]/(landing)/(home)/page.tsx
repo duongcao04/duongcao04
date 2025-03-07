@@ -12,7 +12,7 @@ const GetInTouch = dynamic(
     () => import('./components/sections/get-in-touch-section')
 )
 
-export default async function Home() {
+export default async function HomePage() {
     return (
         <>
             <section className="container pt-14 desktop:pt-28">

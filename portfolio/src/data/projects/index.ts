@@ -1,9 +1,7 @@
 import { StaticImageData } from 'next/image'
 
-import YangisShopThumbnail from '@/assets/img/work/screenshot/yangis-shop.png'
 import YangisPortfolioThumbnail from '@/assets/img/work/screenshot/yangis-portfolio.png'
-
-import { YangisShopJson } from './markdowns'
+import YangisShopThumbnail from '@/assets/img/work/screenshot/yangis-shop.png'
 
 export type Project = {
     id: string
@@ -32,7 +30,7 @@ export const PROJECTS: Project[] = [
         slug: 'yangis-portfolio',
         web_path: 'https://yangis.dev',
         technologies: ['Next.js', 'Typescript', 'MongoDB'],
-        project_detail: YangisShopJson,
+        project_detail: 'a',
         started_at: '02/2025',
     },
     {
@@ -52,7 +50,7 @@ export const PROJECTS: Project[] = [
             'TypeORM',
             'PostgreSQL',
         ],
-        project_detail: YangisShopJson,
+        project_detail: 'b',
         started_at: '09/2024',
         ended_at: '05/2025',
     },

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
         'Web developer specializing in React, Node.js, and TypeScript. Based in Vietnam. Explore my portfolio showcasing web applications, mobile development, and cloud solutions.',
 }
 
-export default function ProjectDetailLayout({
+export default function WorkDetailLayout({
     children,
 }: Readonly<{
     children: ReactNode
 }>) {
-    return <main className="mb-32">{children}</main>
+    return children
 }

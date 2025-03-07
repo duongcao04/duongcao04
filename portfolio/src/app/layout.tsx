@@ -8,6 +8,7 @@ import ScrollToTop from '@/components/layout/scroll-to-top'
 
 import MyAppProvider from '@/app/providers'
 import { inter } from '@/fonts'
+import '@/server'
 
 import './globals.css'
 

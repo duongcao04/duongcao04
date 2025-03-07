@@ -3,19 +3,23 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { POSTS, type Post } from '@/data/posts'
+import { GET } from '@/app/api/posts/route'
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
+import { type Post } from '@/models/Post'
 import { calculateFromDateToNow } from '@/utils/calc-function'
 
 import SectionTag from '../section-tag'
 
-export default function WritingSection() {
+export default async function WritingSection() {
+    const data = await GET()
+    const allPosts = await data.json()
+
     return (
         <>
             <SectionTag title="Writing" seeMore />
             <div className="mt-5 flex flex-col tablet:grid tablet:grid-cols-2 gap-8">
-                {POSTS.map((post) => (
-                    <PostCard key={post.id} data={post} />
+                {allPosts.map((post: Post) => (
+                    <PostCard key={post._id} data={post} />
                 ))}
             </div>
         </>
@@ -102,7 +106,7 @@ function PostCard({ data }: { data: Post }) {
                     variants={dateVariant}
                     className="mt-2 text-sm desktop:text-lg uppercase font-lexendDeca font-extralight tracking-wide"
                 >
-                    {calculateFromDateToNow(data.createdAt)}
+                    {calculateFromDateToNow(data.created_at)}
                 </MotionP>
             </div>
         </MotionDiv>
