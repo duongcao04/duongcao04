@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { CgMenuRightAlt } from 'react-icons/cg'
 
-import NavbarDialog from '@/components/dialogs/navbar-dialog'
+import NavbarDialog from '@/components/dialogs/NavbarDialog'
 
 import { MotionButton, MotionDiv } from '@/lib/motion'
 

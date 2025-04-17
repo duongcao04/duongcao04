@@ -6,7 +6,7 @@ export async function GET() {
         await dbConnect()
         const posts = await Post.find(
             {}
-        ) /* find all the data in our database */
+        ).lean() /* find all the data in our database */
         return new Response(JSON.stringify(posts), {
             status: 200,
         })

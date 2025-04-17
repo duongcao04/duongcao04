@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
                 hostname: 'images.unsplash.com',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'codedamn-blog.s3.amazonaws.com',
+                pathname: '/**',
+            },
         ],
     },
     transpilePackages: ['next-mdx-remote'],

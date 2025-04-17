@@ -1,0 +1,32 @@
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 300px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #121212;
+    border-radius: 50%;
+    border-top-color: #ef4444;
+    animation: l15 1s infinite linear;
+}
+.loader::before,
+.loader::after {
+    content: '';
+    grid-area: 1/1;
+    margin: 20px;
+    border: inherit;
+    border-radius: 50%;
+    animation: l15 2s infinite;
+}
+.loader::before {
+    border-top-color: #facc15;
+}
+.loader::after {
+    border-top-color: #3b82f6;
+    margin: 8px;
+    animation-duration: 3s;
+}
+@keyframes l15 {
+    to {
+        transform: rotate(1turn);
+    }
+}

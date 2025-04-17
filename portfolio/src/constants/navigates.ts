@@ -6,6 +6,6 @@ export type Navigate = {
 export const NAVIGATES: Navigate[] = [
     { id: 1, label: 'Work', path: '/work' },
     { id: 2, label: 'Collection', path: '/collection' },
-    { id: 3, label: 'Writing', path: '/writing' },
+    { id: 3, label: 'Writing', path: '/blog' },
     { id: 4, label: 'Info', path: '/info' },
 ]

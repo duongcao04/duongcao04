@@ -13,8 +13,14 @@ export default {
     theme: {
         container: {
             center: true,
-            padding: '2rem',
+            padding: {
+                DEFAULT: '2rem', // base padding (all screens)
+                sm: '1rem', // when ≥640px
+                lg: '4rem', // when ≥1024px
+            },
             screens: {
+                sm: '640px',
+                lg: '1024px',
                 '2xl': '1824px',
             },
         },

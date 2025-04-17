@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl'
 
 import { NAVIGATES } from '@/constants/navigates'
 
-import ButtonLink from '../../common/button-link'
+import ButtonLink from '../../common/ButtonLink'
 
 function AppNavigate() {
     const t = useTranslations('layout.header.appNavigate')

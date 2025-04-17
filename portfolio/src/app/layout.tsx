@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 import { ToastContainer } from 'react-toastify'
 
-import ScrollToTop from '@/components/layout/scroll-to-top'
+import ScrollToTop from '@/components/layout/ScrollToTop'
 
 import MyAppProvider from '@/app/providers'
 import { inter } from '@/fonts'
