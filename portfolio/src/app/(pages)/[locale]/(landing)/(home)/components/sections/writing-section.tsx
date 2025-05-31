@@ -4,7 +4,7 @@ import React from 'react'
 
 import { useTranslations } from 'next-intl'
 
-import { useRealtimeSubscriptions } from '@/hooks/useRealtimeSubscriptions'
+import { useFetch } from '@/hooks/useFetch'
 
 import { Post } from '@/types/post'
 
@@ -14,14 +14,11 @@ import SectionTag from '../section-tag'
 export default function WritingSection() {
     const tTag = useTranslations('app.common.tag')
 
-    const { useSubscribeAll } = useRealtimeSubscriptions<Post>(`posts`)
-    const { data: allPosts, loading } = useSubscribeAll({
-        orderBy: 'createdAt',
-    })
+    const { data: allPosts, isLoading } = useFetch<Post>('posts')
 
     console.log(allPosts)
 
-    if (loading) return <p>Loading...</p>
+    if (isLoading) return <p>Loading...</p>
     return (
         <>
             <SectionTag title={tTag('writing')} seeMore />
