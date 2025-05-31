@@ -1,42 +1,50 @@
 {
-    "page": {
-        "title": "Yangis.dev | A web developer",
-        "desc": "How to implement i18n with Next.js (based on App Router)"
-    },
-    "layout": {
-        "header": {
-            "appNavigate": {
-                "Work": "Dự án",
-                "Collection": "Bộ sưu tập",
-                "Writing": "Bài viết",
-                "Info": "Thông tin"
+    "app": {
+        "metadata": {
+            "title": "Yangis.dev",
+            "description": "Chào mừng bạn đến với Yangis.dev — nơi trưng bày các tác phẩm sáng tạo, dự án và những góc nhìn độc đáo. Khám phá lập trình web tiên tiến, thiết kế UI/UX và nhiều hơn thế nữa.",
+            "keywords": "Yangis, portfolio, lập trình web, thiết kế, sáng tạo, dự án, yangis.dev, kỹ sư phần mềm",
+            "ogTitle": "Yangis.dev",
+            "ogDescription": "Khám phá các dự án và sản phẩm của tôi như một lập trình viên và nhà thiết kế sáng tạo. Hãy kết nối và hợp tác cùng nhau.",
+            "twitterTitle": "Yangis.dev",
+            "twitterDescription": "Khám phá portfolio của tôi như một lập trình viên và nhà thiết kế sáng tạo. Hãy cùng hợp tác!"
+        },
+        "common": {
+            "status": {
+                "loading": "Đang tải",
+                "error": "Đã xảy ra lỗi",
+                "success": "Thành công",
+                "empty": "Không tìm thấy mục nào"
+            },
+            "button": {
+                "search": "Tìm kiếm",
+                "submit": "Gửi",
+                "cancel": "Hủy",
+                "save": "Lưu",
+                "delete": "Xóa",
+                "create": "Tạo mới",
+                "edit": "Chỉnh sửa",
+                "update": "Cập nhật",
+                "contact": "Liên hệ",
+                "seeMore": "Xem thêm",
+                "exploreNow": "Khám phá ngay",
+                "buildWebsite": "Xây dựng website"
+            },
+            "tag": {
+                "lastUpdates": "Cập nhật gần đây",
+                "work": "Dự án",
+                "writing": "Bài viết",
+                "getInTouch": "Liên hệ"
             }
         },
-        "searchButton": "Tìm kiếm ..."
+        "layout": {
+            "region": "TP. Hồ Chí Minh, Việt Nam"
+        }
     },
+
     "home": {
-        "tag": {
-            "Tech Stack": "Công nghệ",
-            "Featured Projects": "Dự án nổi bật"
-        },
         "hero": {
-            "hello": {
-                "hello": "Xin chào!",
-                "prefix": "Tôi tên là",
-                "fullName": "Cao Hải Dương"
-            },
-            "slogan": {
-                "head": "Tôi có thể tạo ra sự xuất sắc thông qua",
-                "body": "thiết kế, chức năng, tối ưu hóa,",
-                "foot": "và đổi mới, đảm bảo hiệu suất và sự hài lòng của người dùng."
-            },
-            "about": {
-                "title": "Tôi là một Web Developer.",
-                "desc": {
-                    "content": "Một lập trình viên tập trung vào việc tạo ra các trang web phản hồi nhanh, chất lượng cao và các ứng dụng động. Tôi đảm bảo hiệu suất mượt mà thông qua quá trình lập kế hoạch chi tiết, thiết kế trực quan, cùng kiểm thử và tối ưu hóa kỹ lưỡng.",
-                    "conclusion": "Có mặt 24/7, tôi sẵn sàng hỗ trợ bạn bất kỳ lúc nào!"
-                }
-            }
+            "slogan": "Tôi là một Developer đam mê tạo ra những website đẹp mắt và dễ sử dụng. Hãy cùng tôi biến ý tưởng của bạn thành một trải nghiệm web độc đáo và chuyên nghiệp!"
         },
         "techStack": {
             "title": "Công nghệ và Kỹ năng",

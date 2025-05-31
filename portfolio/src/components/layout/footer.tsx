@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useLocale } from 'next-intl'
 import Link from 'next/link'
 
 import Logo from '@/components/icons/logo'
@@ -9,6 +10,7 @@ import GithubSocial from '@/components/icons/social-icons/github-social'
 import Linkedin from '@/components/icons/social-icons/linkedin'
 
 import { NAVIGATES } from '@/constants/navigates'
+import { SupportLanguages } from '@/i18n/routing'
 
 const SOCIALS = [
     {
@@ -31,6 +33,8 @@ const SOCIALS = [
     },
 ]
 export default function Footer() {
+    const locale = useLocale()
+
     return (
         <footer className="container border-t py-8">
             <div className="tablet:grid tablet:grid-cols-3 desktop:grid-cols-4 gap-8">
@@ -39,15 +43,20 @@ export default function Footer() {
                 </div>
                 <div className="mt-7 tablet:mt-0 desktop:mt-0 col-span-2 grid grid-cols-2 gap-8">
                     <div className="flex flex-col items-start gap-1">
-                        {NAVIGATES.map((nav) => (
-                            <Link
-                                key={nav.id}
-                                href={nav.path}
-                                className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300"
-                            >
-                                {nav.label}
-                            </Link>
-                        ))}
+                        {NAVIGATES.map((nav) => {
+                            const label =
+                                nav[`${locale as SupportLanguages}Label`]
+
+                            return (
+                                <Link
+                                    key={nav.id}
+                                    href={nav.path}
+                                    className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300"
+                                >
+                                    {label}
+                                </Link>
+                            )
+                        })}
                     </div>
                     <div className="flex flex-col items-start gap-2">
                         {SOCIALS.map((social) => (

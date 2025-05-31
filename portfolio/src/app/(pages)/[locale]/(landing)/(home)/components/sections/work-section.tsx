@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -9,9 +10,11 @@ import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
 import SectionTag from '../section-tag'
 
 export default function WorkSection() {
+    const tTag = useTranslations('app.common.tag')
+
     return (
         <>
-            <SectionTag title="Work" seeMore href="/work" />
+            <SectionTag title={tTag('work')} seeMore href="/work" />
             <div className="mt-5 flex flex-col tablet:grid tablet:grid-cols-2 gap-8">
                 {PROJECTS.map((project, index) => (
                     <WorkCard key={index} data={project} />

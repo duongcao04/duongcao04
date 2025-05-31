@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { FiArrowUpRight } from 'react-icons/fi'
 
@@ -36,9 +37,11 @@ const ARTICLES: Article[] = [
 ]
 
 export default function LastUpdateSection() {
+    const tTag = useTranslations('app.common.tag')
+
     return (
         <>
-            <SectionTag title="Last Updates" />
+            <SectionTag title={tTag('lastUpdates')} />
             <div className="mt-4 flex flex-col tablet:grid tablet:grid-cols-3 gap-8">
                 {ARTICLES.map((article) => (
                     <ArticleCard key={article.id} article={article} />

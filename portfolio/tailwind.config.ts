@@ -1,9 +1,10 @@
 import { heroui } from '@heroui/theme'
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
+import { CSSRuleObject } from 'tailwindcss/types/config'
 
 export default {
-    darkMode: ['selector', 'class'],
+    darkMode: 'class',
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -20,14 +21,15 @@ export default {
             },
             screens: {
                 sm: '640px',
-                lg: '1024px',
+                lg: '1440px',
+                xl: '1440px',
                 '2xl': '1824px',
             },
         },
         extend: {
             gridTemplateColumns: {
                 // Navbar colum template
-                navbar: '110px minmax(0, 1fr) minmax(0, 1fr)',
+                navbar: '110px minmax(0, 1fr) minmax(0, 500px)',
             },
             animation: {
                 scrolldown: 'scrolldown 1.5s infinite',
@@ -177,9 +179,15 @@ export default {
     ],
 } satisfies Config
 
-function addVariablesForColors({ addBase, theme }: any) {
-    let allColors = flattenColorPalette(theme('colors'))
-    let newVars = Object.fromEntries(
+function addVariablesForColors({
+    addBase,
+    theme,
+}: {
+    addBase: (base: CSSRuleObject | CSSRuleObject[]) => void
+    theme: (arg: string) => Record<string, string>
+}) {
+    const allColors = flattenColorPalette(theme('colors'))
+    const newVars = Object.fromEntries(
         Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
     )
 
@@ -187,10 +195,10 @@ function addVariablesForColors({ addBase, theme }: any) {
         ':root': newVars,
     })
 }
-function flattenColorPalette(colors: any) {
+function flattenColorPalette(colors: Record<string, string>) {
     const result: Record<string, string> = {}
 
-    function recurse(obj: any, currentKey: string) {
+    function recurse(obj: Record<string, string>, currentKey: string) {
         for (const key in obj) {
             const value = obj[key]
             const newKey = currentKey ? `${currentKey}-${key}` : key

@@ -1,11 +1,18 @@
 export type Navigate = {
     id: number
-    label: string
+    enLabel: string
+    viLabel: string
     path: string
 }
 export const NAVIGATES: Navigate[] = [
-    { id: 1, label: 'Work', path: '/work' },
-    { id: 2, label: 'Collection', path: '/collection' },
-    { id: 3, label: 'Writing', path: '/blog' },
-    { id: 4, label: 'Info', path: '/info' },
+    { id: 1, enLabel: 'Work', viLabel: 'Dự án', path: '/work' },
+    { id: 2, enLabel: 'Source code', viLabel: 'Source code', path: '/work' },
+    {
+        id: 3,
+        enLabel: 'Collection',
+        viLabel: 'Bộ sưu tập',
+        path: '/collection',
+    },
+    { id: 4, enLabel: 'Writing', viLabel: 'Bài viết', path: '/blog' },
+    { id: 5, enLabel: 'Info', viLabel: 'Thông tin', path: '/info' },
 ]

@@ -1,42 +1,49 @@
 {
-    "page": {
-        "title": "Yangis.dev | A web developer",
-        "desc": "How to implement i18n with Next.js (based on App Router)"
-    },
-    "layout": {
-        "header": {
-            "appNavigate": {
-                "Work": "Work",
-                "Collection": "Collection",
-                "Writing": "Writing",
-                "Info": "Info"
+    "app": {
+        "metadata": {
+            "title": "Yangis.dev",
+            "description": "Welcome to Yangis.dev, a place to showcase creative works, projects, and insights. Explore innovative web development, UI/UX design, and much more.",
+            "keywords": "Yangis, portfolio, web development, design, creative, projects, yangis.dev, software engineer",
+            "ogTitle": "Yangis.dev",
+            "ogDescription": "Explore my work and projects as a creative web developer and designer. Let's connect and collaborate.",
+            "twitterTitle": "Yangis.dev",
+            "twitterDescription": "Discover my portfolio as a creative web developer and designer. Let's collaborate!"
+        },
+        "common": {
+            "status": {
+                "loading": "Loading",
+                "error": "An error occurred",
+                "success": "Success",
+                "empty": "No items found"
+            },
+            "button": {
+                "search": "Search",
+                "submit": "Submit",
+                "cancel": "Cancel",
+                "save": "Save",
+                "delete": "Delete",
+                "create": "Create",
+                "edit": "Edit",
+                "update": "Update",
+                "contact": "Contact",
+                "seeMore": "See more",
+                "exploreNow": "Explore now",
+                "buildWebsite": "Build website"
+            },
+            "tag": {
+                "lastUpdates": "Last updates",
+                "work": "Work",
+                "writing": "Writing",
+                "getInTouch": "Get in touch"
             }
         },
-        "searchButton": "Search ..."
+        "layout": {
+            "region": "Ho Chi Minh City, Viet Nam"
+        }
     },
     "home": {
-        "tag": {
-            "Tech Stack": "Tech Stack",
-            "Featured Projects": "Featured Projects"
-        },
         "hero": {
-            "hello": {
-                "hello": "Hello!",
-                "prefix": "I Am",
-                "fullName": "Hai Duong Cao"
-            },
-            "slogan": {
-                "head": "I can craft excellence through with",
-                "body": "design, functionality, optimization,",
-                "foot": "and innovation, ensuring performance and user satisfaction."
-            },
-            "about": {
-                "title": "I'm a Web Developer.",
-                "desc": {
-                    "content": "A Developer focused on creating responsive, high-quality websites and dynamic applications. I ensure seamless performance through detailed planning, intuitive design, and thorough testing and optimization.",
-                    "conclusion": "Available 24/7, I'm ready to assist you anytime!"
-                }
-            }
+            "slogan": "I'm a Developer passionate about creating beautiful, intuitive websites. Let's bring your ideas to life with a unique and professional web experience."
         },
         "techStack": {
             "title": "Technologies and skills",

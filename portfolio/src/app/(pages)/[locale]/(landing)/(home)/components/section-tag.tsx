@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { MdArrowForward, MdSubdirectoryArrowRight } from 'react-icons/md'
 
@@ -14,6 +15,8 @@ function SectionTag({
     seeMore?: boolean
     href?: string
 }) {
+    const tButton = useTranslations('app.common.button')
+
     return (
         <div className="flex items-center justify-start gap-1 tracking-wide text-text-secondary">
             <MdSubdirectoryArrowRight size={20} />
@@ -25,7 +28,7 @@ function SectionTag({
                         href={href ?? '#'}
                         className="flex items-center justify-start gap-1 uppercase font-lexendDeca"
                     >
-                        See more
+                        {tButton('seeMore')}
                         <MdArrowForward size={17} />
                     </Link>
                 </MotionButton>

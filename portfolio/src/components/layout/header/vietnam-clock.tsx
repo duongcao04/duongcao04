@@ -18,7 +18,7 @@ export default function VietnamClock() {
         return () => clearInterval(interval)
     }, [])
 
-    if (!time) return <Skeleton className="w-52 h-10 rounded-xl" />
+    if (!time) return <Skeleton className="w-full h-6 rounded-md" />
 
     const vietnamTime = new Date(time.getTime() + 7 * 60 * 60 * 1000)
     const hours = vietnamTime.getUTCHours().toString().padStart(2, '0')
@@ -26,13 +26,8 @@ export default function VietnamClock() {
     const seconds = vietnamTime.getUTCSeconds().toString().padStart(2, '0')
 
     return (
-        <div className="flex flex-col items-end">
-            <p className="text-sm font-medium text-text-secondary">
-                Ho Chi Minh City, Viet Nam
-            </p>
-            <div className="-mt-[2px] text-base font-bold tracking-wider">
-                {hours}:{minutes}:{seconds}
-            </div>
+        <div className="-mt-[2px] text-base font-bold tracking-wider">
+            {hours}:{minutes}:{seconds}
         </div>
     )
 }
