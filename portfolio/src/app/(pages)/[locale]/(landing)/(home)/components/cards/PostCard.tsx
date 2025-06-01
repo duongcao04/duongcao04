@@ -56,11 +56,13 @@ export default function PostCard({ data }: { data: Post }) {
                 <MotionDiv
                     variants={imageVariant}
                     transition={{ delay: 0.1, duration: 0.3 }}
+                    className="w-full h-full flex items-center justify-center"
                 >
                     <Image
                         src={data.thumbnail}
                         alt={`${data.title} thumbnail`}
-                        className="w-full h-full object-cover rounded-xl"
+                        className="w-full h-full object-cover rounded-xl aspect-video"
+                        wrapperClassName="w-full h-full"
                         preview={false}
                     />
                 </MotionDiv>

@@ -1,5 +1,7 @@
 import { type ReactNode } from 'react'
 
+import { Viewport } from 'next'
+
 import { getTranslations } from 'next-intl/server'
 import { ToastContainer } from 'react-toastify'
 
@@ -44,11 +46,12 @@ export async function generateMetadata({
             description: t('app.metadata.twitterDescription'),
             images: ['https://yangis.dev/twitter-card.jpg'],
         },
-        viewport: {
-            width: 'device-width',
-            initialScale: 1,
-        },
     }
+}
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
 }
 
 export default function RootLayout({

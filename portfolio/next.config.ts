@@ -15,18 +15,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'img.freepik.com',
-                pathname: '/**',
-            },
-            {
-                protocol: 'https',
-                hostname: 'images.unsplash.com',
-                pathname: '/**',
-            },
-            {
-                protocol: 'https',
-                hostname: 'codedamn-blog.s3.amazonaws.com',
-                pathname: '/**',
+                hostname: '**',
             },
         ],
     },

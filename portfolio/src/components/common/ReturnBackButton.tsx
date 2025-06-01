@@ -14,7 +14,7 @@ export default function ReturnBackButton() {
 
     return (
         <MotionButton
-            className="w-fit p-2.5 rounded-full border-2"
+            className="w-fit p-2 rounded-full border-2"
             initial={{
                 borderColor: 'var(--foreground)',
                 color: 'var(--foreground)',

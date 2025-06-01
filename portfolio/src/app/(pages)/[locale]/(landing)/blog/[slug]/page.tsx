@@ -1,123 +1,130 @@
 import React from 'react'
 
-import { BreadcrumbItem, Breadcrumbs, Chip } from '@heroui/react'
+import { Avatar, Spinner } from '@heroui/react'
+import { BreadcrumbItem, Breadcrumbs } from '@heroui/react'
+import { IconEye, IconMessageCircle } from '@tabler/icons-react'
 import { Image } from 'antd'
 import { HomeIcon } from 'lucide-react'
-import Link from 'next/link'
+import { ImageNext } from 'next/image'
 
-import ReturnBackButton from '@/components/common/ReturnBackButton'
 import CustomMDX from '@/components/mdx-remote'
 
-import { GET } from '@/app/api/posts/[slug]/route'
 import NotFound from '@/app/not-found'
-import envConfig from '@/config/config'
+import avatar from '@/assets/img/avatar.jpg'
+import { Link } from '@/i18n/navigation'
+import { firebaseService } from '@/lib/firebase/services'
 import { MotionH1 } from '@/lib/motion'
-import { Post } from '@/models/Post'
+import { Post } from '@/types/post'
 
-import RelatedPosts from './_components/RelatedPosts'
+import PostTags from './_components/PostTags'
 
-type Props = { params: { slug: string } }
+export type Props = { params: Promise<{ slug: string }> }
 
-export async function generateStaticParams() {
-    const posts: { slug: string }[] = await fetch(
-        `${envConfig.NEXT_PUBLIC_API_ENDPOINT}/api/posts`
-    ).then((r) => r.json())
-    return posts.map((p) => ({ slug: p.slug }))
-}
-
-export async function generateMetadata({ params }: Props) {
-    const data = await GET(params.slug)
-    const post: Post = await data.json()
-
-    if (!post) {
-        return { title: 'Post Not Found' }
+const fetchData = async (slug: string) => {
+    let loading
+    let posts: Post[] = []
+    try {
+        loading = true
+        posts = await firebaseService.getByQuery<Post>('posts', 'slug', slug, 1)
+    } catch (error) {
+        console.log(error)
+    } finally {
+        loading = false
     }
+
     return {
-        title: post.title,
-        description: post.description,
-        openGraph: {
-            title: post.title,
-            description: post.description,
-            images: post.thumbnail,
-        },
+        data: posts[0],
+        loading,
     }
 }
 
-function BreadcrumbsImpl() {
-    return (
-        <Breadcrumbs>
-            <BreadcrumbItem startContent={<HomeIcon />}>Home</BreadcrumbItem>
-            <BreadcrumbItem>Blog</BreadcrumbItem>
-            <BreadcrumbItem>What is Next.js?</BreadcrumbItem>
-        </Breadcrumbs>
-    )
-}
 export default async function BlogDetailPage({ params }: Props) {
-    const data = await GET(params.slug)
-    const post: Post = await data.json()
+    const { slug } = await params
+    const { data: post, loading } = await fetchData(slug)
 
     if (!post) return NotFound()
 
+    if (loading)
+        return (
+            <div className="w-screen h-screen">
+                <Spinner size="lg" />
+            </div>
+        )
+
+    const postInteractions = [
+        { name: 'Total view', icon: IconEye, value: '200' },
+        { name: 'Comment', icon: IconMessageCircle, value: '200' },
+    ]
+
     return (
         <div className="mb-24">
-            <BreadcrumbsImpl />
-            <section id="detail-page-heading" className="container mt-3">
-                <ReturnBackButton />
-                <MotionH1 className="mt-12 text-6xl font-lexendDeca font-semibold tracking-wider leading-normal bg-gradient-to-br from-primary-900 via-primary-600 to-primary-900 bg-clip-text text-transparent">
+            <BreadcrumbsImpl postTitle={post.title} />
+            <section id="detail-page-heading" className="container mt-10">
+                <MotionH1 className="text-5xl font-lexendDeca font-bold tracking-wider leading-normal">
                     {post.title}
                 </MotionH1>
-                <div className="mt-32">
-                    <p>Link</p>
-                    <Link href={'https://shop.yangis.dev'}>View website</Link>
+                <div className="flex items-center justify-start gap-5"></div>
+                <div className="mt-10 flex items-center justify-start gap-5">
+                    <Avatar
+                        isBordered
+                        src="https://github.com/duongcao04/duongcao04/blob/master/portfolio/src/assets/img/avatar.jpg?raw=true"
+                    />
+                    <div>
+                        <p>Cao Hải Dương</p>
+                        <p className="text-xs">Web Developer</p>
+                    </div>
+                </div>
+                <div className="mt-10 border-t border-b border-gray-200 py-3 flex items-center justify-start gap-7">
+                    {postInteractions.map((item, index) => {
+                        return (
+                            <div
+                                key={index}
+                                className="flex items-center justify-start gap-1.5 text-gray-500"
+                            >
+                                <item.icon stroke={1.5} size={24} />
+                                <p className="text-sm">{item.value}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </section>
 
-            <section className="mt-8">
-                <div className="w-full aspect-video">
+            <section className="mt-20 max-w-screen grid place-items-center">
+                <div className="container">
                     <Image
                         src={post?.thumbnail}
                         alt={post?.title}
-                        className="w-full h-full aspect-video object-cover"
+                        className="w-full h-full object-cover"
+                        wrapperClassName="w-full"
                         preview={false}
                     />
                 </div>
             </section>
-            <div className="max-w-screen-laptop mx-auto mt-16">
+
+            <div className="border-t border-gray-200 max-w-screen-laptop mx-auto mt-14 pt-10">
                 <section>
                     <CustomMDX source={post?.content} />
                 </section>
                 <hr className="mt-24 mb-8" />
                 <PostTags />
                 <section className="mt-32">
-                    <RelatedPosts slug={params.slug} />
+                    {/* <RelatedPosts slug={params.slug} /> */}
                 </section>
             </div>
         </div>
     )
 }
-function PostTags() {
+
+function BreadcrumbsImpl({ postTitle }: { postTitle?: string }) {
     return (
-        <div className="flex items-center justify-start gap-5">
-            <p className="text-xl font-semibold">Post Tags:</p>
-            <ul className="flex items-center justify-start gap-3 flex-wrap">
-                {['#Useful', '#Website', '#Coding', '#Technology'].map(
-                    (tag, index) => (
-                        <li key={index}>
-                            <Chip
-                                classNames={{
-                                    base: 'bg-gradient-to-br from-indigo-500 to-pink-500 border-small border-white/50 shadow-pink-500/30',
-                                    content:
-                                        'drop-shadow shadow-black text-white',
-                                }}
-                                size="lg"
-                                variant="shadow"
-                            >
-                                {tag}
-                            </Chip>
-                        </li>
-                    )
-                )}
-            </ul>
-        </div>
+        <Breadcrumbs>
+            <BreadcrumbItem startContent={<HomeIcon />}>
+                <Link href="/">Home</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <Link href="/blog">Blog</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem>{postTitle || 'Loading...'}</BreadcrumbItem>
+        </Breadcrumbs>
     )
 }

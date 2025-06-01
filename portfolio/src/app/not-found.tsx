@@ -1,10 +1,7 @@
-'use client'
-
-import Link from 'next/link'
-
 import Search from '@/components/common/search'
 import { Button } from '@/components/ui/button'
 
+import { Link } from '@/i18n/navigation'
 import { MotionDiv, MotionH1, MotionP } from '@/lib/motion'
 
 export default function NotFound() {
