@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ReturnBackButton from '@/components/common/ReturnBackButton'
-import CustomMDX from '@/components/mdx-remote'
 
 import { PROJECTS } from '@/data/projects'
 import { MotionH1 } from '@/lib/motion'
@@ -15,7 +14,7 @@ export default async function WorkDetailPage({
 }) {
     const slug = (await params).slug
     const project = PROJECTS.find((item) => item.slug === slug)
-    const { content, frontmatter } = await compileMDX<{
+    const { frontmatter } = await compileMDX<{
         title: string
         author: string
     }>({
@@ -55,7 +54,7 @@ export default async function WorkDetailPage({
                 </section>
             )}
             <section className="container mt-16">
-                <CustomMDX source={content} />
+                {/* <CustomMDX source={content} /> */}
             </section>
             <p>{frontmatter.author}</p>
         </div>

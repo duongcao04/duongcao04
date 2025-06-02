@@ -5,12 +5,9 @@ import { BreadcrumbItem, Breadcrumbs } from '@heroui/react'
 import { IconEye, IconMessageCircle } from '@tabler/icons-react'
 import { Image } from 'antd'
 import { HomeIcon } from 'lucide-react'
-import { ImageNext } from 'next/image'
-
-import CustomMDX from '@/components/mdx-remote'
+import ReactMarkdown from 'react-markdown'
 
 import NotFound from '@/app/not-found'
-import avatar from '@/assets/img/avatar.jpg'
 import { Link } from '@/i18n/navigation'
 import { firebaseService } from '@/lib/firebase/services'
 import { MotionH1 } from '@/lib/motion'
@@ -103,7 +100,72 @@ export default async function BlogDetailPage({ params }: Props) {
 
             <div className="border-t border-gray-200 max-w-screen-laptop mx-auto mt-14 pt-10">
                 <section>
-                    <CustomMDX source={post?.content} />
+                    <ReactMarkdown
+                        components={{
+                            h1: ({ children }) => (
+                                <h1 className="text-3xl font-bold text-gray-900 mt-12 mb-6 pb-3 border-b border-gray-200">
+                                    {children}
+                                </h1>
+                            ),
+                            h2: ({ children }) => (
+                                <h2 className="text-2xl font-semibold text-gray-900 mt-10 mb-5 tracking-tight">
+                                    {children}
+                                </h2>
+                            ),
+                            h3: ({ children }) => (
+                                <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
+                                    {children}
+                                </h3>
+                            ),
+                            p: ({ children }) => (
+                                <p className="text-gray-700 leading-7 mb-6 text-[16px]">
+                                    {children}
+                                </p>
+                            ),
+                            code: ({ children }) => (
+                                <pre className="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto my-6">
+                                    <code className="text-sm font-mono text-gray-800 leading-relaxed">
+                                        {children}
+                                    </code>
+                                </pre>
+                            ),
+                            strong: ({ children }) => (
+                                <strong className="font-semibold text-gray-900">
+                                    {children}
+                                </strong>
+                            ),
+                            blockquote: ({ children }) => (
+                                <blockquote className="border-l-4 border-blue-500 bg-blue-50 pl-6 py-4 my-6 rounded-r-lg">
+                                    <div className="text-gray-800 italic">
+                                        {children}
+                                    </div>
+                                </blockquote>
+                            ),
+                            ul: ({ children }) => (
+                                <ul className="space-y-3 my-6 text-gray-700">
+                                    {children}
+                                </ul>
+                            ),
+                            li: ({ children }) => (
+                                <li className="leading-7">{children}</li>
+                            ),
+                            hr: () => (
+                                <hr className="border-0 h-px bg-gray-200 my-12" />
+                            ),
+                            a: ({ href, children }) => (
+                                <a
+                                    href={href}
+                                    className="text-blue-600 hover:text-blue-800 underline decoration-blue-300 hover:decoration-blue-500 transition-colors duration-200"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {children}
+                                </a>
+                            ),
+                        }}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
                 </section>
                 <hr className="mt-24 mb-8" />
                 <PostTags />

@@ -1,33 +1,20 @@
 import React from 'react'
-import { Button } from '@heroui/react'
-import Link from 'next/link'
-import { Image } from 'antd'
-import { GET } from '@/app/api/posts/route'
-import { Post } from '@/models/Post'
-import { calculateFromDateToNow } from '@/utils/calc-function'
 
-async function fetchPosts() {
-    try {
-        const response = await GET()
-        if (!response.ok) {
-            throw new Error(`Failed to fetch posts: ${response.status}`)
-        }
-        const posts = await response.json()
-        return posts
-    } catch (error) {
-        console.error('Error fetching posts:', error)
-        return []
-    }
-}
+import { Button } from '@heroui/react'
+import { Image } from 'antd'
+import Link from 'next/link'
+
+import { Post } from '@/types/post'
+import { calculateFromDateToNow } from '@/utils/calc-function'
 
 type Props = {
     slug: string
 }
 export default async function RelatedPosts({ slug }: Props) {
-    const posts: Post[] = await fetchPosts()
-    
+    const posts: Post[] = []
+
     // Filter out the current post and get related posts
-    const relatedPosts = posts.filter(post => post.slug !== slug).slice(0, 4)
+    const relatedPosts = posts.filter((post) => post.slug !== slug).slice(0, 4)
 
     if (!relatedPosts.length) {
         return <div className="p-4 text-center">No related posts found</div>
@@ -41,7 +28,7 @@ export default async function RelatedPosts({ slug }: Props) {
             </div>
             <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-3">
                 {relatedPosts.map((post, index) => (
-                    <RelatedPostCard data={post} key={post._id || index} />
+                    <RelatedPostCard data={post} key={post.id || index} />
                 ))}
             </div>
         </>
@@ -49,10 +36,7 @@ export default async function RelatedPosts({ slug }: Props) {
 }
 function RelatedPostCard({ data }: { data: Post }) {
     return (
-        <Link
-            href={`/blog/${data.slug}`}
-            className="group block w-full"
-        >
+        <Link href={`/blog/${data.slug}`} className="group block w-full">
             <div className="aspect-video rounded-xl overflow-hidden border border-border">
                 <Image
                     src={data.thumbnail}

@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 
 import { FileProtectOutlined, HomeOutlined } from '@ant-design/icons'

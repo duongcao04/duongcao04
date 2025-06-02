@@ -1,13 +1,25 @@
 import React from 'react'
 
-import { GET } from '@/app/api/posts/route'
-import { Post } from '@/models/Post'
+import { Spinner } from '@heroui/react'
+
+import { useFirebaseData } from '@/hooks/useFirebase'
+
+import { Post } from '@/types/post'
 
 import PostCard from './cards/PostCard'
 
-export default async function PostList() {
-    const data = await GET()
-    const allPosts: Post[] = await data.json()
+export default function PostList() {
+    const { data: allPosts, loading } = useFirebaseData<Post>('posts')
+
+    console.log(allPosts)
+
+    if (loading) {
+        return (
+            <div className="w-full h-full flex items-center justify-center">
+                <Spinner size="lg" />
+            </div>
+        )
+    }
 
     if (!allPosts.length) {
         return <div className="p-4 text-center">No posts found</div>
@@ -16,7 +28,7 @@ export default async function PostList() {
     return (
         <div className="space-y-4">
             {allPosts.map((post, index) => (
-                <PostCard key={post._id || index} data={post} />
+                <PostCard key={post.id || index} data={post} />
             ))}
         </div>
     )

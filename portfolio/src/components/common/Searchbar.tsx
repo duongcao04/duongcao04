@@ -14,7 +14,7 @@ interface SearchBarProps extends InputProps {
 
 function SearchBar({ onSearch, placeholder, ...otherProps }: SearchBarProps) {
     const [keywords, setKeywords] = useState('')
-    const t = useTranslations('layout')
+    const tButton = useTranslations('app.common.button')
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -28,7 +28,7 @@ function SearchBar({ onSearch, placeholder, ...otherProps }: SearchBarProps) {
         <form onSubmit={onSubmit}>
             <Input
                 startContent={<Search className="size-[20px]" />}
-                placeholder={placeholder ?? t('searchButton')}
+                placeholder={placeholder ?? tButton('search')}
                 defaultValue={keywords}
                 onChange={(event) => {
                     setKeywords(event.target.value)

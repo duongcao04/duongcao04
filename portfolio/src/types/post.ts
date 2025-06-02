@@ -4,7 +4,7 @@ export type Post = {
     description?: string
     content?: string
     thumbnail?: string
-    createdAt: number
-    updatedAt: number
+    createdAt: string
+    updatedAt: string
     slug?: string
 }

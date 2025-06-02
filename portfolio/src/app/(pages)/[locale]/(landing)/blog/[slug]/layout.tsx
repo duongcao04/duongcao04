@@ -20,14 +20,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }) {
     try {
+        const { slug } = await params
         const { firebaseService } = await import('@/lib/firebase/services')
         const posts: Post[] = await firebaseService.getByQuery(
             'posts',
             'slug',
-            params.slug,
+            slug,
             1
         )
         const post = posts[0]

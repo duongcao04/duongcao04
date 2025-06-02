@@ -4,7 +4,7 @@ import { Image } from '@heroui/react'
 import Link from 'next/link'
 
 import { MotionH3 } from '@/lib/motion'
-import { Post } from '@/models/Post'
+import { Post } from '@/types/post'
 
 type Props = {
     data: Post
@@ -24,7 +24,7 @@ function PostCard({ data: post }: Props) {
 
             <div className="mt-1">
                 <p className="uppercase font-semibold tracking-wider opacity-70">
-                    {post.tagName}
+                    {post.title}
                 </p>
                 <Link href={`/blog/${post.slug}`} className="inline-block my-2">
                     <MotionH3 className="py-1 text-2xl font-bold tracking-wide">
