@@ -1,4 +1,5 @@
-const formatFullDate = (date: Date) => {
+const formatFullDate = (dateString: string) => {
+    const date = new Date(dateString)
     const options: Intl.DateTimeFormatOptions = {
         weekday: 'long',
         year: 'numeric',
@@ -8,10 +9,11 @@ const formatFullDate = (date: Date) => {
     return date.toLocaleDateString('en-US', options)
 }
 
-const formatSemiFullDate: (date: Date, locale?: string) => string = (
-    date,
+const formatSemiFullDate: (dateString: string, locale?: string) => string = (
+    dateString,
     locale = 'en'
 ) => {
+    const date = new Date(dateString)
     const options: Intl.DateTimeFormatOptions = {
         year: 'numeric',
         month: 'long',

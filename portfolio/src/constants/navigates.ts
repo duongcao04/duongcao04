@@ -6,7 +6,7 @@ export type Navigate = {
 }
 export const NAVIGATES: Navigate[] = [
     { id: 1, enLabel: 'Work', viLabel: 'Dự án', path: '/work' },
-    { id: 2, enLabel: 'Source code', viLabel: 'Source code', path: '/work' },
+    { id: 2, enLabel: 'Source code', viLabel: 'Source code', path: '/source-code' },
     {
         id: 3,
         enLabel: 'Collection',

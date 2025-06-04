@@ -1,17 +1,19 @@
 import React from 'react'
 
 import { Avatar, Spinner } from '@heroui/react'
-import { BreadcrumbItem, Breadcrumbs } from '@heroui/react'
 import { IconEye, IconMessageCircle } from '@tabler/icons-react'
 import { Image } from 'antd'
 import { HomeIcon } from 'lucide-react'
+import { getLocale } from 'next-intl/server'
 import ReactMarkdown from 'react-markdown'
 
+import CustomizeBreadcrumbs from '@/components/common/CustomizeBreadcrumbs'
+
 import NotFound from '@/app/not-found'
-import { Link } from '@/i18n/navigation'
 import { firebaseService } from '@/lib/firebase/services'
 import { MotionH1 } from '@/lib/motion'
 import { Post } from '@/types/post'
+import { formatSemiFullDate } from '@/utils/format'
 
 import PostTags from './_components/PostTags'
 
@@ -36,6 +38,7 @@ const fetchData = async (slug: string) => {
 }
 
 export default async function BlogDetailPage({ params }: Props) {
+    const locale = await getLocale()
     const { slug } = await params
     const { data: post, loading } = await fetchData(slug)
 
@@ -53,15 +56,32 @@ export default async function BlogDetailPage({ params }: Props) {
         { name: 'Comment', icon: IconMessageCircle, value: '200' },
     ]
 
+    const breadcrumbs = [
+        {
+            href: '',
+            label: 'a',
+            icon: HomeIcon,
+        },
+        {
+            href: '',
+            label: 'a',
+            icon: HomeIcon,
+        },
+    ]
+
     return (
         <div className="mb-24">
-            <BreadcrumbsImpl postTitle={post.title} />
             <section id="detail-page-heading" className="container mt-10">
-                <MotionH1 className="text-5xl font-lexendDeca font-bold tracking-wider leading-normal">
+                <CustomizeBreadcrumbs data={breadcrumbs} />
+                <MotionH1 className="text-lg tablet:text-5xl font-lexendDeca font-bold tracking-wider leading-normal">
                     {post.title}
                 </MotionH1>
-                <div className="flex items-center justify-start gap-5"></div>
-                <div className="mt-10 flex items-center justify-start gap-5">
+                <p className="mt-10 space-x-2">
+                    <span>{formatSemiFullDate(post.createdAt, locale)}</span>
+                    <span>•</span>
+                    <span>5 min read</span>
+                </p>
+                <div className="mt-7 flex items-center justify-start gap-5">
                     <Avatar
                         isBordered
                         src="https://github.com/duongcao04/duongcao04/blob/master/portfolio/src/assets/img/avatar.jpg?raw=true"
@@ -174,19 +194,5 @@ export default async function BlogDetailPage({ params }: Props) {
                 </section>
             </div>
         </div>
-    )
-}
-
-function BreadcrumbsImpl({ postTitle }: { postTitle?: string }) {
-    return (
-        <Breadcrumbs>
-            <BreadcrumbItem startContent={<HomeIcon />}>
-                <Link href="/">Home</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-                <Link href="/blog">Blog</Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>{postTitle || 'Loading...'}</BreadcrumbItem>
-        </Breadcrumbs>
     )
 }

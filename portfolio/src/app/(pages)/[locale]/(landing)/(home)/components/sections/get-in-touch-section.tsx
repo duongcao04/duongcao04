@@ -1,80 +1,62 @@
 import React from 'react'
 
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { FiPhoneCall } from 'react-icons/fi'
-import { LuSend } from 'react-icons/lu'
-import { PiMessengerLogoBold, PiSkypeLogoBold } from 'react-icons/pi'
 import { RoughNotation } from 'react-rough-notation'
+
+import { CONTACT_INFOS } from '@/constants/appConstants'
+import { SupportLanguages } from '@/i18n/routing'
 
 import ContactForm from '../forms/contact-form'
 
 function ContactInfo() {
-    const INFO = [
-        {
-            title: 'Call me',
-            desc: 'Available from 8:00am to 5:00pm.',
-            method: [
-                {
-                    icon: FiPhoneCall,
-                    label: '(+84) 862 248 332',
-                    href: '(+84) 862 248 332',
-                },
-            ],
-        },
-        {
-            title: 'Chat with me',
-            desc: 'Send me a message on social media.',
-            method: [
-                {
-                    icon: PiSkypeLogoBold,
-                    label: 'Start a live chat.',
-                    href: '(+84) 862 248 332',
-                },
-                {
-                    icon: LuSend,
-                    label: 'Shoot me an email.',
-                    href: 'mailto:contact@yangis.dev',
-                },
-                {
-                    icon: PiMessengerLogoBold,
-                    label: 'Message me on Messenger.',
-                    href: 'https://www.facebook.com/hyang.309',
-                },
-            ],
-        },
-    ]
+    const locale = useLocale()
+
     return (
         <div className="space-y-10">
-            {INFO.map((group, index) => (
-                <div key={index}>
-                    <p className="text-lg font-semibold">{group.title}</p>
-                    <p className="mt-2 font-medium text-text-secondary tracking-wider">
-                        {group.desc}
-                    </p>
-                    <div className="mt-5 space-y-4">
-                        {group.method.map((method, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center justify-start gap-2"
-                            >
-                                <method.icon size={22} />
-                                <Link
-                                    href={method.href}
-                                    target="_blank"
-                                    className="hover:text-secondary transition duration-250 p-1"
-                                >
-                                    {method.label}
-                                </Link>
-                            </div>
-                        ))}
+            {CONTACT_INFOS.map((group, index) => {
+                const groupTitle = group[`${locale as SupportLanguages}Title`]
+                const groupDesc =
+                    group[`${locale as SupportLanguages}Description`]
+
+                return (
+                    <div key={index}>
+                        <p className="text-lg font-semibold">{groupTitle}</p>
+                        <p className="mt-2 font-medium text-text-secondary tracking-wider">
+                            {groupDesc}
+                        </p>
+                        <div className="mt-5 space-y-4">
+                            {group.method.map((method, index) => {
+                                const methodLabel =
+                                    method[`${locale as SupportLanguages}Label`]
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className="flex items-center justify-start gap-2"
+                                    >
+                                        <method.icon size={22} />
+                                        <Link
+                                            href={method.href}
+                                            target="_blank"
+                                            className="hover:text-secondary transition duration-250 p-1"
+                                        >
+                                            {methodLabel}
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                </div>
-            ))}
+                )
+            })}
         </div>
     )
 }
 
 export default function GetInTouch() {
+    const tTag = useTranslations('app.common.tag')
+
     return (
         <>
             <div className="flex flex-col items-center">
@@ -86,8 +68,8 @@ export default function GetInTouch() {
                         color="var(--secondary)"
                         order={5}
                     >
-                        <span className="font-lexendDeca font-semibold px-8">
-                            Get In Touch
+                        <span className="font-lexendDeca font-semibold px-8 capitalize">
+                            {tTag('getInTouch')}
                         </span>
                     </RoughNotation>
                 </div>

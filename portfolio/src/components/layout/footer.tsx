@@ -5,33 +5,11 @@ import Link from 'next/link'
 
 import Logo from '@/components/icons/logo'
 import NextjsIcon from '@/components/icons/nextjs-icon'
-import Facebook from '@/components/icons/social-icons/facebook'
-import GithubSocial from '@/components/icons/social-icons/github-social'
-import Linkedin from '@/components/icons/social-icons/linkedin'
 
+import { FOOTER_CONTACTS } from '@/constants/appConstants'
 import { NAVIGATES } from '@/constants/navigates'
 import { SupportLanguages } from '@/i18n/routing'
 
-const SOCIALS = [
-    {
-        id: 1,
-        title: 'Facebook',
-        icon: Facebook,
-        path: 'https://facebook.com/hyang309',
-    },
-    {
-        id: 2,
-        title: 'Github',
-        icon: GithubSocial,
-        path: 'https://github.com/duongcao04',
-    },
-    {
-        id: 3,
-        title: 'Linkedin',
-        icon: Linkedin,
-        path: '#',
-    },
-]
 export default function Footer() {
     const locale = useLocale()
 
@@ -59,11 +37,11 @@ export default function Footer() {
                         })}
                     </div>
                     <div className="flex flex-col items-start gap-2">
-                        {SOCIALS.map((social) => (
+                        {FOOTER_CONTACTS.map((social) => (
                             <Link
                                 key={social.id}
                                 href={social.path}
-                                className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300"
+                                className="font-lexendDeca font-normal inline-block p-1 hover:text-primary transition duration-300 capitalize"
                             >
                                 {social.title}
                             </Link>

@@ -2,6 +2,7 @@ import React from 'react'
 
 import Link from 'next/link'
 
+import { appName } from '@/constants/appConstants'
 import { MotionButton } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
@@ -22,7 +23,7 @@ const Logo = ({
                 className={cn('font-logo tracking-widest', className)}
                 {...otherProps}
             >
-                Yangis
+                {appName}
             </Link>
         </MotionButton>
     )
