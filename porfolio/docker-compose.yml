@@ -1,0 +1,11 @@
+name: porfolio
+services:
+    database:
+        image: mongo
+        container_name: porfolio_mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root1234
+        ports:
+            - 27017:27017
