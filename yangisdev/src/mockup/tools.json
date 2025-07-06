@@ -1,0 +1,535 @@
+[
+  {
+    "description": "VitePress là framework tĩnh nhẹ dựa trên Vite, hỗ trợ tạo tài liệu và blog với hiệu suất cao, giao diện tối ưu, dễ tùy chỉnh và tốc độ dựng trang nhanh chóng.",
+    "id": 1,
+    "name": "VitePress",
+    "ref": "https://vitepress.dev/",
+    "tag": [
+      "build-docs-website"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/vitepress_xpznh1"
+  },
+  {
+    "description": "GitBook là một nền tảng hiện đại để tạo tài liệu, nơi các team có thể tài liệu hóa mọi thứ từ sản phẩm đến kiến thức nội bộ và API.",
+    "id": 2,
+    "name": "Gitbook",
+    "ref": "https://www.gitbook.com/",
+    "tag": [
+      "build-docs-website"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/gitbook_udjocr"
+  },
+  {
+    "description": "Animate.style là thư viện CSS đơn giản, giúp thêm hiệu ứng chuyển động mượt mà vào website. Với nhiều hiệu ứng sẵn có, nó dễ sử dụng, nhẹ và tối ưu cho mọi dự án.",
+    "id": 3,
+    "name": "Animate.style",
+    "ref": "https://animate.style/",
+    "tag": [
+      "animate"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/animate-css_bucek7"
+  },
+  {
+    "description": "Motion.dev là thư viện animation mạnh mẽ dành cho React, cung cấp công cụ dễ dùng để tạo hiệu ứng mượt mà. Với hiệu suất cao, nó hỗ trợ tùy chỉnh linh hoạt cho mọi dự án.",
+    "id": 4,
+    "name": "Motion.dev",
+    "ref": "https://motion.dev/",
+    "tag": [
+      "animate"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/motion-dev_so8caw"
+  },
+  {
+    "description": "CSS Loader là một trang web cung cấp các bộ tải (loader) CSS miễn phí, giúp tạo hiệu ứng tải dữ liệu mượt mà cho website. Các loader này dễ dàng tích hợp và tùy chỉnh.",
+    "id": 5,
+    "name": "CSS Loader",
+    "ref": "https://css-loaders.com/",
+    "tag": [
+      "animate"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/css-loader_xiyxju"
+  },
+  {
+    "description": "HeroUI cung cấp các thành phần UI sẵn sàng sử dụng, được thiết kế đẹp mắt và tối ưu hiệu suất. Trang web giúp phát triển giao diện nhanh chóng.",
+    "id": 6,
+    "name": "HeroUI",
+    "ref": "https://www.heroui.com/",
+    "tag": [
+      "ui-library"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/hero-ui_wmnosn.png"
+  },
+  {
+    "description": "Free tool to make it easier for designers and developers to export a beautiful SVG shape divider.",
+    "id": 7,
+    "name": "Custom Shape Dividers",
+    "ref": "https://www.shapedivider.app/",
+    "tag": [
+      "ui-library"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/divierShape"
+  },
+  {
+    "description": "All of these box-shadow were copied using CSS Scan. With CSS Scan you can easily inspect or copy any website's CSS.",
+    "id": 7,
+    "name": "Beautiful CSS box-shadow",
+    "ref": "https://getcssscan.com/css-box-shadow-examples",
+    "tag": [
+      "ui-library"
+    ],
+    "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/boxShadow_cuwe2m"
+  },
+  {
+    "description": "More than 1500+ hand made Open Source & Premium 3d icons renders for ready to use.",
+    "id": 8,
+    "name": "3D Icons",
+    "ref": "https://3dicons.co/",
+    "tag": [
+      "ui-library",
+      "icon"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Simply beautiful icons carefully crafted.",
+    "id": 9,
+    "name": "Box Icons",
+    "ref": "https://boxicons.com/",
+    "tag": [
+      "ui-library",
+      "icon"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Large icon packs of over 10k icons, so you can find visually consistent icons for all your designs.",
+    "id": 10,
+    "name": "Icons S8",
+    "ref": "https://icons8.com/",
+    "tag": [
+      "ui-library",
+      "icon"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "CSS Gradient is a Designstripe project that lets you create free gradient backgrounds for your website. Besides being a css gradient generator, the site is also chock-full of colorful content about gradients from technical articles to real life gradient examples like Stripe and Instagram.",
+    "id": 11,
+    "name": "CSS Gradient",
+    "ref": "https://cssgradient.io/",
+    "tag": [
+      "ui-library",
+      "css",
+      "color",
+      "gradient"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Most comprehensive color tools platform. Unleash your creativity using color wheel, devise harmonious palettes with the Color Palette Builder, and create depth with the gradient options. It's a designer's playground. Enjoy exploring!",
+    "id": 12,
+    "name": "Color Designer",
+    "ref": "https://colordesigner.io/",
+    "tag": [
+      "ui-library",
+      "css",
+      "color",
+      "gradient"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "A curated collection of front-end snippets to save you time. Whether you work with HTML, CSS, Bootstrap, TailwindCSS, JavaScript, you'll find ready-to-use components and patterns to streamline your development. No fluff — just practical code.",
+    "id": 13,
+    "name": "Free Frontend",
+    "ref": "https://freefrontend.com/",
+    "tag": [
+      "ui-library",
+      "css",
+      "tailwindcss"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "A modern JavaScript utility library delivering modularity, performance & extras.",
+    "id": 14,
+    "name": "Lodash",
+    "ref": "https://lodash.com/",
+    "tag": [
+      "javascript"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Community-built library of UI elements. Copy as HTML/CSS, Tailwind, React and Figma.",
+    "id": 15,
+    "name": "Uiverse.io",
+    "ref": "https://uiverse.io/",
+    "tag": [
+      "html",
+      "css",
+      "react",
+      "figma",
+      "ui-library",
+      "javascript"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Collection of the web's best designs sorted by elements. Choose an element and view projects/websites with creative designs for it.",
+    "id": 16,
+    "name": "Stacksorted",
+    "ref": "https://stacksorted.com/",
+    "tag": [
+      "html",
+      "css",
+      "react",
+      "ui-library",
+      "javascript"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Animated icons in Lottie Framework for immediate implementation to your apps or websites.",
+    "id": 17,
+    "name": "useAnimations",
+    "ref": "https://useanimations.com/",
+    "tag": [
+      "css",
+      "react",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Copy paste the most trending components and use them in your websites without having to worry about styling and animations.",
+    "id": 18,
+    "name": "Aceternity UI",
+    "ref": "https://ui.aceternity.com/",
+    "tag": [
+      "css",
+      "tailwindcss",
+      "react",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Preline UI is an open-source Tailwind CSS components library for any needs. Comes with UI examples & blocks, templates, plugins, Figma design system and more.",
+    "id": 19,
+    "name": "Preline UI",
+    "ref": "https://preline.co/",
+    "tag": [
+      "css",
+      "tailwindcss",
+      "react",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Free Open Source UI Resources.",
+    "id": 20,
+    "name": "UI Design Daily",
+    "ref": "https://www.uidesigndaily.com/",
+    "tag": [
+      "css",
+      "tailwindcss",
+      "react",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "All popular icon sets, one framework. Over 200,000 open source vector icons.",
+    "id": 21,
+    "name": "Iconify",
+    "ref": "https://iconify.design/",
+    "tag": [
+      "css",
+      "tailwindcss",
+      "react",
+      "icon",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Dozzle supports multiple ways to run the application. You can run it using Docker CLI, Docker Compose, Swarm, or Kubernetes. The following sections will guide you through the process of setting up Dozzle.",
+    "id": 22,
+    "name": "Dozzle",
+    "ref": "https://dozzle.dev/",
+    "tag": [
+      "docker",
+      "build-tool",
+      "k8n"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Create your perfect GitHub Profile ReadMe in the best possible way. Lots of features and tools included, all for free !",
+    "id": 23,
+    "name": "GPRM",
+    "ref": "https://gprm.itsvg.in/",
+    "tag": [
+      "github",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Open-source illustrations for any idea you can imagine and create.",
+    "id": 24,
+    "name": "unDraw",
+    "ref": "https://undraw.co/",
+    "tag": [
+      "design",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Extracted all components from Material 3 Compose, Material Compose and all the official Jetpack Compose libraries in one place. Find code examples and add them to your project.",
+    "id": 25,
+    "name": "Composables",
+    "ref": "https://composables.com/",
+    "tag": [
+      "kotlin",
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Supabase is the Postgres development platform. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings.",
+    "id": 26,
+    "name": "Supabase",
+    "ref": "https://supabase.com/",
+    "tag": [
+      "posgreSQL",
+      "database",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Store, transform, optimize, and deliver media with powerful APIs, intuitive widgets, and a user-friendly interface.",
+    "id": 27,
+    "name": "Cloudinary",
+    "ref": "https://cloudinary.com/",
+    "tag": [
+      "image",
+      "cloud",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Page speed, also known as page load time, refers to the time it takes for a web page to fully load and become interactive in a user's browser. It's a crucial aspect of website performance, impacting user experience and influencing search engine rankings. A fast page speed ensures users can quickly access content, reducing bounce rates and improving engagement.",
+    "id": 28,
+    "name": "PageSpeed",
+    "ref": "https://pagespeed.web.dev/",
+    "tag": [
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Nodemailer makes sending email from a Node.js application straightforward and secure, without pulling in a single runtime dependency.",
+    "id": 29,
+    "name": "Nodemailer",
+    "ref": "https://nodemailer.com/",
+    "tag": [
+      "nodejs",
+      "email",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Elevate your web applications with PrimeReact's comprehensive suite of customizable, feature-rich UI components. With PrimeReact, turning your development vision into reality has never been easier.",
+    "id": 30,
+    "name": "PrimeReact",
+    "ref": "https://primereact.org/",
+    "tag": [
+      "react",
+      "tailwindcss",
+      "css",
+      "ui-library",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Any set of Palettes can be fetched via an API. You may find this useful for design tools that need to generate a 50-950 Palette from just a single Hex value.",
+    "id": 31,
+    "name": "Tints.dev",
+    "ref": "https://www.tints.dev/",
+    "tag": [
+      "color",
+      "ui-library",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Nokia today announced that it has acquired Rapid's technology assets, including the world's largest API marketplace, and its highly skilled team.",
+    "id": 32,
+    "name": "Rapidapi",
+    "ref": "https://rapidapi.com/",
+    "tag": [
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "This is a boilerplate for NestJS projects. It is a starting point for building a RESTful API with NestJS.",
+    "id": 33,
+    "name": "NestJS Boilerplate Documentation",
+    "ref": "https://vndevteam.github.io/nestjs-boilerplate",
+    "tag": [
+      "nestjs",
+      "documents",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "The open-source Headless CMS for developers that makes API creation easy, and supports your favorite frameworks. Customize and host your projects in the cloud or on your own servers.",
+    "id": 34,
+    "name": "Strapi",
+    "ref": "https://strapi.io/",
+    "tag": [
+      "cms",
+      "api",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Beautiful & consistent icons. Made by the community.",
+    "id": 35,
+    "name": "Lucide Icons",
+    "ref": "https://lucide.dev/",
+    "tag": [
+      "ui-library",
+      "icon"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Tailwind CSS Color Generator. Instantly create stunning color scales by entering a base color or hitting the spacebar.",
+    "id": 36,
+    "name": "UI Colors",
+    "ref": "https://uicolors.app/",
+    "tag": [
+      "ui-library",
+      "css",
+      "tailwindcss",
+      "color"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Help designers/developers building beautiful products more flexible and working with happiness.",
+    "id": 37,
+    "name": "Ant Design",
+    "ref": "https://ant.design/",
+    "tag": [
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Develop beautiful web apps with Tabler. Tabler is an open source web application UI kit based on Bootstrap 5, with hundreds responsive components and multiple layouts.",
+    "id": 38,
+    "name": "Tabler.io",
+    "ref": "https://tabler.io/",
+    "tag": [
+      "ui-library"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Prototype, build & run modern, AI-powered experiences users love with Firebase, a platform designed to support you throughout your app development lifecycle. Backed by Google and trusted by millions of businesses around the world.",
+    "id": 39,
+    "name": "Firebase",
+    "ref": "https://firebase.google.com/",
+    "tag": [
+      "noSQL",
+      "database",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "From idea to scale. Simplified. Ship at lightning speed, and scale to a global audience effortlessly with our next-gen serverless Postgres database.",
+    "id": 40,
+    "name": "Prisma",
+    "ref": "https://www.prisma.io/",
+    "tag": [
+      "ORM",
+      "database",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Instant On-demand Atomic CSS Engine. Customizable · Powerful · Fast · Joyful",
+    "id": 41,
+    "name": "UnoCss",
+    "ref": "https://unocss.dev/",
+    "tag": [
+      "ui-library",
+      "css",
+      "tailwindcss"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "It's the only ORM with both relational and SQL-like query APIs, providing you the best of both worlds when it comes to accessing your relational data. Drizzle is lightweight, performant, typesafe, non-lactose, gluten-free, sober, flexible and serverless-ready by design. Drizzle is not just a library, it's an experience.",
+    "id": 42,
+    "name": "Dizzle",
+    "ref": "https://orm.drizzle.team/",
+    "tag": [
+      "ORM",
+      "database",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "Playwright enables reliable end-to-end testing for modern web apps.",
+    "id": 43,
+    "name": "Playwright",
+    "ref": "https://playwright.dev/",
+    "tag": [
+      "test",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "The web crawling API for LLMs. Power your AI apps with clean data crawled from any website. It's also open source.",
+    "id": 44,
+    "name": "Firecrawl",
+    "ref": "https://www.firecrawl.dev/",
+    "tag": [
+      "crawl",
+      "build-tool"
+    ],
+    "thumbnail": ""
+  },
+  {
+    "description": "A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes. Zero dependencies.",
+    "id": 45,
+    "name": "Sweetalert2",
+    "ref": "https://sweetalert2.github.io/",
+    "tag": [
+      "ui-library",
+      "css",
+      "tailwindcss",
+      "animate"
+    ],
+    "thumbnail": ""
+  }
+]

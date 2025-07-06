@@ -2,19 +2,35 @@ import React from 'react'
 
 import { Image } from 'antd'
 import Link from 'next/link'
+import { encode } from 'querystring'
 
 import { Tool } from '@/types/tool'
 
 import ToolTag from './tool-tag'
 
-function ToolCard({ data: tool }: { data: Tool }) {
+export default function ToolCard({ data: tool }: { data: Tool }) {
+    const params = encode({
+        url: tool.ref!,
+        screenshot: true,
+        meta: false,
+        embed: 'screenshot.url',
+        colorScheme: 'dark',
+        'viewport.isMobile': true,
+        'viewport.deviceScaleFactor': 1,
+    })
+
+    const toolThumbnail =
+        tool.thumbnail?.length === 0
+            ? `https://api.microlink.io/?${params}`
+            : tool.thumbnail
+
     return (
         <div className="shadow-md border-border hover:shadow-lg transition-shadow duration-200 rounded-xl">
-            <div className="block w-full max-h-[223px] rounded-t-xl">
+            <div className="block w-full aspect-video rounded-t-xl">
                 <Image
-                    src={tool.thumbnail!}
+                    src={toolThumbnail}
                     alt={tool.name!}
-                    className="w-full max-h-[223px] object-contain rounded-t-xl"
+                    className="size-full aspect-video object-cover rounded-t-xl"
                 />
             </div>
             <div className="bg-wallground p-3 rounded-b-xl">
@@ -25,15 +41,15 @@ function ToolCard({ data: tool }: { data: Tool }) {
                 >
                     <p className="font-semibold w-fit">{tool.name}</p>
                 </Link>
-                <p className="my-4 text-sm leading-loose tracking-wide line-clamp-3">
+                <p className="my-4 text-sm leading-loose min-h-[5.5rem] tracking-wide line-clamp-3 min-h-">
                     {tool.description!}
                 </p>
-                {tool.tag!.map((tag, idx) => {
-                    return <ToolTag title={tag} key={idx} />
-                })}
+                <div className="flex items-center flex-wrap gap-2">
+                    {tool.tag!.map((tag, idx) => {
+                        return <ToolTag title={tag} key={idx} />
+                    })}
+                </div>
             </div>
         </div>
     )
 }
-
-export default ToolCard
