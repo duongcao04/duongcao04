@@ -1,0 +1,108 @@
+{
+    "app": {
+        "metadata": {
+            "title": "Yangis.dev",
+            "description": "Chào mừng bạn đến với Yangis.dev — nơi trưng bày các tác phẩm sáng tạo, dự án và những góc nhìn độc đáo. Khám phá lập trình web tiên tiến, thiết kế UI/UX và nhiều hơn thế nữa.",
+            "keywords": "Yangis, portfolio, lập trình web, thiết kế, sáng tạo, dự án, yangis.dev, kỹ sư phần mềm",
+            "ogTitle": "Yangis.dev",
+            "ogDescription": "Khám phá các dự án và sản phẩm của tôi như một lập trình viên và nhà thiết kế sáng tạo. Hãy kết nối và hợp tác cùng nhau.",
+            "twitterTitle": "Yangis.dev",
+            "twitterDescription": "Khám phá portfolio của tôi như một lập trình viên và nhà thiết kế sáng tạo. Hãy cùng hợp tác!"
+        },
+        "common": {
+            "status": {
+                "loading": "Đang tải",
+                "error": "Đã xảy ra lỗi",
+                "success": "Thành công",
+                "empty": "Không tìm thấy mục nào"
+            },
+            "button": {
+                "search": "Tìm kiếm",
+                "submit": "Gửi",
+                "cancel": "Hủy",
+                "save": "Lưu",
+                "delete": "Xóa",
+                "create": "Tạo mới",
+                "edit": "Chỉnh sửa",
+                "update": "Cập nhật",
+                "contact": "Liên hệ",
+                "seeMore": "Xem thêm",
+                "exploreNow": "Khám phá ngay",
+                "buildWebsite": "Xây dựng website"
+            },
+            "tag": {
+                "lastUpdates": "Cập nhật gần đây",
+                "work": "Dự án nổi bật",
+                "writing": "Bài viết",
+                "getInTouch": "Liên hệ"
+            }
+        },
+        "layout": {
+            "region": "TP. Hồ Chí Minh, Việt Nam"
+        }
+    },
+
+    "home": {
+        "hero": {
+            "slogan": "Tôi là một Developer đam mê tạo ra những website đẹp mắt và dễ sử dụng. Hãy cùng tôi biến ý tưởng của bạn thành một trải nghiệm web độc đáo và chuyên nghiệp!"
+        },
+        "techStack": {
+            "title": "Công nghệ và Kỹ năng",
+            "desc": "Tôi hiện đang tìm kiếm cơ hội tham gia vào một đội ngũ đa chức năng, nơi đề cao việc cải thiện cuộc sống của mọi người thông qua thiết kế dễ tiếp cận."
+        },
+        "projects": {
+            "goToWebButton": "Trực tuyến",
+            "explorerAllProjectButton": "Khám phá tất cả dự án"
+        },
+        "getInTouch": {
+            "title": "Liên hệ",
+            "desc": "Tôi mong sớm nhận được hồi âm từ bạn.",
+            "form": {
+                "fname": "Họ",
+                "lname": "Tên",
+                "email": "Email",
+                "message": "Tin nhắn",
+                "submit": "Gửi lời nhắn"
+            }
+        }
+    },
+    "posts": {
+        "title": "Bài viết",
+        "loadMoreButton": "Tải thêm"
+    },
+    "collection": {
+        "title": "Bộ sưu tập",
+        "desc": "Công cụ xây dựng trang web nhanh hơn.",
+        "addFilterButton": "Thêm bộ lọc"
+    },
+    "aboutMe": {
+        "fullName": "Cao Hải Dương",
+        "tabs": {
+            "Introduce": "Giới thiệu",
+            "Picture": "Ảnh"
+        },
+        "section": {
+            "aboutMe": {
+                "title": "Về tôi",
+                "desc": "Một nhà phát triển tập trung vào việc tạo ra các trang web có khả năng phản hồi cao, cũng như các ứng dụng năng động."
+            },
+            "education": {
+                "title": "Học tập",
+                "university": {
+                    "name": "Trường Đại học Giao thông vận tải TP. HCM",
+                    "major": "Công nghệ thông tin"
+                }
+            },
+            "keySkills": {
+                "title": "Kỹ năng"
+            },
+            "summary": {
+                "title": "Tóm tắt",
+                "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores quisquam similique provident odio cumque suscipit exercitationem, distinctio vitae atque facilis sit, autem eum quidem. Doloribus ratione ut voluptates nesciunt deserunt! Rem consequatur saepe magnam eveniet, placeat praesentium temporibus exercitationem maxime vel nemo impedit iure et est facilis perspiciatis doloribus corrupti, asperiores odit animi? Atque neque voluptatibus eius velit modi praesentium. Magnam atque ducimus quidem tenetur ea reiciendis voluptas quo eum fugiat adipisci alias rerum mollitia omnis facilis ex deleniti excepturi, numquam assumenda amet eligendi hic officiis voluptatem reprehenderit? Neque, consequatur."
+            },
+            "timeline": {
+                "title": "Mốc thời gian"
+            }
+        }
+    }
+}
