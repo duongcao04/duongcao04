@@ -27,15 +27,28 @@ export const preahvihear = Preahvihear({
 
 export const LexendDeca = localFont({
     src: './LexendDeca.ttf',
-    display: 'swap',
+    variable: '--font-saira',
+    adjustFontFallback: 'Arial',
+    preload: true,
 })
 
 export const playwrite = localFont({
     src: './Playwrite.ttf',
-    display: 'swap',
+    variable: '--font-saira',
+    adjustFontFallback: 'Arial',
+    preload: true,
 })
 
 export const raynelth = localFont({
     src: './Raynelth.ttf',
-    display: 'swap',
+    variable: '--font-saira',
+    adjustFontFallback: 'Arial',
+    preload: true,
+})
+
+export const saira = localFont({
+    src: './Saira.ttf',
+    variable: '--font-saira',
+    adjustFontFallback: 'Arial',
+    preload: true,
 })

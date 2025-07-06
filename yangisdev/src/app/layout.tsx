@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import ScrollToTop from '@/components/layout/ScrollToTop'
 
 import MyAppProvider from '@/app/providers'
-import { inter } from '@/fonts'
+import { inter, saira } from '@/fonts'
 
 import './globals.css'
 import AppLoader from './loading'
@@ -65,7 +65,7 @@ export default function RootLayout({
     return (
         <html
             lang={locale}
-            className={inter.className}
+            className={` ${saira.className} ${inter.className}`}
             suppressHydrationWarning
         >
             <body

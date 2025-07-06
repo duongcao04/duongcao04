@@ -19,7 +19,7 @@ function AppNavigate() {
                             key={nav.id}
                             href={nav.path}
                             classNames={{
-                                link: 'block px-6 py-3 font-medium hover:text-primary-600 transition duration-200',
+                                link: `block px-6 py-3 font-medium hover:text-primary-600 transition duration-200`,
                                 bottomLine: 'h-[2px]',
                             }}
                         >

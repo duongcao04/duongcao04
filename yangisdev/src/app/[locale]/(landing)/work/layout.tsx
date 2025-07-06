@@ -1,6 +1,8 @@
-import type { ReactNode } from 'react'
+import { type ReactNode, Suspense } from 'react'
 
 import type { Metadata } from 'next'
+
+import AppLoader from '@/app/loading'
 
 export const metadata: Metadata = {
     title: 'Work | Yangis.dev',
@@ -13,5 +15,5 @@ export default function WorkLayout({
 }: Readonly<{
     children: ReactNode
 }>) {
-    return children
+    return <Suspense fallback={<AppLoader />}>{children}</Suspense>
 }

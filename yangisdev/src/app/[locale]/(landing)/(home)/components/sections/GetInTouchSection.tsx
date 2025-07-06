@@ -7,7 +7,7 @@ import { RoughNotation } from 'react-rough-notation'
 import { CONTACT_INFOS } from '@/constants/appConstants'
 import { SupportLanguages } from '@/i18n/routing'
 
-import ContactForm from '../forms/contact-form'
+import ContactForm from '../forms/ContactForm'
 
 function ContactInfo() {
     const locale = useLocale()

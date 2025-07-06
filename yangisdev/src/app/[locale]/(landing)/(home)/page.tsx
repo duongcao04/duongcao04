@@ -4,16 +4,16 @@ import { cn } from '@/lib/utils'
 
 import ScrollDownButton from './components/ScrollDownButton'
 
-const HeroSection = dynamic(() => import('./components/sections/hero-section'))
+const HeroSection = dynamic(() => import('./components/sections/HeroSection'))
 const LastUpdateSection = dynamic(
-    () => import('./components/sections/last-update-section')
+    () => import('./components/sections/LastUpdatedSection')
 )
 const WritingSection = dynamic(
-    () => import('./components/sections/writing-section')
+    () => import('./components/sections/WritingSection')
 )
-const WorkSection = dynamic(() => import('./components/sections/work-section'))
+const WorkSection = dynamic(() => import('./components/sections/WorkSection'))
 const GetInTouch = dynamic(
-    () => import('./components/sections/get-in-touch-section')
+    () => import('./components/sections/GetInTouchSection')
 )
 
 export default async function HomePage() {

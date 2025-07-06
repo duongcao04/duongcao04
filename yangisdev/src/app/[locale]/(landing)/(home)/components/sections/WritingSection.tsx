@@ -17,8 +17,6 @@ export default function WritingSection() {
 
     const { data: allPosts, loading } = useFirebaseData<Post>('posts')
 
-    console.log(allPosts)
-
     return (
         <>
             <SectionTag title={tTag('writing')} seeMore />

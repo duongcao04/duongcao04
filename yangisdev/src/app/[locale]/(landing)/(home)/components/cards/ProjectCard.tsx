@@ -1,42 +1,13 @@
-import React from 'react'
+'use client'
 
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import Link from 'next/link'
+import { Image } from 'antd'
 
-import { PROJECTS, type Project } from '@/data/projects'
+import { Link } from '@/i18n/navigation'
+import { formatWorkingTime } from '@/lib/formatTime'
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
+import { Project } from '@/types/projects'
 
-import SectionTag from '../section-tag'
-
-export default function WorkSection() {
-    const tTag = useTranslations('app.common.tag')
-
-    return (
-        <>
-            <SectionTag title={tTag('work')} seeMore href="/work" />
-            <div className="mt-5 flex flex-col tablet:grid tablet:grid-cols-2 gap-8">
-                {PROJECTS.map((project, index) => (
-                    <WorkCard key={index} data={project} />
-                ))}
-            </div>
-        </>
-    )
-}
-
-function formatWorkingTime(startedAt?: string, endedAt?: string) {
-    if (startedAt && endedAt) {
-        return `${startedAt} - ${endedAt}`
-    }
-    if (!endedAt) {
-        return `Since ${startedAt}`
-    }
-    if (!startedAt) {
-        return `Until ${endedAt}`
-    }
-    return 'Present'
-}
-function WorkCard({ data }: { data: Project }) {
+export default function ProjectCard({ data }: { data: Project }) {
     const lineVariant = {
         initial: {
             width: 0,
@@ -80,22 +51,19 @@ function WorkCard({ data }: { data: Project }) {
             whileHover="animate"
             className="w-full"
         >
-            <Link
-                href={`/work/${data.slug}`}
-                className="block w-full aspect-[2/1] rounded-xl overflow-hidden border border-border"
-            >
+            <MotionDiv className="block w-full aspect-[2/1] rounded-xl overflow-hidden border border-border">
                 <MotionDiv
                     variants={imageVariant}
                     transition={{ delay: 0.1, duration: 0.3 }}
+                    className="size-full rounded-xl"
                 >
                     <Image
                         src={data.thumbnail}
                         alt={`${data.name} thumbnail`}
-                        className="w-full h-full object-cover rounded-xl"
-                        quality={100}
+                        className="size-full object-cover rounded-xl"
                     />
                 </MotionDiv>
-            </Link>
+            </MotionDiv>
             <div className="mt-2 desktop:mt-4 w-fit">
                 <Link
                     href={`/work/${data.slug}`}
@@ -112,7 +80,7 @@ function WorkCard({ data }: { data: Project }) {
                     variants={dateVariant}
                     className="mt-2 text-sm desktop:text-lg font-lexendDeca font-extralight tracking-wide uppercase"
                 >
-                    {formatWorkingTime(data.started_at, data.ended_at)}
+                    {formatWorkingTime(data.startedAt!, data.completedAt!)}
                 </MotionP>
             </div>
         </MotionDiv>
