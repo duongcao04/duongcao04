@@ -11,9 +11,9 @@ import AppLoader from '@/app/loading'
 import { MotionH1, MotionH4 } from '@/lib/motion'
 import { Tool } from '@/types/tool'
 
-import ToolCard from './components/tool-card'
-import ToolFilter from './components/tool-filter'
-import ToolSearchbar from './components/tool-searchbar'
+import ToolCard from './components/ToolCard'
+import ToolFilter from './components/ToolFiler'
+import ToolSearchbar from './components/ToolSearchbar'
 
 export default function CollectionPage() {
     const t = useTranslations('collection')

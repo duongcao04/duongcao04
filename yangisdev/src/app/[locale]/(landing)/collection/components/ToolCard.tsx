@@ -6,7 +6,7 @@ import { encode } from 'querystring'
 
 import { Tool } from '@/types/tool'
 
-import ToolTag from './tool-tag'
+import ToolTag from './ToolTag'
 
 export default function ToolCard({ data: tool }: { data: Tool }) {
     const params = encode({
