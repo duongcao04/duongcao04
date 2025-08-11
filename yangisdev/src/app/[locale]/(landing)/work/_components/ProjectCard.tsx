@@ -5,7 +5,7 @@ import React from 'react'
 import { Button } from '@heroui/react'
 import { Image } from 'antd'
 
-import { Project } from '@/types/projects'
+import { Project } from '@/types/work'
 
 type Props = {
     data: Project

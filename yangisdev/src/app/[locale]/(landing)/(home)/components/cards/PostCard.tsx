@@ -2,7 +2,7 @@ import { Image } from 'antd'
 import Link from 'next/link'
 
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 import { calculateFromDateToNow } from '@/utils/calc-function'
 
 export default function PostCard({ data }: { data: Post }) {

@@ -5,7 +5,7 @@ import { Image } from 'antd'
 import { Link } from '@/i18n/navigation'
 import { formatWorkingTime } from '@/lib/formatTime'
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
-import { Project } from '@/types/projects'
+import { Project } from '@/types/work'
 
 export default function ProjectCard({ data }: { data: Project }) {
     const lineVariant = {

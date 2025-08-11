@@ -4,7 +4,7 @@ import React from 'react'
 
 import Link, { LinkProps } from 'next/link'
 
-import { MotionButton, MotionDiv } from '@/lib/motion'
+import { MotionDiv } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 type ButtonLinkProps = LinkProps & {
@@ -32,7 +32,7 @@ export default function ButtonLink({
     }
 
     return (
-        <MotionButton
+        <MotionDiv
             initial="hidden"
             animate="hidden"
             whileHover="show"
@@ -53,6 +53,6 @@ export default function ButtonLink({
                 transition={{ duration: 0.3 }}
                 className={cn('h-[2.5px] bg-primary', classNames?.bottomLine)}
             />
-        </MotionButton>
+        </MotionDiv>
     )
 }

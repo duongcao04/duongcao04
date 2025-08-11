@@ -1,9 +1,11 @@
+'use client'
+
 import React from 'react'
 
 import Link from 'next/link'
 
 import { appName } from '@/constants/appConstants'
-import { MotionButton } from '@/lib/motion'
+import { MotionDiv } from '@/lib/motion'
 import { cn } from '@/lib/utils'
 
 const Logo = ({
@@ -15,7 +17,11 @@ const Logo = ({
     color?: string
 }) => {
     return (
-        <MotionButton whileTap={{ scale: 0.95 }}>
+        <MotionDiv
+            initial={{ scale: 1 }}
+            animate={{ scale: 1 }}
+            whileTap={{ scale: 0.95 }}
+        >
             <Link
                 href={'/'}
                 title="Go home"
@@ -25,7 +31,7 @@ const Logo = ({
             >
                 {appName}
             </Link>
-        </MotionButton>
+        </MotionDiv>
     )
 }
 

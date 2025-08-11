@@ -18,6 +18,9 @@ export default function Footer() {
             <div className="tablet:grid tablet:grid-cols-3 desktop:grid-cols-4 gap-8">
                 <div className="tablet:col-span-1 desktop:col-span-2">
                     <Logo className="text-3xl" />
+                    {/* <p className="mt-5 font-lexendDeca text-2xl tracking-wider">
+                        hello@yangis.dev
+                    </p> */}
                 </div>
                 <div className="mt-7 tablet:mt-0 desktop:mt-0 col-span-2 grid grid-cols-2 gap-8">
                     <div className="flex flex-col items-start gap-1">

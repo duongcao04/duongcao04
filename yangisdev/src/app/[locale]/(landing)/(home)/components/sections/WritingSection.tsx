@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 
 import { useFirebaseData } from '@/hooks/useFirebase'
 
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 
 import PostCard from '../cards/PostCard'
 import SectionTag from '../section-tag'

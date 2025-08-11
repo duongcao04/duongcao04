@@ -1,24 +1,14 @@
-import dynamic from 'next/dynamic'
-
 import { cn } from '@/lib/utils'
 
-import ScrollDownButton from './components/ScrollDownButton'
-
-const HeroSection = dynamic(() => import('./components/sections/HeroSection'))
-const LastUpdateSection = dynamic(
-    () => import('./components/sections/LastUpdatedSection')
-)
-const WritingSection = dynamic(
-    () => import('./components/sections/WritingSection')
-)
-const WorkSection = dynamic(() => import('./components/sections/WorkSection'))
-const GetInTouch = dynamic(
-    () => import('./components/sections/GetInTouchSection')
-)
+import BlogAndArticle from './components/sections/BlogAndArticle'
+import GetInTouch from './components/sections/GetInTouchSection'
+import HeroSection from './components/sections/HeroSection'
+import RecentWork from './components/sections/RecentWork'
+import WorkFlow from './components/sections/WorkFlow'
 
 export default async function HomePage() {
     return (
-        <>
+        <div className="max-w-screen overflow-hidden">
             <section>
                 <div className="relative flex h-[50rem] w-full items-center justify-center bg-white dark:bg-black">
                     <div
@@ -32,28 +22,24 @@ export default async function HomePage() {
                     {/* Radial gradient for the container to give a faded look */}
                     <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
                     <div className="relative z-20 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-7xl">
-                        <div className="container pt-14 desktop:pt-24">
+                        <div className="container pt-14 desktop:pt-20">
                             <HeroSection />
-                            <div className="hidden mt-8 container desktop:grid place-items-center opacity-70 scale-90">
-                                <ScrollDownButton />
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <div id="scroll-down" />
-            <section className="container mt-20 desktop:mt-16">
-                <LastUpdateSection />
+            <section className="container mt-16 mb-24">
+                <RecentWork />
             </section>
-            <section className="container mt-14">
-                <WorkSection />
+            <section>
+                <WorkFlow />
             </section>
-            <section className="container mt-10">
-                <WritingSection />
+            <section className="container mt-16 mb-24">
+                <BlogAndArticle />
             </section>
             <section className="container mt-32 mb-24">
                 <GetInTouch />
             </section>
-        </>
+        </div>
     )
 }

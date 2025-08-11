@@ -43,13 +43,14 @@
     },
     "home": {
         "hero": {
-            "slogan": "I'm a Developer passionate about creating beautiful, intuitive websites. Let's bring your ideas to life with a unique and professional web experience."
+            "slogan": "A Developer passionate about creating beautiful, intuitive websites. Let's bring your ideas to life with a unique and professional web experience."
         },
         "techStack": {
             "title": "Technologies and skills",
             "desc": "I'm currently looking to join a cross-functional team that values improving people's lives through accessible design"
         },
-        "projects": {
+        "recentWorks": {
+            "tagTitle": "Works",
             "goToWebButton": "Online",
             "explorerAllProjectButton": "Explorer All Project"
         },

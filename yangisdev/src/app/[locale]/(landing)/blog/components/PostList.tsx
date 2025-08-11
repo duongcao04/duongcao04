@@ -4,7 +4,7 @@ import { Spinner } from '@heroui/react'
 
 import { useFirebaseData } from '@/hooks/useFirebase'
 
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 
 import PostCard from './cards/PostCard'
 

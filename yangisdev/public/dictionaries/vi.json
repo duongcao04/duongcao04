@@ -41,7 +41,6 @@
             "region": "TP. Hồ Chí Minh, Việt Nam"
         }
     },
-
     "home": {
         "hero": {
             "slogan": "Tôi là một Developer đam mê tạo ra những website đẹp mắt và dễ sử dụng. Hãy cùng tôi biến ý tưởng của bạn thành một trải nghiệm web độc đáo và chuyên nghiệp!"
@@ -50,7 +49,8 @@
             "title": "Công nghệ và Kỹ năng",
             "desc": "Tôi hiện đang tìm kiếm cơ hội tham gia vào một đội ngũ đa chức năng, nơi đề cao việc cải thiện cuộc sống của mọi người thông qua thiết kế dễ tiếp cận."
         },
-        "projects": {
+        "recentWorks": {
+            "tagTitle": "Recent works",
             "goToWebButton": "Trực tuyến",
             "explorerAllProjectButton": "Khám phá tất cả dự án"
         },

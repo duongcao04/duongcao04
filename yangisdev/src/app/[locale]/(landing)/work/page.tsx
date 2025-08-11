@@ -4,7 +4,7 @@ import { useFirebaseData } from '@/hooks/useFirebase'
 
 import AppLoader from '@/app/loading'
 import { MotionH1, MotionH4 } from '@/lib/motion'
-import { Project } from '@/types/projects'
+import { Project } from '@/types/work'
 
 import ProjectCard from './_components/ProjectCard'
 

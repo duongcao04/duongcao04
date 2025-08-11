@@ -12,7 +12,7 @@ import CustomizeBreadcrumbs from '@/components/common/CustomizeBreadcrumbs'
 import NotFound from '@/app/not-found'
 import { firebaseService } from '@/lib/firebase/services'
 import { MotionH1 } from '@/lib/motion'
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 import { formatSemiFullDate } from '@/utils/format'
 
 import PostTags from './_components/PostTags'

@@ -1,4 +1,4 @@
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 
 // Fix: generateStaticParams phải là server-side và không thể dùng hooks
 export async function generateStaticParams() {

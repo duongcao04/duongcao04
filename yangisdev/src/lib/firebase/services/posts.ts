@@ -1,7 +1,7 @@
 import { DocumentData, Query, getDocs } from 'firebase/firestore'
 
 import { postsCollection } from '@/lib/firebase/config'
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 
 export async function index(query?: Query): Promise<Post[]> {
     let querySnapshot = null

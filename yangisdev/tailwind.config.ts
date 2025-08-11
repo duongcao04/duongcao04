@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import { heroui } from '@heroui/theme'
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
@@ -154,10 +155,9 @@ export default {
             },
         },
     },
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
     plugins: [
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
         require('tailwindcss-animate'),
+        require('@tailwindcss/typography'),
         plugin(function ({ addBase, theme }) {
             addBase({
                 h1: {

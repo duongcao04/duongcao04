@@ -4,7 +4,7 @@ import { Button } from '@heroui/react'
 import { Image } from 'antd'
 import Link from 'next/link'
 
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 import { calculateFromDateToNow } from '@/utils/calc-function'
 
 type Props = {

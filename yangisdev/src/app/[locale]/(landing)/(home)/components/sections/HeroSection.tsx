@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
 
+import { Variants } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +11,24 @@ import { ContainerTextFlip } from '@/components/ui/container-text-flip'
 
 import Avatar from '@/assets/img/avatar.jpg'
 import { TECHSTACKS } from '@/constants/appConstants'
-import { MotionButton, MotionH1 } from '@/lib/motion'
+import { MotionButton, MotionH1, MotionSpan } from '@/lib/motion'
+
+const textVariant: Variants = {
+    init: {
+        opacity: 0,
+        y: 20,
+    },
+    animate: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 0.1 * i,
+            type: 'spring',
+            stiffness: 120,
+            damping: 20,
+        },
+    }),
+}
 
 export default function HeroSection() {
     const tButton = useTranslations('app.common.button')
@@ -18,7 +38,13 @@ export default function HeroSection() {
         <div className="2xl:flex flex-col items-center justify-start">
             <div className="space-y-6">
                 <div className="flex flex-col items-start 2xl:flex-row 2xl:items-center justify-start gap-5">
-                    <MotionH1 className="text-5xl tablet:text-7xl inline-block font-lexendDeca font-bold tracking-wider">{`Hello, I'm `}</MotionH1>
+                    <MotionH1
+                        initial="init"
+                        animate="animate"
+                        className="text-5xl tablet:text-7xl inline-block font-lexendDeca font-bold tracking-wider"
+                    >
+                        Hello, I'm{' '}
+                    </MotionH1>
                     <div className="flex items-center justify-start gap-6">
                         <Image
                             src={Avatar}
@@ -35,12 +61,12 @@ export default function HeroSection() {
                 </MotionH1>
             </div>
             <div className="mt-6 2xl:mt-10 max-w-[900px]">
-                <p className="text-lg text-text-secondary 2xl:text-center tracking-wide leading-relaxed">
+                <p className="font-normal text-lg text-text-secondary 2xl:text-center tracking-wide leading-relaxed">
                     {tHero('slogan')}
                 </p>
             </div>
-            <div className="mt-10 flex flex-col items-start 2xl:flex-row 2xl:items-center justify-start gap-5">
-                <Link href={'/build-website'} className="block">
+            <div className="mt-10 flex flex-col items-start 2xl:flex-row 2xl:items-center justify-start gap-7">
+                <Link href={'/build-website'} className="block" passHref>
                     <MotionButton className="shadow-md hover:shadow-2xl dark:hover:shadow-gray-800 text-lg px-8 py-3 border border-border rounded-full bg-primary-500 hover:bg-primary-600 transition duration-250 text-white capitalize">
                         {tButton('buildWebsite')}
                     </MotionButton>

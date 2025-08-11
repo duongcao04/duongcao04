@@ -4,7 +4,7 @@ import { Image } from '@heroui/react'
 import Link from 'next/link'
 
 import { MotionH3 } from '@/lib/motion'
-import { Post } from '@/types/post'
+import { Post } from '@/types/article'
 
 type Props = {
     data: Post
