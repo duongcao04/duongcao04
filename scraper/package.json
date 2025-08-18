@@ -1,0 +1,18 @@
+{
+  "name": "scraper",
+  "module": "main.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "start": "bun main.ts",
+    "dev": "bun main.ts --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@mendable/firecrawl-js": "^1.29.3"
+  }
+}
