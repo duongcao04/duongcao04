@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { Button } from '@heroui/react'
 import useEmblaCarousel from 'embla-carousel-react'

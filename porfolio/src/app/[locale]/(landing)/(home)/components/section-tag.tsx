@@ -15,7 +15,7 @@ function SectionTag({
     seeMore?: boolean
     href?: string
 }) {
-    const tButton = useTranslations('app.common.button')
+    const tButton = useTranslations()
 
     return (
         <div className="flex items-center justify-start gap-1 tracking-wide text-text-secondary">

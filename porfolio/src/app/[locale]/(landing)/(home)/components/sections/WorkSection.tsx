@@ -1,26 +1,19 @@
 'use client'
 
-import React from 'react'
-
 import { Spinner } from '@heroui/react'
 import { useTranslations } from 'next-intl'
 
-import { useFirebaseData } from '@/hooks/useFirebase'
+import { MotionH2 } from '@/lib/motion'
 
-import { Project } from '@/types/work'
-
-import { MotionH2 } from '../../../../../../lib/motion'
 import ProjectCard from '../cards/ProjectCard'
 import SectionTag from '../section-tag'
 
 export default function WorkSection() {
-    const tTag = useTranslations('app.common.tag')
-
-    const { data: allProjects, loading } = useFirebaseData<Project>('projects')
+    const t = useTranslations()
 
     return (
         <>
-            <SectionTag title={tTag('work')} seeMore href="/work" />
+            <SectionTag title={t('work')} seeMore href="/work" />
             <div className="mt-3 flex items-center justify-between">
                 <div className="space-y-2">
                     <MotionH2>Recent Works</MotionH2>

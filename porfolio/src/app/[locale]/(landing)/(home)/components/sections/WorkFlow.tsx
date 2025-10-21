@@ -1,19 +1,12 @@
 'use client'
 
-import React from 'react'
-
 import { Accordion, AccordionItem } from '@heroui/react'
-import { child } from 'firebase/database'
 import { Plus } from 'lucide-react'
 
-import MarkdownContent from '@/components/MarkdownContent'
-
-import { WORKFLOW } from '@/database/workflow'
+import { WORKFLOW as workflow } from '@/database/workflow'
 import { MotionH2 } from '@/lib/motion'
 
 export default function WorkFlow() {
-    const workflow = WORKFLOW
-
     return (
         <div className="pt-24 pb-20 bg-black">
             <div className="container !text-white">

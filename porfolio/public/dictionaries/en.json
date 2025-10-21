@@ -1,45 +1,33 @@
 {
-    "app": {
-        "metadata": {
-            "title": "Yangis.dev",
-            "description": "Welcome to Yangis.dev, a place to showcase creative works, projects, and insights. Explore innovative web development, UI/UX design, and much more.",
-            "keywords": "Yangis, portfolio, web development, design, creative, projects, yangis.dev, software engineer",
-            "ogTitle": "Yangis.dev",
-            "ogDescription": "Explore my work and projects as a creative web developer and designer. Let's connect and collaborate.",
-            "twitterTitle": "Yangis.dev",
-            "twitterDescription": "Discover my portfolio as a creative web developer and designer. Let's collaborate!"
-        },
-        "common": {
-            "status": {
-                "loading": "Loading",
-                "error": "An error occurred",
-                "success": "Success",
-                "empty": "No items found"
-            },
-            "button": {
-                "search": "Search",
-                "submit": "Submit",
-                "cancel": "Cancel",
-                "save": "Save",
-                "delete": "Delete",
-                "create": "Create",
-                "edit": "Edit",
-                "update": "Update",
-                "contact": "Contact",
-                "seeMore": "See more",
-                "exploreNow": "Explore now",
-                "buildWebsite": "Build website"
-            },
-            "tag": {
-                "lastUpdates": "Last updates",
-                "work": "Featured Projects",
-                "writing": "Writing",
-                "getInTouch": "Get in touch"
-            }
-        },
-        "layout": {
-            "region": "Ho Chi Minh City, Viet Nam"
-        }
+    "loading": "Loading",
+    "error": "An error occurred",
+    "success": "Success",
+    "empty": "No items found",
+    "search": "Search",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "create": "Create",
+    "edit": "Edit",
+    "update": "Update",
+    "contact": "Contact",
+    "seeMore": "See more",
+    "exploreNow": "Explore now",
+    "buildWebsite": "Build website",
+    "lastUpdates": "Last updates",
+    "work": "Featured Projects",
+    "writing": "Writing",
+    "getInTouch": "Get in touch",
+    "region": "Ho Chi Minh City, Viet Nam",
+    "metadata": {
+        "title": "Yangis.dev",
+        "description": "Welcome to Yangis.dev, a place to showcase creative works, projects, and insights. Explore innovative web development, UI/UX design, and much more.",
+        "keywords": "Yangis, portfolio, web development, design, creative, projects, yangis.dev, software engineer",
+        "ogTitle": "Yangis.dev",
+        "ogDescription": "Explore my work and projects as a creative web developer and designer. Let's connect and collaborate.",
+        "twitterTitle": "Yangis.dev",
+        "twitterDescription": "Discover my portfolio as a creative web developer and designer. Let's collaborate!"
     },
     "home": {
         "hero": {

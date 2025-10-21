@@ -57,7 +57,7 @@ function ContactInfo() {
 }
 
 export default function GetInTouch() {
-    const tTag = useTranslations('app.common.tag')
+    const tTag = useTranslations()
 
     return (
         <>

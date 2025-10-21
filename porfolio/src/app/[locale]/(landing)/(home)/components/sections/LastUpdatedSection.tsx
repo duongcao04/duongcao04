@@ -37,7 +37,7 @@ const ARTICLES: Article[] = [
 ]
 
 export default function LastUpdateSection() {
-    const tTag = useTranslations('app.common.tag')
+    const tTag = useTranslations()
 
     return (
         <>

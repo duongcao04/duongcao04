@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Logo from '@/components/icons/logo'
 
 import { SOCIAL_NETWORKS } from '@/constants/appConstants'
-import { MotionButton, MotionDiv } from '@/lib/motion'
+import { MotionDiv } from '@/lib/motion'
 
 import LanguageToggle from './LanguageToggle'
 import AppNavigate from './app-navigate'
@@ -44,8 +44,8 @@ const navItemVariant: Variants = {
 }
 
 export default function Header() {
-    const tLayout = useTranslations('app.layout')
-    const tButton = useTranslations('app.common.button')
+    const t = useTranslations()
+    const tButton = useTranslations()
 
     return (
         <MotionDiv className="container w-full h-20 2xl:grid 2xl:grid-cols-navbar flex justify-between gap-8 items-center">
@@ -67,7 +67,7 @@ export default function Header() {
                         className="flex flex-col items-end"
                     >
                         <p className="text-sm font-medium text-text-secondary">
-                            {tLayout('region')}
+                            {t('region')}
                         </p>
                         <VietnamClock />
                     </MotionDiv>

@@ -15,7 +15,7 @@ interface SearchBarProps extends InputProps {
 }
 
 function SearchBar({ onSearch, placeholder, ...otherProps }: SearchBarProps) {
-    const tButton = useTranslations('app.common.button')
+    const tButton = useTranslations()
 
     const { getSearchParam } = useSearchParam()
     const searchKeywords = getSearchParam('search') ?? ''

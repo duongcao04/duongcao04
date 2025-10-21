@@ -1,5 +1,13 @@
 {
 	"i18n-ally.localesPaths": [
-		"src/i18n"
-	]
+		"public/dictionaries"
+	],
+	"cSpell.words": [
+		"heroui",
+		"Minh",
+		"saira",
+		"Viet",
+		"Yangis"
+	],
+	"cSpell.language": "en,vi"
 }

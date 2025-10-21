@@ -31,7 +31,7 @@ const textVariant: Variants = {
 }
 
 export default function HeroSection() {
-    const tButton = useTranslations('app.common.button')
+    const tButton = useTranslations()
     const tHero = useTranslations('home.hero')
 
     return (

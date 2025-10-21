@@ -7,13 +7,13 @@ import { useTranslations } from 'next-intl'
 
 import { useFirebaseData } from '@/hooks/useFirebase'
 
-import { Post } from '@/types/article'
+import { Post } from '@/interfaces/post.interface'
 
 import PostCard from '../cards/PostCard'
 import SectionTag from '../section-tag'
 
 export default function WritingSection() {
-    const tTag = useTranslations('app.common.tag')
+    const tTag = useTranslations()
 
     const { data: allPosts, loading } = useFirebaseData<Post>('posts')
 
