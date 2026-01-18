@@ -2,9 +2,9 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ReturnBackButton from '@/components/common/ReturnBackButton'
+import ReturnBackButton from '@/shared/components/common/ReturnBackButton'
 
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS } from '@/shared/data/projects'
 import { MotionH1 } from '@/lib/motion'
 
 export default async function WorkDetailPage({

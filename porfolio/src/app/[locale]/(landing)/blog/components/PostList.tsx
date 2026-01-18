@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Spinner } from '@heroui/react'
 
-import { useFirebaseData } from '@/hooks/useFirebase'
+import { useFirebaseData } from '@/shared/hooks/useFirebase'
 
 import { Post } from '@/types/article'
 

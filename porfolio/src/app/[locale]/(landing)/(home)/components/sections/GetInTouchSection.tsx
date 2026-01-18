@@ -1,13 +1,12 @@
 'use client'
 
-import React from 'react'
-
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { RoughNotation } from 'react-rough-notation'
 
-import { CONTACT_INFOS } from '@/constants/appConstants'
 import { SupportLanguages } from '@/i18n/routing'
+import { CONTACT_INFOS } from '@/shared/constants'
+import { useDevice } from '@/shared/hooks'
 
 import ContactForm from '../forms/ContactForm'
 
@@ -57,7 +56,8 @@ function ContactInfo() {
 }
 
 export default function GetInTouch() {
-    const tTag = useTranslations('app.common.tag')
+    const tTag = useTranslations()
+    const { isSmallDevice } = useDevice()
 
     return (
         <>
@@ -70,12 +70,19 @@ export default function GetInTouch() {
                         color="var(--secondary)"
                         order={5}
                     >
-                        <span className="font-lexendDeca font-semibold px-8 capitalize">
+                        <h3 className="text-2xl font-lexendDeca font-semibold px-8 capitalize">
                             {tTag('getInTouch')}
-                        </span>
+                        </h3>
                     </RoughNotation>
                 </div>
-                <div className="mt-20 flex flex-col gap-12 items-start w-full desktop:w-[1280px] tablet:grid tablet:grid-cols-[400px_minmax(0,1fr)] desktop:gap-8">
+                <div
+                    className="mt-20 flex-col gap-12 items-start w-full"
+                    style={{
+                        display: isSmallDevice ? 'flex' : 'grid',
+                        gridTemplateColumns: isSmallDevice ? '' : '400px 1fr',
+                        gap: isSmallDevice ? 32 : 0,
+                    }}
+                >
                     <ContactInfo />
                     <ContactForm />
                 </div>

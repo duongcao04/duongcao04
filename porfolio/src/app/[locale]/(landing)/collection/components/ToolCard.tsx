@@ -4,7 +4,7 @@ import { Image } from 'antd'
 import Link from 'next/link'
 import { encode } from 'querystring'
 
-import { Tool } from '@/types/tool'
+import { Tool } from '@/shared/types/_tool.type.'
 
 import ToolTag from './ToolTag'
 

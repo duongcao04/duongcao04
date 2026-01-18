@@ -1,0 +1,40 @@
+@utility container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem; /* 20px */
+
+    /* Define max-widths for breakpoints. 
+     This makes the container "snap" to a fixed width like standard Tailwind.
+  */
+    @media (min-width: --theme(--breakpoint-sm)) {
+        max-width: --theme(--breakpoint-sm);
+    }
+
+    @media (min-width: --theme(--breakpoint-md)) {
+        max-width: --theme(--breakpoint-md);
+    }
+
+    @media (min-width: --theme(--breakpoint-lg)) {
+        max-width: --theme(--breakpoint-lg);
+    }
+
+    @media (min-width: --theme(--breakpoint-xl)) {
+        max-width: --theme(--breakpoint-xl);
+    }
+
+    @media (min-width: --theme(--breakpoint-2xl)) {
+        max-width: --theme(--breakpoint-2xl);
+    }
+}
+
+@theme {
+    /* 1. Define the animation utility name */
+    --animate-spin-smooth: spin-smooth 1s ease-in-out infinite;
+
+    /* 2. Define keyframes */
+    @keyframes spin-smooth {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

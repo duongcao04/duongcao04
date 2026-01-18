@@ -7,11 +7,10 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ContainerTextFlip } from '@/components/ui/container-text-flip'
-
 import Avatar from '@/assets/img/avatar.jpg'
-import { TECHSTACKS } from '@/constants/appConstants'
 import { MotionButton, MotionH1, MotionSpan } from '@/lib/motion'
+import { ContainerTextFlip } from '@/shared/components'
+import { TECHSTACKS } from '@/shared/constants'
 
 const textVariant: Variants = {
     init: {
@@ -31,7 +30,7 @@ const textVariant: Variants = {
 }
 
 export default function HeroSection() {
-    const tButton = useTranslations('app.common.button')
+    const tButton = useTranslations()
     const tHero = useTranslations('home.hero')
 
     return (

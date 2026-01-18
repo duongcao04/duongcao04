@@ -1,88 +1,79 @@
 'use client'
 
+import { Skeleton } from '@heroui/react'
 import { Image } from 'antd'
+import { encode } from 'querystring'
 
 import { Link } from '@/i18n/navigation'
-import { formatWorkingTime } from '@/lib/formatTime'
-import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
-import { Project } from '@/types/work'
+import { Project } from '@/shared/interfaces/_project.interface'
 
-export default function ProjectCard({ data }: { data: Project }) {
-    const lineVariant = {
-        initial: {
-            width: 0,
-        },
-        animate: {
-            width: '100%',
-        },
-    }
+import TagCard from './TagCard'
 
-    const imageVariant = {
-        initial: {
-            scale: 1,
-        },
-        animate: {
-            scale: 1.05,
-        },
-    }
+type Props = {
+    data?: Project
+    isLoading?: boolean
+    useRealtimeThumbnail?: boolean
+}
+export default function ProjectCard({
+    data,
+    isLoading = false,
+    useRealtimeThumbnail = false,
+}: Props) {
+    const detailUrl = `/projects/${data?.slug}`
+    const params = encode({
+        url: data?.referenceUrl,
+        screenshot: true,
+        meta: false,
+        embed: 'screenshot.url',
+        colorScheme: 'dark',
+        'viewport.isMobile': true,
+        'viewport.deviceScaleFactor': 1,
+    })
 
-    const titleVariant = {
-        initial: {
-            color: 'var(--primary-text)',
-        },
-        animate: {
-            color: 'var(--primary)',
-        },
-    }
+    const realtimeThumb = `https://api.microlink.io/?${params}`
 
-    const dateVariant = {
-        initial: {
-            opacity: 0,
-        },
-        animate: {
-            opacity: 1,
-        },
-    }
+    const projectThumbnail = useRealtimeThumbnail
+        ? realtimeThumb
+        : data?.thumbnailUrl
 
     return (
-        <MotionDiv
-            initial="initial"
-            animate="initial"
-            whileHover="animate"
-            className="w-full"
-        >
-            <MotionDiv className="block w-full aspect-[2/1] rounded-xl overflow-hidden border border-border">
-                <MotionDiv
-                    variants={imageVariant}
-                    transition={{ delay: 0.1, duration: 0.3 }}
-                    className="size-full rounded-xl"
+        <div className="border border-transparent hover:border-border hover:bg-gray-100 rounded-3xl transition duration-300">
+            <div className="w-full h-fit bg-gray-100 rounded-3xl p-5 shadow-sm">
+                <Skeleton
+                    isLoaded={!isLoading}
+                    className="size-full aspect-[4/2] rounded-2xl"
                 >
                     <Image
-                        src={data.thumbnail}
-                        alt={`${data.name} thumbnail`}
-                        className="size-full object-cover rounded-xl"
+                        src={projectThumbnail}
+                        alt={data?.displayName}
+                        rootClassName="size-full aspect-[4/2] shadow-sm"
+                        className="size-full aspect-[4/2] rounded-2xl"
+                        preview={false}
                     />
-                </MotionDiv>
-            </MotionDiv>
-            <div className="mt-2 desktop:mt-4 w-fit">
-                <Link
-                    href={`/work/${data.slug}`}
-                    className="text-lg desktop:text-2xl font-lexendDeca font-light inline-block p-1 group-hover:text-primary transition duration-300"
-                >
-                    <MotionSpan variants={titleVariant}>{data.name}</MotionSpan>
-                </Link>
-                <MotionDiv
-                    variants={lineVariant}
-                    transition={{ duration: 0.4 }}
-                    className={'h-[2.5px] bg-primary'}
-                />
-                <MotionP
-                    variants={dateVariant}
-                    className="mt-2 text-sm desktop:text-lg font-lexendDeca font-extralight tracking-wide uppercase"
-                >
-                    {formatWorkingTime(data.startedAt!, data.completedAt!)}
-                </MotionP>
+                </Skeleton>
             </div>
-        </MotionDiv>
+            <div className="px-5 py-4">
+                <Skeleton
+                    isLoaded={!isLoading}
+                    className="w-full h-[24px] rounded-md mt-5"
+                >
+                    <div className="flex items-center justify-start gap-3 flex-wrap flex-shrink-0">
+                        {data?.tags?.map((tag, idx) => {
+                            return <TagCard key={idx} data={tag} />
+                        })}
+                    </div>
+                </Skeleton>
+                <Skeleton
+                    isLoaded={!isLoading}
+                    className="w-[80%] h-[24px] rounded-md mt-3"
+                >
+                    <Link href={detailUrl}>
+                        <p className="text-lg font-semibold line-clamp-2 leading-inherit">
+                            {data?.displayName}
+                        </p>
+                    </Link>
+                </Skeleton>
+            </div>
+        </div>
     )
 }

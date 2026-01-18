@@ -6,8 +6,8 @@ import { FormikProps, useFormik } from 'formik'
 import { useTranslations } from 'next-intl'
 import * as yup from 'yup'
 
-import { customizeToast, updateToast } from '@/components/CustomizeToast'
-import { Button } from '@/components/ui/button'
+import { customizeToast, updateToast } from '@/shared/components/CustomizeToast'
+import { Button } from '@/shared/components/ui/button'
 
 import { sendMail } from '@/lib/nodemailer'
 

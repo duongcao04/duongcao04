@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import ArrowUp from '@/components/icons/arrow-up'
+import ArrowUp from '@/shared/components/icons/arrow-up'
 
 import { MotionButton } from '@/lib/motion'
 

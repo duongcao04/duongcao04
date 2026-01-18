@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import ScrollDownIcon from '@/components/icons/ScrollDownIcon'
+import ScrollDownIcon from '@/shared/components/icons/ScrollDownIcon'
 
 export default function ScrollDownButton() {
     const onScrollDown = (e: React.MouseEvent) => {

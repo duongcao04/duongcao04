@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react'
 
 import { useTranslations } from 'next-intl'
 
-import { useFirebaseData } from '@/hooks/useFirebase'
-import { useSearchParam } from '@/hooks/useSearchParam'
+import { useFirebaseData } from '@/shared/hooks/useFirebase'
+import { useSearchParam } from '@/shared/hooks/useSearchParam'
 
 import AppLoader from '@/app/loading'
 import { MotionH1, MotionH4 } from '@/lib/motion'
-import { Tool } from '@/types/tool'
+import { Tool } from '@/shared/types/_tool.type.'
 
 import ToolCard from './components/ToolCard'
 import ToolFilter from './components/ToolFiler'

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Avatar from '@/assets/my_avatar.png'
 import { MotionDiv } from '@/lib/motion'
 
-import './loading.css'
+import '../styles/loading.css'
 
 function AppLoader() {
     return (

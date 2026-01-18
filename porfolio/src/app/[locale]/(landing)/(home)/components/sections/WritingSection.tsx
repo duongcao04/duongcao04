@@ -5,15 +5,15 @@ import React from 'react'
 import { Spinner } from '@heroui/react'
 import { useTranslations } from 'next-intl'
 
-import { useFirebaseData } from '@/hooks/useFirebase'
+import { useFirebaseData } from '@/shared/hooks/useFirebase'
 
-import { Post } from '@/types/article'
+import { Post } from '@/shared/interfaces/_post.interface'
 
 import PostCard from '../cards/PostCard'
 import SectionTag from '../section-tag'
 
 export default function WritingSection() {
-    const tTag = useTranslations('app.common.tag')
+    const tTag = useTranslations()
 
     const { data: allPosts, loading } = useFirebaseData<Post>('posts')
 

@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useTranslations } from 'next-intl'
 
-import Call from '@/components/icons/call'
-import EducationIcon from '@/components/icons/education-icon'
-import MailGun from '@/components/icons/main-gun'
-import GithubSocialOutline from '@/components/icons/social-icons/github-social-outline'
+import Call from '@/shared/components/icons/call'
+import EducationIcon from '@/shared/components/icons/education-icon'
+import MailGun from '@/shared/components/icons/main-gun'
+import GithubSocialOutline from '@/shared/components/icons/social-icons/github-social-outline'
 
 import AboutMeTimeline from '../about-me-timeline'
 
