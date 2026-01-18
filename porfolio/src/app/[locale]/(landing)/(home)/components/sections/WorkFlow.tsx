@@ -3,7 +3,7 @@
 import { Accordion, AccordionItem } from '@heroui/react'
 import { Plus } from 'lucide-react'
 
-import { WORKFLOW as workflow } from '@/database/workflow'
+import { WORKFLOW as workflow } from '../../../../../../../database/workflow'
 import { MotionH2 } from '@/lib/motion'
 
 export default function WorkFlow() {

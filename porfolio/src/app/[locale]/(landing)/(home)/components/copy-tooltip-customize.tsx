@@ -4,7 +4,7 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, useState } from 'react'
 
 import { Tooltip } from '@heroui/tooltip'
 
-import { copyText } from '@/utils/copy-text-action'
+import { copyText } from '@/lib/utils/copy-text-action'
 
 interface buttonProps
     extends DetailedHTMLProps<

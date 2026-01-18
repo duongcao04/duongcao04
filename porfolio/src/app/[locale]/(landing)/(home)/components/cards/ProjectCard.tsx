@@ -4,16 +4,21 @@ import { Skeleton } from '@heroui/react'
 import { Image } from 'antd'
 import { encode } from 'querystring'
 
-import { Project } from '@/interfaces/project.interface'
+import { Link } from '@/i18n/navigation'
+import { Project } from '@/shared/interfaces/_project.interface'
 
-import { Link } from '../../../../../../i18n/navigation'
 import TagCard from './TagCard'
 
 type Props = {
     data?: Project
     isLoading?: boolean
+    useRealtimeThumbnail?: boolean
 }
-export default function ProjectCard({ data, isLoading = false }: Props) {
+export default function ProjectCard({
+    data,
+    isLoading = false,
+    useRealtimeThumbnail = false,
+}: Props) {
     const detailUrl = `/projects/${data?.slug}`
     const params = encode({
         url: data?.referenceUrl,
@@ -25,12 +30,11 @@ export default function ProjectCard({ data, isLoading = false }: Props) {
         'viewport.deviceScaleFactor': 1,
     })
 
-    const workThumbnail =
-        data?.thumbnailUrl &&
-        typeof data?.thumbnailUrl === 'string' &&
-        data.thumbnailUrl?.length === 0
-            ? `https://api.microlink.io/?${params}`
-            : (data?.thumbnailUrl as string)
+    const realtimeThumb = `https://api.microlink.io/?${params}`
+
+    const projectThumbnail = useRealtimeThumbnail
+        ? realtimeThumb
+        : data?.thumbnailUrl
 
     return (
         <div className="border border-transparent hover:border-border hover:bg-gray-100 rounded-3xl transition duration-300">
@@ -40,7 +44,7 @@ export default function ProjectCard({ data, isLoading = false }: Props) {
                     className="size-full aspect-[4/2] rounded-2xl"
                 >
                     <Image
-                        src={workThumbnail}
+                        src={projectThumbnail}
                         alt={data?.displayName}
                         rootClassName="size-full aspect-[4/2] shadow-sm"
                         className="size-full aspect-[4/2] rounded-2xl"

@@ -1,4 +1,4 @@
-import { Tag } from '@/interfaces/tag.interface'
+import { Tag } from '@/shared/interfaces/_tag.interface'
 
 type Props = {
     data: Tag | string

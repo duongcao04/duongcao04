@@ -6,10 +6,10 @@ import { FileProtectOutlined, HomeOutlined } from '@ant-design/icons'
 import { Breadcrumb } from 'antd'
 import { useLocale, useTranslations } from 'next-intl'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/shared/components/ui/button'
 
 import { MotionH1, MotionH4 } from '@/lib/motion'
-import { formatSemiFullDate } from '@/utils/format'
+import { formatSemiFullDate } from '@/lib/utils/format'
 
 import PostList from './components/PostList'
 import PostSearchbar from './components/PostSearchbar'

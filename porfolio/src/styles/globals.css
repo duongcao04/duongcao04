@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import './foundation.css';
+@import './utility.css';
+@import 'tw-animate-css';
+
+/* -------------------------------------------------------------------------- */
+/* 1. Configuration & Plugins                                                */
+/* -------------------------------------------------------------------------- */
+@plugin '../lib/hero.ts';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+/* -------------------------------------------------------------------------- */
+/* 2. Font Face Definitions                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Note: Ensure these paths are correct relative to this CSS file */
+
+@font-face {
+    font-family: 'SegoeUI';
+    src: url('../assets/fonts/SegoeUI.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playwrite';
+    /* You had 'assets/fonts' here but 'fonts' elsewhere. I kept it, but verify this path. */
+    src: url('../assets/fonts/Playwrite.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saira';
+    src: url('../assets/fonts/Saira.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Theme Configuration (Tailwind v4)                                      */
+/* -------------------------------------------------------------------------- */
+@theme {
+    /* These automatically generate utilities like: font-segoeui, font-inter */
+    --font-segoeui: 'SegoeUI', 'Inter', Arial, Helvetica, sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-saira: 'Saira', sans-serif;
+    --font-quicksand: 'Quicksand', sans-serif;
+
+    /* Converted your manual classes to Tailwind Theme Utilities */
+    /* Note: Ensure 'Pacifico', 'Preahvihear', etc., are loaded (e.g. via Google Fonts) */
+    --font-playwrite: 'Playwrite', 'Inter', sans-serif;
+    --font-logo: 'Pacifico', 'Inter', sans-serif;
+    --font-pacifico: 'Pacifico', 'Inter', sans-serif;
+    --font-preahvihear: 'Preahvihear', 'Inter', sans-serif;
+    --font-lexendDeca: 'LexendDeca', 'Inter', sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Global Styles & Reset                                                  */
+/* -------------------------------------------------------------------------- */
+
+/* Custom Variant for Dark Mode */
+@custom-variant dark (&:is(.dark *));
+
+body {
+    /* Using variables from your theme or foundation files */
+    color: var(--color-text-default);
+    font-family: var(--font-inter);
+}
+
+/* Avoid !important if possible, but kept it as requested to override defaults */
+a {
+    color: var(--color-text-default) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Utility Classes                                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Hide Scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Remove Input Number Arrows/Spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Text Selection Styles */
+::selection {
+    color: var(--background);
+    background: var(--secondary);
+}
+
+::-moz-selection {
+    color: var(--background);
+    background: var(--secondary);
+}

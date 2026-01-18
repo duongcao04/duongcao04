@@ -7,13 +7,13 @@ import { HomeIcon } from 'lucide-react'
 import { getLocale } from 'next-intl/server'
 import ReactMarkdown from 'react-markdown'
 
-import CustomizeBreadcrumbs from '@/components/common/CustomizeBreadcrumbs'
+import CustomizeBreadcrumbs from '@/shared/components/common/CustomizeBreadcrumbs'
 
 import NotFound from '@/app/not-found'
 import { firebaseService } from '@/lib/firebase/services'
 import { MotionH1 } from '@/lib/motion'
 import { Post } from '@/types/article'
-import { formatSemiFullDate } from '@/utils/format'
+import { formatSemiFullDate } from '@/lib/utils/format'
 
 import PostTags from './_components/PostTags'
 

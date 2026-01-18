@@ -1,8 +1,8 @@
 'use client'
 
-import { useSearchParam } from '@/hooks/useSearchParam'
+import { useSearchParam } from '@/shared/hooks/useSearchParam'
 
-import SearchBar from '@/components/common/Searchbar'
+import SearchBar from '@/shared/components/common/Searchbar'
 
 function ToolSearchbar() {
     const { setSearchParams, removeSearchParam } = useSearchParam()

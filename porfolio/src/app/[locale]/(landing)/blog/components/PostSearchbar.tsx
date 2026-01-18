@@ -1,6 +1,6 @@
 'use client'
 
-import SearchBar from '@/components/common/Searchbar'
+import SearchBar from '@/shared/components/common/Searchbar'
 
 function PostSearchbar() {
     const onSearch = (keywords: string) => {

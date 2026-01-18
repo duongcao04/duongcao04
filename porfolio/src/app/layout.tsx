@@ -5,12 +5,11 @@ import { Viewport } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { ToastContainer } from 'react-toastify'
 
-import ScrollToTop from '@/components/layout/ScrollToTop'
-
 import MyAppProvider from '@/app/providers'
-import { inter, saira } from '@/fonts'
+import { inter, saira } from '@/assets/fonts'
+import ScrollToTop from '@/shared/components/layout/ScrollToTop'
 
-import './globals.css'
+import '../styles/globals.css'
 import AppLoader from './loading'
 
 export async function generateMetadata({

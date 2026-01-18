@@ -1,0 +1,35 @@
+.loader {
+    width: 300px; /* tăng từ 50px lên 100px */
+    aspect-ratio: 1;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: var(--color-red-500);
+    animation: l15 1s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    grid-area: 1/1;
+    margin: 6px; /* tăng từ 2px lên 4px */
+    border: inherit;
+    border-radius: 50%;
+    animation: l15 2s infinite;
+}
+
+.loader::before {
+    border-right-color: var(--color-primary);
+}
+
+.loader::after {
+    margin: 16px; /* tăng từ 8px lên 12px */
+    border-right-color: var(--color-yellow-600);
+    animation-duration: 3s;
+}
+
+@keyframes l15 {
+    100% {
+        transform: rotate(1turn);
+    }
+}

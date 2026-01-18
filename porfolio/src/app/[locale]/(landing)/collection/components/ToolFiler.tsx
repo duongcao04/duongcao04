@@ -3,7 +3,7 @@ import React from 'react'
 import { Button } from '@heroui/react'
 import { useTranslations } from 'next-intl'
 
-import Plus from '@/components/icons/plus'
+import Plus from '@/shared/components/icons/plus'
 
 function ToolFilter() {
     const t = useTranslations('collection')

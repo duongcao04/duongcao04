@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import Copy from '@/components/icons/copy'
+import Copy from '@/shared/components/icons/copy'
 
 import { MotionButton } from '@/lib/motion'
 

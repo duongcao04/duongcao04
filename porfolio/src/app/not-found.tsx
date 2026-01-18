@@ -1,5 +1,5 @@
-import Search from '@/components/common/search'
-import { Button } from '@/components/ui/button'
+import Search from '@/shared/components/common/search'
+import { Button } from '@/shared/components/ui/button'
 
 import { Link } from '@/i18n/navigation'
 import { MotionDiv, MotionH1, MotionP } from '@/lib/motion'

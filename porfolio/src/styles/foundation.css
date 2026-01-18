@@ -1,0 +1,202 @@
+/* -------------------------------------------------------------------------- */
+/* 1. CSS Variables (The Foundation)                                         */
+/* Define all your raw colors and values here.                            */
+/* -------------------------------------------------------------------------- */
+:root {
+    /* --- Primary Scale (Blue/Indigo) --- */
+    --primary-50: hsl(355.4 86.7% 97.1%);
+    --primary-100: hsl(354 83.3% 92.9%);
+    --primary-200: hsl(355 83.3% 85.9%);
+    --primary-300: hsl(354.3 85.5% 78.4%);
+    --primary-400: hsl(352.9 86.4% 71.2%);
+    --primary-500: hsl(349.7 89.2% 60.2%);
+    --primary-600: hsl(347.9 70% 47.1%);
+    --primary-700: hsl(347.8 72.7% 34.5%);
+    --primary-800: hsl(348.4 76.9% 23.7%);
+    --primary-900: hsl(349 85.7% 13.7%);
+    --primary-950: hsl(351.6 87.8% 9.6%);
+
+    /* Default Primary Pointer (Fixes the circular dependency) */
+    --primary: var(--primary-500);
+    --primary-dark: var(--primary-500); /* Lighter in dark mode usually */
+
+    /* --- Secondary Scale (Red/Pink) --- */
+    --secondary-50: hsl(7.1 100% 96.7%);
+    --secondary-100: hsl(8.8 100% 93.3%);
+    --secondary-200: hsl(9.1 100% 87.1%);
+    --secondary-300: hsl(10.3 100% 79.4%);
+    --secondary-400: hsl(12.7 100% 71.2%);
+    --secondary-500: hsl(23.5 100% 50%);
+    --secondary-600: hsl(23.2 100% 40%);
+    --secondary-700: hsl(22.1 100% 29.8%);
+    --secondary-800: hsl(20.9 100% 20.8%);
+    --secondary-900: hsl(17.7 100% 12%);
+    --secondary-950: hsl(13.2 100% 8%);
+
+    /* Default Secondary Pointer */
+    --secondary: var(--secondary-800);
+
+    /* --- Neutral/Text Scale (9 Steps) --- */
+    --text-1: hsl(0, 0%, 100%); /* Pure White */
+    --text-2: hsl(0, 0%, 98%); /* Off-white */
+    --text-3: hsl(0, 0%, 94%); /* Hover/Border */
+    --text-4: hsl(0, 0%, 88%); /* Disabled/Border */
+    --text-5: hsl(0, 0%, 70%); /* Placeholder */
+    --text-6: hsl(0, 0%, 50%); /* Muted */
+    --text-7: hsl(0, 0%, 30%); /* Secondary Text */
+    --text-8: hsl(0, 0%, 10%); /* Primary Text */
+    --text-9: hsl(0, 0%, 6%); /* Title/Icons */
+
+    /* --- Semantic Mappings (Light Mode) --- */
+    --background: var(--text-1);
+    --background-muted: var(--text-2);
+    --background-hovered: var(--primary-50);
+
+    --foreground: var(
+        --text-8
+    ); /* Was hardcoded black, linked to text-8 for consistency */
+
+    --border: var(--text-4);
+    --border-muted: var(--text-3);
+
+    /* Text Semantics */
+    --text-default: var(--text-8);
+    --text-subdued: var(--text-6);
+    --text-muted: var(--text-4);
+    --text-disabled: var(--text-3);
+    --text-inverse: var(--text-1); /* Text on dark backgrounds */
+
+    /* Special Colors */
+    --color-link: var(--color-blue-600);
+    --color-currency: #252b5b;
+    --highlight: oklch(0.852 0.199 91.936);
+    --brand: oklch(0.623 0.214 259.815);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Dark Mode Overrides                                                    */
+/* -------------------------------------------------------------------------- */
+.dark {
+    /* Re-map Primary */
+    --primary: var(--primary-dark);
+    --secondary: var(--secondary-500);
+
+    /* Re-map Backgrounds (Inverted logic) */
+    --background: var(--text-9); /* Darkest */
+    --background-muted: var(--text-8); /* Slightly lighter */
+    --background-hovered: hsl(0, 0%, 24%);
+
+    /* Re-map Foreground */
+    --foreground: var(--text-1);
+
+    /* Re-map Borders */
+    --border: var(--text-7);
+    --border-muted: var(--text-8);
+
+    /* Re-map Text */
+    --text-default: var(
+        --text-2
+    ); /* Use 98% white for better readability than 100% */
+    --text-subdued: var(--text-5);
+    --text-muted: var(--text-6);
+    --text-disabled: var(--text-7);
+    --text-inverse: var(--text-9);
+
+    /* Special Colors */
+    --color-link: var(--color-blue-800);
+    --color-currency: #6169a3;
+    --brand: oklch(0.707 0.165 254.624);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Tailwind Theme Configuration                                           */
+/* Map the CSS variables above to Tailwind classes.                       */
+/* -------------------------------------------------------------------------- */
+@theme {
+    /* --- Colors --- */
+    --color-primary: var(--primary);
+    --color-primary-50: var(--primary-50);
+    --color-primary-100: var(--primary-100);
+    --color-primary-200: var(--primary-200);
+    --color-primary-300: var(--primary-300);
+    --color-primary-400: var(--primary-400);
+    --color-primary-500: var(--primary-500);
+    --color-primary-600: var(--primary-600);
+    --color-primary-700: var(--primary-700);
+    --color-primary-800: var(--primary-800);
+    --color-primary-900: var(--primary-900);
+    --color-primary-950: var(--primary-950);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-50: var(--secondary-50);
+    --color-secondary-100: var(--secondary-100);
+    --color-secondary-200: var(--secondary-200);
+    --color-secondary-300: var(--secondary-300);
+    --color-secondary-400: var(--secondary-400);
+    --color-secondary-500: var(--secondary-500);
+    --color-secondary-600: var(--secondary-600);
+    --color-secondary-700: var(--secondary-700);
+    --color-secondary-800: var(--secondary-800);
+    --color-secondary-900: var(--secondary-900);
+    --color-secondary-950: var(--secondary-950);
+
+    --color-highlight: var(--highlight);
+    --color-brand: var(--brand);
+
+    /* Semantic Colors */
+    --color-background: var(--background);
+    --color-background-muted: var(--background-muted);
+    --color-background-hovered: var(--background-hovered);
+    --color-foreground: var(--foreground);
+
+    --color-border: var(--border);
+    --color-border-default: var(--border);
+    --color-border-muted: var(--border-muted);
+
+    --color-text-default: var(--text-default);
+    --color-text-subdued: var(--text-subdued);
+    --color-text-muted: var(--text-muted);
+    --color-text-disabled: var(--text-disabled);
+    --color-text-inverse: var(--text-inverse);
+
+    --color-link: var(--color-link);
+    --color-currency: var(--color-currency);
+
+    /* Raw Text Scale (Optional, if you want utility classes like text-text-1) */
+    --color-text-1: var(--text-1);
+    --color-text-2: var(--text-2);
+    --color-text-3: var(--text-3);
+    --color-text-4: var(--text-4);
+    --color-text-5: var(--text-5);
+    --color-text-6: var(--text-6);
+    --color-text-7: var(--text-7);
+    --color-text-8: var(--text-8);
+    --color-text-9: var(--text-9);
+
+    /* --- Fonts --- */
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --font-saira: var(--font-saira);
+    --font-inter: var(--font-inter);
+    --font-quicksand: var(--font-quicksand);
+    --font-segoeui: var(--font-segoeui);
+
+    /* --- Shadows --- */
+    /* Border/Inset Shadows */
+    --shadow-borderXS: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --shadow-borderSM: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    --shadow-borderMD: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-borderLG: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    --shadow-borderXL: 0 0 0 2px rgba(59, 130, 246, 0.5);
+
+    /* Elevation Shadows */
+    --shadow-XS: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-SM: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --shadow-MD: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-LG: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --shadow-XL: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}

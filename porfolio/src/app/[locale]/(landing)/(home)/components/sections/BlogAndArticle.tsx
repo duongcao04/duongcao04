@@ -6,7 +6,7 @@ import { Button } from '@heroui/react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-import { ARTICLES } from '@/database/articles'
+import { ARTICLES } from '../../../../../../../database/articles'
 import { MotionDiv, MotionH2 } from '@/lib/motion'
 
 import ArticleCard from '../cards/ArticleCard'

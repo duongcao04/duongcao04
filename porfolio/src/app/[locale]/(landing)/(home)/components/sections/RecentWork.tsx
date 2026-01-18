@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 
-import { useProjects } from '@/queries/useProject'
+import { useProjects } from '@/shared/queries/useProject'
 
 import ProjectCard from '../cards/ProjectCard'
 import SectionTag from '../section-tag'

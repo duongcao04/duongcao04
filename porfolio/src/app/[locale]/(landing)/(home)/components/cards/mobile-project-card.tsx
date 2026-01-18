@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaChevronRight } from 'react-icons/fa6'
 
-import { type Project } from '@/data/projects'
+import { type Project } from '@/shared/data/projects'
 import { MotionButton } from '@/lib/motion'
 
 import { OnlineLink } from './project-card'

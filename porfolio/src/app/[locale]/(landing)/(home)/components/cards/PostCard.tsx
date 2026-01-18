@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { MotionDiv, MotionP, MotionSpan } from '@/lib/motion'
 import { Post } from '@/types/article'
-import { calculateFromDateToNow } from '@/utils/calc-function'
+import { calculateFromDateToNow } from '@/lib/utils/calc-function'
 
 export default function PostCard({ data }: { data: Post }) {
     const lineVariant = {

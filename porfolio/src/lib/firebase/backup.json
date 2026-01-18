@@ -1,62 +1,1144 @@
 {
     "posts": [
         {
-            "id": 1,
-            "title": "Tại sao package-lock.json tồn tại và cách nó hoạt động",
+            "content": "Trong quá trình phát triển phần mềm hiện đại, file **`package-lock.json`** đóng vai trò vô cùng quan trọng để đảm bảo **sự nhất quán và đồng bộ** trong dự án Node.js. Hãy cùng tìm hiểu **tại sao** nó tồn tại, **cách nó hoạt động**, và **lý do nên commit** file này vào repository nhé!  ---  ## 1️⃣ Tại sao `package-lock.json` tồn tại?  Khi bạn chạy lệnh `npm install` hoặc thêm mới một package, **`package-lock.json`** sẽ được tự động tạo ra (nếu chưa có) hoặc được cập nhật (nếu đã tồn tại). File này chứa **thông tin chi tiết và chính xác** về các phiên bản package, kể cả những **package phụ thuộc** (dependencies).   **Lợi ích chính:** ✅ **Đảm bảo nhất quán**:   Mọi thành viên trong nhóm đều cài đặt đúng **phiên bản package giống nhau**.   ✅ **Tái tạo môi trường nhanh chóng**:   Dùng lệnh `npm ci` sẽ tái dựng chính xác môi trường từ `package-lock.json`.   ✅ **Hỗ trợ debug**:   Giúp bạn biết **chính xác phiên bản** package đã được cài đặt, dễ dàng kiểm tra khi có lỗi.  ---  ## 2️⃣ `package-lock.json` hoạt động như thế nào?  👉 Khi bạn chạy `npm install`, npm sẽ:   🔹 **Đọc `package.json`** để tìm danh sách package chính mà bạn muốn cài.   🔹 **Giải quyết cây phụ thuộc (dependency tree)** để đảm bảo các package và phiên bản tương thích.   🔹 **Ghi lại thông tin** như: - Phiên bản chính xác (resolved version). - Integrity (checksum để đảm bảo file không bị thay đổi). - URL tải về package (resolved URL).  🔹 Tất cả những thông tin này sẽ được lưu vào **`package-lock.json`**.  👉 File **`package-lock.json`** giúp:   - **Lưu lại toàn bộ cấu trúc cây phụ thuộc**.   - Đảm bảo việc **cài đặt lại** (trên máy khác, hoặc trong CI/CD) luôn giống nhau, không bị \"lệch\" phiên bản.    ---  ## 3️⃣ Tại sao nên commit `package-lock.json`?  🔒 **Giữ đồng bộ môi trường phát triển và production**:   Giảm thiểu lỗi do chênh lệch phiên bản khi deploy.  ⚡ **Tối ưu tốc độ build CI/CD**:   Vì `package-lock.json` đã chứa sẵn toàn bộ thông tin, npm không cần phải resolve lại dependencies → build nhanh và chính xác.  📈 **Ổn định dự án**:   Hạn chế rủi ro từ các bản cập nhật mới của dependencies – giúp dự án không bị \"vỡ\".  > 💡 **Tip:**   Nếu bạn dùng **Yarn**, file tương đương là **`yarn.lock`** – cũng có chức năng tương tự.  ---  ## 🎯 Kết luận  File **`package-lock.json`** **không chỉ là một file \"thừa\"** – nó chính là **chìa khóa giúp duy trì sự ổn định, an toàn** cho dự án Node.js. Hãy luôn commit file này vào repository để:  ✅ Giữ môi trường phát triển đồng nhất.   ✅ Tái tạo môi trường nhanh chóng, tránh \"It works on my machine\".   ✅ Bảo vệ dự án khỏi lỗi không mong muốn do update dependencies.    ---  ## 🔎 Một số câu hỏi song ngữ bạn có thể thắc mắc:  🔸 **Tại sao `package-lock.json` lại quan trọng hơn `package.json`?**   **Why is `package-lock.json` more important than `package.json`?**  🔸 **Khi nào nên xóa `package-lock.json` và tạo lại?**   **When should I delete and recreate `package-lock.json`?**  🔸 **`npm install` và `npm ci` khác nhau thế nào?**   **What is the difference between `npm install` and `npm ci`?**  🔸 **Làm thế nào để kiểm tra sự khác nhau giữa các `package-lock.json` trên các nhánh Git?**   **How can we check the differences between `package-lock.json` in different Git branches?**  🔸 **Nếu không commit `package-lock.json`, dự án sẽ gặp vấn đề gì?**   **What issues might arise if we don’t commit `package-lock.json`?**  ---  🚀 **Hy vọng bài viết này giúp bạn hiểu rõ hơn về vai trò của `package-lock.json`! Nếu bạn muốn tôi trả lời chi tiết các câu hỏi trên, hoặc cần tích hợp chúng vào một slide đẹp mắt, đừng ngần ngại yêu cầu nhé!**",
+            "createdAt": "2025-06-03T06:18:04.221Z",
             "description": "Trong quá trình phát triển phần mềm, package-lock.json là một file quan trọng giúp đảm bảo sự nhất quán và đồng bộ giữa các máy tính trong dự án. Bài viết này sẽ giải thích tại sao package-lock.json tồn tại, cách nó hoạt động và lý do bạn nên commit file này vào repository.",
-            "content": "# Tại sao package-lock.json tồn tại và cách nó hoạt động\n\n![package-lock.json](https://images.unsplash.com/photo-1543251698-10f13f004b0f?q=80&w=1963&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nTrong quá trình phát triển phần mềm, `package-lock.json` là một file quan trọng giúp đảm bảo sự nhất quán và đồng bộ giữa các máy tính trong dự án. Bài viết này sẽ giải thích chi tiết tại sao `package-lock.json` tồn tại, cách nó hoạt động và lý do bạn nên commit file này vào repository.\n\n## 1. Tại sao `package-lock.json` tồn tại?\n\nKhi bạn cài đặt hoặc cập nhật các package trong dự án bằng npm, `package-lock.json` được tạo ra tự động. File này lưu trữ thông tin chính xác về các phiên bản package đang được sử dụng, bao gồm cả các package phụ thuộc (dependencies). Điều này giúp tránh tình trạng \"It works on my machine\" khi deploy ứng dụng sang các môi trường khác.\n\n### Các lý do chính:\n\n- **Đảm bảo nhất quán**: Mọi thành viên trong dự án sẽ cài đặt đúng phiên bản package.\n- **Tái tạo môi trường**: Khi chạy `npm ci`, npm sẽ dựa vào `package-lock.json` để tái tạo đúng môi trường.\n- **Dễ dàng debug**: Khi gặp sự cố liên quan đến dependencies, `package-lock.json` giúp bạn kiểm tra phiên bản đã cài đặt.\n\n## 2. `package-lock.json` hoạt động như thế nào?\n\n- Khi bạn chạy `npm install`, npm sẽ:\n  - Đọc file `package.json` để tìm các package chính mà bạn muốn cài đặt.\n  - Giải quyết cây phụ thuộc (dependency tree).\n  - Lưu thông tin chính xác của từng package (bao gồm version, integrity, resolved URL...) vào `package-lock.json`.\n\n- File `package-lock.json` chứa toàn bộ cấu trúc cây phụ thuộc, đảm bảo việc cài đặt được lặp lại chính xác trong tương lai.\n\n## 3. Vì sao nên commit `package-lock.json` vào repository?\n\n- **Đồng bộ hóa môi trường phát triển và production**: Giảm thiểu lỗi do chênh lệch phiên bản.\n- **Tối ưu hóa build CI/CD**: Giúp quá trình build trên pipeline diễn ra nhanh chóng, chính xác.\n- **Ổn định dự án**: Giảm thiểu rủi ro khi có update mới từ các package.\n\n> Lưu ý: Đối với các dự án sử dụng Yarn, bạn sẽ thấy file `yarn.lock` có chức năng tương tự.\n\n## Kết luận\n\nFile `package-lock.json` đóng vai trò rất quan trọng trong việc duy trì sự ổn định và nhất quán của dự án Node.js. Hãy chắc chắn commit file này vào repository để bảo vệ dự án khỏi những lỗi không mong muốn và giúp team bạn làm việc hiệu quả hơn.\n\n---\n\nNếu bạn có thắc mắc hay muốn chia sẻ kinh nghiệm về việc sử dụng `package-lock.json`, đừng ngần ngại để lại bình luận nhé! 🚀✨",
+            "id": 1,
+            "slug": "package-lock-json",
             "thumbnail": "https://miro.medium.com/v2/resize:fit:1400/1*fxotZ2ReBeL8Ss5-6Oe_dw.png",
-            "createdAt": "2021-09-01",
-            "slug": "package-lock-json"
+            "title": "Tại sao package-lock.json tồn tại và cách nó hoạt động"
         },
         {
-            "id": 2,
-            "title": "Cách sử dụng TypeScript với Node.js",
-            "description": "TypeScript là một ngôn ngữ lập trình phổ biến trong cộng đồng Node.js, giúp tăng hiệu suất, giảm lỗi và dễ dàng bảo trì mã nguồn. Bài viết này sẽ hướng dẫn cách sử dụng TypeScript với Node.js, từ cài đặt, cấu hình cho đến viết mã và chạy ứng dụng.",
-
             "content": "# Cách sử dụng TypeScript với Node.js\n\n![TypeScript với Node.js](https://images.unsplash.com/photo-1501045337096-542a73dafa4f?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nTypeScript là một ngôn ngữ lập trình phổ biến trong cộng đồng Node.js. Nó mang lại khả năng kiểm tra kiểu tĩnh (static type-checking), tăng hiệu suất phát triển và giúp mã nguồn dễ bảo trì hơn. Trong bài viết này, chúng ta sẽ cùng nhau tìm hiểu cách tích hợp TypeScript vào dự án Node.js từ bước cài đặt, cấu hình, đến viết và chạy ứng dụng.\n\n## 1. Tại sao nên dùng TypeScript với Node.js?\n\n- **Kiểm tra kiểu tĩnh**: Giúp phát hiện lỗi ngay khi viết code, tránh lỗi runtime.\n- **Tự động hoàn thành (autocomplete)**: Tích hợp tốt với các IDE như VSCode, giúp tăng tốc độ lập trình.\n- **Mã nguồn dễ bảo trì**: Dễ dàng mở rộng, refactor code mà không lo \"vỡ\" ứng dụng.\n\n## 2. Cài đặt TypeScript cho Node.js\n\nTrước tiên, bạn cần tạo một thư mục dự án mới:\n\n```bash\nmkdir my-node-typescript\ncd my-node-typescript\nnpm init -y\n```\n\nSau đó, cài đặt TypeScript và các kiểu định nghĩa (type definitions):\n\n```bash\nnpm install typescript ts-node @types/node --save-dev\n```\n\n- `typescript`: Trình biên dịch TypeScript.\n- `ts-node`: Cho phép chạy file `.ts` trực tiếp mà không cần biên dịch.\n- `@types/node`: Cung cấp các định nghĩa kiểu cho Node.js.\n\n## 3. Cấu hình TypeScript\n\nTạo file `tsconfig.json`:\n\n```bash\nnpx tsc --init\n```\n\nNội dung cơ bản:\n\n```json\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"module\": \"CommonJS\",\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"outDir\": \"dist\",\n    \"rootDir\": \"src\"\n  }\n}\n```\n\n- `outDir`: Nơi biên dịch file `.ts` thành `.js`.\n- `rootDir`: Thư mục chứa file nguồn TypeScript.\n- `strict`: Bật kiểm tra kiểu nghiêm ngặt.\n\n## 4. Viết mã TypeScript\n\nTạo thư mục `src` và file `index.ts`:\n\n```typescript\n// src/index.ts\n\nimport http from \"http\";\n\nconst server = http.createServer((req, res) => {\n  res.statusCode = 200;\n  res.setHeader(\"Content-Type\", \"text/plain\");\n  res.end(\"Hello, TypeScript với Node.js!\");\n});\n\nserver.listen(3000, () => {\n  console.log(\"Server đang chạy tại http://localhost:3000\");\n});\n```\n\n## 5. Chạy ứng dụng\n\nBạn có thể chạy ứng dụng trực tiếp bằng `ts-node`:\n\n```bash\nnpx ts-node src/index.ts\n```\n\nHoặc biên dịch sang JavaScript rồi chạy:\n\n```bash\nnpx tsc\nnode dist/index.js\n```\n\n## Kết luận\n\nTypeScript mang lại nhiều lợi ích khi phát triển dự án Node.js, đặc biệt với những dự án lớn và phức tạp. Hãy bắt đầu tích hợp TypeScript ngay hôm nay để trải nghiệm lập trình mạnh mẽ và dễ bảo trì hơn!\n\n---\n\nNếu bạn có kinh nghiệm hoặc câu hỏi về việc sử dụng TypeScript với Node.js, hãy chia sẻ cùng mình nhé! 🚀",
+            "createdAt": "2025-06-03T06:18:04.221Z",
+            "description": "TypeScript là một ngôn ngữ lập trình phổ biến trong cộng đồng Node.js, giúp tăng hiệu suất, giảm lỗi và dễ dàng bảo trì mã nguồn. Bài viết này sẽ hướng dẫn cách sử dụng TypeScript với Node.js, từ cài đặt, cấu hình cho đến viết mã và chạy ứng dụng.",
+            "id": 2,
+            "slug": "typescript-nodejs",
             "thumbnail": "https://fireship.io/lessons/typescript-nodejs-setup/img/featured.png",
-            "createdAt": "2025-01-27",
-            "slug": "typescript-nodejs"
+            "title": "Cách sử dụng TypeScript với Node.js"
+        },
+        {
+            "content": "# Cách sử dụng React Hook Form\n\n![React Hook Form](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSabxlXYZlMYIfIrW1eQ6W6pW4yaeaM1lzVLA&s)\n\nReact Hook Form là một thư viện mạnh mẽ và phổ biến giúp quản lý form trong ứng dụng React một cách dễ dàng, tối ưu và thân thiện với hiệu suất. Thay vì phải viết nhiều state, handler rườm rà, React Hook Form cung cấp API gọn nhẹ và dễ tích hợp.\n\nTrong bài viết này, chúng ta sẽ cùng nhau tìm hiểu:\n- React Hook Form là gì?\n- Cách cài đặt và sử dụng cơ bản.\n- Xử lý form và validation.\n\n## 1. React Hook Form là gì?\n\nReact Hook Form giúp đơn giản hóa việc quản lý form bằng cách sử dụng các React Hook (`useForm`, `Controller`,...). Nó hỗ trợ kiểm soát dữ liệu form, validation, và dễ dàng mở rộng với các thư viện như Yup, Zod...\n\n## 2. Cài đặt React Hook Form\n\nBạn có thể cài đặt bằng npm hoặc yarn:\n```bash\nnpm install react-hook-form\n# Hoặc\nyarn add react-hook-form\n```\n\n## 3. Sử dụng cơ bản\n\nVí dụ tạo một form đơn giản:\n```jsx\nimport React from \"react\";\nimport { useForm } from \"react-hook-form\";\n\nfunction MyForm() {\n  const { register, handleSubmit, formState: { errors } } = useForm();\n\n  const onSubmit = (data) => {\n    console.log(data);\n  };\n\n  return (\n    <form onSubmit={handleSubmit(onSubmit)}>\n      <div>\n        <label>Tên:</label>\n        <input {...register(\"name\", { required: \"Tên không được để trống\" })} />\n        {errors.name && <p>{errors.name.message}</p>}\n      </div>\n\n      <div>\n        <label>Email:</label>\n        <input\n          {...register(\"email\", {\n            required: \"Email không được để trống\",\n            pattern: {\n              value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/,\n              message: \"Email không hợp lệ\"\n            }\n          })}\n        />\n        {errors.email && <p>{errors.email.message}</p>}\n      </div>\n\n      <button type=\"submit\">Gửi</button>\n    </form>\n  );\n}\n\nexport default MyForm;\n```\n\n## 4. Tích hợp với Yup cho validation nâng cao\n\nĐể có validation mạnh mẽ hơn, bạn có thể kết hợp với thư viện Yup:\n```bash\nnpm install @hookform/resolvers yup\n```\n\nSử dụng trong form:\n```jsx\nimport { useForm } from \"react-hook-form\";\nimport { yupResolver } from \"@hookform/resolvers/yup\";\nimport * as yup from \"yup\";\n\nconst schema = yup.object().shape({\n  name: yup.string().required(\"Tên không được để trống\"),\n  email: yup.string().email(\"Email không hợp lệ\").required(\"Email không được để trống\")\n});\n\nconst { register, handleSubmit, formState: { errors } } = useForm({\n  resolver: yupResolver(schema)\n});\n```\n\n## 5. Kết luận\n\nReact Hook Form là công cụ tuyệt vời để xây dựng các form phức tạp với hiệu suất cao và mã nguồn gọn gàng. Hãy thử tích hợp React Hook Form vào dự án của bạn để trải nghiệm lập trình form dễ dàng và hiệu quả hơn!\n\n---\n\nNếu bạn có kinh nghiệm hoặc câu hỏi về React Hook Form, hãy chia sẻ nhé! 🚀😊",
+            "createdAt": "2024-09-01",
+            "description": "React Hook Form là một thư viện quản lý form mạnh mẽ và dễ sử dụng trong ứng dụng React. Bài viết này sẽ hướng dẫn cách sử dụng React Hook Form, từ cài đặt, cấu hình cho đến viết mã và xử lý form.",
+            "id": 3,
+            "slug": "react-hook-form",
+            "thumbnail": "https://i.ytimg.com/vi/lp8xXoG0xQY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCq_EahLqu5oU2C0n-gEqf04CwQkw",
+            "title": "Cách sử dụng React Hook Form"
+        },
+        {
+            "content": "# Hướng dẫn sử dụng Docker cho người mới bắt đầu\n\n![Docker](https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nDocker là một công cụ mạnh mẽ giúp đóng gói ứng dụng và các phụ thuộc vào trong một container. Với Docker, bạn có thể chạy ứng dụng nhất quán trên nhiều môi trường khác nhau – từ máy tính của bạn cho đến các server trên cloud. Bài viết này sẽ hướng dẫn bạn cách sử dụng Docker từ cơ bản đến chạy ứng dụng đầu tiên.\n\n## 1. Docker là gì?\n\nDocker là một nền tảng mã nguồn mở để xây dựng, triển khai và quản lý các container. Container chứa toàn bộ ứng dụng cùng các thư viện, biến môi trường, đảm bảo ứng dụng \"chạy ở đâu cũng giống nhau\".\n\n### Lợi ích chính:\n- **Nhẹ và nhanh**: So với máy ảo, container chỉ chứa những gì cần thiết.\n- **Tái sử dụng**: Có thể chia sẻ Docker Image cho người khác.\n- **Môi trường đồng nhất**: Không lo vấn đề \"It works on my machine\".\n\n## 2. Cài đặt Docker\n\n### Trên Windows/macOS\n- Truy cập [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop) và tải Docker Desktop.\n- Làm theo hướng dẫn cài đặt và khởi động Docker Desktop.\n\n### Trên Linux (Ubuntu)\n```bash\nsudo apt update\nsudo apt install docker.io -y\nsudo systemctl start docker\nsudo systemctl enable docker\n```\n\nKiểm tra phiên bản Docker:\n```bash\ndocker --version\n```\n\n## 3. Các lệnh Docker cơ bản\n\n- Kiểm tra Docker daemon:\n```bash\ndocker info\n```\n- Kéo (download) một image từ Docker Hub:\n```bash\ndocker pull nginx\n```\n- Chạy một container:\n```bash\ndocker run -d -p 8080:80 nginx\n```\n- Liệt kê các container đang chạy:\n```bash\ndocker ps\n```\n- Dừng một container:\n```bash\ndocker stop <container_id>\n```\n- Xóa một container:\n```bash\ndocker rm <container_id>\n```\n\n## 4. Tạo Dockerfile cơ bản\n\nDockerfile giúp bạn định nghĩa cách build image:\n```Dockerfile\n# Sử dụng Node.js image\nFROM node:20\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nCMD [\"node\", \"index.js\"]\n```\n\nSau đó build image:\n```bash\ndocker build -t my-node-app .\n```\n\nVà chạy ứng dụng:\n```bash\ndocker run -d -p 3000:3000 my-node-app\n```\n\n## 5. Kết luận\n\nDocker giúp việc phát triển và triển khai ứng dụng trở nên nhanh chóng và dễ dàng. Hãy thực hành các lệnh cơ bản để làm quen với Docker. Chúc bạn thành công trong hành trình \"container hóa\" ứng dụng của mình!\n\n---\n\nNếu bạn gặp khó khăn hay có câu hỏi về Docker, hãy để lại bình luận hoặc liên hệ với mình nhé! 🚀😊",
+            "createdAt": "2023-10-01",
+            "description": "Docker là một công cụ mạnh mẽ giúp tạo ra các container để chạy ứng dụng một cách nhất quán trên nhiều môi trường khác nhau. Bài viết này sẽ hướng dẫn cách sử dụng Docker cho người mới bắt đầu, từ cài đặt, cấu hình cho đến chạy container.",
+            "id": 4,
+            "slug": "docker-beginner-guide",
+            "thumbnail": "https://images.viblo.asia/fad7cf1a-772f-43e4-9042-e96d5d903b2b.png",
+            "title": "Hướng dẫn sử dụng Docker cho người mới bắt đầu"
+        },
+        {
+            "content": "# Hiểu về GraphQL và cách sử dụng với React\n\n![GraphQL và React](https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nGraphQL là một ngôn ngữ truy vấn API do Facebook phát triển, thay thế cách tiếp cận REST truyền thống bằng việc cho phép client xác định chính xác dữ liệu mình cần. Kết hợp với React, GraphQL mang lại trải nghiệm xây dựng ứng dụng hiện đại, tối ưu hóa hiệu suất và giảm thiểu dư thừa dữ liệu.\n\nTrong bài viết này, chúng ta sẽ tìm hiểu:\n- GraphQL là gì và tại sao nên dùng.\n- Cách cài đặt và sử dụng GraphQL trong dự án React.\n- Viết các truy vấn (query) và mutation cơ bản.\n\n## 1. GraphQL là gì?\n\nGraphQL hoạt động dựa trên nguyên lý **client-driven** (client yêu cầu đúng dữ liệu mình muốn). Thay vì gọi nhiều endpoint như REST, bạn chỉ cần một endpoint duy nhất (`/graphql`) để gửi các truy vấn.\n\n### Ưu điểm của GraphQL:\n✅ Lấy đúng dữ liệu cần thiết, không dư thừa.\n✅ Giảm số lượng request.\n✅ Dễ mở rộng và phát triển.\n\n## 2. Cài đặt Apollo Client cho React\n\n[Apollo Client](https://www.apollographql.com/docs/react/) là thư viện phổ biến nhất để tích hợp GraphQL vào React:\n\n```bash\nnpm install @apollo/client graphql\n```\n\nCấu hình Apollo Client:\n\n```tsx\n// src/apolloClient.js\nimport { ApolloClient, InMemoryCache } from '@apollo/client';\n\nconst client = new ApolloClient({\n  uri: 'https://example.com/graphql', // Thay bằng endpoint GraphQL của bạn\n  cache: new InMemoryCache(),\n});\n\nexport default client;\n```\n\n## 3. Sử dụng ApolloProvider trong React\n\n```tsx\n// src/index.js\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\nimport { ApolloProvider } from '@apollo/client';\nimport client from './apolloClient';\n\nReactDOM.render(\n  <ApolloProvider client={client}>\n    <App />\n  </ApolloProvider>,\n  document.getElementById('root')\n);\n```\n\n## 4. Viết một truy vấn (query) cơ bản\n\n```tsx\nimport { useQuery, gql } from '@apollo/client';\n\nconst GET_USERS = gql`\n  query GetUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`;\n\nfunction Users() {\n  const { data, loading, error } = useQuery(GET_USERS);\n\n  if (loading) return <p>Loading...</p>;\n  if (error) return <p>Error: {error.message}</p>;\n\n  return (\n    <ul>\n      {data.users.map(user => (\n        <li key={user.id}>{user.name} - {user.email}</li>\n      ))}\n    </ul>\n  );\n}\n\nexport default Users;\n```\n\n## 5. Gửi Mutation\n\n```tsx\nimport { useMutation, gql } from '@apollo/client';\n\nconst ADD_USER = gql`\n  mutation AddUser($name: String!, $email: String!) {\n    addUser(name: $name, email: $email) {\n      id\n      name\n      email\n    }\n  }\n`;\n\nfunction AddUserForm() {\n  const [addUser] = useMutation(ADD_USER);\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    await addUser({ variables: { name: 'New User', email: 'new@example.com' } });\n  };\n\n  return <button onClick={handleSubmit}>Thêm người dùng</button>;\n}\n\nexport default AddUserForm;\n```\n\n## 6. Kết luận\n\nGraphQL cùng với React và Apollo Client mang lại cách tiếp cận linh hoạt, tối ưu hoá dữ liệu và trải nghiệm lập trình dễ dàng hơn. Nếu bạn muốn xây dựng ứng dụng tương tác nhiều dữ liệu, GraphQL sẽ là một công cụ không thể thiếu.\n\n---\n\n✨ Hãy chia sẻ trải nghiệm của bạn với GraphQL trong phần bình luận nhé!",
+            "createdAt": "2022-05-15",
+            "description": "GraphQL là một ngôn ngữ truy vấn mạnh mẽ cho API, giúp tối ưu hóa việc lấy dữ liệu. Bài viết này sẽ hướng dẫn cách sử dụng GraphQL với React, từ cài đặt, cấu hình cho đến viết mã và truy vấn dữ liệu.",
+            "id": 5,
+            "slug": "graphql-react",
+            "thumbnail": "https://miro.medium.com/v2/resize:fit:1400/0*kqSxzVukh7BGYRxQ.png",
+            "title": "Hiểu về GraphQL và cách sử dụng với React"
+        },
+        {
+            "content": "Next.js là một framework mạnh mẽ dựa trên React, giúp bạn xây dựng các ứng dụng web hiện đại một cách dễ dàng và nhanh chóng. Nó cung cấp các tính năng nổi bật như SSR (Server-side rendering), SSG (Static site generation), API Routes và nhiều tiện ích khác. Hãy cùng khám phá nhé!## 1. Next.js là gì?Next.js là một framework mã nguồn mở được phát triển bởi Vercel. Nó cung cấp một số tính năng quan trọng mà React chưa có sẵn, giúp xây dựng các ứng dụng production-ready một cách hiệu quả.### Lợi ích khi sử dụng Next.js:- **SEO tốt hơn**: Hỗ trợ SSR và SSG.- **Hiệu suất cao**: Tối ưu hóa tải trang và tốc độ.- **Triển khai dễ dàng**: Tích hợp tốt với Vercel, Netlify…- **Hỗ trợ API Routes**: Xây dựng API ngay trong ứng dụng.## 2. Cài đặt Next.jsBạn có thể bắt đầu một dự án Next.js rất dễ dàng:```bashnpx create-next-app@latest my-next-appcd my-next-appnpm run dev```Truy cập `http://localhost:3000` để xem ứng dụng mẫu của bạn.## 3. Các tính năng nổi bật### 3.1. Pages và Routing tự độngTrong Next.js, mỗi file `.tsx` hoặc `.js` trong thư mục `pages/` sẽ tự động trở thành một route:```pages/├── index.js       // Trang chủ (/)├── about.js       // Trang /about└── blog/[slug].js // Dynamic routing```### 3.2. Static Site Generation (SSG)SSG giúp tạo ra các trang tĩnh ngay tại build time, cải thiện SEO và tốc độ:```tsxexport async function getStaticProps() {  return {    props: { data: \"Hello Next.js\" }  };}```### 3.3. Server-side Rendering (SSR)SSR giúp render trang trên server và gửi HTML đến trình duyệt:```tsxexport async function getServerSideProps() {  return {    props: { data: \"Trang được render server-side\" }  };}```### 3.4. API RoutesBạn có thể xây dựng API ngay trong thư mục `pages/api/`:```tsx// pages/api/hello.jsexport default function handler(req, res) {  res.status(200).json({ message: \"Hello từ API\" });}```### 3.5. Image OptimizationNext.js hỗ trợ `<Image />` để tối ưu ảnh:```tsximport Image from 'next/image';<Image src=\"/logo.png\" width={200} height={100} alt=\"Logo\" />```## 4. Triển khai ứng dụng Next.jsNext.js tích hợp rất tốt với nền tảng [Vercel](https://vercel.com), chỉ cần push lên GitHub và kết nối với Vercel là ứng dụng đã sẵn sàng production.Bạn cũng có thể build thủ công:```bashnpm run buildnpm run start```## 5. Kết luậnNext.js không chỉ giúp bạn phát triển nhanh hơn mà còn mang lại hiệu suất và khả năng mở rộng vượt trội cho ứng dụng của bạn. Hãy thử ngay hôm nay và tận dụng các tính năng mạnh mẽ của nó!---Nếu bạn cần hỗ trợ hoặc có câu hỏi về Next.js, hãy để lại bình luận nhé! 🚀😊",
+            "createdAt": "2023-07-20",
+            "description": "Next.js là một framework mạnh mẽ cho React, giúp xây dựng các ứng dụng web tĩnh và động một cách dễ dàng. Bài viết này sẽ giới thiệu về Next.js và các tính năng nổi bật của nó, từ cài đặt, cấu hình cho đến triển khai ứng dụng.",
+            "id": 6,
+            "slug": "nextjs-features",
+            "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/bxoLUywRIWcKyZPNXznO",
+            "title": "Làm quen với Next.js và các tính năng nổi bật"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "displayName": "Yangis.dev",
+            "slug": "yangisdev",
+            "description": "This portfolio website is a showcase of my skills, projects, and experience as a web developer. Built using React.js, TypeScript, and modern web technologies, it features a clean, responsive design optimized for all devices. The site includes sections highlighting my technical expertise, professional journey, and completed projects with live demos and GitHub links. It also offers a seamless contact form for visitors to get in touch. This portfolio reflects my passion for creating elegant, functional, and user-centric web solutions.",
+            "referenceUrl": "https://yangis.dev",
+            "content": "Updating",
+            "screenshotUrls": [
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761153181/Yangisdev/Projects/Yangisdev/yangisdev_mockup_h6bade.png"
+            ],
+            "tags": [
+                "website",
+                "design",
+                "ui-ux",
+                "branding"
+            ],
+            "technologies": [
+                "nextjs",
+                "typescript",
+                "firebase"
+            ],
+            "thumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761153181/Yangisdev/Projects/Yangisdev/yangisdev_mockup_h6bade.png",
+            "verticalThumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761153181/Yangisdev/Projects/Yangisdev/yangisdev_mockup_h6bade.png",
+            "startedAt": "02/2025",
+            "completedAt": "02/2025"
+        },
+        {
+            "id": "3",
+            "displayName": "Cadsquad Vietnam",
+            "slug": "cadsquad-vietnam",
+            "description": "CADSQUAD Vietnam delivers high-quality mechanical design and CAD services, turning ideas into sustainable products for global clients.",
+            "viDescription": "Cadsquad cung cấp dịch vụ thiết kế cơ khí và CAD chất lượng cao, biến ý tưởng thành sản phẩm bền vững cho khách hàng toàn cầu.",
+            "content": "Updating",
+            "referenceUrl": "https: //www.cadsquad.vn",
+            "screenshotUrls": [
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761152764/Yangisdev/Projects/Cadsquad/cadsquad_mockup-vertical_qyorgy.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151465/Yangisdev/Projects/Cadsquad/cadsquad_home_jsj2e9.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151466/Yangisdev/Projects/Cadsquad/cadsquad_home-section2_qnhxya.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151467/Yangisdev/Projects/Cadsquad/cadsquad_home-section3_nppuze.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151467/Yangisdev/Projects/Cadsquad/cadsquad_home-section4_tvl3ft.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151466/Yangisdev/Projects/Cadsquad/cadsquad_home-section5_xjlkjz.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761151465/Yangisdev/Projects/Cadsquad/cadsquad_home_footer_k4exhk.webp"
+            ],
+            "tags": [
+                "website",
+                "design",
+                "ui-ux",
+                "branding"
+            ],
+            "technologies": [
+                "nextjs",
+                "typescript",
+                "firebase"
+            ],
+            "thumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761152763/Yangisdev/Projects/Cadsquad/cadsquad_mockup_kptv9q.webp",
+            "verticalThumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761152764/Yangisdev/Projects/Cadsquad/cadsquad_mockup-vertical_qyorgy.webp",
+            "completedAt": "08/2025",
+            "createdAt": "08/2025"
         },
         {
             "id": 3,
-            "title": "Cách sử dụng React Hook Form",
-            "description": "React Hook Form là một thư viện quản lý form mạnh mẽ và dễ sử dụng trong ứng dụng React. Bài viết này sẽ hướng dẫn cách sử dụng React Hook Form, từ cài đặt, cấu hình cho đến viết mã và xử lý form.",
-
-            "content": "# Cách sử dụng React Hook Form\n\n![React Hook Form](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSabxlXYZlMYIfIrW1eQ6W6pW4yaeaM1lzVLA&s)\n\nReact Hook Form là một thư viện mạnh mẽ và phổ biến giúp quản lý form trong ứng dụng React một cách dễ dàng, tối ưu và thân thiện với hiệu suất. Thay vì phải viết nhiều state, handler rườm rà, React Hook Form cung cấp API gọn nhẹ và dễ tích hợp.\n\nTrong bài viết này, chúng ta sẽ cùng nhau tìm hiểu:\n- React Hook Form là gì?\n- Cách cài đặt và sử dụng cơ bản.\n- Xử lý form và validation.\n\n## 1. React Hook Form là gì?\n\nReact Hook Form giúp đơn giản hóa việc quản lý form bằng cách sử dụng các React Hook (`useForm`, `Controller`,...). Nó hỗ trợ kiểm soát dữ liệu form, validation, và dễ dàng mở rộng với các thư viện như Yup, Zod...\n\n## 2. Cài đặt React Hook Form\n\nBạn có thể cài đặt bằng npm hoặc yarn:\n```bash\nnpm install react-hook-form\n# Hoặc\nyarn add react-hook-form\n```\n\n## 3. Sử dụng cơ bản\n\nVí dụ tạo một form đơn giản:\n```jsx\nimport React from \"react\";\nimport { useForm } from \"react-hook-form\";\n\nfunction MyForm() {\n  const { register, handleSubmit, formState: { errors } } = useForm();\n\n  const onSubmit = (data) => {\n    console.log(data);\n  };\n\n  return (\n    <form onSubmit={handleSubmit(onSubmit)}>\n      <div>\n        <label>Tên:</label>\n        <input {...register(\"name\", { required: \"Tên không được để trống\" })} />\n        {errors.name && <p>{errors.name.message}</p>}\n      </div>\n\n      <div>\n        <label>Email:</label>\n        <input\n          {...register(\"email\", {\n            required: \"Email không được để trống\",\n            pattern: {\n              value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/,\n              message: \"Email không hợp lệ\"\n            }\n          })}\n        />\n        {errors.email && <p>{errors.email.message}</p>}\n      </div>\n\n      <button type=\"submit\">Gửi</button>\n    </form>\n  );\n}\n\nexport default MyForm;\n```\n\n## 4. Tích hợp với Yup cho validation nâng cao\n\nĐể có validation mạnh mẽ hơn, bạn có thể kết hợp với thư viện Yup:\n```bash\nnpm install @hookform/resolvers yup\n```\n\nSử dụng trong form:\n```jsx\nimport { useForm } from \"react-hook-form\";\nimport { yupResolver } from \"@hookform/resolvers/yup\";\nimport * as yup from \"yup\";\n\nconst schema = yup.object().shape({\n  name: yup.string().required(\"Tên không được để trống\"),\n  email: yup.string().email(\"Email không hợp lệ\").required(\"Email không được để trống\")\n});\n\nconst { register, handleSubmit, formState: { errors } } = useForm({\n  resolver: yupResolver(schema)\n});\n```\n\n## 5. Kết luận\n\nReact Hook Form là công cụ tuyệt vời để xây dựng các form phức tạp với hiệu suất cao và mã nguồn gọn gàng. Hãy thử tích hợp React Hook Form vào dự án của bạn để trải nghiệm lập trình form dễ dàng và hiệu quả hơn!\n\n---\n\nNếu bạn có kinh nghiệm hoặc câu hỏi về React Hook Form, hãy chia sẻ nhé! 🚀😊",
-            "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSabxlXYZlMYIfIrW1eQ6W6pW4yaeaM1lzVLA&s",
-            "createdAt": "2024-09-01",
-            "slug": "react-hook-form"
+            "displayName": "BlobOff Cloud",
+            "slug": "bloboff-cloud",
+            "description": "BlobOff is developed under the incubator Amoovo Lab. Amoovo Lab specializes in innovative energy systems, immersion cooling, and digital security.",
+            "viDescription": "BlobOff được phát triển bởi Amoovo Lab. Amoovo Lab chuyên về các hệ thống năng lượng tiên tiến, làm mát ngâm và an ninh kỹ thuật số.",
+            "referenceUrl": "https://yangis.dev",
+            "screenshotUrls": [
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150991/Yangisdev/Projects/BlobOff%20Cloud/bloboff_home-hero_pykevt.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150992/Yangisdev/Projects/BlobOff%20Cloud/bloboff_hero-section2_o5cvsv.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150992/Yangisdev/Projects/BlobOff%20Cloud/bloboff_home-section3_wkytq0.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150992/Yangisdev/Projects/BlobOff%20Cloud/bloboff_pricing_zgeyq8.webp",
+                "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150992/Yangisdev/Projects/BlobOff%20Cloud/bloboff_faq_yhiups.webp"
+            ],
+            "content": "Updating",
+            "tags": [
+                "website",
+                "design",
+                "ui-ux",
+                "branding"
+            ],
+            "technologies": [
+                "nextjs",
+                "typescript",
+                "firebase"
+            ],
+            "thumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761152354/Yangisdev/Projects/BlobOff%20Cloud/bloboff_mockup_uhtuhk.webp",
+            "verticalThumbnailUrl": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1761150991/Yangisdev/Projects/BlobOff%20Cloud/bloboff_mockup_rozvka.webp",
+            "startedAt": "09/2025",
+            "completedAt": "09/2025"
+        }
+    ],
+    "tools": [
+        {
+            "description": "VitePress là framework tĩnh nhẹ dựa trên Vite, hỗ trợ tạo tài liệu và blog với hiệu suất cao, giao diện tối ưu, dễ tùy chỉnh và tốc độ dựng trang nhanh chóng.",
+            "id": 1,
+            "name": "VitePress",
+            "ref": "https://vitepress.dev/",
+            "tag": [
+                "build-docs-website"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/vitepress_xpznh1"
         },
         {
+            "description": "GitBook là một nền tảng hiện đại để tạo tài liệu, nơi các team có thể tài liệu hóa mọi thứ từ sản phẩm đến kiến thức nội bộ và API.",
+            "id": 2,
+            "name": "Gitbook",
+            "ref": "https://www.gitbook.com/",
+            "tag": [
+                "build-docs-website"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/gitbook_udjocr"
+        },
+        {
+            "description": "Animate.style là thư viện CSS đơn giản, giúp thêm hiệu ứng chuyển động mượt mà vào website. Với nhiều hiệu ứng sẵn có, nó dễ sử dụng, nhẹ và tối ưu cho mọi dự án.",
+            "id": 3,
+            "name": "Animate.style",
+            "ref": "https://animate.style/",
+            "tag": [
+                "animate"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/animate-css_bucek7"
+        },
+        {
+            "description": "Motion.dev là thư viện animation mạnh mẽ dành cho React, cung cấp công cụ dễ dùng để tạo hiệu ứng mượt mà. Với hiệu suất cao, nó hỗ trợ tùy chỉnh linh hoạt cho mọi dự án.",
             "id": 4,
-            "title": "Hướng dẫn sử dụng Docker cho người mới bắt đầu",
-            "description": "Docker là một công cụ mạnh mẽ giúp tạo ra các container để chạy ứng dụng một cách nhất quán trên nhiều môi trường khác nhau. Bài viết này sẽ hướng dẫn cách sử dụng Docker cho người mới bắt đầu, từ cài đặt, cấu hình cho đến chạy container.",
-
-            "content": "# Hướng dẫn sử dụng Docker cho người mới bắt đầu\n\n![Docker](https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nDocker là một công cụ mạnh mẽ giúp đóng gói ứng dụng và các phụ thuộc vào trong một container. Với Docker, bạn có thể chạy ứng dụng nhất quán trên nhiều môi trường khác nhau – từ máy tính của bạn cho đến các server trên cloud. Bài viết này sẽ hướng dẫn bạn cách sử dụng Docker từ cơ bản đến chạy ứng dụng đầu tiên.\n\n## 1. Docker là gì?\n\nDocker là một nền tảng mã nguồn mở để xây dựng, triển khai và quản lý các container. Container chứa toàn bộ ứng dụng cùng các thư viện, biến môi trường, đảm bảo ứng dụng \"chạy ở đâu cũng giống nhau\".\n\n### Lợi ích chính:\n- **Nhẹ và nhanh**: So với máy ảo, container chỉ chứa những gì cần thiết.\n- **Tái sử dụng**: Có thể chia sẻ Docker Image cho người khác.\n- **Môi trường đồng nhất**: Không lo vấn đề \"It works on my machine\".\n\n## 2. Cài đặt Docker\n\n### Trên Windows/macOS\n- Truy cập [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop) và tải Docker Desktop.\n- Làm theo hướng dẫn cài đặt và khởi động Docker Desktop.\n\n### Trên Linux (Ubuntu)\n```bash\nsudo apt update\nsudo apt install docker.io -y\nsudo systemctl start docker\nsudo systemctl enable docker\n```\n\nKiểm tra phiên bản Docker:\n```bash\ndocker --version\n```\n\n## 3. Các lệnh Docker cơ bản\n\n- Kiểm tra Docker daemon:\n```bash\ndocker info\n```\n- Kéo (download) một image từ Docker Hub:\n```bash\ndocker pull nginx\n```\n- Chạy một container:\n```bash\ndocker run -d -p 8080:80 nginx\n```\n- Liệt kê các container đang chạy:\n```bash\ndocker ps\n```\n- Dừng một container:\n```bash\ndocker stop <container_id>\n```\n- Xóa một container:\n```bash\ndocker rm <container_id>\n```\n\n## 4. Tạo Dockerfile cơ bản\n\nDockerfile giúp bạn định nghĩa cách build image:\n```Dockerfile\n# Sử dụng Node.js image\nFROM node:20\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nCMD [\"node\", \"index.js\"]\n```\n\nSau đó build image:\n```bash\ndocker build -t my-node-app .\n```\n\nVà chạy ứng dụng:\n```bash\ndocker run -d -p 3000:3000 my-node-app\n```\n\n## 5. Kết luận\n\nDocker giúp việc phát triển và triển khai ứng dụng trở nên nhanh chóng và dễ dàng. Hãy thực hành các lệnh cơ bản để làm quen với Docker. Chúc bạn thành công trong hành trình \"container hóa\" ứng dụng của mình!\n\n---\n\nNếu bạn gặp khó khăn hay có câu hỏi về Docker, hãy để lại bình luận hoặc liên hệ với mình nhé! 🚀😊",
-            "thumbnail": "https://images.viblo.asia/fad7cf1a-772f-43e4-9042-e96d5d903b2b.png",
-            "createdAt": "2023-10-01",
-            "slug": "docker-beginner-guide"
+            "name": "Motion.dev",
+            "ref": "https://motion.dev/",
+            "tag": [
+                "animate"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/motion-dev_so8caw"
         },
         {
+            "description": "CSS Loader là một trang web cung cấp các bộ tải (loader) CSS miễn phí, giúp tạo hiệu ứng tải dữ liệu mượt mà cho website. Các loader này dễ dàng tích hợp và tùy chỉnh.",
             "id": 5,
-            "title": "Hiểu về GraphQL và cách sử dụng với React",
-            "description": "GraphQL là một ngôn ngữ truy vấn mạnh mẽ cho API, giúp tối ưu hóa việc lấy dữ liệu. Bài viết này sẽ hướng dẫn cách sử dụng GraphQL với React, từ cài đặt, cấu hình cho đến viết mã và truy vấn dữ liệu.",
-            "content": "# Hiểu về GraphQL và cách sử dụng với React\n\n![GraphQL và React](https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nGraphQL là một ngôn ngữ truy vấn API do Facebook phát triển, thay thế cách tiếp cận REST truyền thống bằng việc cho phép client xác định chính xác dữ liệu mình cần. Kết hợp với React, GraphQL mang lại trải nghiệm xây dựng ứng dụng hiện đại, tối ưu hóa hiệu suất và giảm thiểu dư thừa dữ liệu.\n\nTrong bài viết này, chúng ta sẽ tìm hiểu:\n- GraphQL là gì và tại sao nên dùng.\n- Cách cài đặt và sử dụng GraphQL trong dự án React.\n- Viết các truy vấn (query) và mutation cơ bản.\n\n## 1. GraphQL là gì?\n\nGraphQL hoạt động dựa trên nguyên lý **client-driven** (client yêu cầu đúng dữ liệu mình muốn). Thay vì gọi nhiều endpoint như REST, bạn chỉ cần một endpoint duy nhất (`/graphql`) để gửi các truy vấn.\n\n### Ưu điểm của GraphQL:\n✅ Lấy đúng dữ liệu cần thiết, không dư thừa.\n✅ Giảm số lượng request.\n✅ Dễ mở rộng và phát triển.\n\n## 2. Cài đặt Apollo Client cho React\n\n[Apollo Client](https://www.apollographql.com/docs/react/) là thư viện phổ biến nhất để tích hợp GraphQL vào React:\n\n```bash\nnpm install @apollo/client graphql\n```\n\nCấu hình Apollo Client:\n\n```tsx\n// src/apolloClient.js\nimport { ApolloClient, InMemoryCache } from '@apollo/client';\n\nconst client = new ApolloClient({\n  uri: 'https://example.com/graphql', // Thay bằng endpoint GraphQL của bạn\n  cache: new InMemoryCache(),\n});\n\nexport default client;\n```\n\n## 3. Sử dụng ApolloProvider trong React\n\n```tsx\n// src/index.js\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\nimport { ApolloProvider } from '@apollo/client';\nimport client from './apolloClient';\n\nReactDOM.render(\n  <ApolloProvider client={client}>\n    <App />\n  </ApolloProvider>,\n  document.getElementById('root')\n);\n```\n\n## 4. Viết một truy vấn (query) cơ bản\n\n```tsx\nimport { useQuery, gql } from '@apollo/client';\n\nconst GET_USERS = gql`\n  query GetUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`;\n\nfunction Users() {\n  const { data, loading, error } = useQuery(GET_USERS);\n\n  if (loading) return <p>Loading...</p>;\n  if (error) return <p>Error: {error.message}</p>;\n\n  return (\n    <ul>\n      {data.users.map(user => (\n        <li key={user.id}>{user.name} - {user.email}</li>\n      ))}\n    </ul>\n  );\n}\n\nexport default Users;\n```\n\n## 5. Gửi Mutation\n\n```tsx\nimport { useMutation, gql } from '@apollo/client';\n\nconst ADD_USER = gql`\n  mutation AddUser($name: String!, $email: String!) {\n    addUser(name: $name, email: $email) {\n      id\n      name\n      email\n    }\n  }\n`;\n\nfunction AddUserForm() {\n  const [addUser] = useMutation(ADD_USER);\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    await addUser({ variables: { name: 'New User', email: 'new@example.com' } });\n  };\n\n  return <button onClick={handleSubmit}>Thêm người dùng</button>;\n}\n\nexport default AddUserForm;\n```\n\n## 6. Kết luận\n\nGraphQL cùng với React và Apollo Client mang lại cách tiếp cận linh hoạt, tối ưu hoá dữ liệu và trải nghiệm lập trình dễ dàng hơn. Nếu bạn muốn xây dựng ứng dụng tương tác nhiều dữ liệu, GraphQL sẽ là một công cụ không thể thiếu.\n\n---\n\n✨ Hãy chia sẻ trải nghiệm của bạn với GraphQL trong phần bình luận nhé!",
-            "thumbnail": "https://miro.medium.com/v2/resize:fit:1400/0*kqSxzVukh7BGYRxQ.png",
-            "createdAt": "2022-05-15",
-            "slug": "graphql-react"
+            "name": "CSS Loader",
+            "ref": "https://css-loaders.com/",
+            "tag": [
+                "animate"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/css-loader_xiyxju"
         },
         {
+            "description": "HeroUI cung cấp các thành phần UI sẵn sàng sử dụng, được thiết kế đẹp mắt và tối ưu hiệu suất. Trang web giúp phát triển giao diện nhanh chóng.",
             "id": 6,
-            "title": "Làm quen với Next.js và các tính năng nổi bật",
-            "description": "Next.js là một framework mạnh mẽ cho React, giúp xây dựng các ứng dụng web tĩnh và động một cách dễ dàng. Bài viết này sẽ giới thiệu về Next.js và các tính năng nổi bật của nó, từ cài đặt, cấu hình cho đến triển khai ứng dụng.",
-
-            "content": "# Làm quen với Next.js và các tính năng nổi bật\n\n![Next.js](https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)\n\nNext.js là một framework mạnh mẽ dựa trên React, giúp bạn xây dựng các ứng dụng web hiện đại một cách dễ dàng và nhanh chóng. Nó cung cấp các tính năng nổi bật như SSR (Server-side rendering), SSG (Static site generation), API Routes và nhiều tiện ích khác. Hãy cùng khám phá nhé!\n\n## 1. Next.js là gì?\n\nNext.js là một framework mã nguồn mở được phát triển bởi Vercel. Nó cung cấp một số tính năng quan trọng mà React chưa có sẵn, giúp xây dựng các ứng dụng production-ready một cách hiệu quả.\n\n### Lợi ích khi sử dụng Next.js:\n- **SEO tốt hơn**: Hỗ trợ SSR và SSG.\n- **Hiệu suất cao**: Tối ưu hóa tải trang và tốc độ.\n- **Triển khai dễ dàng**: Tích hợp tốt với Vercel, Netlify…\n- **Hỗ trợ API Routes**: Xây dựng API ngay trong ứng dụng.\n\n## 2. Cài đặt Next.js\n\nBạn có thể bắt đầu một dự án Next.js rất dễ dàng:\n\n```bash\nnpx create-next-app@latest my-next-app\ncd my-next-app\nnpm run dev\n```\n\nTruy cập `http://localhost:3000` để xem ứng dụng mẫu của bạn.\n\n## 3. Các tính năng nổi bật\n\n### 3.1. Pages và Routing tự động\n\nTrong Next.js, mỗi file `.tsx` hoặc `.js` trong thư mục `pages/` sẽ tự động trở thành một route:\n\n```\npages/\n├── index.js       // Trang chủ (/)\n├── about.js       // Trang /about\n└── blog/[slug].js // Dynamic routing\n```\n\n### 3.2. Static Site Generation (SSG)\n\nSSG giúp tạo ra các trang tĩnh ngay tại build time, cải thiện SEO và tốc độ:\n\n```tsx\nexport async function getStaticProps() {\n  return {\n    props: { data: \"Hello Next.js\" }\n  };\n}\n```\n\n### 3.3. Server-side Rendering (SSR)\n\nSSR giúp render trang trên server và gửi HTML đến trình duyệt:\n\n```tsx\nexport async function getServerSideProps() {\n  return {\n    props: { data: \"Trang được render server-side\" }\n  };\n}\n```\n\n### 3.4. API Routes\n\nBạn có thể xây dựng API ngay trong thư mục `pages/api/`:\n\n```tsx\n// pages/api/hello.js\nexport default function handler(req, res) {\n  res.status(200).json({ message: \"Hello từ API\" });\n}\n```\n\n### 3.5. Image Optimization\n\nNext.js hỗ trợ `<Image />` để tối ưu ảnh:\n\n```tsx\nimport Image from 'next/image';\n<Image src=\"/logo.png\" width={200} height={100} alt=\"Logo\" />\n```\n\n## 4. Triển khai ứng dụng Next.js\n\nNext.js tích hợp rất tốt với nền tảng [Vercel](https://vercel.com), chỉ cần push lên GitHub và kết nối với Vercel là ứng dụng đã sẵn sàng production.\n\nBạn cũng có thể build thủ công:\n```bash\nnpm run build\nnpm run start\n```\n\n## 5. Kết luận\n\nNext.js không chỉ giúp bạn phát triển nhanh hơn mà còn mang lại hiệu suất và khả năng mở rộng vượt trội cho ứng dụng của bạn. Hãy thử ngay hôm nay và tận dụng các tính năng mạnh mẽ của nó!\n\n---\n\nNếu bạn cần hỗ trợ hoặc có câu hỏi về Next.js, hãy để lại bình luận nhé! 🚀😊",
-            "thumbnail": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/bxoLUywRIWcKyZPNXznO",
-            "createdAt": "2023-07-20",
-            "slug": "nextjs-features"
+            "name": "HeroUI",
+            "ref": "https://www.heroui.com/",
+            "tag": [
+                "ui-library"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/hero-ui_wmnosn.png"
+        },
+        {
+            "description": "Free tool to make it easier for designers and developers to export a beautiful SVG shape divider.",
+            "id": 0,
+            "name": "Custom Shape Dividers",
+            "ref": "https://www.shapedivider.app/",
+            "tag": [
+                "ui-library"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/divierShape"
+        },
+        {
+            "description": "All of these box-shadow were copied using CSS Scan. With CSS Scan you can easily inspect or copy any website's CSS.",
+            "id": 7,
+            "name": "Beautiful CSS box-shadow",
+            "ref": "https://getcssscan.com/css-box-shadow-examples",
+            "tag": [
+                "ui-library"
+            ],
+            "thumbnail": "https://res.cloudinary.com/dqx1guyc0/image/upload/v1751720257/Yangisdev/Tools/boxShadow_cuwe2m"
+        },
+        {
+            "description": "More than 1500+ hand made Open Source & Premium 3d icons renders for ready to use.",
+            "id": 8,
+            "name": "3D Icons",
+            "ref": "https://3dicons.co/",
+            "tag": [
+                "ui-library",
+                "icon"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Simply beautiful icons carefully crafted.",
+            "id": 9,
+            "name": "Box Icons",
+            "ref": "https://boxicons.com/",
+            "tag": [
+                "ui-library",
+                "icon"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Large icon packs of over 10k icons, so you can find visually consistent icons for all your designs.",
+            "id": 10,
+            "name": "Icons S8",
+            "ref": "https://icons8.com/",
+            "tag": [
+                "ui-library",
+                "icon"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "CSS Gradient is a Designstripe project that lets you create free gradient backgrounds for your website. Besides being a css gradient generator, the site is also chock-full of colorful content about gradients from technical articles to real life gradient examples like Stripe and Instagram.",
+            "id": 11,
+            "name": "CSS Gradient",
+            "ref": "https://cssgradient.io/",
+            "tag": [
+                "ui-library",
+                "css",
+                "color",
+                "gradient"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Most comprehensive color tools platform. Unleash your creativity using color wheel, devise harmonious palettes with the Color Palette Builder, and create depth with the gradient options. It's a designer's playground. Enjoy exploring!",
+            "id": 12,
+            "name": "Color Designer",
+            "ref": "https://colordesigner.io/",
+            "tag": [
+                "ui-library",
+                "css",
+                "color",
+                "gradient"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "A curated collection of front-end snippets to save you time. Whether you work with HTML, CSS, Bootstrap, TailwindCSS, JavaScript, you'll find ready-to-use components and patterns to streamline your development. No fluff — just practical code.",
+            "id": 13,
+            "name": "Free Frontend",
+            "ref": "https://freefrontend.com/",
+            "tag": [
+                "ui-library",
+                "css",
+                "tailwindcss"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "A modern JavaScript utility library delivering modularity, performance & extras.",
+            "id": 14,
+            "name": "Lodash",
+            "ref": "https://lodash.com/",
+            "tag": [
+                "javascript"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Community-built library of UI elements. Copy as HTML/CSS, Tailwind, React and Figma.",
+            "id": 15,
+            "name": "Uiverse.io",
+            "ref": "https://uiverse.io/",
+            "tag": [
+                "html",
+                "css",
+                "react",
+                "figma",
+                "ui-library",
+                "javascript"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Collection of the web's best designs sorted by elements. Choose an element and view projects/websites with creative designs for it.",
+            "id": 16,
+            "name": "Stacksorted",
+            "ref": "https://stacksorted.com/",
+            "tag": [
+                "html",
+                "css",
+                "react",
+                "ui-library",
+                "javascript"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Animated icons in Lottie Framework for immediate implementation to your apps or websites.",
+            "id": 17,
+            "name": "useAnimations",
+            "ref": "https://useanimations.com/",
+            "tag": [
+                "css",
+                "react",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Copy paste the most trending components and use them in your websites without having to worry about styling and animations.",
+            "id": 18,
+            "name": "Aceternity UI",
+            "ref": "https://ui.aceternity.com/",
+            "tag": [
+                "css",
+                "tailwindcss",
+                "react",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Preline UI is an open-source Tailwind CSS components library for any needs. Comes with UI examples & blocks, templates, plugins, Figma design system and more.",
+            "id": 19,
+            "name": "Preline UI",
+            "ref": "https://preline.co/",
+            "tag": [
+                "css",
+                "tailwindcss",
+                "react",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Free Open Source UI Resources.",
+            "id": 20,
+            "name": "UI Design Daily",
+            "ref": "https://www.uidesigndaily.com/",
+            "tag": [
+                "css",
+                "tailwindcss",
+                "react",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "All popular icon sets, one framework. Over 200,000 open source vector icons.",
+            "id": 21,
+            "name": "Iconify",
+            "ref": "https://iconify.design/",
+            "tag": [
+                "css",
+                "tailwindcss",
+                "react",
+                "icon",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Dozzle supports multiple ways to run the application. You can run it using Docker CLI, Docker Compose, Swarm, or Kubernetes. The following sections will guide you through the process of setting up Dozzle.",
+            "id": 22,
+            "name": "Dozzle",
+            "ref": "https://dozzle.dev/",
+            "tag": [
+                "docker",
+                "build-tool",
+                "k8n"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Create your perfect GitHub Profile ReadMe in the best possible way. Lots of features and tools included, all for free !",
+            "id": 23,
+            "name": "GPRM",
+            "ref": "https://gprm.itsvg.in/",
+            "tag": [
+                "github",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Open-source illustrations for any idea you can imagine and create.",
+            "id": 24,
+            "name": "unDraw",
+            "ref": "https://undraw.co/",
+            "tag": [
+                "design",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Extracted all components from Material 3 Compose, Material Compose and all the official Jetpack Compose libraries in one place. Find code examples and add them to your project.",
+            "id": 25,
+            "name": "Composables",
+            "ref": "https://composables.com/",
+            "tag": [
+                "kotlin",
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Supabase is the Postgres development platform. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings.",
+            "id": 26,
+            "name": "Supabase",
+            "ref": "https://supabase.com/",
+            "tag": [
+                "posgreSQL",
+                "database",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Store, transform, optimize, and deliver media with powerful APIs, intuitive widgets, and a user-friendly interface.",
+            "id": 27,
+            "name": "Cloudinary",
+            "ref": "https://cloudinary.com/",
+            "tag": [
+                "image",
+                "cloud",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Page speed, also known as page load time, refers to the time it takes for a web page to fully load and become interactive in a user's browser. It's a crucial aspect of website performance, impacting user experience and influencing search engine rankings. A fast page speed ensures users can quickly access content, reducing bounce rates and improving engagement.",
+            "id": 28,
+            "name": "PageSpeed",
+            "ref": "https://pagespeed.web.dev/",
+            "tag": [
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Nodemailer makes sending email from a Node.js application straightforward and secure, without pulling in a single runtime dependency.",
+            "id": 29,
+            "name": "Nodemailer",
+            "ref": "https://nodemailer.com/",
+            "tag": [
+                "nodejs",
+                "email",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Elevate your web applications with PrimeReact's comprehensive suite of customizable, feature-rich UI components. With PrimeReact, turning your development vision into reality has never been easier.",
+            "id": 30,
+            "name": "PrimeReact",
+            "ref": "https://primereact.org/",
+            "tag": [
+                "react",
+                "tailwindcss",
+                "css",
+                "ui-library",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Any set of Palettes can be fetched via an API. You may find this useful for design tools that need to generate a 50-950 Palette from just a single Hex value.",
+            "id": 31,
+            "name": "Tints.dev",
+            "ref": "https://www.tints.dev/",
+            "tag": [
+                "color",
+                "ui-library",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Nokia today announced that it has acquired Rapid's technology assets, including the world's largest API marketplace, and its highly skilled team.",
+            "id": 32,
+            "name": "Rapidapi",
+            "ref": "https://rapidapi.com/",
+            "tag": [
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "This is a boilerplate for NestJS projects. It is a starting point for building a RESTful API with NestJS.",
+            "id": 33,
+            "name": "NestJS Boilerplate Documentation",
+            "ref": "https://vndevteam.github.io/nestjs-boilerplate",
+            "tag": [
+                "nestjs",
+                "documents",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "The open-source Headless CMS for developers that makes API creation easy, and supports your favorite frameworks. Customize and host your projects in the cloud or on your own servers.",
+            "id": 34,
+            "name": "Strapi",
+            "ref": "https://strapi.io/",
+            "tag": [
+                "cms",
+                "api",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Beautiful & consistent icons. Made by the community.",
+            "id": 35,
+            "name": "Lucide Icons",
+            "ref": "https://lucide.dev/",
+            "tag": [
+                "ui-library",
+                "icon"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Tailwind CSS Color Generator. Instantly create stunning color scales by entering a base color or hitting the spacebar.",
+            "id": 36,
+            "name": "UI Colors",
+            "ref": "https://uicolors.app/",
+            "tag": [
+                "ui-library",
+                "css",
+                "tailwindcss",
+                "color"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Help designers/developers building beautiful products more flexible and working with happiness.",
+            "id": 37,
+            "name": "Ant Design",
+            "ref": "https://ant.design/",
+            "tag": [
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Develop beautiful web apps with Tabler. Tabler is an open source web application UI kit based on Bootstrap 5, with hundreds responsive components and multiple layouts.",
+            "id": 38,
+            "name": "Tabler.io",
+            "ref": "https://tabler.io/",
+            "tag": [
+                "ui-library"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Prototype, build & run modern, AI-powered experiences users love with Firebase, a platform designed to support you throughout your app development lifecycle. Backed by Google and trusted by millions of businesses around the world.",
+            "id": 39,
+            "name": "Firebase",
+            "ref": "https://firebase.google.com/",
+            "tag": [
+                "noSQL",
+                "database",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "From idea to scale. Simplified. Ship at lightning speed, and scale to a global audience effortlessly with our next-gen serverless Postgres database.",
+            "id": 40,
+            "name": "Prisma",
+            "ref": "https://www.prisma.io/",
+            "tag": [
+                "ORM",
+                "database",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Instant On-demand Atomic CSS Engine. Customizable · Powerful · Fast · Joyful",
+            "id": 41,
+            "name": "UnoCss",
+            "ref": "https://unocss.dev/",
+            "tag": [
+                "ui-library",
+                "css",
+                "tailwindcss"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "It's the only ORM with both relational and SQL-like query APIs, providing you the best of both worlds when it comes to accessing your relational data. Drizzle is lightweight, performant, typesafe, non-lactose, gluten-free, sober, flexible and serverless-ready by design. Drizzle is not just a library, it's an experience.",
+            "id": 42,
+            "name": "Dizzle",
+            "ref": "https://orm.drizzle.team/",
+            "tag": [
+                "ORM",
+                "database",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "Playwright enables reliable end-to-end testing for modern web apps.",
+            "id": 43,
+            "name": "Playwright",
+            "ref": "https://playwright.dev/",
+            "tag": [
+                "test",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "The web crawling API for LLMs. Power your AI apps with clean data crawled from any website. It's also open source.",
+            "id": 44,
+            "name": "Firecrawl",
+            "ref": "https://www.firecrawl.dev/",
+            "tag": [
+                "crawl",
+                "build-tool"
+            ],
+            "thumbnail": ""
+        },
+        {
+            "description": "A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes. Zero dependencies.",
+            "id": 45,
+            "name": "Sweetalert2",
+            "ref": "https://sweetalert2.github.io/",
+            "tag": [
+                "ui-library",
+                "css",
+                "tailwindcss",
+                "animate"
+            ],
+            "thumbnail": ""
+        }
+    ],
+    "tags": [
+        {
+            "id": "website",
+            "code": "website",
+            "displayName": "Website",
+            "viDisplayName": "Trang web",
+            "description": "Projects related to website design, development, and deployment.",
+            "viDescription": "Các dự án liên quan đến thiết kế, phát triển và triển khai trang web.",
+            "hexColor": "#4E79A7"
+        },
+        {
+            "id": "software",
+            "code": "software",
+            "displayName": "Software",
+            "viDisplayName": "Phần mềm",
+            "description": "Software development projects including apps, tools, and system integrations.",
+            "viDescription": "Các dự án phát triển phần mềm bao gồm ứng dụng, công cụ và tích hợp hệ thống.",
+            "hexColor": "#59A14F"
+        },
+        {
+            "id": "mobile",
+            "code": "mobile",
+            "displayName": "Mobile App",
+            "viDisplayName": "Ứng dụng di động",
+            "description": "Mobile app projects for Android and iOS platforms.",
+            "viDescription": "Các dự án ứng dụng di động cho nền tảng Android và iOS.",
+            "hexColor": "#F28E2B"
+        },
+        {
+            "id": "ai",
+            "code": "ai",
+            "displayName": "AI & Machine Learning",
+            "viDisplayName": "Trí tuệ nhân tạo & Học máy",
+            "description": "Projects involving artificial intelligence and machine learning models.",
+            "viDescription": "Các dự án liên quan đến trí tuệ nhân tạo và mô hình học máy.",
+            "hexColor": "#9C755F"
+        },
+        {
+            "id": "design",
+            "code": "design",
+            "displayName": "UI/UX Design",
+            "viDisplayName": "Thiết kế giao diện người dùng",
+            "description": "Projects focused on user interface and user experience design.",
+            "viDescription": "Các dự án tập trung vào thiết kế giao diện và trải nghiệm người dùng.",
+            "hexColor": "#E15759"
+        },
+        {
+            "id": "backend",
+            "code": "backend",
+            "displayName": "Backend",
+            "viDisplayName": "Hệ thống phía máy chủ",
+            "description": "Server-side development and API integration projects.",
+            "viDescription": "Các dự án phát triển phía máy chủ và tích hợp API.",
+            "hexColor": "#76B7B2"
+        },
+        {
+            "id": "tutorial",
+            "code": "tutorial",
+            "displayName": "Tutorial",
+            "viDisplayName": "Hướng dẫn",
+            "description": "Step-by-step tutorials or how-to posts about coding and technology.",
+            "viDescription": "Các bài viết hướng dẫn chi tiết về lập trình và công nghệ.",
+            "hexColor": "#EDC948"
+        },
+        {
+            "id": "tech-news",
+            "code": "tech-news",
+            "displayName": "Tech News",
+            "viDisplayName": "Tin tức công nghệ",
+            "description": "Latest updates and trends in the technology industry.",
+            "viDescription": "Những tin tức và xu hướng mới nhất trong ngành công nghệ.",
+            "hexColor": "#B07AA1"
+        },
+        {
+            "id": "ui-ux",
+            "code": "ui-ux",
+            "displayName": "UI/UX Design",
+            "viDisplayName": "Thiết kế UI/UX",
+            "description": "Articles about user interface and user experience design principles.",
+            "viDescription": "Các bài viết về nguyên tắc thiết kế giao diện và trải nghiệm người dùng.",
+            "hexColor": "#FF9D76"
+        },
+        {
+            "id": "ai-ml",
+            "code": "ai-ml",
+            "displayName": "AI & Machine Learning",
+            "viDisplayName": "Trí tuệ nhân tạo & Học máy",
+            "description": "Insights and guides about artificial intelligence and machine learning.",
+            "viDescription": "Chia sẻ và hướng dẫn về trí tuệ nhân tạo và học máy.",
+            "hexColor": "#7E57C2"
+        },
+        {
+            "id": "web-dev",
+            "code": "web-dev",
+            "displayName": "Web Development",
+            "viDisplayName": "Phát triển web",
+            "description": "Blog posts related to frontend, backend, and fullstack web development.",
+            "viDescription": "Bài viết về phát triển web bao gồm frontend, backend và fullstack.",
+            "hexColor": "#36A2EB"
+        },
+        {
+            "id": "dev-life",
+            "code": "dev-life",
+            "displayName": "Developer Life",
+            "viDisplayName": "Cuộc sống lập trình viên",
+            "description": "Personal stories, productivity tips, and experiences from developers.",
+            "viDescription": "Chia sẻ câu chuyện, mẹo làm việc và kinh nghiệm của lập trình viên.",
+            "hexColor": "#FFB74D"
+        },
+        {
+            "id": "release-note",
+            "code": "release-note",
+            "displayName": "Release Note",
+            "viDisplayName": "Ghi chú phát hành",
+            "description": "Update logs and new feature announcements for projects or products.",
+            "viDescription": "Nhật ký cập nhật và thông báo tính năng mới cho các dự án hoặc sản phẩm.",
+            "hexColor": "#90A4AE"
+        },
+        {
+            "id": "open-source",
+            "code": "open-source",
+            "displayName": "Open Source",
+            "viDisplayName": "Mã nguồn mở",
+            "description": "Posts about open-source contributions, libraries, and community projects.",
+            "viDescription": "Các bài viết về đóng góp mã nguồn mở, thư viện và dự án cộng đồng.",
+            "hexColor": "#29B6F6"
+        },
+        {
+            "id": "productivity",
+            "code": "productivity",
+            "displayName": "Productivity",
+            "viDisplayName": "Hiệu suất làm việc",
+            "description": "Tips and tools to improve developer productivity and workflow.",
+            "viDescription": "Các mẹo và công cụ giúp lập trình viên làm việc hiệu quả hơn.",
+            "hexColor": "#81C784"
+        },
+        {
+            "id": "startup",
+            "code": "startup",
+            "displayName": "Startup & Business",
+            "viDisplayName": "Khởi nghiệp & Kinh doanh",
+            "description": "Posts about startup journeys, tech entrepreneurship, and business insights.",
+            "viDescription": "Các bài viết về hành trình khởi nghiệp, kinh doanh công nghệ và kinh nghiệm thực tế.",
+            "hexColor": "#FF7043"
+        },
+        {
+            "id": "security",
+            "code": "security",
+            "displayName": "Cybersecurity",
+            "viDisplayName": "An ninh mạng",
+            "description": "Articles about cybersecurity best practices and data protection.",
+            "viDescription": "Bài viết về các phương pháp tốt nhất trong bảo mật và bảo vệ dữ liệu.",
+            "hexColor": "#546E7A"
+        },
+        {
+            "id": "tools",
+            "code": "tools",
+            "displayName": "Tools & Libraries",
+            "viDisplayName": "Công cụ & Thư viện",
+            "description": "Posts reviewing or introducing useful developer tools and frameworks.",
+            "viDescription": "Các bài viết giới thiệu hoặc đánh giá công cụ và framework hữu ích cho lập trình viên.",
+            "hexColor": "#4DB6AC"
+        },
+        {
+            "id": "community",
+            "code": "community",
+            "displayName": "Community",
+            "viDisplayName": "Cộng đồng",
+            "description": "Updates and highlights from developer communities or events.",
+            "viDescription": "Tin tức và hoạt động nổi bật từ các cộng đồng hoặc sự kiện lập trình viên.",
+            "hexColor": "#F06292"
+        },
+        {
+            "id": "career",
+            "code": "career",
+            "displayName": "Career & Growth",
+            "viDisplayName": "Sự nghiệp & Phát triển",
+            "description": "Posts about professional development, interviews, and tech career advice.",
+            "viDescription": "Các bài viết về phát triển nghề nghiệp, phỏng vấn và định hướng trong ngành công nghệ.",
+            "hexColor": "#9575CD"
+        },
+        {
+            "id": "branding",
+            "code": "branding",
+            "displayName": "Branding & Identity",
+            "viDisplayName": "Xây dựng thương hiệu & Nhận diện",
+            "description": "Projects focused on brand identity, logo design, and visual communication strategies.",
+            "viDescription": "Các dự án tập trung vào nhận diện thương hiệu, thiết kế logo và chiến lược truyền thông hình ảnh.",
+            "hexColor": "#D81B60"
+        }
+    ],
+    "technologies": [
+        {
+            "id": "html",
+            "code": "html",
+            "displayName": "HTML5",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+            "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+        },
+        {
+            "id": "css",
+            "code": "css",
+            "displayName": "CSS3",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+            "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+        },
+        {
+            "id": "javascript",
+            "code": "javascript",
+            "displayName": "JavaScript",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        },
+        {
+            "id": "typescript",
+            "code": "typescript",
+            "displayName": "TypeScript",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "referenceUrl": "https://www.typescriptlang.org/"
+        },
+        {
+            "id": "react",
+            "code": "react",
+            "displayName": "React",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "referenceUrl": "https://react.dev/"
+        },
+        {
+            "id": "nextjs",
+            "code": "nextjs",
+            "displayName": "Next.js",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "referenceUrl": "https://nextjs.org/"
+        },
+        {
+            "id": "vue",
+            "code": "vue",
+            "displayName": "Vue.js",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "referenceUrl": "https://vuejs.org/"
+        },
+        {
+            "id": "nuxt",
+            "code": "nuxt",
+            "displayName": "Nuxt.js",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg",
+            "referenceUrl": "https://nuxt.com/"
+        },
+        {
+            "id": "angular",
+            "code": "angular",
+            "displayName": "Angular",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+            "referenceUrl": "https://angular.io/"
+        },
+        {
+            "id": "svelte",
+            "code": "svelte",
+            "displayName": "Svelte",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg",
+            "referenceUrl": "https://svelte.dev/"
+        },
+        {
+            "id": "nodejs",
+            "code": "nodejs",
+            "displayName": "Node.js",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "referenceUrl": "https://nodejs.org/"
+        },
+        {
+            "id": "express",
+            "code": "express",
+            "displayName": "Express.js",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+            "referenceUrl": "https://expressjs.com/"
+        },
+        {
+            "id": "nestjs",
+            "code": "nestjs",
+            "displayName": "NestJS",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg",
+            "referenceUrl": "https://nestjs.com/"
+        },
+        {
+            "id": "django",
+            "code": "django",
+            "displayName": "Django",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+            "referenceUrl": "https://www.djangoproject.com/"
+        },
+        {
+            "id": "flask",
+            "code": "flask",
+            "displayName": "Flask",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+            "referenceUrl": "https://flask.palletsprojects.com/"
+        },
+        {
+            "id": "laravel",
+            "code": "laravel",
+            "displayName": "Laravel",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "referenceUrl": "https://laravel.com/"
+        },
+        {
+            "id": "spring",
+            "code": "spring",
+            "displayName": "Spring Boot",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "referenceUrl": "https://spring.io/projects/spring-boot"
+        },
+        {
+            "id": "rails",
+            "code": "rails",
+            "displayName": "Ruby on Rails",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg",
+            "referenceUrl": "https://rubyonrails.org/"
+        },
+        {
+            "id": "mysql",
+            "code": "mysql",
+            "displayName": "MySQL",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "referenceUrl": "https://www.mysql.com/"
+        },
+        {
+            "id": "postgresql",
+            "code": "postgresql",
+            "displayName": "PostgreSQL",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "referenceUrl": "https://www.postgresql.org/"
+        },
+        {
+            "id": "sqlite",
+            "code": "sqlite",
+            "displayName": "SQLite",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+            "referenceUrl": "https://www.sqlite.org/"
+        },
+        {
+            "id": "mssql",
+            "code": "mssql",
+            "displayName": "Microsoft SQL Server",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
+            "referenceUrl": "https://www.microsoft.com/en-us/sql-server"
+        },
+        {
+            "id": "mongodb",
+            "code": "mongodb",
+            "displayName": "MongoDB",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "referenceUrl": "https://www.mongodb.com/"
+        },
+        {
+            "id": "redis",
+            "code": "redis",
+            "displayName": "Redis",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+            "referenceUrl": "https://redis.io/"
+        },
+        {
+            "id": "firebase",
+            "code": "firebase",
+            "displayName": "Firebase",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+            "referenceUrl": "https://firebase.google.com/"
+        },
+        {
+            "id": "supabase",
+            "code": "supabase",
+            "displayName": "Supabase",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+            "referenceUrl": "https://supabase.com/"
+        },
+        {
+            "id": "cassandra",
+            "code": "cassandra",
+            "displayName": "Apache Cassandra",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg",
+            "referenceUrl": "https://cassandra.apache.org/"
+        },
+        {
+            "id": "elasticsearch",
+            "code": "elasticsearch",
+            "displayName": "Elasticsearch",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg",
+            "referenceUrl": "https://www.elastic.co/elasticsearch/"
+        },
+        {
+            "id": "neo4j",
+            "code": "neo4j",
+            "displayName": "Neo4j",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg",
+            "referenceUrl": "https://neo4j.com/"
+        },
+        {
+            "id": "dynamodb",
+            "code": "dynamodb",
+            "displayName": "Amazon DynamoDB",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
+            "referenceUrl": "https://aws.amazon.com/dynamodb/"
+        },
+        {
+            "id": "cockroachdb",
+            "code": "cockroachdb",
+            "displayName": "CockroachDB",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cockroachdb/cockroachdb-original.svg",
+            "referenceUrl": "https://www.cockroachlabs.com/"
+        },
+        {
+            "id": "planetscale",
+            "code": "planetscale",
+            "displayName": "PlanetScale",
+            "logoUrl": "https://avatars.githubusercontent.com/u/35633828?s=200&v=4",
+            "referenceUrl": "https://planetscale.com/"
+        },
+        {
+            "id": "prisma",
+            "code": "prisma",
+            "displayName": "Prisma ORM",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+            "referenceUrl": "https://www.prisma.io/"
+        },
+        {
+            "id": "typeorm",
+            "code": "typeorm",
+            "displayName": "TypeORM",
+            "logoUrl": "https://typeorm.io/image/logo.svg",
+            "referenceUrl": "https://typeorm.io/"
+        },
+        {
+            "id": "sequelize",
+            "code": "sequelize",
+            "displayName": "Sequelize",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg",
+            "referenceUrl": "https://sequelize.org/"
+        },
+        {
+            "id": "mongoose",
+            "code": "mongoose",
+            "displayName": "Mongoose ODM",
+            "logoUrl": "https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png",
+            "referenceUrl": "https://mongoosejs.com/"
+        },
+        {
+            "id": "hibernate",
+            "code": "hibernate",
+            "displayName": "Hibernate ORM",
+            "logoUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+            "referenceUrl": "https://hibernate.org/"
+        },
+        {
+            "id": "entity-framework",
+            "code": "entity-framework",
+            "displayName": "Entity Framework",
+            "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Entity_Framework_Logo.png",
+            "referenceUrl": "https://learn.microsoft.com/en-us/ef/"
         }
     ]
 }
