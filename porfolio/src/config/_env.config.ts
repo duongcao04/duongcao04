@@ -14,8 +14,8 @@ const configSchema = yup.object({
         databaseUrl: yup.string(),
     }),
     supabase: yup.object({
-        url: yup.string().required('Supabase url is required'),
-        anonKey: yup.string().required('Supabase anon key is required'),
+        url: yup.string().optional(),
+        anonKey: yup.string().optional(),
     }),
     appVersion: yup.string().optional().default('v1.1.0'),
     appTitle: yup.string().optional().default('Yangisdev'),
