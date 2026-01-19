@@ -13,6 +13,10 @@ const configSchema = yup.object({
         measurementId: yup.string(),
         databaseUrl: yup.string(),
     }),
+    supabase: yup.object({
+        url: yup.string().required('Supabase url is required'),
+        anonKey: yup.string().required('Supabase anon key is required'),
+    }),
     appVersion: yup.string().optional().default('v1.1.0'),
     appTitle: yup.string().optional().default('Yangisdev'),
     nodeEnv: yup
@@ -36,6 +40,10 @@ function configProject() {
                 appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
                 measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
                 databaseUrl: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+            },
+            supabase: {
+                url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+                anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
             },
         })
         return config

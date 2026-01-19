@@ -1,0 +1,102 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../../generated"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+// 2. MODELS
+
+model Category {
+  id          String  @id @default(uuid())
+  code        String  @unique // e.g. "system-arch"
+  displayName String  @map("display_name")
+  description String?
+  hexColor    String? @map("hex_color")
+
+  // Relation: Many-to-Many via Junction Table
+  projectCategories ProjectCategory[]
+
+  @@map("categories")
+}
+
+model Tag {
+  id          String  @id @default(uuid())
+  code        String  @unique // e.g. "react"
+  displayName String  @map("display_name")
+  hexColor    String? @map("hex_color")
+
+  // Relation: Many-to-Many via Junction Table
+  projectTags ProjectTag[]
+
+  @@map("tags")
+}
+
+model Project {
+  id              String    @id @default(uuid())
+  slug            String    @unique
+  title           String
+  
+  // Details
+  role            String?
+  client          String?
+  platform        String?   // e.g. "Web", "Mobile"
+  description     String?   // Short summary
+  longDescription String?   @map("long_description") // The HTML story
+  
+  // Case Study Sections
+  challenge       String?
+  solution        String?
+  content         String?   // Additional HTML content
+  features        String?   // Kept as String based on your interface (or use String[])
+  
+  // Media & URLs
+  thumbnailUrl    String?   @map("thumbnail_url")
+  deployUrl       String?   @map("deploy_url")      // Fixed typo: deloy -> deploy
+  repositoryUrl   String?   @map("repository_url")
+  
+  // PostgreSQL Arrays (Native support for string[])
+  services        String[]
+  screenshotUrls  String[]  @map("screenshot_urls")
+
+  // Dates
+  startedAt       DateTime? @map("started_at") @db.Date // Maps to 'YYYY-MM-DD'
+  endedAt         DateTime? @map("ended_at")   @db.Date
+  createdAt       DateTime  @default(now())    @map("created_at")
+  updatedAt       DateTime  @updatedAt         @map("updated_at")
+
+  // Relations (Explicit Many-to-Many)
+  projectCategories ProjectCategory[]
+  projectTags       ProjectTag[]
+
+  @@map("projects")
+}
+
+// 3. JUNCTION TABLES (Explicit)
+// Required for easy querying in Supabase (e.g., .select('*, project_categories(...)'))
+
+model ProjectCategory {
+  projectId  String @map("project_id")
+  categoryId String @map("category_id")
+
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, categoryId]) // Composite Key
+  @@map("project_categories")
+}
+
+model ProjectTag {
+  projectId String @map("project_id")
+  tagId     String @map("tag_id")
+
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, tagId]) // Composite Key
+  @@map("project_tags")
+}

@@ -2,6 +2,7 @@
 @import './foundation.css';
 @import './utility.css';
 @import 'tw-animate-css';
+@plugin '@tailwindcss/typography';
 
 /* -------------------------------------------------------------------------- */
 /* 1. Configuration & Plugins                                                */

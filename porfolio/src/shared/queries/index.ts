@@ -1,3 +1,6 @@
+export * from './options/category-queries'
 export * from './options/post-queries'
+export * from './options/project-queries'
+export * from './useCategory'
 export * from './usePost'
 export * from './useProject'

@@ -3,16 +3,19 @@
 import { Chip } from '@heroui/react'
 import { ArrowDownIcon, SparklesIcon } from 'lucide-react'
 
-import { FilterBuilder, RecentWorkList } from '@/features/works'
+import { FilterBuilder, WorkCard, WorkCardSkeleton } from '@/features/works'
 
 import { INTERNAL_URLS } from '@/lib'
 import { HeroButton } from '@/shared/components'
+import { useProjects } from '@/shared/queries'
 
 export default function RecentWorkPage() {
+    const { data, isLoading, isFetching } = useProjects()
+    const loadingProjects = isLoading || isFetching
     return (
         <>
             {/* --- HEADER SECTION --- */}
-            <div className="relative pt-32 pb-20 min-h-[80vh] flex items-center justify-center text-center z-10 px-4">
+            <div className="relative pt-32 pb-8 min-h-[80vh] flex items-center justify-center text-center z-10 px-4">
                 {/* Background Glow Effect */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-primary-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -21,9 +24,20 @@ export default function RecentWorkPage() {
             </div>
 
             {/* Features */}
-            <div className="relative z-10" id="explore-projects">
-                <FilterBuilder />
-                <RecentWorkList />
+            <div className="relative z-10 pt-12 space-y-8" id="explore-projects">
+                <div className="container mx-auto px-4 max-w-7xl">
+                    <FilterBuilder />
+                </div>
+                <div className="container mx-auto px-4 max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                    {!loadingProjects &&
+                        data?.map((item) => (
+                            <WorkCard key={item.id} data={item} />
+                        ))}
+                    {loadingProjects &&
+                        Array.from({ length: 6 }).map((_, index) => (
+                            <WorkCardSkeleton key={index} />
+                        ))}
+                </div>
             </div>
 
             <FooterCTA />

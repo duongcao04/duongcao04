@@ -1,184 +1,235 @@
-import { Tag } from "@/shared/interfaces/_tag.interface";
+export const TAGS = [
+    // --- Languages & Core ---
+    {
+        id: 'a1b2c3d4-e5f6-4074-9b2d-123456789abc',
+        code: 'typescript',
+        displayName: 'TypeScript',
+        hexColor: '#3178C6',
+    },
+    {
+        id: 'b2c3d4e5-f6a7-4185-ac3e-234567890bcd',
+        code: 'nodejs',
+        displayName: 'Node.js',
+        hexColor: '#339933',
+    },
 
-export const tags: Tag[] = [
-	{
-		id: "website",
-		code: "website",
-		displayName: "Website",
-		viDisplayName: "Trang web",
-		description: "Projects related to website design, development, and deployment.",
-		viDescription: "Các dự án liên quan đến thiết kế, phát triển và triển khai trang web.",
-		hexColor: "#4E79A7", // calm blue – represents trust and web technology
-	},
-	{
-		id: "software",
-		code: "software",
-		displayName: "Software",
-		viDisplayName: "Phần mềm",
-		description: "Software development projects including apps, tools, and system integrations.",
-		viDescription: "Các dự án phát triển phần mềm bao gồm ứng dụng, công cụ và tích hợp hệ thống.",
-		hexColor: "#59A14F", // green – for growth and stability
-	},
-	{
-		id: "mobile",
-		code: "mobile",
-		displayName: "Mobile App",
-		viDisplayName: "Ứng dụng di động",
-		description: "Mobile app projects for Android and iOS platforms.",
-		viDescription: "Các dự án ứng dụng di động cho nền tảng Android và iOS.",
-		hexColor: "#F28E2B", // orange – energetic and modern
-	},
-	{
-		id: "ai",
-		code: "ai",
-		displayName: "AI & Machine Learning",
-		viDisplayName: "Trí tuệ nhân tạo & Học máy",
-		description: "Projects involving artificial intelligence and machine learning models.",
-		viDescription: "Các dự án liên quan đến trí tuệ nhân tạo và mô hình học máy.",
-		hexColor: "#9C755F", // earthy tone – analytical and intelligent
-	},
-	{
-		id: "design",
-		code: "design",
-		displayName: "UI/UX Design",
-		viDisplayName: "Thiết kế giao diện người dùng",
-		description: "Projects focused on user interface and user experience design.",
-		viDescription: "Các dự án tập trung vào thiết kế giao diện và trải nghiệm người dùng.",
-		hexColor: "#E15759", // warm red – creativity and emotion
-	},
-	{
-		id: "backend",
-		code: "backend",
-		displayName: "Backend",
-		viDisplayName: "Hệ thống phía máy chủ",
-		description: "Server-side development and API integration projects.",
-		viDescription: "Các dự án phát triển phía máy chủ và tích hợp API.",
-		hexColor: "#76B7B2", // teal – stable and structured
-	},
-	{
-		id: "tutorial",
-		code: "tutorial",
-		displayName: "Tutorial",
-		viDisplayName: "Hướng dẫn",
-		description: "Step-by-step tutorials or how-to posts about coding and technology.",
-		viDescription: "Các bài viết hướng dẫn chi tiết về lập trình và công nghệ.",
-		hexColor: "#EDC948", // yellow – educational and bright
-	},
-	{
-		id: "tech-news",
-		code: "tech-news",
-		displayName: "Tech News",
-		viDisplayName: "Tin tức công nghệ",
-		description: "Latest updates and trends in the technology industry.",
-		viDescription: "Những tin tức và xu hướng mới nhất trong ngành công nghệ.",
-		hexColor: "#B07AA1", // violet – modern and forward-looking
-	},
-	{
-		id: "ui-ux",
-		code: "ui-ux",
-		displayName: "UI/UX Design",
-		viDisplayName: "Thiết kế UI/UX",
-		description: "Articles about user interface and user experience design principles.",
-		viDescription: "Các bài viết về nguyên tắc thiết kế giao diện và trải nghiệm người dùng.",
-		hexColor: "#FF9D76", // coral – friendly and creative
-	},
-	{
-		id: "ai-ml",
-		code: "ai-ml",
-		displayName: "AI & Machine Learning",
-		viDisplayName: "Trí tuệ nhân tạo & Học máy",
-		description: "Insights and guides about artificial intelligence and machine learning.",
-		viDescription: "Chia sẻ và hướng dẫn về trí tuệ nhân tạo và học máy.",
-		hexColor: "#7E57C2", // purple – futuristic and intelligent
-	},
-	{
-		id: "web-dev",
-		code: "web-dev",
-		displayName: "Web Development",
-		viDisplayName: "Phát triển web",
-		description: "Blog posts related to frontend, backend, and fullstack web development.",
-		viDescription: "Bài viết về phát triển web bao gồm frontend, backend và fullstack.",
-		hexColor: "#36A2EB", // bright blue – web and coding
-	},
-	{
-		id: "dev-life",
-		code: "dev-life",
-		displayName: "Developer Life",
-		viDisplayName: "Cuộc sống lập trình viên",
-		description: "Personal stories, productivity tips, and experiences from developers.",
-		viDescription: "Chia sẻ câu chuyện, mẹo làm việc và kinh nghiệm của lập trình viên.",
-		hexColor: "#FFB74D", // warm amber – casual and personal
-	},
-	{
-		id: "release-note",
-		code: "release-note",
-		displayName: "Release Note",
-		viDisplayName: "Ghi chú phát hành",
-		description: "Update logs and new feature announcements for projects or products.",
-		viDescription: "Nhật ký cập nhật và thông báo tính năng mới cho các dự án hoặc sản phẩm.",
-		hexColor: "#90A4AE", // gray-blue – neutral and professional
-	},
-	{
-		id: "open-source",
-		code: "open-source",
-		displayName: "Open Source",
-		viDisplayName: "Mã nguồn mở",
-		description: "Posts about open-source contributions, libraries, and community projects.",
-		viDescription: "Các bài viết về đóng góp mã nguồn mở, thư viện và dự án cộng đồng.",
-		hexColor: "#29B6F6", // sky blue – openness and collaboration
-	},
-	{
-		id: "productivity",
-		code: "productivity",
-		displayName: "Productivity",
-		viDisplayName: "Hiệu suất làm việc",
-		description: "Tips and tools to improve developer productivity and workflow.",
-		viDescription: "Các mẹo và công cụ giúp lập trình viên làm việc hiệu quả hơn.",
-		hexColor: "#81C784", // green – focus and growth
-	},
-	{
-		id: "startup",
-		code: "startup",
-		displayName: "Startup & Business",
-		viDisplayName: "Khởi nghiệp & Kinh doanh",
-		description: "Posts about startup journeys, tech entrepreneurship, and business insights.",
-		viDescription: "Các bài viết về hành trình khởi nghiệp, kinh doanh công nghệ và kinh nghiệm thực tế.",
-		hexColor: "#FF7043", // bold orange – energy and ambition
-	},
-	{
-		id: "security",
-		code: "security",
-		displayName: "Cybersecurity",
-		viDisplayName: "An ninh mạng",
-		description: "Articles about cybersecurity best practices and data protection.",
-		viDescription: "Bài viết về các phương pháp tốt nhất trong bảo mật và bảo vệ dữ liệu.",
-		hexColor: "#546E7A", // dark gray – safety and seriousness
-	},
-	{
-		id: "tools",
-		code: "tools",
-		displayName: "Tools & Libraries",
-		viDisplayName: "Công cụ & Thư viện",
-		description: "Posts reviewing or introducing useful developer tools and frameworks.",
-		viDescription: "Các bài viết giới thiệu hoặc đánh giá công cụ và framework hữu ích cho lập trình viên.",
-		hexColor: "#4DB6AC", // turquoise – efficiency and utility
-	},
-	{
-		id: "community",
-		code: "community",
-		displayName: "Community",
-		viDisplayName: "Cộng đồng",
-		description: "Updates and highlights from developer communities or events.",
-		viDescription: "Tin tức và hoạt động nổi bật từ các cộng đồng hoặc sự kiện lập trình viên.",
-		hexColor: "#F06292", // pink – friendly and social
-	},
-	{
-		id: "career",
-		code: "career",
-		displayName: "Career & Growth",
-		viDisplayName: "Sự nghiệp & Phát triển",
-		description: "Posts about professional development, interviews, and tech career advice.",
-		viDescription: "Các bài viết về phát triển nghề nghiệp, phỏng vấn và định hướng trong ngành công nghệ.",
-		hexColor: "#9575CD", // lavender – wisdom and ambition
-	}
-];
+    // --- Backend & Database ---
+    {
+        id: 'c3d4e5f6-a7b8-4296-bd4f-345678901cde',
+        code: 'nestjs',
+        displayName: 'NestJS',
+        hexColor: '#E0234E',
+    },
+    {
+        id: 'd4e5f6a7-b8c9-4307-ce5a-456789012def',
+        code: 'postgresql',
+        displayName: 'PostgreSQL',
+        hexColor: '#336791',
+    },
+    {
+        id: 'e5f6a7b8-c9d0-4418-df6b-567890123ef0',
+        code: 'prisma',
+        displayName: 'Prisma ORM',
+        hexColor: '#2D3748', // Dark Navy
+    },
+    {
+        id: 'f6a7b8c9-d0e1-4529-e07c-678901234f01',
+        code: 'redis',
+        displayName: 'Redis',
+        hexColor: '#DC382D',
+    },
+
+    // --- Frontend & UI ---
+    {
+        id: '07b8c9d0-e1f2-4630-f18d-789012345012',
+        code: 'react',
+        displayName: 'React',
+        hexColor: '#61DAFB',
+    },
+    {
+        id: '18c9d0e1-f2a3-4741-029e-890123456123',
+        code: 'nextjs',
+        displayName: 'Next.js',
+        hexColor: '#000000', // Typically Black/White
+    },
+    {
+        id: '29d0e1f2-a3b4-4852-13af-901234567234',
+        code: 'tailwind',
+        displayName: 'Tailwind CSS',
+        hexColor: '#06B6D4',
+    },
+    {
+        id: '3ae1f2a3-b4c5-4963-24b0-012345678345',
+        code: 'framer-motion',
+        displayName: 'Framer Motion',
+        hexColor: '#E902B5',
+    },
+    {
+        id: '4bf2a3b4-c5d6-4a74-35c1-123456789456',
+        code: 'tanstack',
+        displayName: 'TanStack Query',
+        hexColor: '#FF4154',
+    },
+
+    // --- Infrastructure & DevOps ---
+    {
+        id: '5c03b4c5-d6e7-4b85-46d2-234567890567',
+        code: 'docker',
+        displayName: 'Docker',
+        hexColor: '#2496ED',
+    },
+    {
+        id: '6d14c5d6-e7f8-4c96-57e3-345678901678',
+        code: 'linux',
+        displayName: 'Linux',
+        hexColor: '#FCC624',
+    },
+    {
+        id: '7e25d6e7-f8a9-4da7-68f4-456789012789',
+        code: 'nginx',
+        displayName: 'Nginx',
+        hexColor: '#009639',
+    },
+    {
+        id: '8f36e7f8-a9b0-4eb8-7905-567890123890',
+        code: 'ci-cd',
+        displayName: 'CI/CD Pipelines',
+        hexColor: '#4A90E2',
+    },
+
+    // --- Specialized & Tools ---
+    {
+        id: '9047f8a9-b0c1-4fc9-8a16-678901234901',
+        code: 'tauri',
+        displayName: 'Tauri',
+        hexColor: '#FFC131',
+    },
+    {
+        id: 'a158a9b0-c1d2-40da-9b27-789012345012',
+        code: 'cybersecurity',
+        displayName: 'Cybersecurity',
+        hexColor: '#EF4444', // Red-500
+    },
+    {
+        id: 'b269b0c1-d2e3-41eb-ac38-890123456123',
+        code: 'websocket',
+        displayName: 'WebSockets',
+        hexColor: '#9333EA', // Purple-600
+    },
+    {
+        id: 'c37ac1d2-e3f4-42fc-bd49-901234567234',
+        code: 'azure-ad',
+        displayName: 'Azure AD',
+        hexColor: '#0078D4',
+    }, // --- Cloud & Deployment ---
+    {
+        id: 'd48be1c2-f3a4-4b5c-9d6e-1234567890ab',
+        code: 'vercel',
+        displayName: 'Vercel',
+        hexColor: '#000000',
+    },
+    {
+        id: 'e59cf2d3-04b5-4c6d-ae7f-2345678901bc',
+        code: 'cloudflare',
+        displayName: 'Cloudflare',
+        hexColor: '#F38020',
+    },
+    {
+        id: 'f6ad03e4-15c6-4d7e-bf80-3456789012cd',
+        code: 'firebase',
+        displayName: 'Firebase',
+        hexColor: '#FFCA28',
+    },
+    {
+        id: '07be14f5-26d7-4e8f-c091-4567890123de',
+        code: 'ably',
+        displayName: 'Ably',
+        hexColor: '#FF5416', // Bright Orange
+    },
+
+    // --- Build Tools & Testing ---
+    {
+        id: '18cf2506-37e8-4f90-d1a2-5678901234ef',
+        code: 'vite',
+        displayName: 'Vite',
+        hexColor: '#646CFF', // Indigo-Purple
+    },
+    {
+        id: '29d03617-48f9-40a1-e2b3-6789012345f0',
+        code: 'jest',
+        displayName: 'Jest',
+        hexColor: '#C21325',
+    },
+    {
+        id: '3ae14728-590a-41b2-f3c4-789012345601',
+        code: 'git',
+        displayName: 'Git',
+        hexColor: '#F05032',
+    },
+
+    // --- Design & UI Libraries ---
+    {
+        id: '4bf25839-6a1b-42c3-04d5-890123456712',
+        code: 'ant-design',
+        displayName: 'Ant Design',
+        hexColor: '#1890FF', // Ant Blue
+    },
+    {
+        id: '5c03694a-7b2c-43d4-15e6-901234567823',
+        code: 'figma',
+        displayName: 'Figma',
+        hexColor: '#A259FF',
+    },
+    {
+        id: '6d147a5b-8c3d-44e5-26f7-012345678934',
+        code: 'shadcn-ui',
+        displayName: 'shadcn/ui',
+        hexColor: '#000000',
+    },
+
+    // --- AI & Data Science ---
+    {
+        id: '7e258b6c-9d4e-45f6-3708-123456789045',
+        code: 'python',
+        displayName: 'Python',
+        hexColor: '#3776AB',
+    },
+    {
+        id: '8f369c7d-0e5f-4607-4819-234567890156',
+        code: 'machine-learning',
+        displayName: 'Machine Learning',
+        hexColor: '#F7931E',
+    },
+    {
+        id: '9047ad8e-1f60-4718-592a-345678901267',
+        code: 'tensorflow',
+        displayName: 'TensorFlow',
+        hexColor: '#FF6F00',
+    },
+
+    // --- Concepts & Features ---
+    {
+        id: 'a158be9f-2071-4829-6a3b-456789012378',
+        code: 'pwa',
+        displayName: 'PWA',
+        hexColor: '#5A0FC8', // Deep Purple
+    },
+    {
+        id: 'b269cf00-3182-493a-7b4c-567890123489',
+        code: 'seo',
+        displayName: 'SEO Optimization',
+        hexColor: '#8BC34A', // Light Green
+    },
+    {
+        id: 'c37ad011-4293-4a4b-8c5d-678901234590',
+        code: 'i18n',
+        displayName: 'i18n (Internationalization)',
+        hexColor: '#4C51BF', // Indigo
+    },
+    {
+        id: 'd48be122-53a4-4b5c-9d6e-789012345601',
+        code: 'offline-first',
+        displayName: 'Offline First',
+        hexColor: '#607D8B', // Blue Grey
+    },
+]

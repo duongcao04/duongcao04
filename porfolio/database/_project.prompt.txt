@@ -1,0 +1,22 @@
+Browser my website https://loopxcell.energy.
+
+Website này là tôi thiết kế. Hãy quảng bá dịch vụ thiết kế website. Những gì tôi làm đã đem lại gì cho doanh nghiệp đó,
+Mục tiêu là quảng bá dịch vụ thiết kế website của tôi, khoảng 5 h1 và các ý chính về bussiness, technology/ wordpress, cloudflare, seo (tác dụng đem lại cho doanh nghiệp), etc.
+Cuối cùng là thông tin contact nếu có ý tưởng + slogan.
+
+Viết Bussiness dài hơn
+
+1. The Problem
+2. The Solution
+3. Core Business Logic & Features
+4. Technology
+5. User Experience
+6. Why Choose Us
+
+
+   ```markdown
+   ### Have an Idea or Need Support?
+   The Cadsquad Staff Platform is built for you, and your feedback is what fuels its evolution. If you have an idea for a new feature, a suggestion for improvement, or require support, please do not hesitate to reach out.
+   **Contact the development team at:** ch.duong@cadsquad.vn
+   Your insights are essential as we continue to build the future of work at Cadsquad together.
+   ```

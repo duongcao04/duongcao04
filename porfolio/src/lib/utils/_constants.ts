@@ -12,20 +12,14 @@ export const INTERNAL_URLS = (() => {
     const urls = {
         // Use ['', ''] if you want home to be '/' explicitly,
         // otherwise [''] joins to an empty string.
-        home: [''],
-        posts: ['', 'posts'],
-        work: ['', 'work'],
-        contact: ['', 'contact'],
+        home: [''].join('/'),
+        posts: ['', 'posts'].join('/'),
+        work: ['', 'work'].join('/'),
+        contact: ['', 'contact'].join('/'),
+        workDetail: (slug: string) => ['', 'work', slug].join('/'),
     } as const
 
-    return Object.fromEntries(
-        Object.entries(urls).map(([key, segments]) => {
-            // Join segments with '/'
-            // If the result is empty string (for home), default to '/'
-            const path = segments.join('/')
-            return [key, path === '' ? '/' : path]
-        })
-    )
+    return urls
 })()
 
 export const baseUrl = envConfig.appUrl

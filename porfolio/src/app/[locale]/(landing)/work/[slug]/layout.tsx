@@ -13,5 +13,15 @@ export default function WorkDetailLayout({
 }: Readonly<{
     children: ReactNode
 }>) {
-    return children
+    return (
+        <div className="min-h-screen w-full bg-background text-text-default relative overflow-x-hidden">
+            {/* --- AMBIENT BACKGROUND --- */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-purple-300/10 dark:bg-purple-900/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-blue-300/10 dark:bg-blue-900/10 rounded-full blur-[120px]" />
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]" />
+            </div>
+            {children}
+        </div>
+    )
 }
