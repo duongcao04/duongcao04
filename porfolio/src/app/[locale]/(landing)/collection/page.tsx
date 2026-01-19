@@ -1,16 +1,11 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-
 import { useTranslations } from 'next-intl'
 
-import { useFirebaseData } from '@/shared/hooks/useFirebase'
+import AppLoader from '@/app/loading'
 import { useSearchParam } from '@/shared/hooks/useSearchParam'
 
-import AppLoader from '@/app/loading'
-import { MotionH1, MotionH4 } from '@/lib/motion'
-import { Tool } from '@/shared/types/_tool.type.'
-
+import { MotionH1, MotionH4 } from '../../../../lib'
 import ToolCard from './components/ToolCard'
 import ToolFilter from './components/ToolFiler'
 import ToolSearchbar from './components/ToolSearchbar'
@@ -21,23 +16,7 @@ export default function CollectionPage() {
     const { getSearchParam } = useSearchParam()
     const searchKeywords = getSearchParam('search')
 
-    const { data, loading } = useFirebaseData<Tool>('tools')
-
-    const [allTools, setAllTools] = useState(data)
-
-    useEffect(() => {
-        if (!searchKeywords) {
-            setAllTools(data)
-        } else {
-            setAllTools(
-                allTools.filter((item) =>
-                    item.name?.toLowerCase()?.includes(searchKeywords)
-                )
-            )
-        }
-    }, [searchKeywords, data])
-
-    if (loading) {
+    if (false) {
         return <AppLoader />
     }
 
@@ -56,7 +35,7 @@ export default function CollectionPage() {
                 <ToolFilter />
             </div>
             <ul className="space-y-8 desktop:grid desktop:grid-cols-3 desktop:gap-8 desktop:space-y-0">
-                {allTools.map((item) => (
+                {[].map((item) => (
                     <li key={item.id}>
                         <ToolCard data={item} />
                     </li>

@@ -15,6 +15,7 @@ export const INTERNAL_URLS = (() => {
         home: [''],
         posts: ['', 'posts'],
         work: ['', 'work'],
+        contact: ['', 'contact'],
     } as const
 
     return Object.fromEntries(

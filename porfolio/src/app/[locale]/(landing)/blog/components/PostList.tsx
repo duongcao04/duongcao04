@@ -1,17 +1,15 @@
-import React from 'react'
-
 import { Spinner } from '@heroui/react'
+import { useQuery } from '@tanstack/react-query'
 
-import { useFirebaseData } from '@/shared/hooks/useFirebase'
-
-import { Post } from '@/types/article'
+import { postsListOptions } from '@/shared/queries'
 
 import PostCard from './cards/PostCard'
 
 export default function PostList() {
-    const { data: allPosts, loading } = useFirebaseData<Post>('posts')
+    const { data, isLoading } = useQuery({ ...postsListOptions() })
+    const posts = data?.posts || []
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div className="w-full h-full flex items-center justify-center">
                 <Spinner size="lg" />
@@ -19,13 +17,13 @@ export default function PostList() {
         )
     }
 
-    if (!allPosts.length) {
+    if (!posts.length) {
         return <div className="p-4 text-center">No posts found</div>
     }
 
     return (
         <div className="space-y-4">
-            {allPosts.map((post, index) => (
+            {posts.map((post, index) => (
                 <PostCard key={post.id || index} data={post} />
             ))}
         </div>

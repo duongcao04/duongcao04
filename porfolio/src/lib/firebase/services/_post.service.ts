@@ -9,10 +9,11 @@ import {
 } from 'firebase/firestore'
 
 import { db } from '@/lib/firebase'
+import { IPost } from '@/shared/interfaces'
 
 export const PostService = {
     // Lấy tất cả bài viết của user hiện tại
-    getAll: async () => {
+    getAll: async (): Promise<IPost[]> => {
         try {
             const postsRef = collection(db, 'posts')
             // Tạo query: tìm theo userId, sắp xếp mới nhất

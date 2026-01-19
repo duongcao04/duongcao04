@@ -19,6 +19,7 @@ export default function Footer() {
 
     return (
         <footer className="container border-t-1 border-border-default py-8">
+            {/* <FloatingDock /> */}
             <div
                 className="grid gap-8"
                 style={{

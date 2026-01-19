@@ -7,8 +7,8 @@ import { useTranslations } from 'next-intl'
 import { MotionDiv } from '@/lib/motion'
 import Logo from '@/shared/components/icons/logo'
 import { SOCIAL_NETWORKS } from '@/shared/constants'
+import { useDevice } from '@/shared/hooks'
 
-import { useDevice } from '../../../hooks'
 import { HeroButton } from '../../ui/hero-button'
 import LanguageToggle from './LanguageToggle'
 import AppNavigate from './app-navigate'
@@ -54,7 +54,7 @@ export default function Header() {
     }
 
     return (
-        <MotionDiv className="container mx-auto w-full h-20 grid grid-cols-[110px_1fr_500px] gap-8 items-center">
+        <MotionDiv className="container relative mx-auto w-full h-20 grid grid-cols-[110px_1fr_500px] gap-8 items-center z-50!">
             <MotionDiv variants={logoVariants} initial="init" animate="animate">
                 <Logo className="text-3xl" />
             </MotionDiv>
