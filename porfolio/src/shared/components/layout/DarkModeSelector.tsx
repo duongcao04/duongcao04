@@ -59,7 +59,7 @@ export default function DarkModeSelector() {
     const [isOpen, setOpen] = useState<boolean>(false)
 
     return (
-        <div className="flex items-center justify-end flex-row-reverse gap-2">
+        <div className="flex items-center justify-end flex-row-reverse gap-2 z-100!">
             <MotionButton
                 className="rounded-full bg-primary-100 p-3"
                 onClick={() => {
