@@ -10,8 +10,8 @@ export function createClient() {
     const cookieStore = cookies()
 
     return createServerClient(
-        envConfig.supabase.url,
-        envConfig.supabase.anonKey,
+        envConfig.supabase.url!,
+        envConfig.supabase.anonKey!,
         {
             cookies: {
                 async get(name: string) {
@@ -47,7 +47,7 @@ export function createClient() {
 export function createStaticClient() {
     // We use the basic supabase-js client which doesn't depend on next/headers
     return createSupabaseClient(
-        envConfig.supabase.url,
-        envConfig.supabase.anonKey
+        envConfig.supabase.url!,
+        envConfig.supabase.anonKey!
     )
 }
