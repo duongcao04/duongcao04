@@ -28,7 +28,7 @@ export default async function HomePage() {
                     </div>
                 </div>
             </section>
-            <section className="container mt-16 mb-24">
+            <section className="container mt-16 mb-20">
                 <WorkSection />
             </section>
             <section>

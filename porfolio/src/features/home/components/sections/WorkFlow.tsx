@@ -3,8 +3,9 @@
 import { Accordion, AccordionItem } from '@heroui/react'
 import { Plus } from 'lucide-react'
 
-import { WORKFLOW as workflow } from '../../../../../database/workflow'
 import { MotionH2 } from '@/lib/motion'
+
+import { WORKFLOW as workflow } from '../../../../../database/workflow'
 
 export default function WorkFlow() {
     return (
@@ -13,7 +14,10 @@ export default function WorkFlow() {
                 <div className="grid grid-cols-[1fr_1.5fr] gap-24">
                     <div>
                         <MotionH2 className="text-4xl font-medium leading-inherit tracking-wider">
-                            Empowering visionaries to drive meaningful progress
+                            <p className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-white via-white/90 to-white/70">
+                                Empowering visionaries
+                            </p>
+                            to drive meaningful progress
                         </MotionH2>
                         <div className="mt-8 text-lg leading-loose tracking-wide">
                             <p>

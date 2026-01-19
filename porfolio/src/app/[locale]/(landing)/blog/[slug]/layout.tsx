@@ -5,28 +5,6 @@ import { Metadata } from 'next'
 import AppLoader from '@/app/loading'
 import { createClient } from '@/lib/supabase/server'
 
-// 1. Generate Static Params (Server-Side Build)
-export async function generateStaticParams() {
-    try {
-        const supabase = createClient()
-
-        // Fetch only slugs for published posts
-        const { data: posts } = await supabase
-            .from('posts')
-            .select('slug')
-            .eq('is_published', true)
-
-        if (!posts) return []
-
-        return posts.map((post) => ({
-            slug: post.slug,
-        }))
-    } catch (error) {
-        console.error('Error generating static params:', error)
-        return []
-    }
-}
-
 // 2. Generate Metadata (Server-Side SEO)
 export async function generateMetadata({
     params,
