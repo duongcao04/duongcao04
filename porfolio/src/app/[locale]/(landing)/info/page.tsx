@@ -3,9 +3,9 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-import Avatar from '@/assets/img/avatar.jpg'
+import AboutMeTabs from '@/features/about-me/components/about-me-tabs'
 
-import AboutMeTabs from './components/about-me-tabs'
+import Avatar from '@/assets/img/avatar.jpg'
 
 export default function InfoPage() {
     const t = useTranslations('aboutMe')
@@ -15,7 +15,7 @@ export default function InfoPage() {
         <>
             <div
                 id="Cover"
-                className="container relative desktop:mt-10 aspect-[8/2] bg-gradient-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
+                className="container relative desktop:mt-10 aspect-8/2 bg-linear-to-r from-primary-500 via-orange-500 to-yellow-400 rounded-2xl"
             >
                 <Image
                     id="Avatar"

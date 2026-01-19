@@ -2,10 +2,10 @@
 
 import { useQuery } from '@tanstack/react-query'
 
-import { postOptions, postsListOptions } from './options/post-queries'
+import { postQueries } from './options/post-queries'
 
 export const usePosts = () => {
-    const { data, isFetching, isLoading } = useQuery({ ...postsListOptions() })
+    const { data, isFetching, isLoading } = useQuery({ ...postQueries.list() })
     return {
         posts: data,
         isLoading: isFetching || isLoading,
@@ -13,7 +13,9 @@ export const usePosts = () => {
 }
 
 export const usePostDetail = (slug: string) => {
-    const { data, isFetching, isLoading } = useQuery({ ...postOptions(slug) })
+    const { data, isFetching, isLoading } = useQuery({
+        ...postQueries.detail(slug),
+    })
     return {
         post: data,
         isLoading: isFetching || isLoading,

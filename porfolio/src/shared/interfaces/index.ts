@@ -1,3 +1,4 @@
+export * from './_author.interface'
 export * from './_category.interface'
 export * from './_post.interface'
 export * from './_project.interface'

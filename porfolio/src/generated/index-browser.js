@@ -121,14 +121,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.CategoryScalarFieldEnum = {
-  id: 'id',
-  code: 'code',
-  displayName: 'displayName',
-  description: 'description',
-  hexColor: 'hexColor'
-};
-
 exports.Prisma.TagScalarFieldEnum = {
   id: 'id',
   code: 'code',
@@ -160,6 +152,14 @@ exports.Prisma.ProjectScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  displayName: 'displayName',
+  description: 'description',
+  hexColor: 'hexColor'
+};
+
 exports.Prisma.ProjectCategoryScalarFieldEnum = {
   projectId: 'projectId',
   categoryId: 'categoryId'
@@ -168,6 +168,37 @@ exports.Prisma.ProjectCategoryScalarFieldEnum = {
 exports.Prisma.ProjectTagScalarFieldEnum = {
   projectId: 'projectId',
   tagId: 'tagId'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  excerpt: 'excerpt',
+  content: 'content',
+  thumbnailUrl: 'thumbnailUrl',
+  publishedAt: 'publishedAt',
+  isPublished: 'isPublished',
+  readingTime: 'readingTime',
+  featured: 'featured',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  authorId: 'authorId'
+};
+
+exports.Prisma.AuthorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  role: 'role',
+  avatarUrl: 'avatarUrl',
+  bio: 'bio'
+};
+
+exports.Prisma.PostCatalogScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  displayName: 'displayName',
+  description: 'description'
 };
 
 exports.Prisma.SortOrder = {
@@ -187,11 +218,14 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Category: 'Category',
   Tag: 'Tag',
   Project: 'Project',
+  Category: 'Category',
   ProjectCategory: 'ProjectCategory',
-  ProjectTag: 'ProjectTag'
+  ProjectTag: 'ProjectTag',
+  Post: 'Post',
+  Author: 'Author',
+  PostCatalog: 'PostCatalog'
 };
 
 /**

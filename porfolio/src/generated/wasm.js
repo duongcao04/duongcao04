@@ -93,14 +93,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.CategoryScalarFieldEnum = {
-  id: 'id',
-  code: 'code',
-  displayName: 'displayName',
-  description: 'description',
-  hexColor: 'hexColor'
-};
-
 exports.Prisma.TagScalarFieldEnum = {
   id: 'id',
   code: 'code',
@@ -132,6 +124,14 @@ exports.Prisma.ProjectScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  displayName: 'displayName',
+  description: 'description',
+  hexColor: 'hexColor'
+};
+
 exports.Prisma.ProjectCategoryScalarFieldEnum = {
   projectId: 'projectId',
   categoryId: 'categoryId'
@@ -140,6 +140,37 @@ exports.Prisma.ProjectCategoryScalarFieldEnum = {
 exports.Prisma.ProjectTagScalarFieldEnum = {
   projectId: 'projectId',
   tagId: 'tagId'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  excerpt: 'excerpt',
+  content: 'content',
+  thumbnailUrl: 'thumbnailUrl',
+  publishedAt: 'publishedAt',
+  isPublished: 'isPublished',
+  readingTime: 'readingTime',
+  featured: 'featured',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  authorId: 'authorId'
+};
+
+exports.Prisma.AuthorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  role: 'role',
+  avatarUrl: 'avatarUrl',
+  bio: 'bio'
+};
+
+exports.Prisma.PostCatalogScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  displayName: 'displayName',
+  description: 'description'
 };
 
 exports.Prisma.SortOrder = {
@@ -159,11 +190,14 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Category: 'Category',
   Tag: 'Tag',
   Project: 'Project',
+  Category: 'Category',
   ProjectCategory: 'ProjectCategory',
-  ProjectTag: 'ProjectTag'
+  ProjectTag: 'ProjectTag',
+  Post: 'Post',
+  Author: 'Author',
+  PostCatalog: 'PostCatalog'
 };
 /**
  * Create the Client
@@ -194,7 +228,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../lib/prisma",
   "clientVersion": "6.19.2",
@@ -203,7 +237,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -212,13 +245,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// prisma/schema.prisma\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n// 2. MODELS\n\nmodel Category {\n  id          String  @id @default(uuid())\n  code        String  @unique // e.g. \"system-arch\"\n  displayName String  @map(\"display_name\")\n  description String?\n  hexColor    String? @map(\"hex_color\")\n\n  // Relation: Many-to-Many via Junction Table\n  projectCategories ProjectCategory[]\n\n  @@map(\"categories\")\n}\n\nmodel Tag {\n  id          String  @id @default(uuid())\n  code        String  @unique // e.g. \"react\"\n  displayName String  @map(\"display_name\")\n  hexColor    String? @map(\"hex_color\")\n\n  // Relation: Many-to-Many via Junction Table\n  projectTags ProjectTag[]\n\n  @@map(\"tags\")\n}\n\nmodel Project {\n  id    String @id @default(uuid())\n  slug  String @unique\n  title String\n\n  // Details\n  role            String?\n  client          String?\n  platform        String? // e.g. \"Web\", \"Mobile\"\n  description     String? // Short summary\n  longDescription String? @map(\"long_description\") // The HTML story\n\n  // Case Study Sections\n  challenge String?\n  solution  String?\n  content   String? // Additional HTML content\n  features  String? // Kept as String based on your interface (or use String[])\n\n  // Media & URLs\n  thumbnailUrl  String? @map(\"thumbnail_url\")\n  deployUrl     String? @map(\"deploy_url\") // Fixed typo: deloy -> deploy\n  repositoryUrl String? @map(\"repository_url\")\n\n  // PostgreSQL Arrays (Native support for string[])\n  services       String[]\n  screenshotUrls String[] @map(\"screenshot_urls\")\n\n  // Dates\n  startedAt DateTime? @map(\"started_at\") @db.Date // Maps to 'YYYY-MM-DD'\n  endedAt   DateTime? @map(\"ended_at\") @db.Date\n  createdAt DateTime  @default(now()) @map(\"created_at\")\n  updatedAt DateTime  @updatedAt @map(\"updated_at\")\n\n  // Relations (Explicit Many-to-Many)\n  projectCategories ProjectCategory[]\n  projectTags       ProjectTag[]\n\n  @@map(\"projects\")\n}\n\n// 3. JUNCTION TABLES (Explicit)\n// Required for easy querying in Supabase (e.g., .select('*, project_categories(...)'))\n\nmodel ProjectCategory {\n  projectId  String @map(\"project_id\")\n  categoryId String @map(\"category_id\")\n\n  project  Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)\n  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)\n\n  @@id([projectId, categoryId]) // Composite Key\n  @@map(\"project_categories\")\n}\n\nmodel ProjectTag {\n  projectId String @map(\"project_id\")\n  tagId     String @map(\"tag_id\")\n\n  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)\n  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)\n\n  @@id([projectId, tagId]) // Composite Key\n  @@map(\"project_tags\")\n}\n",
-  "inlineSchemaHash": "312f0b1228372df95591109f56caa7374253b2ba031e81e74c3b7c35ce547b98",
+  "inlineSchema": "// prisma/schema.prisma\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\n// =========================================\n// 1. SHARED MODELS\n// =========================================\n\nmodel Tag {\n  id          String  @id @default(uuid())\n  code        String  @unique // e.g. \"nextjs\"\n  displayName String  @map(\"display_name\") // e.g. \"Next.js\"\n  hexColor    String? @map(\"hex_color\")\n\n  // Relation: Projects (Explicit via Junction)\n  projectTags ProjectTag[]\n\n  // Relation: Posts (Implicit Many-to-Many)\n  posts Post[]\n\n  @@map(\"tags\")\n}\n\n// =========================================\n// 2. PROJECT / PORTFOLIO MODELS\n// =========================================\n\nmodel Project {\n  id    String @id @default(uuid())\n  slug  String @unique\n  title String\n\n  // Details\n  role            String?\n  client          String?\n  platform        String? // e.g. \"Web\", \"Mobile\"\n  description     String? // Short summary\n  longDescription String? @map(\"long_description\") // HTML story\n\n  // Case Study Sections\n  challenge String?\n  solution  String?\n  content   String? // Additional HTML content\n  features  String? // JSON string or new-line separated string\n\n  // Media & URLs\n  thumbnailUrl  String? @map(\"thumbnail_url\")\n  deployUrl     String? @map(\"deploy_url\")\n  repositoryUrl String? @map(\"repository_url\")\n\n  // PostgreSQL Arrays\n  services       String[]\n  screenshotUrls String[] @map(\"screenshot_urls\")\n\n  // Dates\n  startedAt DateTime? @map(\"started_at\") @db.Date\n  endedAt   DateTime? @map(\"ended_at\") @db.Date\n  createdAt DateTime  @default(now()) @map(\"created_at\")\n  updatedAt DateTime  @updatedAt @map(\"updated_at\")\n\n  // Relations (Explicit Many-to-Many)\n  projectCategories ProjectCategory[]\n  projectTags       ProjectTag[]\n\n  @@map(\"projects\")\n}\n\nmodel Category {\n  id          String  @id @default(uuid())\n  code        String  @unique // e.g. \"system-arch\"\n  displayName String  @map(\"display_name\")\n  description String?\n  hexColor    String? @map(\"hex_color\")\n\n  // Relation: Many-to-Many via Junction Table\n  projectCategories ProjectCategory[]\n\n  @@map(\"categories\")\n}\n\n// --- PROJECT JUNCTION TABLES ---\n\nmodel ProjectCategory {\n  projectId  String @map(\"project_id\")\n  categoryId String @map(\"category_id\")\n\n  project  Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)\n  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)\n\n  @@id([projectId, categoryId])\n  @@map(\"project_categories\")\n}\n\nmodel ProjectTag {\n  projectId String @map(\"project_id\")\n  tagId     String @map(\"tag_id\")\n\n  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)\n  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)\n\n  @@id([projectId, tagId])\n  @@map(\"project_tags\")\n}\n\n// =========================================\n// 3. BLOG / JOURNAL MODELS\n// =========================================\n\nmodel Post {\n  id      String @id @default(cuid())\n  slug    String @unique\n  title   String\n  excerpt String @db.Text\n  content String @db.Text\n\n  thumbnailUrl String? @map(\"thumbnail_url\")\n\n  publishedAt DateTime @default(now()) @map(\"published_at\")\n  isPublished Boolean  @default(false) @map(\"is_published\")\n\n  // SEO / UI helpers\n  readingTime String? @map(\"reading_time\")\n  featured    Boolean @default(false)\n\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n\n  // Relations\n  authorId String @map(\"author_id\")\n  author   Author @relation(fields: [authorId], references: [id])\n\n  // Implicit Many-to-Many Relations\n  tags     Tag[]\n  catalogs PostCatalog[]\n\n  @@map(\"posts\")\n}\n\nmodel Author {\n  id        String  @id @default(cuid())\n  name      String\n  role      String? // e.g. \"Software Engineer\"\n  avatarUrl String? @map(\"avatar_url\")\n  bio       String? @db.Text\n\n  posts Post[]\n\n  @@map(\"authors\")\n}\n\nmodel PostCatalog {\n  id          String  @id @default(cuid())\n  name        String  @unique // e.g. \"tech-news\"\n  displayName String  @map(\"display_name\")\n  description String?\n\n  // Relation back to Post\n  posts Post[]\n\n  @@map(\"post_catalogs\")\n}\n",
+  "inlineSchemaHash": "27a04fa5b49d5a45e511a2f2fa1bbc571276b262829440824974476d8fc4f469",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"code\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"displayName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"display_name\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hexColor\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"hex_color\"},{\"name\":\"projectCategories\",\"kind\":\"object\",\"type\":\"ProjectCategory\",\"relationName\":\"CategoryToProjectCategory\"}],\"dbName\":\"categories\"},\"Tag\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"code\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"displayName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"display_name\"},{\"name\":\"hexColor\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"hex_color\"},{\"name\":\"projectTags\",\"kind\":\"object\",\"type\":\"ProjectTag\",\"relationName\":\"ProjectTagToTag\"}],\"dbName\":\"tags\"},\"Project\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"client\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"platform\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"longDescription\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"long_description\"},{\"name\":\"challenge\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"solution\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"features\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"thumbnailUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"thumbnail_url\"},{\"name\":\"deployUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"deploy_url\"},{\"name\":\"repositoryUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"repository_url\"},{\"name\":\"services\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"screenshotUrls\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"screenshot_urls\"},{\"name\":\"startedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"started_at\"},{\"name\":\"endedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"ended_at\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"created_at\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"},{\"name\":\"projectCategories\",\"kind\":\"object\",\"type\":\"ProjectCategory\",\"relationName\":\"ProjectToProjectCategory\"},{\"name\":\"projectTags\",\"kind\":\"object\",\"type\":\"ProjectTag\",\"relationName\":\"ProjectToProjectTag\"}],\"dbName\":\"projects\"},\"ProjectCategory\":{\"fields\":[{\"name\":\"projectId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"project_id\"},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"category_id\"},{\"name\":\"project\",\"kind\":\"object\",\"type\":\"Project\",\"relationName\":\"ProjectToProjectCategory\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToProjectCategory\"}],\"dbName\":\"project_categories\"},\"ProjectTag\":{\"fields\":[{\"name\":\"projectId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"project_id\"},{\"name\":\"tagId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_id\"},{\"name\":\"project\",\"kind\":\"object\",\"type\":\"Project\",\"relationName\":\"ProjectToProjectTag\"},{\"name\":\"tag\",\"kind\":\"object\",\"type\":\"Tag\",\"relationName\":\"ProjectTagToTag\"}],\"dbName\":\"project_tags\"}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Tag\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"code\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"displayName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"display_name\"},{\"name\":\"hexColor\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"hex_color\"},{\"name\":\"projectTags\",\"kind\":\"object\",\"type\":\"ProjectTag\",\"relationName\":\"ProjectTagToTag\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"PostToTag\"}],\"dbName\":\"tags\"},\"Project\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"client\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"platform\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"longDescription\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"long_description\"},{\"name\":\"challenge\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"solution\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"features\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"thumbnailUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"thumbnail_url\"},{\"name\":\"deployUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"deploy_url\"},{\"name\":\"repositoryUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"repository_url\"},{\"name\":\"services\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"screenshotUrls\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"screenshot_urls\"},{\"name\":\"startedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"started_at\"},{\"name\":\"endedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"ended_at\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"created_at\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"},{\"name\":\"projectCategories\",\"kind\":\"object\",\"type\":\"ProjectCategory\",\"relationName\":\"ProjectToProjectCategory\"},{\"name\":\"projectTags\",\"kind\":\"object\",\"type\":\"ProjectTag\",\"relationName\":\"ProjectToProjectTag\"}],\"dbName\":\"projects\"},\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"code\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"displayName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"display_name\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hexColor\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"hex_color\"},{\"name\":\"projectCategories\",\"kind\":\"object\",\"type\":\"ProjectCategory\",\"relationName\":\"CategoryToProjectCategory\"}],\"dbName\":\"categories\"},\"ProjectCategory\":{\"fields\":[{\"name\":\"projectId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"project_id\"},{\"name\":\"categoryId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"category_id\"},{\"name\":\"project\",\"kind\":\"object\",\"type\":\"Project\",\"relationName\":\"ProjectToProjectCategory\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToProjectCategory\"}],\"dbName\":\"project_categories\"},\"ProjectTag\":{\"fields\":[{\"name\":\"projectId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"project_id\"},{\"name\":\"tagId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"tag_id\"},{\"name\":\"project\",\"kind\":\"object\",\"type\":\"Project\",\"relationName\":\"ProjectToProjectTag\"},{\"name\":\"tag\",\"kind\":\"object\",\"type\":\"Tag\",\"relationName\":\"ProjectTagToTag\"}],\"dbName\":\"project_tags\"},\"Post\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slug\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"excerpt\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"thumbnailUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"thumbnail_url\"},{\"name\":\"publishedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"published_at\"},{\"name\":\"isPublished\",\"kind\":\"scalar\",\"type\":\"Boolean\",\"dbName\":\"is_published\"},{\"name\":\"readingTime\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"reading_time\"},{\"name\":\"featured\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"created_at\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"author_id\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Author\",\"relationName\":\"AuthorToPost\"},{\"name\":\"tags\",\"kind\":\"object\",\"type\":\"Tag\",\"relationName\":\"PostToTag\"},{\"name\":\"catalogs\",\"kind\":\"object\",\"type\":\"PostCatalog\",\"relationName\":\"PostToPostCatalog\"}],\"dbName\":\"posts\"},\"Author\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"avatarUrl\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"avatar_url\"},{\"name\":\"bio\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"AuthorToPost\"}],\"dbName\":\"authors\"},\"PostCatalog\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"displayName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"display_name\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"PostToPostCatalog\"}],\"dbName\":\"post_catalogs\"}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

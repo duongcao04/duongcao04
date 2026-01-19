@@ -101,7 +101,7 @@ export default function WorkDetailPage() {
                     <div className="flex flex-wrap items-center gap-3 mb-6 text-sm font-medium tracking-wide">
                         <div className="flex gap-2">
                             {/* 1. Render the visible categories */}
-                            {project?.category.map((cate) => (
+                            {project?.categories?.map((cate) => (
                                 <div
                                     key={cate.id}
                                     className="bg-black/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-medium text-white shadow-lg"
@@ -141,7 +141,7 @@ export default function WorkDetailPage() {
                         className="w-full h-full"
                     >
                         <Image
-                            src={project?.thumbnail_url}
+                            src={project?.thumbnail_url ?? ''}
                             alt={project?.title}
                             removeWrapper
                             classNames={{
@@ -373,7 +373,7 @@ export default function WorkDetailPage() {
                                             Tags
                                         </p>
                                         <div className="flex flex-wrap gap-2">
-                                            {project?.tags.map((tag) => (
+                                            {project?.tags?.map((tag) => (
                                                 <Chip
                                                     key={tag.id}
                                                     size="sm"

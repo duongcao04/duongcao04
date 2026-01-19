@@ -10,7 +10,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 2. MODELS
+// =========================================
+// 1. SHARED MODELS
+// =========================================
+
+model Tag {
+  id          String  @id @default(uuid())
+  code        String  @unique // e.g. "nextjs"
+  displayName String  @map("display_name") // e.g. "Next.js"
+  hexColor    String? @map("hex_color")
+
+  // Relation: Projects (Explicit via Junction)
+  projectTags ProjectTag[]
+
+  // Relation: Posts (Implicit Many-to-Many)
+  posts Post[]
+
+  @@map("tags")
+}
+
+// =========================================
+// 2. PROJECT / PORTFOLIO MODELS
+// =========================================
+
+model Project {
+  id    String @id @default(uuid())
+  slug  String @unique
+  title String
+
+  // Details
+  role            String?
+  client          String?
+  platform        String? // e.g. "Web", "Mobile"
+  description     String? // Short summary
+  longDescription String? @map("long_description") // HTML story
+
+  // Case Study Sections
+  challenge String?
+  solution  String?
+  content   String? // Additional HTML content
+  features  String? // JSON string or new-line separated string
+
+  // Media & URLs
+  thumbnailUrl  String? @map("thumbnail_url")
+  deployUrl     String? @map("deploy_url")
+  repositoryUrl String? @map("repository_url")
+
+  // PostgreSQL Arrays
+  services       String[]
+  screenshotUrls String[] @map("screenshot_urls")
+
+  // Dates
+  startedAt DateTime? @map("started_at") @db.Date
+  endedAt   DateTime? @map("ended_at") @db.Date
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  // Relations (Explicit Many-to-Many)
+  projectCategories ProjectCategory[]
+  projectTags       ProjectTag[]
+
+  @@map("projects")
+}
 
 model Category {
   id          String  @id @default(uuid())
@@ -25,60 +86,7 @@ model Category {
   @@map("categories")
 }
 
-model Tag {
-  id          String  @id @default(uuid())
-  code        String  @unique // e.g. "react"
-  displayName String  @map("display_name")
-  hexColor    String? @map("hex_color")
-
-  // Relation: Many-to-Many via Junction Table
-  projectTags ProjectTag[]
-
-  @@map("tags")
-}
-
-model Project {
-  id    String @id @default(uuid())
-  slug  String @unique
-  title String
-
-  // Details
-  role            String?
-  client          String?
-  platform        String? // e.g. "Web", "Mobile"
-  description     String? // Short summary
-  longDescription String? @map("long_description") // The HTML story
-
-  // Case Study Sections
-  challenge String?
-  solution  String?
-  content   String? // Additional HTML content
-  features  String? // Kept as String based on your interface (or use String[])
-
-  // Media & URLs
-  thumbnailUrl  String? @map("thumbnail_url")
-  deployUrl     String? @map("deploy_url") // Fixed typo: deloy -> deploy
-  repositoryUrl String? @map("repository_url")
-
-  // PostgreSQL Arrays (Native support for string[])
-  services       String[]
-  screenshotUrls String[] @map("screenshot_urls")
-
-  // Dates
-  startedAt DateTime? @map("started_at") @db.Date // Maps to 'YYYY-MM-DD'
-  endedAt   DateTime? @map("ended_at") @db.Date
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-
-  // Relations (Explicit Many-to-Many)
-  projectCategories ProjectCategory[]
-  projectTags       ProjectTag[]
-
-  @@map("projects")
-}
-
-// 3. JUNCTION TABLES (Explicit)
-// Required for easy querying in Supabase (e.g., .select('*, project_categories(...)'))
+// --- PROJECT JUNCTION TABLES ---
 
 model ProjectCategory {
   projectId  String @map("project_id")
@@ -87,7 +95,7 @@ model ProjectCategory {
   project  Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
-  @@id([projectId, categoryId]) // Composite Key
+  @@id([projectId, categoryId])
   @@map("project_categories")
 }
 
@@ -98,6 +106,64 @@ model ProjectTag {
   project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
   tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
-  @@id([projectId, tagId]) // Composite Key
+  @@id([projectId, tagId])
   @@map("project_tags")
+}
+
+// =========================================
+// 3. BLOG / JOURNAL MODELS
+// =========================================
+
+model Post {
+  id      String @id @default(cuid())
+  slug    String @unique
+  title   String
+  excerpt String @db.Text
+  content String @db.Text
+
+  thumbnailUrl String? @map("thumbnail_url")
+
+  publishedAt DateTime @default(now()) @map("published_at")
+  isPublished Boolean  @default(false) @map("is_published")
+
+  // SEO / UI helpers
+  readingTime String? @map("reading_time")
+  featured    Boolean @default(false)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  authorId String @map("author_id")
+  author   Author @relation(fields: [authorId], references: [id])
+
+  // Implicit Many-to-Many Relations
+  tags     Tag[]
+  catalogs PostCatalog[]
+
+  @@map("posts")
+}
+
+model Author {
+  id        String  @id @default(cuid())
+  name      String
+  role      String? // e.g. "Software Engineer"
+  avatarUrl String? @map("avatar_url")
+  bio       String? @db.Text
+
+  posts Post[]
+
+  @@map("authors")
+}
+
+model PostCatalog {
+  id          String  @id @default(cuid())
+  name        String  @unique // e.g. "tech-news"
+  displayName String  @map("display_name")
+  description String?
+
+  // Relation back to Post
+  posts Post[]
+
+  @@map("post_catalogs")
 }
