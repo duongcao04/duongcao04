@@ -1,15 +1,14 @@
-const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : 'http://localhost:3000'
+import { MetadataRoute } from 'next'
 
-export default function robots() {
+export const dynamic = 'force-static'
+
+export default function robots(): MetadataRoute.Robots {
     return {
-        rules: [
-            {
-                userAgent: '*',
-            },
-        ],
-        sitemap: `${baseUrl}/sitemap.xml`,
-        host: baseUrl,
+        rules: {
+            userAgent: '*',
+            allow: '/',
+            disallow: '/private/',
+        },
+        sitemap: 'https://yangis.dev/sitemap.xml',
     }
 }
