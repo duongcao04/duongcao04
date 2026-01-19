@@ -7,17 +7,19 @@ const withNextIntl = createNextIntlPlugin()
 const withMDX = createMDX()
 
 const nextConfig: NextConfig = {
+    output: 'export',
     eslint: {
         ignoreDuringBuilds: true,
     },
     /* config options here */
     images: {
+        unoptimized: true, // Required for static export unless using a custom loader
         remotePatterns: [
             {
                 protocol: 'https',
                 hostname: '**',
             },
-        ]
+        ],
     },
     transpilePackages: ['next-mdx-remote'],
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],

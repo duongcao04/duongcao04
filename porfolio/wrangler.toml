@@ -1,0 +1,7 @@
+name = "yangisdev"
+compatibility_date = "2024-04-05"
+
+# Tell Cloudflare where your static files are
+[assets]
+directory = "./out"
+binding = "ASSETS"
