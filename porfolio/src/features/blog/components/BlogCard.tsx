@@ -30,17 +30,24 @@ export function BlogCard({ post }: { post: IPost }) {
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity z-10" />
 
                     {/* Floating Tag */}
-                    <div className="absolute top-4 left-4 z-20">
-                        <Chip
-                            size="sm"
-                            variant="solid"
-                            classNames={{
-                                base: 'bg-black/50 backdrop-blur-md border border-white/10 text-white',
-                            }}
-                        >
-                            {post?.tags[0]?.display_name}
-                        </Chip>
-                    </div>
+                    {post?.tags && (
+                        <div className="absolute top-4 left-4 z-20">
+                            {post?.tags.map((it) => {
+                                return (
+                                    <Chip
+                                        key={it.id}
+                                        size="sm"
+                                        variant="solid"
+                                        classNames={{
+                                            base: 'bg-black/50 backdrop-blur-md border border-white/10 text-white',
+                                        }}
+                                    >
+                                        {it?.display_name}
+                                    </Chip>
+                                )
+                            })}
+                        </div>
+                    )}
                 </CardBody>
 
                 <CardFooter className="flex flex-col items-start p-6 gap-4">

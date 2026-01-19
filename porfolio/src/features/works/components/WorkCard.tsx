@@ -15,8 +15,8 @@ export const WorkCard = ({ data }: WorkCardProps) => {
     const router = useRouter()
 
     const CATE_DISPLAY_LIMIT = 2
-    const visibleCategories = data.category.slice(0, CATE_DISPLAY_LIMIT)
-    const remainingCategories = data.category.length - CATE_DISPLAY_LIMIT
+    const visibleCategories = data.categories.slice(0, CATE_DISPLAY_LIMIT)
+    const remainingCategories = data.categories.length - CATE_DISPLAY_LIMIT
 
     const TAG_DISPLAY_LIMIT = 2
     const visibleTags = data.tags.slice(0, TAG_DISPLAY_LIMIT)
@@ -37,7 +37,7 @@ export const WorkCard = ({ data }: WorkCardProps) => {
                     removeWrapper
                     alt={data.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    src={data.thumbnail_url}
+                    src={data.thumbnail_url ?? ''}
                     // Fallback image if main image fails
                     fallbackSrc="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop"
                 />
@@ -102,19 +102,21 @@ export const WorkCard = ({ data }: WorkCardProps) => {
                     >
                         <span className="text-xs">View details</span>
                     </HeroButton>
-                    <HeroButton
-                        href={data.deploy_url}
-                        linkProps={{
-                            target: '_blank',
-                            rel: 'noopener noreferrer',
-                        }}
-                        isIconOnly
-                        radius="full"
-                        size="sm"
-                        variant="flat"
-                    >
-                        <ArrowUpRightIcon size={18} />
-                    </HeroButton>
+                    {data.deploy_url && (
+                        <HeroButton
+                            href={data.deploy_url}
+                            linkProps={{
+                                target: '_blank',
+                                rel: 'noopener noreferrer',
+                            }}
+                            isIconOnly
+                            radius="full"
+                            size="sm"
+                            variant="flat"
+                        >
+                            <ArrowUpRightIcon size={18} />
+                        </HeroButton>
+                    )}
                 </div>
             </div>
         </Card>
