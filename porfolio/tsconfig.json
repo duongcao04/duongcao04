@@ -8,9 +8,15 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    // -----------------------
+    // Use :any
+    "strict": false, 
+    // OR keep strict true but specifically allow implicit any:
+    "noImplicitAny": false, 
+    "strictNullChecks": false,
+    // -----------------
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,

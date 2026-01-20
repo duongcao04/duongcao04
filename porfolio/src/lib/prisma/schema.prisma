@@ -141,6 +141,8 @@ model Post {
   tags         Tag[]
   catalogs     PostCatalog[]
 
+  keywords String[] @default([])
+
   @@map("posts")
 }
 

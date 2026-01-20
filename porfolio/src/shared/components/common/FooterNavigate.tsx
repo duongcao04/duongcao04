@@ -1,11 +1,8 @@
-import * as React from 'react'
-
-import Link from 'next/link'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6'
 
-import { Button } from '@/shared/components/ui/button'
-
 import { MotionDiv } from '@/lib/motion'
+
+import { HeroButton } from '../ui/hero-button'
 
 export default function FooterNavigate({
     previousPage = '/',
@@ -15,27 +12,23 @@ export default function FooterNavigate({
     nextPage?: string
 }) {
     return (
-        <MotionDiv className="flex items-center justify-center gap-[1px]">
+        <MotionDiv className="flex items-center justify-center gap-px">
             <MotionDiv whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
-                <Button
-                    className={`${nextPage ? 'rounded-r-none' : 'rounded-full'} size-[51px] shadow-none`}
-                    asChild
+                <HeroButton
+                    className={`${nextPage ? 'rounded-r-none' : 'rounded-full'} size-12.75 shadow-none`}
+                    href={previousPage}
                 >
-                    <Link href={previousPage}>
-                        <FaArrowLeft size={24} />
-                    </Link>
-                </Button>
+                    <FaArrowLeft size={24} />
+                </HeroButton>
             </MotionDiv>
             {nextPage && (
                 <MotionDiv whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
-                    <Button
-                        className="rounded-l-none size-[51px] shadow-none"
-                        asChild
+                    <HeroButton
+                        className="rounded-l-none size-12.75 shadow-none"
+                        href={nextPage}
                     >
-                        <Link href={nextPage}>
-                            <FaArrowRight size={24} />
-                        </Link>
-                    </Button>
+                        <FaArrowRight size={24} />
+                    </HeroButton>
                 </MotionDiv>
             )}
         </MotionDiv>

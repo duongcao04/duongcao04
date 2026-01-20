@@ -16,6 +16,13 @@ export const INTERNAL_URLS = (() => {
         posts: ['', 'posts'].join('/'),
         work: ['', 'work'].join('/'),
         contact: ['', 'contact'].join('/'),
+        admin: ['', 'admin'].join('/'),
+        dashboard: ['', 'admin'].join('/'),
+        managePosts: ['', 'admin', 'posts'].join('/'),
+        createPost: ['', 'admin', 'posts', 'create'].join('/'),
+        postDetail: (slug: string) => ['', 'blog', slug].join('/'),
+        editPost: (slug: string) =>
+            ['', 'admin', 'posts', 'edit', slug].join('/'),
         workDetail: (slug: string) => ['', 'work', slug].join('/'),
     } as const
 

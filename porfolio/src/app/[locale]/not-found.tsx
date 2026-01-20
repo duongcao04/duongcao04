@@ -1,8 +1,8 @@
-import Search from '@/shared/components/common/search'
-import { Button } from '@/shared/components/ui/button'
-
-import { Link } from '@/i18n/navigation'
 import { MotionDiv, MotionH1, MotionP } from '@/lib/motion'
+import Search from '@/shared/components/common/search'
+
+import { INTERNAL_URLS } from '../../lib'
+import { HeroButton } from '../../shared/components'
 
 export default function NotFound() {
     return (
@@ -39,9 +39,13 @@ export default function NotFound() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 1 }}
             >
-                <Button size={'lg'} asChild className="text-white">
-                    <Link href={'/'}>Return home</Link>
-                </Button>
+                <HeroButton
+                    size={'lg'}
+                    href={INTERNAL_URLS.home}
+                    className="text-white"
+                >
+                    Return home
+                </HeroButton>
             </MotionDiv>
         </div>
     )

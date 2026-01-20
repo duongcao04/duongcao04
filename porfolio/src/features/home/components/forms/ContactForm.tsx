@@ -6,10 +6,9 @@ import { FormikProps, useFormik } from 'formik'
 import { useTranslations } from 'next-intl'
 import * as yup from 'yup'
 
-import { customizeToast, updateToast } from '@/shared/components/CustomizeToast'
-import { Button } from '@/shared/components/ui/button'
-
 import { sendMail } from '@/lib/nodemailer'
+import { HeroButton } from '@/shared/components'
+import { customizeToast, updateToast } from '@/shared/components/CustomizeToast'
 
 const validationSchema = yup.object().shape({
     fname: yup.string().required('First name must be required'),
@@ -165,12 +164,12 @@ function ContactForm() {
             />
 
             <div className="w-full mt-8">
-                <Button
+                <HeroButton
                     type="submit"
                     className="w-full text-base py-6 rounded-3xl text-white"
                 >
                     {t('submit')}
-                </Button>
+                </HeroButton>
             </div>
         </form>
     )
