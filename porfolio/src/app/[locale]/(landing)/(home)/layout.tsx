@@ -7,5 +7,9 @@ export default function HomeLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    return <Suspense fallback={<AppLoader />}>{children}</Suspense>
+    return (
+        <Suspense fallback={<AppLoader />}>
+            <div className="pb-24">{children}</div>
+        </Suspense>
+    )
 }

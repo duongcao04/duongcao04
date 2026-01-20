@@ -18,14 +18,14 @@ export default function PostsLayout({
     return (
         <Suspense fallback={<AppLoader />}>
             <div className="-mt-20">
-                <div className="min-h-screen w-full bg-white relative">
+                <div className="min-h-screen w-full bg-background relative">
                     {/*  Diagonal Cross Top Right Fade Grid Background */}
                     <div
                         className="absolute inset-0"
                         style={{
                             backgroundImage: `
-        linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
+        linear-gradient(45deg, transparent 49%, var(--text-disabled) 49%, var(--text-disabled) 51%, transparent 51%),
+        linear-gradient(-45deg, transparent 49%, var(--text-disabled) 49%, var(--text-disabled) 51%, transparent 51%)
       `,
                             backgroundSize: '40px 40px',
                             WebkitMaskImage:

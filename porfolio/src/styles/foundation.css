@@ -99,7 +99,7 @@
     ); /* Use 98% white for better readability than 100% */
     --text-subdued: var(--text-5);
     --text-muted: var(--text-6);
-    --text-disabled: var(--text-7);
+    --text-disabled: var(--text-8);
     --text-inverse: var(--text-9);
 
     /* Special Colors */
