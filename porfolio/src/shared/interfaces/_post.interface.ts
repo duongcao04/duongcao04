@@ -28,6 +28,7 @@ export interface IPost {
     author?: IAuthor
     tags?: ITag[]
     catalogs?: IPostCatalog[]
+    keywords?: string[]
 }
 
 export interface IPostCatalog {

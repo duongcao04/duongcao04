@@ -7273,6 +7273,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     authorId: number
+    keywords: number
     _all: number
   }
 
@@ -7323,6 +7324,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     authorId?: true
+    keywords?: true
     _all?: true
   }
 
@@ -7412,6 +7414,7 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     authorId: string
+    keywords: string[]
     _count: PostCountAggregateOutputType | null
     _min: PostMinAggregateOutputType | null
     _max: PostMaxAggregateOutputType | null
@@ -7445,6 +7448,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     authorId?: boolean
+    keywords?: boolean
     author?: boolean | AuthorDefaultArgs<ExtArgs>
     tags?: boolean | Post$tagsArgs<ExtArgs>
     catalogs?: boolean | Post$catalogsArgs<ExtArgs>
@@ -7465,6 +7469,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     authorId?: boolean
+    keywords?: boolean
     author?: boolean | AuthorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["post"]>
 
@@ -7482,6 +7487,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     authorId?: boolean
+    keywords?: boolean
     author?: boolean | AuthorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["post"]>
 
@@ -7499,9 +7505,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     authorId?: boolean
+    keywords?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "excerpt" | "content" | "thumbnailUrl" | "publishedAt" | "isPublished" | "readingTime" | "featured" | "createdAt" | "updatedAt" | "authorId", ExtArgs["result"]["post"]>
+  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "slug" | "title" | "excerpt" | "content" | "thumbnailUrl" | "publishedAt" | "isPublished" | "readingTime" | "featured" | "createdAt" | "updatedAt" | "authorId" | "keywords", ExtArgs["result"]["post"]>
   export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | AuthorDefaultArgs<ExtArgs>
     tags?: boolean | Post$tagsArgs<ExtArgs>
@@ -7536,6 +7543,7 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       authorId: string
+      keywords: string[]
     }, ExtArgs["result"]["post"]>
     composites: {}
   }
@@ -7975,6 +7983,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Post", 'DateTime'>
     readonly updatedAt: FieldRef<"Post", 'DateTime'>
     readonly authorId: FieldRef<"Post", 'String'>
+    readonly keywords: FieldRef<"Post", 'String[]'>
   }
     
 
@@ -10655,7 +10664,8 @@ export namespace Prisma {
     featured: 'featured',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    authorId: 'authorId'
+    authorId: 'authorId',
+    keywords: 'keywords'
   };
 
   export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
@@ -11114,6 +11124,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     authorId?: StringFilter<"Post"> | string
+    keywords?: StringNullableListFilter<"Post">
     author?: XOR<AuthorScalarRelationFilter, AuthorWhereInput>
     tags?: TagListRelationFilter
     catalogs?: PostCatalogListRelationFilter
@@ -11133,6 +11144,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     authorId?: SortOrder
+    keywords?: SortOrder
     author?: AuthorOrderByWithRelationInput
     tags?: TagOrderByRelationAggregateInput
     catalogs?: PostCatalogOrderByRelationAggregateInput
@@ -11155,6 +11167,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     authorId?: StringFilter<"Post"> | string
+    keywords?: StringNullableListFilter<"Post">
     author?: XOR<AuthorScalarRelationFilter, AuthorWhereInput>
     tags?: TagListRelationFilter
     catalogs?: PostCatalogListRelationFilter
@@ -11174,6 +11187,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     authorId?: SortOrder
+    keywords?: SortOrder
     _count?: PostCountOrderByAggregateInput
     _max?: PostMaxOrderByAggregateInput
     _min?: PostMinOrderByAggregateInput
@@ -11196,6 +11210,7 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
     authorId?: StringWithAggregatesFilter<"Post"> | string
+    keywords?: StringNullableListFilter<"Post">
   }
 
   export type AuthorWhereInput = {
@@ -11677,6 +11692,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
     author: AuthorCreateNestedOneWithoutPostsInput
     tags?: TagCreateNestedManyWithoutPostsInput
     catalogs?: PostCatalogCreateNestedManyWithoutPostsInput
@@ -11696,6 +11712,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId: string
+    keywords?: PostCreatekeywordsInput | string[]
     tags?: TagUncheckedCreateNestedManyWithoutPostsInput
     catalogs?: PostCatalogUncheckedCreateNestedManyWithoutPostsInput
   }
@@ -11713,6 +11730,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
     author?: AuthorUpdateOneRequiredWithoutPostsNestedInput
     tags?: TagUpdateManyWithoutPostsNestedInput
     catalogs?: PostCatalogUpdateManyWithoutPostsNestedInput
@@ -11732,6 +11750,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
     tags?: TagUncheckedUpdateManyWithoutPostsNestedInput
     catalogs?: PostCatalogUncheckedUpdateManyWithoutPostsNestedInput
   }
@@ -11750,6 +11769,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId: string
+    keywords?: PostCreatekeywordsInput | string[]
   }
 
   export type PostUpdateManyMutationInput = {
@@ -11765,6 +11785,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
   }
 
   export type PostUncheckedUpdateManyInput = {
@@ -11781,6 +11802,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
   }
 
   export type AuthorCreateInput = {
@@ -12267,6 +12289,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     authorId?: SortOrder
+    keywords?: SortOrder
   }
 
   export type PostMaxOrderByAggregateInput = {
@@ -12650,6 +12673,10 @@ export namespace Prisma {
     update?: XOR<XOR<TagUpdateToOneWithWhereWithoutProjectTagsInput, TagUpdateWithoutProjectTagsInput>, TagUncheckedUpdateWithoutProjectTagsInput>
   }
 
+  export type PostCreatekeywordsInput = {
+    set: string[]
+  }
+
   export type AuthorCreateNestedOneWithoutPostsInput = {
     create?: XOR<AuthorCreateWithoutPostsInput, AuthorUncheckedCreateWithoutPostsInput>
     connectOrCreate?: AuthorCreateOrConnectWithoutPostsInput
@@ -12682,6 +12709,11 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type PostUpdatekeywordsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type AuthorUpdateOneRequiredWithoutPostsNestedInput = {
@@ -13002,6 +13034,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
     author: AuthorCreateNestedOneWithoutPostsInput
     catalogs?: PostCatalogCreateNestedManyWithoutPostsInput
   }
@@ -13020,6 +13053,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId: string
+    keywords?: PostCreatekeywordsInput | string[]
     catalogs?: PostCatalogUncheckedCreateNestedManyWithoutPostsInput
   }
 
@@ -13085,6 +13119,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Post"> | Date | string
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     authorId?: StringFilter<"Post"> | string
+    keywords?: StringNullableListFilter<"Post">
   }
 
   export type ProjectCategoryCreateWithoutProjectInput = {
@@ -13678,6 +13713,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
     tags?: TagCreateNestedManyWithoutPostsInput
     catalogs?: PostCatalogCreateNestedManyWithoutPostsInput
   }
@@ -13695,6 +13731,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
     tags?: TagUncheckedCreateNestedManyWithoutPostsInput
     catalogs?: PostCatalogUncheckedCreateNestedManyWithoutPostsInput
   }
@@ -13738,6 +13775,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
     author: AuthorCreateNestedOneWithoutPostsInput
     tags?: TagCreateNestedManyWithoutPostsInput
   }
@@ -13756,6 +13794,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     authorId: string
+    keywords?: PostCreatekeywordsInput | string[]
     tags?: TagUncheckedCreateNestedManyWithoutPostsInput
   }
 
@@ -13809,6 +13848,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
     author?: AuthorUpdateOneRequiredWithoutPostsNestedInput
     catalogs?: PostCatalogUpdateManyWithoutPostsNestedInput
   }
@@ -13827,6 +13867,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
     catalogs?: PostCatalogUncheckedUpdateManyWithoutPostsNestedInput
   }
 
@@ -13844,6 +13885,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
   }
 
   export type ProjectCategoryCreateManyProjectInput = {
@@ -13951,6 +13993,7 @@ export namespace Prisma {
     featured?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    keywords?: PostCreatekeywordsInput | string[]
   }
 
   export type PostUpdateWithoutAuthorInput = {
@@ -13966,6 +14009,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
     tags?: TagUpdateManyWithoutPostsNestedInput
     catalogs?: PostCatalogUpdateManyWithoutPostsNestedInput
   }
@@ -13983,6 +14027,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
     tags?: TagUncheckedUpdateManyWithoutPostsNestedInput
     catalogs?: PostCatalogUncheckedUpdateManyWithoutPostsNestedInput
   }
@@ -14000,6 +14045,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
   }
 
   export type PostUpdateWithoutCatalogsInput = {
@@ -14015,6 +14061,7 @@ export namespace Prisma {
     featured?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    keywords?: PostUpdatekeywordsInput | string[]
     author?: AuthorUpdateOneRequiredWithoutPostsNestedInput
     tags?: TagUpdateManyWithoutPostsNestedInput
   }
@@ -14033,6 +14080,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
     tags?: TagUncheckedUpdateManyWithoutPostsNestedInput
   }
 
@@ -14050,6 +14098,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     authorId?: StringFieldUpdateOperationsInput | string
+    keywords?: PostUpdatekeywordsInput | string[]
   }
 
 
