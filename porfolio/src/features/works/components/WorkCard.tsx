@@ -69,7 +69,7 @@ export const WorkCard = ({ data }: WorkCardProps) => {
             </div>
 
             {/* Tags & Action Button */}
-            <div className="px-6 flex items-center justify-start flex-wrap gap-2 mt-4 border-t border-white/5">
+            <div className="px-6 flex items-center justify-start flex-wrap gap-2 mt-4">
                 {visibleTags?.map((tag) => (
                     <Chip key={tag.id} size="sm" radius="sm" variant="flat">
                         {tag.display_name}
@@ -138,7 +138,7 @@ export const WorkCardSkeleton = () => {
             </div>
 
             {/* Tags Skeleton */}
-            <div className="px-6 flex items-center gap-2 mt-4 border-t border-white/5 pt-2">
+            <div className="px-6 flex items-center gap-2 mt-4 pt-2">
                 <Skeleton className="h-6 w-16 rounded-lg" />
                 <Skeleton className="h-6 w-20 rounded-lg" />
                 <Skeleton className="h-6 w-12 rounded-lg" />
