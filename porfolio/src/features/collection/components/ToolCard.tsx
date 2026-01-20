@@ -41,7 +41,7 @@ export default function ToolCard({ data: tool }: { data: Tool }) {
                 >
                     <p className="font-semibold w-fit">{tool.name}</p>
                 </Link>
-                <p className="my-4 text-sm leading-loose min-h-[5.5rem] tracking-wide line-clamp-3 min-h-">
+                <p className="my-4 text-sm leading-loose min-h-22 tracking-wide line-clamp-3 min-h-">
                     {tool.description!}
                 </p>
                 <div className="flex items-center flex-wrap gap-2">
