@@ -152,7 +152,7 @@ export function HomeWorkCard({ data, className }: HomeWorkCardProps) {
                         {/* Tags */}
                         <div className="w-full pt-2 flex flex-wrap gap-2">
                             {(data.services || [])
-                                .slice(0, 3)
+                                ?.slice(0, 3)
                                 .map((service, i) => (
                                     <Chip
                                         key={i}

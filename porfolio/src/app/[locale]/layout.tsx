@@ -9,6 +9,7 @@ import MyAppProvider from '@/app/providers'
 import { inter, saira } from '@/assets/fonts'
 import ScrollToTop from '@/shared/components/layout/ScrollToTop'
 
+import { ScrollArea, ScrollBar } from '../../shared/components'
 import '../../styles/globals.css'
 import AppLoader from '../loading'
 
@@ -69,15 +70,19 @@ export default async function LocaleLayout({
             suppressHydrationWarning
         >
             <body
-                className="antialiased scroll-smooth bg-wallground text-text-primary"
+                className="antialiased scroll-smooth bg-wallground text-text-primary w-screen min-h-screen max-w-screen"
                 suppressHydrationWarning
             >
                 <MyAppProvider>
-                    <div id="page" className="w-screen min-h-screen">
-                        <ScrollToTop />
-                        <ToastContainer />
-                        <Suspense fallback={<AppLoader />}>{children}</Suspense>
-                    </div>
+                    <ScrollToTop />
+                    <ToastContainer />
+                    <Suspense fallback={<AppLoader />}>
+                        <ScrollArea className="h-screen">
+                            <ScrollBar orientation="horizontal" />
+                            <ScrollBar orientation="vertical" />
+                            {children}
+                        </ScrollArea>
+                    </Suspense>
                 </MyAppProvider>
             </body>
         </html>

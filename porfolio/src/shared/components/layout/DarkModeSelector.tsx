@@ -31,7 +31,7 @@ function ThemeList({ theme, setTheme, setOpen }: IThemeList) {
                 return (
                     <li key={index}>
                         <MotionButton
-                            className={`p-2 rounded-[10px] ${theme === item.value ? 'bg-red-100 text-red-500 border' : 'text-black'}`}
+                            className={`cursor-pointer p-2 rounded-[10px] ${theme === item.value ? 'bg-red-100 text-red-500 border' : 'text-black'}`}
                             onClick={() => {
                                 setTheme(item.value)
                                 setOpen(false)
@@ -59,9 +59,9 @@ export default function DarkModeSelector() {
     const [isOpen, setOpen] = useState<boolean>(false)
 
     return (
-        <div className="flex items-center justify-end flex-row-reverse gap-2 z-100!">
+        <div className="flex items-center justify-end flex-row-reverse gap-2">
             <MotionButton
-                className="rounded-full bg-primary-100 p-3"
+                className="rounded-full bg-primary-100 p-3 cursor-pointer"
                 onClick={() => {
                     setOpen(!isOpen)
                 }}

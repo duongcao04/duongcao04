@@ -1,6 +1,6 @@
-import { cn } from '@heroui/react'
+'use client'
 
-// or your classnames utility
+import { cn } from '@heroui/react'
 
 export const BentoGrid = ({
     className,

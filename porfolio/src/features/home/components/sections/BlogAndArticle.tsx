@@ -72,7 +72,7 @@ export default function BlogAndArticle() {
                             </span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/90 to-default-500 pb-2">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/90 to-default-500 pb-2 capitalize">
                             Latest Insights
                         </h2>
 

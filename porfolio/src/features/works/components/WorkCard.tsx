@@ -15,11 +15,11 @@ export const WorkCard = ({ data }: WorkCardProps) => {
     const router = useRouter()
 
     const CATE_DISPLAY_LIMIT = 2
-    const visibleCategories = data.categories.slice(0, CATE_DISPLAY_LIMIT)
-    const remainingCategories = data.categories.length - CATE_DISPLAY_LIMIT
+    const visibleCategories = data.categories?.slice(0, CATE_DISPLAY_LIMIT)
+    const remainingCategories = data.categories?.length - CATE_DISPLAY_LIMIT
 
     const TAG_DISPLAY_LIMIT = 2
-    const visibleTags = data.tags.slice(0, TAG_DISPLAY_LIMIT)
+    const visibleTags = data.tags?.slice(0, TAG_DISPLAY_LIMIT)
     const remainingTags = data.tags.length - TAG_DISPLAY_LIMIT
 
     return (

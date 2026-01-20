@@ -1,14 +1,14 @@
-import { cn } from '@/lib/utils'
+import BlogAndArticle from '@/features/home/components/sections/BlogAndArticle'
+import GetInTouch from '@/features/home/components/sections/GetInTouchSection'
+import HeroSection from '@/features/home/components/sections/HeroSection'
+import WorkFlow from '@/features/home/components/sections/WorkFlow'
+import WorkSection from '@/features/home/components/sections/WorkSection'
 
-import BlogAndArticle from '../../../../features/home/components/sections/BlogAndArticle'
-import GetInTouch from '../../../../features/home/components/sections/GetInTouchSection'
-import HeroSection from '../../../../features/home/components/sections/HeroSection'
-import WorkFlow from '../../../../features/home/components/sections/WorkFlow'
-import WorkSection from '../../../../features/home/components/sections/WorkSection'
+import { cn } from '@/lib/utils'
 
 export default async function HomePage() {
     return (
-        <div className="max-w-screen overflow-hidden">
+        <>
             <section>
                 <div className="relative flex h-200 w-full items-center justify-center bg-white dark:bg-black">
                     <div
@@ -40,6 +40,6 @@ export default async function HomePage() {
             <section className="container mt-32 mb-24">
                 <GetInTouch />
             </section>
-        </div>
+        </>
     )
 }

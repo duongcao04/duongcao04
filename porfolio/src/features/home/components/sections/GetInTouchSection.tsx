@@ -2,7 +2,6 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { RoughNotation } from 'react-rough-notation'
 
 import { SupportLanguages } from '@/i18n/routing'
 import { CONTACT_INFOS } from '@/shared/constants'
@@ -63,17 +62,9 @@ export default function GetInTouch() {
         <>
             <div className="flex flex-col items-center">
                 <div className="w-fit">
-                    <RoughNotation
-                        type="box"
-                        show={true}
-                        customElement="h2"
-                        color="var(--secondary)"
-                        order={5}
-                    >
-                        <h3 className="text-2xl font-lexendDeca font-semibold px-8 capitalize">
-                            {tTag('getInTouch')}
-                        </h3>
-                    </RoughNotation>
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/90 to-default-500 font-lexendDeca capitalize">
+                        {tTag('getInTouch')}
+                    </h2>
                 </div>
                 <div
                     className="mt-20 flex-col gap-12 items-start w-full"

@@ -48,7 +48,7 @@ export default function WorkSection() {
 
     // Fetch 5 projects to fill the bento grid perfectly
     const { data: projects, isLoading } = useProjects()
-    const recentProjects = (projects ?? []).slice(0, 5)
+    const recentProjects = (projects ?? [])?.slice(0, 5)
 
     return (
         <section className="relative z-10 py-24">
@@ -70,7 +70,7 @@ export default function WorkSection() {
                             </span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/90 to-default-500">
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/90 to-default-500 font-lexendDeca capitalize">
                             Selected Works
                         </h2>
 

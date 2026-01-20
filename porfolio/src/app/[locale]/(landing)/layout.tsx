@@ -18,8 +18,8 @@ export default function LandingLayout({
     return (
         <>
             <Header />
-            <main>{children}</main>
-            <div className="fixed bottom-8 laptop:bottom-10 right-10">
+            <div>{children}</div>
+            <div className="fixed bottom-8 laptop:bottom-10 right-10 z-9999">
                 <DarkModeSelector />
             </div>
             <Footer />
