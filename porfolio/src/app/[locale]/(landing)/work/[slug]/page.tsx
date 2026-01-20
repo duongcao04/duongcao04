@@ -261,7 +261,7 @@ export default function WorkDetailPage() {
                                 {(typeof project.features === 'string'
                                     ? (project.features as string).split('\n')
                                     : project.features
-                                ).map((feature: string, i: number) => (
+                                )?.map((feature: string, i: number) => (
                                     <Card
                                         key={i}
                                         className="flex items-start gap-4 p-5 rounded-2xl bg-white/3 border border-white/5 hover:bg-white/6 transition-colors group"

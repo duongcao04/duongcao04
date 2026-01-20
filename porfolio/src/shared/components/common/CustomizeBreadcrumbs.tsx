@@ -17,7 +17,7 @@ type Props = {
 export default function CustomizeBreadcrumbs({ data }: Props) {
     return (
         <Breadcrumbs>
-            {data.map((item, index) => (
+            {data?.map((item, index) => (
                 <BreadcrumbItem key={index} {...item.wrapperProps}>
                     <Link {...item.linkProps} href={item.href}>
                         {item.label}

@@ -32,7 +32,7 @@ export function BlogCard({ post }: { post: IPost }) {
                     {/* Floating Tag */}
                     {post?.tags && (
                         <div className="absolute top-4 left-4 z-20">
-                            {post?.tags.map((it) => {
+                            {post?.tags?.map((it) => {
                                 return (
                                     <Chip
                                         key={it.id}

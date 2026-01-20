@@ -31,7 +31,7 @@ const fetchCategories = async () => {
         throw new Error(error.message)
     }
 
-    return data.map(transformCategory)
+    return data?.map(transformCategory)
 }
 
 // ------------------------------------------------------------------

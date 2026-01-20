@@ -115,7 +115,7 @@ export default function WorkSection() {
                         // 3 columns on desktop, 1 on mobile
                         className="grid grid-cols-1 md:grid-cols-3 gap-4"
                     >
-                        {recentProjects.map((project, index) => (
+                        {recentProjects?.map((project, index) => (
                             <motion.div
                                 key={project.id}
                                 variants={itemVar}

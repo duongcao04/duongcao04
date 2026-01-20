@@ -45,7 +45,7 @@ export const TableOfContents = ({ toc, activeId }: TableOfContentsProps) => {
                     <ScrollBar orientation="horizontal" />
                     <ScrollBar orientation="vertical" />
                     <nav className="flex flex-col gap-1 text-wrap!">
-                        {toc.map((item) => (
+                        {toc?.map((item) => (
                             <motion.a
                                 key={item.id}
                                 href={`#${item.id}`}

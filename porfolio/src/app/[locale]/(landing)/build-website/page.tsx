@@ -186,7 +186,7 @@ export default function BuildWebsitePage() {
                                         'Tailwind',
                                         'Supabase',
                                         'Framer Motion',
-                                    ].map((tech) => (
+                                    ]?.map((tech) => (
                                         <Chip
                                             key={tech}
                                             variant="flat"
@@ -373,7 +373,7 @@ function PricingCard({
                 <div className="w-full h-px bg-white/10" />
 
                 <ul className="space-y-3">
-                    {features.map((feature: string, i: number) => (
+                    {features?.map((feature: string, i: number) => (
                         <li
                             key={i}
                             className="flex items-start gap-3 text-sm text-default-300"

@@ -153,7 +153,7 @@ export function HomeWorkCard({ data, className }: HomeWorkCardProps) {
                         <div className="w-full pt-2 flex flex-wrap gap-2">
                             {(data.services || [])
                                 ?.slice(0, 3)
-                                .map((service, i) => (
+                                ?.map((service, i) => (
                                     <Chip
                                         key={i}
                                         size="sm"

@@ -124,7 +124,7 @@ export default function BlogPage() {
 
                         {/* Category Filters */}
                         <div className="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end">
-                            {CATALOG_FILTERS.map((cat) => (
+                            {CATALOG_FILTERS?.map((cat) => (
                                 <HeroButton
                                     key={cat.label}
                                     onClick={() =>
@@ -151,7 +151,7 @@ export default function BlogPage() {
                 {/* --- POSTS GRID --- */}
                 {isLoading ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[1, 2, 3, 4, 5, 6].map((item) => (
+                        {[1, 2, 3, 4, 5, 6]?.map((item) => (
                             <BlogCardSkeleton key={item} />
                         ))}
                     </div>
@@ -161,7 +161,7 @@ export default function BlogPage() {
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                     >
                         {posts.length > 0 ? (
-                            posts.map((post) => (
+                            posts?.map((post) => (
                                 <motion.div key={post.id} variants={itemVar}>
                                     <BlogCard post={post} />
                                 </motion.div>

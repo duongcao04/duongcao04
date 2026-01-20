@@ -34,7 +34,7 @@ export default function RecentWorkPage() {
                             <WorkCard key={item.id} data={item} />
                         ))}
                     {loadingProjects &&
-                        Array.from({ length: 6 }).map((_, index) => (
+                        Array.from({ length: 6 })?.map((_, index) => (
                             <WorkCardSkeleton key={index} />
                         ))}
                 </div>

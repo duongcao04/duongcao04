@@ -49,7 +49,7 @@ export const WorkCard = ({ data }: WorkCardProps) => {
                 <div className="absolute top-4 left-4 z-20">
                     <div className="flex gap-2">
                         {/* 1. Render the visible categories */}
-                        {visibleCategories.map((cate) => (
+                        {visibleCategories?.map((cate) => (
                             <div
                                 key={cate.id}
                                 className="bg-black/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-xs font-medium text-white shadow-lg"
@@ -70,7 +70,7 @@ export const WorkCard = ({ data }: WorkCardProps) => {
 
             {/* Tags & Action Button */}
             <div className="px-6 flex items-center justify-start flex-wrap gap-2 mt-4 border-t border-white/5">
-                {visibleTags.map((tag) => (
+                {visibleTags?.map((tag) => (
                     <Chip key={tag.id} size="sm" radius="sm" variant="flat">
                         {tag.display_name}
                     </Chip>
