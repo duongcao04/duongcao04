@@ -12,6 +12,8 @@ import ScrollToTop from '@/shared/components/layout/ScrollToTop'
 import '../../styles/globals.css'
 import AppLoader from '../loading'
 
+export const runtime = 'edge'
+
 export async function generateMetadata({
     params,
 }: {
