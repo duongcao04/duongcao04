@@ -12,13 +12,17 @@ import ScrollToTop from '@/shared/components/layout/ScrollToTop'
 import '../styles/globals.css'
 import AppLoader from './loading'
 
+// 1. Sửa type của params thành Promise
 export async function generateMetadata({
     params,
 }: {
-    params: { locale: string }
+    params: Promise<{ locale: string }>
 }) {
+    // 2. Await params trước khi dùng
+    const { locale } = await params
+
     const t = await getTranslations({
-        locale: params.locale,
+        locale: locale,
     })
 
     return {
@@ -54,13 +58,17 @@ export const viewport: Viewport = {
     initialScale: 1,
 }
 
-export default function RootLayout({
+// 3. Thêm async vào function RootLayout và sửa type params
+export default async function RootLayout({
     children,
-    params: { locale },
+    params,
 }: Readonly<{
     children: ReactNode
-    params: { locale: string }
+    params: Promise<{ locale: string }> // Sửa type thành Promise
 }>) {
+    // 4. Await params để lấy locale
+    const { locale } = await params
+
     return (
         <html
             lang={locale}
