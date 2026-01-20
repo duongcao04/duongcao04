@@ -2,9 +2,12 @@
     "name": "yangis-portfolio",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "pages:build": "bunx @cloudflare/next-on-pages",
+        "deploy": "bunx wrangler pages deploy .vercel/output/static",
         "start": "next start",
         "lint": "next lint"
     },
@@ -80,7 +83,9 @@
         "yup": "^1.6.1"
     },
     "devDependencies": {
+        "@cloudflare/next-on-pages": "^1.13.16",
         "@iconify/react": "^5.0.2",
+        "@tailwindcss/postcss": "^4.1.14",
         "@types/negotiator": "^0.6.3",
         "@types/node": "^18.17.17",
         "@types/nodemailer": "^6.4.17",
@@ -92,7 +97,6 @@
         "postcss": "^8.4.31",
         "prettier": "^3.4.1",
         "tailwindcss": "^4.1.18",
-        "@tailwindcss/postcss": "^4.1.14",
         "typescript": "^5.3.0"
     }
 }
