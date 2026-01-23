@@ -219,16 +219,14 @@ export default function BlogDetailPage() {
                         {/* CENTER: CONTENT */}
                         <motion.div
                             variants={itemVar}
-                            className="lg:col-span-8"
+                            className="lg:col-span-8 max-w-5xl mx-auto"
                         >
-                            <div className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-400 prose-img:rounded-xl">
-                                <HtmlViewer content={post.content} />
-                            </div>
+                            <HtmlViewer content={post.content} />
 
-                            <Divider className="my-12 bg-white/10" />
+                            <Divider className="my-12 bg-border-default" />
 
                             {/* Author Bio */}
-                            <div className="bg-white/5 rounded-2xl p-8 flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left border border-white/5">
+                            <div className="bg-background-muted rounded-2xl p-8 flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left border border-border-default">
                                 <Avatar
                                     src={post.author?.avatar_url ?? ''}
                                     className="w-20 h-20 aspect-square!"
